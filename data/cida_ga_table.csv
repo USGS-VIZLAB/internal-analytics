@@ -1,0 +1,64 @@
+"accountName","viewID","accountId","webPropertyId","internalWebPropertyId","viewName","timezone","websiteUrl","siteSearchQueryParameters","stripSiteSearchQueryParameters","created","updated","botFilteringEnabled"
+"pubs.er.usgs.gov","20354817","10113280","UA-10113280-1","22153976","pubs.er.usgs.gov","America/Chicago","http://pubs.er.usgs.gov","q,advanced",TRUE,2009-08-06 14:30:40,2015-01-13 18:15:41,TRUE
+"WQP","53642301","27507375","UA-27507375-1","52832367","WQP","America/Chicago","http://www.waterqualitydata.us",NA,NA,2011-12-06 03:20:07,2015-07-24 16:13:53,TRUE
+"NAWQA Data Warehouse","53944490","27722501","UA-27722501-1","53138502","NAWQA Data Warehouse","America/Los_Angeles","http://infotrek.er.usgs.gov",NA,NA,2011-12-14 17:39:13,2013-02-05 19:55:33,NA
+"NAWQA Data Warehouse","68764488","27722501","UA-27722501-2","66858313","All Web Site Data","America/Chicago","http://infotrek.er.usgs.gov/nawqa_www",NA,NA,2013-02-05 19:46:47,2013-02-05 19:46:47,NA
+"NAWQA Data Warehouse","69878826","27722501","UA-27722501-6","67886432","All Web Site Data","America/Los_Angeles","http://infotrek.er.usgs.gov/warp/",NA,NA,2013-03-06 16:16:23,2013-03-06 16:16:23,NA
+"NAWQA Data Warehouse","69880214","27722501","UA-27722501-7","67889525","All Web Site Data","America/Los_Angeles","http://infotrek.er.usgs.gov/nasqan_query/",NA,NA,2013-03-06 16:18:30,2013-03-06 16:18:30,NA
+"NAWQA Data Warehouse","69883813","27722501","UA-27722501-10","67904901","All Web Site Data","America/Los_Angeles","http://internal.mdc.usgs.gov/nawqa_queries_internal/",NA,NA,2013-03-06 19:20:24,2013-03-06 19:20:24,NA
+"NAWQA Data Warehouse","69897601","27722501","UA-27722501-12","67901206","All Web Site Data","America/Los_Angeles","http://infotrek.er.usgs.gov/nawqa_queries/",NA,NA,2013-03-06 19:22:31,2013-03-06 19:22:31,NA
+"NAWQA Data Warehouse","83069807","27722501","UA-27722501-13","80288862","All Web Site Data","America/Chicago","http://water.usgs.gov/nawqa/HBSL",NA,NA,2014-03-06 05:19:59,2014-03-06 05:19:59,NA
+"NAWQA Data Warehouse","87416253","27722501","UA-27722501-14","84351015","All Web Site Data","America/Chicago","http://cida-eros-apexdev1.er.usgs.gov/devdw/apex/f",NA,NA,2014-06-16 18:59:11,2014-06-16 18:59:11,NA
+"NGWMN Data Portal","56773153","29564531","UA-29564531-2","55739376","NGWMN Data Portal","America/Chicago","http://cida.usgs.gov/ngwmn",NA,NA,2012-02-28 16:51:41,2016-01-05 15:37:23,NA
+"NGWMN Data Portal","59052384","29564531","UA-29564531-2","55739376","NGWMN Data Portal (NO FILTERS)","America/Los_Angeles","http://cida.usgs.gov/gw_data_portal/index.jsp",NA,NA,2012-04-24 19:13:02,2016-01-05 15:37:23,NA
+"Geo Data Portal","63434149","34380265","UA-34380265-1","61904170","Geo Data Portal","America/Chicago","http://cida.usgs.gov/gdp/",NA,NA,2012-08-27 19:18:12,2012-08-27 19:18:13,NA
+"Geo Data Portal","92921966","34380265","UA-34380265-2","89412563","All Web Site Data","America/Chicago","http://cida.usgs.gov/climate/derivative/",NA,NA,2014-10-24 17:11:53,2014-10-24 17:11:53,NA
+"Sparrow DSS","64208920","34936068","UA-34936068-1","62621963","Sparrow DSS","America/Chicago","http://cida.usgs.gov/sparrow",NA,NA,2012-09-19 20:14:35,2013-01-16 19:14:53,NA
+"Sparrow DSS","65698953","34936068","UA-34936068-2","64027623","All Web Site Data","America/Chicago","http://internal.cida.usgs.gov/",NA,NA,2012-11-02 22:46:14,2013-01-11 20:57:24,NA
+"USGS GLRI Phragmites","74167684","42203160","UA-42203160-1","71881585","GLRI Phragmites w/ Internal Traffic","America/Chicago","http://cida.usgs.gov/glri/phragmites/",NA,NA,2013-07-03 13:39:54,2015-02-27 17:43:47,FALSE
+"USGS GLRI Phragmites","98561198","42203160","UA-42203160-1","71881585","GLRI Phragmites - No Internal Traffic","America/Chicago","http://cida.usgs.gov/glri/phragmites/",NA,NA,2015-02-27 17:43:25,2015-02-27 17:43:56,NA
+"CIDA CCH","79994645","46378632","UA-46378632-1","77384024","All Web Site Data","America/Chicago","http://cida.usgs.gov/coastalchangehazardsportal/",NA,NA,2013-12-11 19:43:12,2013-12-20 16:10:03,NA
+"BioData","81332142","47407832","UA-47407832-1","78657237","Unfiltered All Web Site Data","America/Chicago","http://internal.aquatic.biodata.usgs.gov",NA,NA,2014-01-23 16:48:27,2015-07-10 18:22:09,FALSE
+"BioData","91413881","47407832","UA-47407832-1","78657237","BioData Input with Most CIDA Traffic Filtered Out","America/Chicago","https://internal.aquatic.biodata.usgs.gov",NA,NA,2014-09-19 19:58:09,2015-07-10 18:22:45,FALSE
+"BioData","81336348","47407832","UA-47407832-2","78668543","All Web Site Data","America/Chicago","http://aquatic.biodata.usgs.gov",NA,NA,2014-01-23 16:49:59,2014-01-23 16:49:59,NA
+"BioData","84991236","47407832","UA-47407832-2","78668543","BioData Retrieval","America/Chicago","https://aquatic.biodata.usgs.gov",NA,NA,2014-04-18 15:40:45,2014-05-13 12:37:55,NA
+"NWIS-RA","85268102","50379402","UA-50379402-1","82341003","All Web Site Data","America/Chicago","https://nwisdata.usgs.gov",NA,NA,2014-04-24 20:34:46,2016-12-16 16:03:30,FALSE
+"NWIS-RA","136179085","50379402","UA-50379402-1","82341003","TS DEV","America/Los_Angeles","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:22:02,2016-12-16 17:18:42,FALSE
+"NWIS-RA","136179773","50379402","UA-50379402-1","82341003","Discrete PROD","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:19:38,2016-12-16 16:50:38,NA
+"NWIS-RA","136185185","50379402","UA-50379402-1","82341003","Discrete TR2","America/Los_Angeles","https://nwisdata.usgs.gov",NA,NA,2016-12-16 17:13:19,2016-12-16 17:18:05,NA
+"NWIS-RA","136186066","50379402","UA-50379402-1","82341003","Discrete QA","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:19:17,2016-12-16 16:47:47,NA
+"NWIS-RA","136188282","50379402","UA-50379402-1","82341003","TS QA","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:31:48,2016-12-16 17:19:58,NA
+"NWIS-RA","136199782","50379402","UA-50379402-1","82341003","Discrete TR1","America/Los_Angeles","https://nwisdata.usgs.gov",NA,NA,2016-12-16 17:13:04,2016-12-16 17:14:50,NA
+"NWIS-RA","136199898","50379402","UA-50379402-1","82341003","Datachecks DEV","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:36:35,2016-12-16 17:10:13,FALSE
+"NWIS-RA","136206385","50379402","UA-50379402-1","82341003","Datachecks QA","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:37:04,2016-12-16 17:34:25,NA
+"NWIS-RA","136210485","50379402","UA-50379402-1","82341003","Discrete DEV","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:18:49,2016-12-16 16:27:24,FALSE
+"NWIS-RA","136216684","50379402","UA-50379402-1","82341003","TS PROD","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:32:04,2016-12-16 17:22:06,NA
+"NWIS-RA","136216685","50379402","UA-50379402-1","82341003","TS TR2","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:36:07,2016-12-16 17:36:47,NA
+"NWIS-RA","136221691","50379402","UA-50379402-1","82341003","Datachecks PROD","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:37:32,2016-12-16 17:11:31,NA
+"NWIS-RA","136221976","50379402","UA-50379402-1","82341003","TS TR1","America/Denver","https://nwisdata.usgs.gov",NA,NA,2016-12-16 15:35:48,2016-12-16 17:36:38,NA
+"CIDA_Website","85293745","50382493","UA-50382493-1","82375136","All Web Site Data","America/Chicago","http://cida.usgs.gov/",NA,NA,2014-04-25 17:11:59,2014-04-25 17:11:59,NA
+"USGS GLRI","85375585","50454186","UA-50454186-1","82455211","GLRI - No Internal Traffic","America/Chicago","http://cida.usgs.gov/glri/glri-catalog",NA,NA,2014-04-28 16:05:53,2015-03-03 23:16:10,FALSE
+"USGS GLRI","98563485","50454186","UA-50454186-1","82455211","GLRI w/ Internal Traffic","America/Chicago","http://cida.usgs.gov/glri/",NA,NA,2015-02-27 17:39:56,2015-03-03 23:17:08,FALSE
+"USGS GLRI","96687807","50454186","UA-50454186-3","92825297","GLRI AFINCH - No Internal Traffic","America/Chicago","http://cida.usgs.gov/glri/afinch",NA,NA,2015-01-21 21:09:01,2015-02-27 17:42:28,FALSE
+"USGS GLRI","98563089","50454186","UA-50454186-3","92825297","GLRI AFINCH w/ Internal Traffic","America/Chicago","http://cida.usgs.gov/glri/afinch",NA,NA,2015-02-27 17:38:45,2015-02-27 17:42:10,FALSE
+"National Water Census","86002663","50928997","UA-50928997-1","83038855","All Web Site Data","America/Chicago","http://cida.usgs.gov/nwc",NA,NA,2014-05-13 14:54:33,2014-05-13 14:54:33,NA
+"WARP Map Public","88377604","52690803","UA-52690803-1","85238605","All Web Site Data","America/Chicago","http://cida.usgs.gov/WARP",NA,NA,2014-07-09 19:10:08,2014-07-09 19:10:08,NA
+"USGS-R","89823892","53797708","UA-53797708-1","86567774","All Web Site Data","America/Chicago","http://usgs-r.github.io/Welcome",NA,NA,2014-08-13 16:10:44,2014-08-13 16:10:44,NA
+"USGS-R","89823179","53797708","UA-53797708-2","86568958","All Web Site Data","America/Chicago","http://usgs-r.github.io/EGRET",NA,NA,2014-08-13 16:26:13,2014-08-13 16:26:13,NA
+"USGS-R","89827157","53797708","UA-53797708-3","86570661","All Web Site Data","America/Chicago","http://usgs-r.github.io/dataRetrieval",NA,NA,2014-08-13 16:33:49,2014-08-13 16:33:49,NA
+"USGS-R","89827866","53797708","UA-53797708-4","86568263","All Web Site Data","America/Chicago","http://usgs-r.github.io",NA,NA,2014-08-13 16:36:22,2014-08-13 16:36:22,NA
+"USGS-R","98740675","53797708","UA-53797708-5","94745748","All Web Site Data","America/Chicago","http://owi.usgs.gov/R",NA,NA,2015-03-03 15:01:25,2015-03-03 15:01:25,NA
+"GCMRC Sandbar","90116058","54006197","UA-54006197-1","86834664","All Web Site Data","America/Los_Angeles","http://cida.usgs.gov/gcmrc/sandbar/home/",NA,NA,2014-08-20 15:32:38,2014-08-20 15:32:38,NA
+"CIDA drought app","94771699","57400827","UA-57400827-1","91087966","All Web Site Data","America/Chicago","http://cida.usgs.gov/ca_drought",NA,NA,2014-12-05 22:25:23,2014-12-05 22:25:23,NA
+"Tracking Water Quality","96707428","58841817","UA-58841817-1","92876528","All Web Site Data","America/Los_Angeles","http://cida-test.er.usgs.gov/nawqareports/home",NA,NA,2015-01-22 02:09:35,2015-01-22 02:09:35,NA
+"NAWQA Annual Reports","105752467","65551512","UA-65551512-1","101784549","All Web Site Data","America/Chicago","http://cida.usgs.gov/quality/rivers/sites",NA,NA,2015-07-23 18:21:45,2015-07-23 18:23:56,TRUE
+"NAWQA Annual Reports","105752773","65551512","UA-65551512-1","101784549","NAR Website Excluding Internal Traffic","America/Chicago","http://cida.usgs.gov/quality/rivers/sites",NA,NA,2015-07-23 18:37:58,2015-10-27 14:22:10,TRUE
+"National Soil Moisture Network","106021339","65742231","UA-65742231-1","102024536","All Web Site Data","America/Chicago","http://cida.usgs.gov/nsmn_pilot/",NA,NA,2015-07-29 16:44:58,2015-07-29 16:44:58,NA
+"OWDI Drought Vizzy","106583560","66155743","UA-66155743-1","102550529","All Web Site Data","America/Chicago","https://cida-test.er.usgs.gov/bluedragon/dev/",NA,NA,2015-08-10 18:07:11,2015-08-10 18:07:11,NA
+"OWI Website","119859676","76112553","UA-76112553-1","114685767","All Web Site Data","America/Chicago","http://owi.usgs.gov",NA,NA,2016-04-07 15:47:18,2016-04-07 15:47:18,NA
+"Vizlab","122971190","78530187","UA-78530187-1","117580756","All Web Site Data","America/Chicago","http://owi.usgs.gov/vizlab",NA,NA,2016-05-31 18:35:09,2016-05-31 18:35:09,NA
+"Vizlab","129299951","78530187","UA-78530187-2","124964749","All Web Site Data","America/Chicago","https://owi.usgs.gov/vizlab/climate-change-walleye-bass/",NA,NA,2016-09-07 15:12:34,2016-09-07 15:12:34,NA
+"Vizlab","129289964","78530187","UA-78530187-3","124954360","All Web Site Data","America/Chicago","https://owi.usgs.gov/vizlab/microplastics/",NA,NA,2016-09-07 15:31:50,2016-09-07 15:31:50,NA
+"Vizlab","131371952","78530187","UA-78530187-4","127687029","All Web Site Data","America/Chicago","https://owi.usgs.gov/vizlab/hurricane-matthew",NA,NA,2016-10-11 18:39:31,2016-10-11 18:39:31,NA
+"Vizlab","135016013","78530187","UA-78530187-5","131088296","All Web Site Data","America/Chicago","https://owi.usgs.gov/vizlab/water-use",NA,NA,2016-11-30 22:55:49,2017-01-11 00:14:54,TRUE
+"EnDDaT","124403435","79713582","UA-79713582-1","118926018","All Web Site Data","America/Chicago","http://cida-test.er.usgs.gov/enddat/",NA,NA,2016-06-22 14:39:43,2016-06-22 14:39:43,NA
