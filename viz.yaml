@@ -25,7 +25,7 @@ info:
     googleAnalyticsR:
       repo: CRAN
       version: 0.5.1
-    data.tables:
+    data.table:
       repo: CRAN
       version: 1.10.4
     sbtools:
