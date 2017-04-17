@@ -43,5 +43,22 @@ fetch:
     update: TRUE #check for newer data from GA, and upload to sciencebase if so?
     viewIDs: ['53642301', '63434149', '81332142'] #could have a dependency to the table
 process:
+  -
+    id: clean_up_raw
+    processor: clean_up_raw 
+    scripts: scripts/process/clean_up_raw.R
+    depends:
+      rawData: fetchGA
+    reader: rds
+    location: cache/clean_up_raw.rds
+
+  -
+    id: previous_month_ave_time
+    processor: previous_month_ave_time 
+    scripts: scripts/process/process_previous_month.R
+    depends:
+      rawData: clean_up_raw
+    reader: rds
+    location: cache/previous_month_ave_time.rds
 visualize:
 publish:
