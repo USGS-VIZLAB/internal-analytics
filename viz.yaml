@@ -50,7 +50,7 @@ process:
     id: clean_up_raw
     processor: clean_up_raw 
     scripts: scripts/process/clean_up_raw.R
-    depends: fetchGA
+    depends: fetchGA_cida
     mimetype: text/csv
     location: cache/process/clean_up_raw.csv
   -
@@ -58,9 +58,16 @@ process:
     processor: sessions_and_new_users 
     scripts: scripts/process/sessions_and_new_users.R
     depends: clean_up_raw
-    reader: csv
-    location: cache/process/sessions_and_new_users.csv
+    reader: rds
+    location: cache/process/sessions_and_new_users.rds
 visualize:
+  -
+    id: viz_month_sessions
+    visualizer: viz_month_sessions 
+    scripts: scripts/process/viz_month_sessions.R
+    depends: sessions_and_new_users
+    reader: csv
+    location: cache/visualize/viz_month_sessions.csv
 publish:
   -
     id: internalAnalyticsCSS
