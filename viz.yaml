@@ -46,11 +46,6 @@ process:
 visualize:
 publish:
   -
-    id: headerCSS
-    location: layout/css/header.css
-    mimetype: text/css
-    publisher: resource
-  -
     id: internalAnalyticsCSS
     location: layout/css/internalAnalytics.css
     mimetype: text/css
@@ -64,8 +59,8 @@ publish:
       header: header
       footer: footer
       frontPage: frontPage
-      headerCSS: headerCSS
       internalAnalyticsCSS: internalAnalyticsCSS
+      headerCSS: lib-header-css
     context:
       header: header
       footer: footer
@@ -76,7 +71,7 @@ publish:
     publisher: section
     template: header-template
     context:
-      title: Internal Analytics
+      title: Water Analytics - Portfolio Daily Summary
   -
     id: frontPage
     template: layout/templates/frontPage.mustache
