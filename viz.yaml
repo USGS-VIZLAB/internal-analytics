@@ -67,6 +67,21 @@ publish:
       sections: ["frontPage"]
       resources: ["headerCSS", "internalAnalyticsCSS"]
   -
+    id: projectPages
+    publisher: projectpage
+    scripts: scripts/publish/projectpage.R
+    depends:
+      header: header
+      footer: footer
+      internalAnalyticsCSS: internalAnalyticsCSS
+      headerCSS: lib-header-css
+      details: details
+    context:
+      header: header
+      footer: footer
+      sections: [ "details" ]
+      resources: ["headerCSS", "internalAnalyticsCSS"]
+  -
     id: header
     publisher: section
     template: header-template
