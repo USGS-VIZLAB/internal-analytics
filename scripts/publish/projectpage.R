@@ -1,6 +1,6 @@
 #' Creates templated html for each project
 publish.projectpage <- function(viz) {
-  deps <- readDepends(viz)
+  deps <- viz[['depends']]
   projects <- c() # get projects from deps
   for (proj in projects) {
     # get relative paths for images
