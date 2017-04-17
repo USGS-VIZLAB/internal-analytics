@@ -47,17 +47,14 @@ process:
     id: clean_up_raw
     processor: clean_up_raw 
     scripts: scripts/process/clean_up_raw.R
-    depends:
-      rawData: fetchGA
-    reader: csv
+    depends: fetchGA
+    mimetype: text/csv
     location: cache/process/clean_up_raw.csv
-
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 
     scripts: scripts/process/sessions_and_new_users.R
-    depends:
-      cleanData: clean_up_raw
+    depends: clean_up_raw
     reader: csv
     location: cache/process/sessions_and_new_users.csv
 visualize:

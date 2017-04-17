@@ -1,8 +1,7 @@
-process.sessions_and_new_users <- function(viz = getContentInfo(viz.id = "sessions_and_new_users")){
+process.sessions_and_new_users <- function(viz = as.viz("sessions_and_new_users")){
   library(dplyr)
   
-  viz.data <- readDepends(viz[["depends"]][["cleanData"]])
-  
+  viz.data <- readDepends(viz)[["clean_up_raw"]]
 
   
 }
