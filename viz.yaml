@@ -31,17 +31,20 @@ info:
     sbtools:
       repo: CRAN
       version: 1.1.6
+    assertthat:
+      repo: CRAN
+      version: 0.2.0
       
 fetch:
   -
-    id: fetchGA
+    id: fetchGA_cida
+    login: cida #only fetch CIDA acct views
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE #check for newer data from GA, and upload to sciencebase if so?
-    viewIDs: ['53642301', '63434149', '81332142'] #could have a dependency to the table
+    update: FALSE 
 process:
   -
     id: clean_up_raw
@@ -59,3 +62,43 @@ process:
     location: cache/process/sessions_and_new_users.csv
 visualize:
 publish:
+  -
+    id: internalAnalyticsCSS
+    location: layout/css/internalAnalytics.css
+    mimetype: text/css
+    publisher: resource
+  -
+    id: index
+    name: index
+    publisher: page
+    template: fullpage
+    depends: 
+      header: header
+      footer: footer
+      frontPage: frontPage
+      internalAnalyticsCSS: internalAnalyticsCSS
+      headerCSS: lib-header-css
+    context:
+      header: header
+      footer: footer
+      sections: ["frontPage"]
+      resources: ["headerCSS", "internalAnalyticsCSS"]
+  -
+    id: header
+    publisher: section
+    template: header-template
+    context:
+      title: Water Analytics - Portfolio Daily Summary
+  -
+    id: frontPage
+    template: layout/templates/frontPage.mustache
+    publisher: section
+  -
+    id: details
+    template: layout/templates/details.mustache
+    publisher: section
+  -
+    id: footer
+    publisher: section
+    template: layout/templates/footer.mustache
+    
