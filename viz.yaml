@@ -45,3 +45,48 @@ fetch:
 process:
 visualize:
 publish:
+  -
+    id: headerCSS
+    location: layout/css/header.css
+    mimetype: text/css
+    publisher: resource
+  -
+    id: internalAnalyticsCSS
+    location: layout/css/internalAnalytics.css
+    mimetype: text/css
+    publisher: resource
+  -
+    id: index
+    name: index
+    publisher: page
+    template: fullpage
+    depends: 
+      header: header
+      footer: footer
+      frontPage: frontPage
+      headerCSS: headerCSS
+      internalAnalyticsCSS: internalAnalyticsCSS
+    context:
+      header: header
+      footer: footer
+      sections: ["frontPage"]
+      resources: ["headerCSS", "internalAnalyticsCSS"]
+  -
+    id: header
+    publisher: section
+    template: header-template
+    context:
+      title: Internal Analytics
+  -
+    id: frontPage
+    template: layout/templates/frontPage.mustache
+    publisher: section
+  -
+    id: details
+    template: layout/templates/details.mustache
+    publisher: section
+  -
+    id: footer
+    publisher: section
+    template: layout/templates/footer.mustache
+    
