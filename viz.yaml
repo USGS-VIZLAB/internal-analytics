@@ -57,7 +57,7 @@ process:
     processor: sessions_and_new_users 
     scripts: scripts/process/sessions_and_new_users.R
     depends:
-      rawData: clean_up_raw
+      cleanData: clean_up_raw
     reader: csv
     location: cache/process/sessions_and_new_users.csv
 visualize:
