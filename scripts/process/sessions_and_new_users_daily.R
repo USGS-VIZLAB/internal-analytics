@@ -8,7 +8,7 @@ process.sessions_and_new_users_daily <- function(viz = as.viz("sessions_and_new_
   
   session_users <- select(viz.data, dateTime,viewID,sessions,newUsers) %>%
     mutate(dateTime = as.POSIXct(dateTime)) %>%
-    filter(dateTime >= the_day_before) %>%
+    filter(dateTime > the_day_before) %>%
     filter(dateTime <= yesterday) 
   
   saveRDS(session_users, file=viz[["location"]])
