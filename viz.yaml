@@ -44,8 +44,7 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: TRUE #check for newer data from GA, and upload to sciencebase if so?
-    viewIDs: ['53642301', '63434149', '81332142'] #could have a dependency to the table
+    update: FALSE 
   -
     id: siteText
     location: data/siteText.yaml
