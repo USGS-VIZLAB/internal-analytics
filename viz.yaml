@@ -1,13 +1,13 @@
 vizlab: "0.1.7"
 info:
   id: internal-analytics
-  name: Visualization long name
+  name: Internal analytics reporting
   date: 2017-04-03
-  publish-date: 2017-04-17
-  path: /internal-analytics
+  publish-date: 2099-01-01
+  path: /analytics
   analytics-id: UA-78530187-1
   description: >-
-    Describe project here
+    Internal reporting project to look at analytics data across the portfolio.
   thumbnail:
     url:
     width: 250
@@ -25,16 +25,20 @@ info:
     googleAnalyticsR:
       repo: CRAN
       version: 0.5.1
-    data.tables:
+    data.table:
       repo: CRAN
       version: 1.10.4
     sbtools:
       repo: CRAN
       version: 1.1.6
+    assertthat:
+      repo: CRAN
+      version: 0.2.0
       
 fetch:
   -
-    id: fetchGA
+    id: fetchGA_cida
+    login: cida #only fetch CIDA acct views
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
     location: cache/fetch/gaData.csv
@@ -49,7 +53,28 @@ fetch:
     reader: md
     mimetype: text/yaml
 process:
+  -
+    id: clean_up_raw
+    processor: clean_up_raw 
+    scripts: scripts/process/clean_up_raw.R
+    depends: fetchGA_cida
+    mimetype: text/csv
+    location: cache/process/clean_up_raw.csv
+  -
+    id: sessions_and_new_users
+    processor: sessions_and_new_users 
+    scripts: scripts/process/sessions_and_new_users.R
+    depends: clean_up_raw
+    reader: rds
+    location: cache/process/sessions_and_new_users.rds
 visualize:
+  -
+    id: viz_month_sessions
+    visualizer: viz_month_sessions 
+    scripts: scripts/visualize/viz_month_sessions.R
+    depends: sessions_and_new_users
+    reader: csv
+    location: cache/visualize/viz_month_sessions.csv
 publish:
   -
     id: openSans
@@ -93,6 +118,21 @@ publish:
       footer: footer
       sections: ["frontPage"]
       resources: ["jquery", "appJS", "openSans", "headerCSS", "internalAnalyticsCSS", "detailsCSS"]
+  -
+    id: projectPages
+    publisher: projectpage
+    scripts: scripts/publish/projectpage.R
+    depends:
+      header: header
+      footer: footer
+      internalAnalyticsCSS: internalAnalyticsCSS
+      headerCSS: lib-header-css
+      details: details
+    context:
+      header: header
+      footer: footer
+      sections: [ "details" ]
+      resources: ["headerCSS", "internalAnalyticsCSS"]
   -
     id: header
     publisher: section
