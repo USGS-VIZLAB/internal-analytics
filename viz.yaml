@@ -129,6 +129,7 @@ publish:
     id: projectPages
     publisher: projectpage
     scripts: scripts/publish/projectpage.R
+    template: layout/templates/details.mustache
     depends:
       header: header
       footer: footer

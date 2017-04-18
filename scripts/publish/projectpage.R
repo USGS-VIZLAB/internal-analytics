@@ -23,14 +23,13 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     
     pub <- list(
       id = paste0(proj, "-page"),
-      publisher = page,
+      publisher = "page",
       template = viz[['template']],
       depends = viz[['depends']],
       context = list(
         header = viz[['context']][['header']],
         footer = viz[['context']][['footer']],
-        fig1 = proj.images[['fig1']],
-        fig2 = proj.images[['fig2']]
+        monthly_users_chart = proj.imgs[['month_sessions']]
       )
     )
     pub <- as.viz(pub)
