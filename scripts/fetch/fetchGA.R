@@ -11,6 +11,7 @@ fetch.GAviews <- function(viz) {
   #get file from sb with fetcher
   viz[['fetcher']] <- 'sciencebase'
   viz[['remoteFilename']] <- basename(viz[['location']])
+  message("Downloading SB file...")
   fetch(as.fetcher(viz))
   message('Downloaded SB file')
   
@@ -21,8 +22,8 @@ fetch.GAviews <- function(viz) {
     fileDF <- fread(viz[['location']], colClasses = c(viewID = "character", year = "character",
                                                       month = "character", day = "character",
                                                       hour = "character"))
-    fileDF_date <- mutate(fileDF, date = as.Date(paste(year, month, day, sep = "-")))
-    fileDF_summary <- group_by(fileDF_date, viewID) %>% summarise(lastDate = max(date)) 
+    fileDF <- mutate(fileDF, date = as.Date(paste(year, month, day, sep = "-")))
+    fileDF_summary <- group_by(fileDF, viewID) %>% summarise(lastDate = max(date)) 
     
     #all views should have current data right?
     needToUpdate <- filter(fileDF_summary, lastDate < Sys.Date() - 1)
@@ -50,19 +51,21 @@ fetch.GAviews <- function(viz) {
                                    max = -1, anti_sample = TRUE)
         idDF <- mutate(idDF, viewID = needToUpdate$viewID[i])
         new_GA_DF <- bind_rows(new_GA_DF, idDF)
+        #fwrite(new_GA_DF, file = paste0(viz[['location']], i))
         print(paste("finished", needToUpdate$viewID[i]))
       }
+      new_GA_DF <- mutate(new_GA_DF, date = as.Date(paste(year, month, day, sep = "-"))) 
+                
       allDF <- bind_rows(fileDF, new_GA_DF)
-      testDate <- mutate(allDF, date = paste(year, month, day, sep = "-"))  
-      assert_that(!as.character(Sys.Date()) %in% testDate$date)
-      assert_that(as.character(Sys.Date() - 1) %in% testDate$date)
-      
+      maxDate <- max(allDF$date)
+      assert_that(maxDate == (Sys.Date() - 1)) #note: is allDF$date char or date?
+     
       fwrite(allDF, file = viz[['location']], quote = TRUE, row.names = FALSE)
-      #update sb
+      message("Updating Sciencebase...")
       item_replace_files(viz[['remoteItemId']], viz[['location']])
     } else {
       message("Sciencebase file is up to date, using that")
     }
-  }
+  } else {message("update set to false in viz.yaml, using Sciencebase file")}
 }
 
