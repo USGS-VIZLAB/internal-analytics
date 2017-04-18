@@ -44,7 +44,15 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE 
+    update: FALSE
+    depends:
+      project_table: project_table
+  -
+    id: project_table
+    fetcher: file
+    location: data/ga_table.csv
+    scripts:
+    mimetype: text/csv
   -
     id: siteText
     location: data/siteText.yaml
@@ -72,8 +80,15 @@ visualize:
     visualizer: viz_month_sessions 
     scripts: scripts/visualize/viz_month_sessions.R
     depends: sessions_and_new_users
-    reader: csv
+    mimetype: text/csv
     location: cache/visualize/viz_month_sessions.csv
+  -
+    id: viz_ymd_sessions
+    visualizer: viz_ymd_sessions 
+    scripts: scripts/viz_ymd_sessions.R
+    depends: sessions_and_new_users
+    mimetype: text/csv
+    location: cache/visualize/viz_ymd_sessions.csv
 publish:
   -
     id: openSans
@@ -121,12 +136,15 @@ publish:
     id: projectPages
     publisher: projectpage
     scripts: scripts/publish/projectpage.R
+    template: layout/templates/details.mustache
     depends:
       header: header
       footer: footer
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
       details: details
+      project_table: project_table
+      viz_month_sessions: viz_month_sessions
     context:
       header: header
       footer: footer
