@@ -49,6 +49,11 @@ process:
 visualize:
 publish:
   -
+    id: openSans
+    publisher: googlefont
+    family: Open Sans
+    weight: [300, 400, 600]
+  -
     id: internalAnalyticsCSS
     location: layout/css/internalAnalytics.css
     mimetype: text/css
@@ -58,7 +63,8 @@ publish:
     name: index
     publisher: page
     template: fullpage
-    depends: 
+    depends:
+      openSans: openSans
       header: header
       footer: footer
       frontPage: frontPage
@@ -68,7 +74,7 @@ publish:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["headerCSS", "internalAnalyticsCSS"]
+      resources: ["openSans", "headerCSS", "internalAnalyticsCSS"]
   -
     id: projectPages
     publisher: projectpage
