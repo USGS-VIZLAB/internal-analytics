@@ -87,7 +87,7 @@ visualize:
     visualizer: viz_ymd_sessions 
     scripts: scripts/viz_ymd_sessions.R
     depends: sessions_and_new_users
-    reader: png
+    mimetype: text/csv
     location: cache/visualize/viz_ymd_sessions.csv
 publish:
   -
