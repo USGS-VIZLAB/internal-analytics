@@ -22,13 +22,18 @@ h6{
   border:1px solid #000;
 }
 
-#topHalf{
+.topHalf{
   min-height:100px;
   margin-bottom:10px;
+  clear:both;
 }
 
-#bottomHalf{
+.bottomHalf{
   min-height:100px;
+}
+
+#sessions{
+  margin-top:10px;
 }
 
 #users{
