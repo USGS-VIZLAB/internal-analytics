@@ -25,7 +25,7 @@ info:
     googleAnalyticsR:
       repo: CRAN
       version: 0.5.1
-    data.tables:
+    data.table:
       repo: CRAN
       version: 1.10.4
     sbtools:
@@ -89,6 +89,21 @@ publish:
       header: header
       footer: footer
       sections: ["frontPage"]
+      resources: ["headerCSS", "internalAnalyticsCSS"]
+  -
+    id: projectPages
+    publisher: projectpage
+    scripts: scripts/publish/projectpage.R
+    depends:
+      header: header
+      footer: footer
+      internalAnalyticsCSS: internalAnalyticsCSS
+      headerCSS: lib-header-css
+      details: details
+    context:
+      header: header
+      footer: footer
+      sections: [ "details" ]
       resources: ["headerCSS", "internalAnalyticsCSS"]
   -
     id: header
