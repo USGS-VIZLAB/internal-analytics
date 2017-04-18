@@ -1,13 +1,13 @@
 vizlab: "0.1.7"
 info:
   id: internal-analytics
-  name: Visualization long name
+  name: Internal analytics reporting
   date: 2017-04-03
-  publish-date: 2017-04-17
-  path: /internal-analytics
+  publish-date: 2099-01-01
+  path: /analytics
   analytics-id: UA-78530187-1
   description: >-
-    Describe project here
+    Internal reporting project to look at analytics data across the portfolio.
   thumbnail:
     url:
     width: 250
