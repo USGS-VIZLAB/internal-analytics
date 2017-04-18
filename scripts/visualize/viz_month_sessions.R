@@ -21,9 +21,12 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
     
   }
   
-  write.csv(paste0("cache/visualize/",
-                   unique(viz.data$viewID),
-                   "_session_bar.png"), 
-            file=viz[["location"]], row.names = FALSE)
+  x <- data.frame(id = unique(viz.data$viewID),
+                  loc = paste0("cache/visualize/",
+                               unique(viz.data$viewID),
+                               "_session_bar.png"),
+                  type = "session_bar",
+                  stringsAsFactors = FALSE)
+  write.csv(x, file=viz[["location"]], row.names = FALSE)
   
 }
