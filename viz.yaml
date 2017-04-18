@@ -64,7 +64,7 @@ visualize:
   -
     id: viz_month_sessions
     visualizer: viz_month_sessions 
-    scripts: scripts/process/viz_month_sessions.R
+    scripts: scripts/visualize/viz_month_sessions.R
     depends: sessions_and_new_users
     reader: csv
     location: cache/visualize/viz_month_sessions.csv
