@@ -2,7 +2,7 @@ process.clean_up_raw <- function(viz = as.viz("clean_up_raw")){
   library(dplyr)
   library(data.table)
   
-  viz.data <- readDepends(viz)[["fetchGA"]]
+  viz.data <- readDepends(viz)[["fetchGA_cida"]]
   
   viz.data <- viz.data %>%
     mutate(date = as.Date(paste(year,month,day,sep="-"), origin = "1970-01-01")) %>%
