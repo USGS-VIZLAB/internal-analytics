@@ -1,1 +1,103 @@
 *{padding:0; margin:0;}
+
+body,
+html{
+  font-family:"Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-weight:400;
+}
+
+.container{
+  padding:10px;
+}
+
+.box{
+  border:1px solid #000;
+}
+
+#topHalf{
+  min-height:100px;
+  margin-bottom:10px;
+}
+
+#bottomHalf{
+  min-height:100px;
+}
+
+#users{
+  min-height:50px;
+}
+
+#Timelines{
+  min-height:100px;
+  text-align:center;
+}
+
+.sessionTimeline{
+  min-height:100px;
+  margin-top:10px;
+}
+
+.timelinePlot{
+  min-height:50px;
+  margin-top:10px;
+}
+
+#geoMap{
+  min-height:100px;
+}
+
+#deviceType{
+   min-height:100px;
+}
+
+#traffic{
+  min-height:100px;
+}
+
+.topicHeader{
+  margin:10px 0 5px 0;
+}
+
+@media screen and (min-width:768px){
+  .flexContainer{
+    display:flex;
+    flex-direction:row;
+  }
+  .flex1{
+    flex:1; 
+  }
+  .topicHeader{
+    margin:0 0 5px 0;
+  }
+  .sessionTimeline{
+    margin-right:10px;
+  }
+  .sessionTimeline:nth-child(4){
+    margin-right:0;
+  }
+  #sessions h2{
+    width:110px;
+  }
+  #geo{
+    margin-right:10px;
+  }
+  #deviceType{
+    margin-bottom:10px;
+  }
+}
+
+@media screen and (min-width:1700px){
+  .container{
+    width:1680px;
+    margin:0 auto;
+  }
+}
+

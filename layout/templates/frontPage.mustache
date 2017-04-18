@@ -1,1 +1,52 @@
-Hello World
+<div class="container">
+  <div id="topHalf">
+    <div id="sessions" class="topicHeader flexContainer box">
+      <h2>Sessions</h2>
+      <div id="users" class="box flex1">
+        new & returning users bar
+      </div>
+    </div>
+    <div id="Timelines" class="flexContainer">
+      <div id="year" class="sessionTimeline flex1 box">
+        <h3>Yearly</h3>
+        <p>{{year1}} - {{year2}}</p>
+        <div class="timelinePlot"></div>
+      </div>
+      <div id="month" class="sessionTimeline flex1 box">
+        <h3>Monthly</h3>
+        <p>{{month1}} - {{month2}}</p>
+        <div class="timelinePlot"></div>
+      </div>
+      <div id="week" class="sessionTimeline flex1 box">
+        <h3>Weekly</h3>
+        <p>{{week1}} - {{week2}}</p>
+        <div class="timelinePlot"></div>
+      </div>
+      <div id="day" class="sessionTimeline flex1 box">
+        <h3>Daily</h3>
+        <p>-</p>
+        <div class="timelinePlot"></div>
+      </div>
+    </div>
+  </div>
+  <div id="bottomHalf" class="flexContainer">
+    <div id="geo" class="box flex1">
+      <div class="topicHeader">
+        <h2>Geo</h2>
+      </div>
+      <div id="geoMap" class="box">
+        map
+      </div>
+    </div>
+    <div id="deviceTraffic" class="box flex1">
+      <div class="topicHeader">
+        <h2>Device Type</h2>
+      </div>
+      <div id="deviceType" class="box"></div>
+      <div class="topicHeader">
+        <h2>Traffic</h2>
+      </div>
+      <div id="traffic" class="box"></div>
+    </div>
+  </div>
+</div>
