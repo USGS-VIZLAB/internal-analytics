@@ -44,7 +44,7 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: TRUE #check for newer data from GA, and upload to sciencebase if so?
+    update: FALSE #check for newer data from GA, and upload to sciencebase if so?
     viewIDs: ['53642301', '63434149', '81332142'] #could have a dependency to the table
   -
     id: siteText
@@ -75,6 +75,13 @@ visualize:
     depends: sessions_and_new_users
     reader: csv
     location: cache/visualize/viz_month_sessions.csv
+  -
+    id: viz_ymd_sessions
+    visualizer: viz_ymd_sessions 
+    scripts: scripts/viz_ymd_sessions.R
+    depends: sessions_and_new_users
+    reader: png
+    location: cache/visualize/viz_ymd_sessions.csv
 publish:
   -
     id: openSans
