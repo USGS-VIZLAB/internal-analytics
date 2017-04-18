@@ -67,6 +67,13 @@ process:
     depends: clean_up_raw
     reader: rds
     location: cache/process/sessions_and_new_users.rds
+  -
+    id: sessions_and_new_users_daily
+    processor: sessions_and_new_users_daily 
+    scripts: scripts/process/sessions_and_new_users_daily.R
+    depends: clean_up_raw
+    reader: rds
+    location: cache/process/sessions_and_new_users_daily.rds
 visualize:
   -
     id: viz_month_sessions

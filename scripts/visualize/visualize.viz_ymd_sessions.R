@@ -34,7 +34,8 @@ visualize.viz_ymd_sessions <- function(viz = as.viz("viz_ymd_sessions")){
     sub_data_daily <- select(sub_data, date, sessions) %>%
       filter(date >= seq(Sys.Date()-1, length = 2, by = "-1 day")[2]) %>%
       filter(date <= Sys.Date()-1) %>%
-      mutate(graph = "Daily",
+      mutate(dateTime = ,
+             graph = "Daily",
              date = as.integer(date))
     
     graph_data <- bind_rows(sub_data_year, 
