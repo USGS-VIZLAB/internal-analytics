@@ -25,7 +25,7 @@ info:
     googleAnalyticsR:
       repo: CRAN
       version: 0.5.1
-    data.tables:
+    data.table:
       repo: CRAN
       version: 1.10.4
     sbtools:
@@ -44,10 +44,45 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: TRUE #check for newer data from GA, and upload to sciencebase if there is
+    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
+  -
+    id: fetchGA_nwis
+    login: nwis
+    fetcher: GAviews
+    scripts: scripts/fetch/fetchGA.R
+    location: cache/fetch/gaData.csv
+    mimetype: text/csv
+    remoteItemId: '58e56f3ce4b09da679997f7f'
+    update: TRUE
 process:
+  -
+    id: clean_up_raw
+    processor: clean_up_raw 
+    scripts: scripts/process/clean_up_raw.R
+    depends: fetchGA_cida
+    mimetype: text/csv
+    location: cache/process/clean_up_raw.csv
+  -
+    id: sessions_and_new_users
+    processor: sessions_and_new_users 
+    scripts: scripts/process/sessions_and_new_users.R
+    depends: clean_up_raw
+    reader: rds
+    location: cache/process/sessions_and_new_users.rds
 visualize:
+  -
+    id: viz_month_sessions
+    visualizer: viz_month_sessions 
+    scripts: scripts/visualize/viz_month_sessions.R
+    depends: sessions_and_new_users
+    reader: csv
+    location: cache/visualize/viz_month_sessions.csv
 publish:
+  -
+    id: openSans
+    publisher: googlefont
+    family: Open Sans
+    weight: [300, 400, 600]
   -
     id: internalAnalyticsCSS
     location: layout/css/internalAnalytics.css
@@ -58,7 +93,8 @@ publish:
     name: index
     publisher: page
     template: fullpage
-    depends: 
+    depends:
+      openSans: openSans
       header: header
       footer: footer
       frontPage: frontPage
@@ -68,6 +104,21 @@ publish:
       header: header
       footer: footer
       sections: ["frontPage"]
+      resources: ["openSans", "headerCSS", "internalAnalyticsCSS"]
+  -
+    id: projectPages
+    publisher: projectpage
+    scripts: scripts/publish/projectpage.R
+    depends:
+      header: header
+      footer: footer
+      internalAnalyticsCSS: internalAnalyticsCSS
+      headerCSS: lib-header-css
+      details: details
+    context:
+      header: header
+      footer: footer
+      sections: [ "details" ]
       resources: ["headerCSS", "internalAnalyticsCSS"]
   -
     id: header
