@@ -44,9 +44,30 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: TRUE #check for newer data from GA, and upload to sciencebase if so?
+    update: FALSE 
 process:
+  -
+    id: clean_up_raw
+    processor: clean_up_raw 
+    scripts: scripts/process/clean_up_raw.R
+    depends: fetchGA_cida
+    mimetype: text/csv
+    location: cache/process/clean_up_raw.csv
+  -
+    id: sessions_and_new_users
+    processor: sessions_and_new_users 
+    scripts: scripts/process/sessions_and_new_users.R
+    depends: clean_up_raw
+    reader: rds
+    location: cache/process/sessions_and_new_users.rds
 visualize:
+  -
+    id: viz_month_sessions
+    visualizer: viz_month_sessions 
+    scripts: scripts/visualize/viz_month_sessions.R
+    depends: sessions_and_new_users
+    reader: csv
+    location: cache/visualize/viz_month_sessions.csv
 publish:
   -
     id: openSans
