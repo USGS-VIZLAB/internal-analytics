@@ -44,7 +44,14 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE 
+    update: TRUE #check for newer data from GA, and upload to sciencebase if so?
+    viewIDs: ['53642301', '63434149', '81332142'] #could have a dependency to the table
+  -
+    id: siteText
+    location: data/siteText.yaml
+    scripts:
+    reader: md
+    mimetype: text/yaml
 process:
   -
     id: clean_up_raw
@@ -80,6 +87,18 @@ publish:
     mimetype: text/css
     publisher: resource
   -
+    id: detailsCSS
+    location: layout/css/details.css
+    mimetype: text/css
+    publisher: resource
+  -
+    id: arrow
+    location: images/arrow.svg
+    mimetype: image/svg
+    inline: true
+    title: "Toggle"
+    alttext: "Toggle Arrow"
+  -
     id: index
     name: index
     publisher: page
@@ -90,12 +109,15 @@ publish:
       footer: footer
       frontPage: frontPage
       internalAnalyticsCSS: internalAnalyticsCSS
+      detailsCSS: detailsCSS
       headerCSS: lib-header-css
+      jquery: jquery-js
+      appJS: app-js
     context:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["openSans", "headerCSS", "internalAnalyticsCSS"]
+      resources: ["jquery", "appJS", "openSans", "headerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: projectPages
     publisher: projectpage
@@ -121,12 +143,52 @@ publish:
     id: frontPage
     template: layout/templates/frontPage.mustache
     publisher: section
+    depends:
+      arrow: arrow
+      siteText: siteText
+    context:
+      arrow: arrow
+      aboutThisReport: siteText.aboutThisReport
+      disclaimerTitle: siteText.disclaimerTitle
+      disclaimer1: siteText.disclaimer1
+      disclaimer2: siteText.disclaimer2
+      glossaryTitle: siteText.glossaryTitle
+      session: siteText.session
+      visitors: siteText.visitors
+      geographical: siteText.geographical
+      average: siteText.average
+      traffic: siteText.traffic
+      device: siteText.device
   -
     id: details
     template: layout/templates/details.mustache
     publisher: section
+    depends:
+      arrow: arrow
+      siteText: siteText
+    context:
+      arrow: arrow
+      aboutThisReport: siteText.aboutThisReport
+      disclaimerTitle: siteText.disclaimerTitle
+      disclaimer1: siteText.disclaimer1
+      disclaimer2: siteText.disclaimer2
+      glossaryTitle: siteText.glossaryTitle
+      session: siteText.session
+      visitors: siteText.visitors
+      geographical: siteText.geographical
+      average: siteText.average
+      traffic: siteText.traffic
+      device: siteText.device
   -
     id: footer
     publisher: section
     template: layout/templates/footer.mustache
+  -
+    id: jquery-js
+    location: layout/js/jquery.min.js
+    mimetype: text/javascript
+  -
+    id: app-js
+    location: layout/js/app.js
+    mimetype: text/javascript
     
