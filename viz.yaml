@@ -44,7 +44,15 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE 
+    update: FALSE
+    depends:
+      project_table: project_table
+  -
+    id: project_table
+    fetcher: file
+    location: data/ga_table.csv
+    scripts:
+    mimetype: text/csv
 process:
   -
     id: clean_up_raw
@@ -66,7 +74,7 @@ visualize:
     visualizer: viz_month_sessions 
     scripts: scripts/visualize/viz_month_sessions.R
     depends: sessions_and_new_users
-    reader: csv
+    mimetype: text/csv
     location: cache/visualize/viz_month_sessions.csv
 publish:
   -
@@ -106,6 +114,8 @@ publish:
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
       details: details
+      project_table: project_table
+      viz_month_sessions: viz_month_sessions
     context:
       header: header
       footer: footer
