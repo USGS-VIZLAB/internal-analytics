@@ -219,7 +219,9 @@ visualize:
     id: portfolio_day_sessions
     visualizer: portfolio_sessions_day 
     scripts: scripts/visualize/portfolio_sessions_day.R
-    depends: sessions_and_new_users_daily
+    depends: 
+      sessions_and_new_users_daily: sessions_and_new_users_daily
+      project_table: project_table
     rangetext: "-1 week"
     mimetype: image/png
     alttext: "Latest day sessions"

@@ -1,22 +1,25 @@
 visualize.portfolio_sessions_day <- function(viz){
   library(dplyr)
   
-  viz.data <- readDepends(viz)[["sessions_and_new_users_daily"]]
-  
+  deps <- readDepends(viz)
+  viz.data <- deps[["sessions_and_new_users_daily"]]
+  ga_table <- deps[["project_table"]] 
+  ga_table$viewID <- as.character(ga_table$viewID)
   
   summary_sessions <- viz.data %>%
     group_by(viewID) %>%
     summarize(newUsers = sum(newUsers, na.rm = TRUE),
               sessions = sum(sessions, na.rm = TRUE)) %>%
     mutate(oldUsers = sessions - newUsers) %>%
-    arrange(sessions)
+    arrange(sessions) %>%
+    left_join(select(ga_table, viewID, shortName), by="viewID")
   
   dater <- t(as.matrix(summary_sessions[,c("newUsers", "oldUsers")]))
   
   png(viz[["location"]])
   par(las=1)
   barplot(dater, horiz = TRUE,
-          names.arg = summary_sessions$viewID)
+          names.arg = summary_sessions$shortName)
   dev.off()
   
 }
