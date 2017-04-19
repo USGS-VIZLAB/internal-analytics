@@ -186,6 +186,16 @@ visualize:
     alttext: "Latest week sessions"
     title: "Latest week sessions"
     location: figures/portfolio_week_sessions.png
+  -
+    id: portfolio_day_sessions
+    visualizer: portfolio_sessions_day 
+    scripts: scripts/visualize/portfolio_sessions_day.R
+    depends: sessions_and_new_users_daily
+    rangetext: "-1 week"
+    mimetype: image/png
+    alttext: "Latest day sessions"
+    title: "Latest day sessions"
+    location: figures/portfolio_day_sessions.png
 publish:
   -
     id: openSans
@@ -283,6 +293,7 @@ publish:
       portfolio_year_sessions: portfolio_year_sessions
       portfolio_month_sessions: portfolio_month_sessions
       portfolio_week_sessions: portfolio_week_sessions
+      portfolio_day_sessions: portfolio_day_sessions
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -299,6 +310,7 @@ publish:
       portfolio_year_sessions: portfolio_year_sessions
       portfolio_month_sessions: portfolio_month_sessions
       portfolio_week_sessions: portfolio_week_sessions
+      portfolio_day_sessions: portfolio_day_sessions
   -
     id: details
     template: layout/templates/details.mustache
