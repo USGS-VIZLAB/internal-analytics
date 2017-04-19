@@ -25,17 +25,34 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       return(img.out)
     })
     
+    sectionId <- paste0(proj, "-section")
+    contents <- list(
+      id = sectionId,
+      publisher = "section",
+      template = viz[['template']],
+      context = list(
+        monthly_users_chart = proj.imgs[['month_sessions']]
+      )
+    )
+    contents <- as.viz(contents)
+    contents <- as.publisher(contents)
+    viz[['depends']][[sectionId]] <- contents
+    
     pub <- list(
       id = paste0(proj, "-page"),
+      name = proj,
       publisher = "page",
-      template = viz[['template']],
+      template = "fullpage",
       depends = viz[['depends']],
       context = list(
         header = viz[['context']][['header']],
         footer = viz[['context']][['footer']],
-        monthly_users_chart = proj.imgs[['month_sessions']]
+        resources = viz[['resources']],
+        sections = c(sectionId)
       )
     )
+    
+    
     pub <- as.viz(pub)
     pub <- as.publisher(pub)
     publish(pub)
