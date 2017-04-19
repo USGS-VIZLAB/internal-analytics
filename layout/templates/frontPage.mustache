@@ -43,22 +43,30 @@
       <div id="year" class="sessionTimeline flex1 box">
         <h3>Yearly</h3>
         <p>{{year1}} - {{year2}}</p>
-        <div class="timelinePlot"></div>
+        <div class="timelinePlot">
+        {{{portfolio_year_sessions}}}
+        </div>
       </div>
       <div id="month" class="sessionTimeline flex1 box">
         <h3>Monthly</h3>
         <p>{{month1}} - {{month2}}</p>
-        <div class="timelinePlot"></div>
+        <div class="timelinePlot">
+        {{{portfolio_month_sessions}}}
+        </div>
       </div>
       <div id="week" class="sessionTimeline flex1 box">
         <h3>Weekly</h3>
         <p>{{week1}} - {{week2}}</p>
-        <div class="timelinePlot"></div>
+        <div class="timelinePlot">
+        {{{portfolio_week_sessions}}}
+        </div>
       </div>
       <div id="day" class="sessionTimeline flex1 box">
         <h3>Daily</h3>
         <p>-</p>
-        <div class="timelinePlot"></div>
+        <div class="timelinePlot">
+        {{{portfolio_day_sessions}}}
+        </div>
       </div>
     </div>
   </div>
@@ -75,7 +83,9 @@
       <div class="topicHeader">
         <h2>Device Type</h2>
       </div>
-      <div id="deviceType" class="box"></div>
+      <div id="deviceType" class="box">
+      {{{portfolio_device_type}}}
+      </div>
       <div class="topicHeader">
         <h2>Traffic</h2>
       </div>

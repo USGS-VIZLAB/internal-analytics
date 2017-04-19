@@ -34,6 +34,12 @@ info:
     assertthat:
       repo: CRAN
       version: 0.2.0
+    ggplot2:
+      repo: CRAN
+      version: 2.2.1
+    maps:
+      repo: CRAN
+      version: 3.1.1
       
 fetch:
   -
@@ -96,6 +102,14 @@ process:
     rangetext: "-1 month"
     reader: rds
     location: cache/process/source_counts.rds
+  -
+    id: geo_apps
+    processor: geo_apps 
+    scripts: scripts/process/geo_apps.R
+    depends: clean_up_raw
+    rangetext: "-1 month"
+    reader: rds
+    location: cache/process/geo_apps.rds
 visualize:
   -
     id: viz_month_sessions
@@ -140,6 +154,15 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
   -
+    id: viz_geo_apps
+    visualizer: viz_geo_apps 
+    scripts: scripts/visualize/viz_geo_apps.R
+    depends: geo_apps
+    plottype: geo_month
+    rangetext: "-1 month"
+    mimetype: text/csv
+    location: cache/visualize/viz_geo_apps.csv
+  -
     id: viz_device_type
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
@@ -156,6 +179,65 @@ visualize:
     plottype: source_counts
     mimetype: text/csv
     location: cache/visualize/viz_source.csv
+  -
+    id: portfolio_year_sessions
+    visualizer: portfolio_sessions 
+    scripts: scripts/visualize/portfolio_sessions.R
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
+    rangetext: "-1 year"
+    mimetype: image/png
+    alttext: "Latest year sessions"
+    title: "Latest year sessions"
+    location: figures/portfolio_year_sessions.png
+  -
+    id: portfolio_month_sessions
+    visualizer: portfolio_sessions 
+    scripts: scripts/visualize/portfolio_sessions.R
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
+    rangetext: "-1 month"
+    mimetype: image/png
+    alttext: "Latest month sessions"
+    title: "Latest month sessions"
+    location: figures/portfolio_month_sessions.png
+  -
+    id: portfolio_week_sessions
+    visualizer: portfolio_sessions 
+    scripts: scripts/visualize/portfolio_sessions.R
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
+    rangetext: "-1 week"
+    mimetype: image/png
+    alttext: "Latest week sessions"
+    title: "Latest week sessions"
+    location: figures/portfolio_week_sessions.png
+  -
+    id: portfolio_day_sessions
+    visualizer: portfolio_sessions_day 
+    scripts: scripts/visualize/portfolio_sessions_day.R
+    depends: 
+      sessions_and_new_users_daily: sessions_and_new_users_daily
+      project_table: project_table
+    rangetext: "-1 week"
+    mimetype: image/png
+    alttext: "Latest day sessions"
+    title: "Latest day sessions"
+    location: figures/portfolio_day_sessions.png
+  -
+    id: portfolio_device_type
+    visualizer: portfolio_device_type 
+    scripts: scripts/visualize/portfolio_device_type.R
+    depends: 
+      device_type: device_type
+    rangetext: "-1 month"
+    mimetype: image/png
+    alttext: "portfolio_device_type"
+    title: "portfolio_device_type"
+    location: figures/portfolio_device_type.png
 publish:
   -
     id: openSans
@@ -232,6 +314,7 @@ publish:
       viz_d_sessions: viz_d_sessions
       viz_device_type: viz_device_type
       viz_source: viz_source
+      viz_geo_apps: viz_geo_apps
     context:
       header: header
       footer: footer
@@ -250,6 +333,11 @@ publish:
     depends:
       arrow: arrow
       siteText: siteText
+      portfolio_year_sessions: portfolio_year_sessions
+      portfolio_month_sessions: portfolio_month_sessions
+      portfolio_week_sessions: portfolio_week_sessions
+      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_device_type: portfolio_device_type
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -263,6 +351,11 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
+      portfolio_year_sessions: portfolio_year_sessions
+      portfolio_month_sessions: portfolio_month_sessions
+      portfolio_week_sessions: portfolio_week_sessions
+      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_device_type: portfolio_device_type
   -
     id: details
     template: layout/templates/details.mustache
