@@ -190,7 +190,6 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
-      projects: siteText.projects
   -
     id: details
     template: layout/templates/details.mustache
