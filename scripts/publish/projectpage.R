@@ -59,7 +59,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       context = list(
         header = viz[['context']][['header']],
         footer = viz[['context']][['footer']],
-        resources = viz[['resources']],
+        resources = viz[['context']][['resources']],
         sections = sectionId
       )
     )
