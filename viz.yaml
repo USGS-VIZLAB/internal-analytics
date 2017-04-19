@@ -227,6 +227,17 @@ visualize:
     alttext: "Latest day sessions"
     title: "Latest day sessions"
     location: figures/portfolio_day_sessions.png
+  -
+    id: portfolio_device_type
+    visualizer: portfolio_device_type 
+    scripts: scripts/visualize/portfolio_device_type.R
+    depends: 
+      device_type: device_type
+    rangetext: "-1 month"
+    mimetype: image/png
+    alttext: "portfolio_device_type"
+    title: "portfolio_device_type"
+    location: figures/portfolio_device_type.png
 publish:
   -
     id: openSans
@@ -326,6 +337,7 @@ publish:
       portfolio_month_sessions: portfolio_month_sessions
       portfolio_week_sessions: portfolio_week_sessions
       portfolio_day_sessions: portfolio_day_sessions
+      portfolio_device_type: portfolio_device_type
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -343,6 +355,7 @@ publish:
       portfolio_month_sessions: portfolio_month_sessions
       portfolio_week_sessions: portfolio_week_sessions
       portfolio_day_sessions: portfolio_day_sessions
+      portfolio_device_type: portfolio_device_type
   -
     id: details
     template: layout/templates/details.mustache
