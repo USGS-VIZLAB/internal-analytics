@@ -25,8 +25,8 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
       
       png(location) 
       par(oma=c(0,0,0,0),las=1, mar=c(2,10,2,2))
-      barplot(source_sum$Freq, horiz=TRUE,
-              names.arg=source_sum$Var1)
+      barplot(rev(source_sum$Freq), horiz=TRUE,
+              names.arg=rev(source_sum$Var1))
       dev.off()
     } else {
       png(location) 

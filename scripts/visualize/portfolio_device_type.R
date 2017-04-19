@@ -17,8 +17,8 @@ visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type"
   if(nrow(sub_data_range) > 0){
     
     par(oma=c(0,0,0,0),las=1)
-    barplot(sub_data_range$totals, horiz=TRUE,
-            names.arg=sub_data_range$deviceCategory)
+    barplot(rev(sub_data_range$totals), horiz=TRUE,
+            names.arg=rev(sub_data_range$deviceCategory))
     
   } else {
  

@@ -238,6 +238,17 @@ visualize:
     alttext: "portfolio_device_type"
     title: "portfolio_device_type"
     location: figures/portfolio_device_type.png
+  -
+    id: portfolio_source
+    visualizer: portfolio_source 
+    scripts: scripts/visualize/portfolio_source.R
+    depends: 
+      source_counts: source_counts
+    rangetext: "-1 month"
+    mimetype: image/png
+    alttext: "portfolio_source"
+    title: "portfolio_source"
+    location: figures/portfolio_source.png
 publish:
   -
     id: openSans
@@ -338,6 +349,7 @@ publish:
       portfolio_week_sessions: portfolio_week_sessions
       portfolio_day_sessions: portfolio_day_sessions
       portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -356,6 +368,7 @@ publish:
       portfolio_week_sessions: portfolio_week_sessions
       portfolio_day_sessions: portfolio_day_sessions
       portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
   -
     id: details
     template: layout/templates/details.mustache
