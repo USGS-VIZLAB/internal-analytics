@@ -7,7 +7,9 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
   projects <- deps[['project_table']][['viewID']] # get projects from deps
   img.files <- list(
     month_sessions = deps[['viz_month_sessions']],
-    year_line_sessions = deps[['viz_y_sessions']]
+    year_line_sessions = deps[['viz_y_sessions']],
+    month_line_sessions = deps[['viz_m_sessions']],
+    week_line_sessions = deps[['viz_w_sessions']]
   )
   
   for (proj in projects) {
@@ -38,7 +40,9 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
         header = viz[['context']][['header']],
         footer = viz[['context']][['footer']],
         monthly_users_chart = proj.imgs[['month_sessions']],
-        year_line_sessions = proj.imgs[['year_line_sessions']]
+        year_line_sessions = proj.imgs[['year_line_sessions']],
+        month_line_sessions = proj.imgs[['month_line_sessions']],
+        week_line_sessions = proj.imgs[['week_line_sessions']]
       )
     )
     pub <- as.viz(pub)
