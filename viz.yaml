@@ -156,6 +156,16 @@ visualize:
     plottype: source_counts
     mimetype: text/csv
     location: cache/visualize/viz_source.csv
+  -
+    id: portfolio_year_sessions
+    visualizer: portfolio_sessions 
+    scripts: scripts/visualize/portfolio_sessions.R
+    depends: sessions_and_new_users
+    rangetext: "-1 year"
+    mimetype: image/png
+    alttext: "Latest year sessions"
+    title: "Latest year sessions"
+    location: figures/portfolio_year_sessions.png
 publish:
   -
     id: openSans
@@ -250,6 +260,7 @@ publish:
     depends:
       arrow: arrow
       siteText: siteText
+      portfolio_year_sessions: portfolio_year_sessions
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -263,6 +274,7 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
+      portfolio_year_sessions: portfolio_year_sessions
   -
     id: details
     template: layout/templates/details.mustache
