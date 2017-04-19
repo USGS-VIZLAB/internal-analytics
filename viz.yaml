@@ -183,7 +183,9 @@ visualize:
     id: portfolio_year_sessions
     visualizer: portfolio_sessions 
     scripts: scripts/visualize/portfolio_sessions.R
-    depends: sessions_and_new_users
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
     rangetext: "-1 year"
     mimetype: image/png
     alttext: "Latest year sessions"
@@ -193,7 +195,9 @@ visualize:
     id: portfolio_month_sessions
     visualizer: portfolio_sessions 
     scripts: scripts/visualize/portfolio_sessions.R
-    depends: sessions_and_new_users
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
     rangetext: "-1 month"
     mimetype: image/png
     alttext: "Latest month sessions"
@@ -203,7 +207,9 @@ visualize:
     id: portfolio_week_sessions
     visualizer: portfolio_sessions 
     scripts: scripts/visualize/portfolio_sessions.R
-    depends: sessions_and_new_users
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
     rangetext: "-1 week"
     mimetype: image/png
     alttext: "Latest week sessions"
