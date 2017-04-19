@@ -43,25 +43,28 @@ fetch:
     scripts: scripts/fetch/fetchGA.R
     location: cache/fetch/gaData.csv
     mimetype: text/csv
+    remoteFilename: 'gaData.csv'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
     update: FALSE #check for newer data from GA, and upload to sciencebase if there is
+    useLocal: TRUE #Don't even download sciencebase file - overrides update
   -
     id: fetchGA_nwis
     login: nwis
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
-    location: cache/fetch/gaData.csv
+    location: cache/fetch/gaData_nwis.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f'
-    update: TRUE
+    update: FALSE
+    useLocal: TRUE
 process:
   -
-    id: clean_up_raw
-    processor: clean_up_raw 
-    scripts: scripts/process/clean_up_raw.R
-    depends: fetchGA_cida
+    id: aggregate_ga
+    processor: aggregate_ga
+    scripts: scripts/process/aggregate.R
+    depends: [fetchGA_cida, fetchGA_nwis]
     mimetype: text/csv
-    location: cache/process/clean_up_raw.csv
+    location: cache/process/aggregate_ga.csv
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 
