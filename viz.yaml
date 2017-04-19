@@ -1,13 +1,13 @@
 vizlab: "0.1.7"
 info:
   id: internal-analytics
-  name: Visualization long name
+  name: Internal analytics reporting
   date: 2017-04-03
-  publish-date: 2017-04-17
-  path: /internal-analytics
+  publish-date: 2099-01-01
+  path: /analytics
   analytics-id: UA-78530187-1
   description: >-
-    Describe project here
+    Internal reporting project to look at analytics data across the portfolio.
   thumbnail:
     url:
     width: 250
@@ -47,6 +47,8 @@ fetch:
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
     update: FALSE #check for newer data from GA, and upload to sciencebase if there is
     useLocal: TRUE #Don't even download sciencebase file - overrides update
+    depends: 
+      project_table: project_table
   -
     id: fetchGA_nwis
     login: nwis
@@ -57,6 +59,20 @@ fetch:
     remoteItemId: '58e56f3ce4b09da679997f7f'
     update: FALSE
     useLocal: TRUE
+    depends:
+      project_table: project_table
+  -
+    id: project_table
+    fetcher: file
+    location: data/ga_table.csv
+    scripts:
+    mimetype: text/csv
+  -
+    id: siteText
+    location: data/siteText.yaml
+    scripts:
+    reader: md
+    mimetype: text/yaml
 process:
   -
     id: aggregate_ga
@@ -69,7 +85,7 @@ process:
     id: sessions_and_new_users
     processor: sessions_and_new_users 
     scripts: scripts/process/sessions_and_new_users.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users.rds
 visualize:
@@ -78,8 +94,15 @@ visualize:
     visualizer: viz_month_sessions 
     scripts: scripts/visualize/viz_month_sessions.R
     depends: sessions_and_new_users
-    reader: csv
+    mimetype: text/csv
     location: cache/visualize/viz_month_sessions.csv
+  -
+    id: viz_ymd_sessions
+    visualizer: viz_ymd_sessions 
+    scripts: scripts/visualize/visualize.viz_ymd_sessions.R
+    depends: sessions_and_new_users
+    mimetype: text/csv
+    location: cache/visualize/viz_ymd_sessions.csv
 publish:
   -
     id: openSans
@@ -92,6 +115,18 @@ publish:
     mimetype: text/css
     publisher: resource
   -
+    id: detailsCSS
+    location: layout/css/details.css
+    mimetype: text/css
+    publisher: resource
+  -
+    id: arrow
+    location: images/arrow.svg
+    mimetype: image/svg
+    inline: true
+    title: "Toggle"
+    alttext: "Toggle Arrow"
+  -
     id: index
     name: index
     publisher: page
@@ -102,22 +137,28 @@ publish:
       footer: footer
       frontPage: frontPage
       internalAnalyticsCSS: internalAnalyticsCSS
+      detailsCSS: detailsCSS
       headerCSS: lib-header-css
+      jquery: jquery-js
+      appJS: app-js
     context:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["openSans", "headerCSS", "internalAnalyticsCSS"]
+      resources: ["jquery", "appJS", "openSans", "headerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: projectPages
     publisher: projectpage
     scripts: scripts/publish/projectpage.R
+    template: layout/templates/details.mustache
     depends:
       header: header
       footer: footer
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
       details: details
+      project_table: project_table
+      viz_month_sessions: viz_month_sessions
     context:
       header: header
       footer: footer
@@ -133,12 +174,52 @@ publish:
     id: frontPage
     template: layout/templates/frontPage.mustache
     publisher: section
+    depends:
+      arrow: arrow
+      siteText: siteText
+    context:
+      arrow: arrow
+      aboutThisReport: siteText.aboutThisReport
+      disclaimerTitle: siteText.disclaimerTitle
+      disclaimer1: siteText.disclaimer1
+      disclaimer2: siteText.disclaimer2
+      glossaryTitle: siteText.glossaryTitle
+      session: siteText.session
+      visitors: siteText.visitors
+      geographical: siteText.geographical
+      average: siteText.average
+      traffic: siteText.traffic
+      device: siteText.device
   -
     id: details
     template: layout/templates/details.mustache
     publisher: section
+    depends:
+      arrow: arrow
+      siteText: siteText
+    context:
+      arrow: arrow
+      aboutThisReport: siteText.aboutThisReport
+      disclaimerTitle: siteText.disclaimerTitle
+      disclaimer1: siteText.disclaimer1
+      disclaimer2: siteText.disclaimer2
+      glossaryTitle: siteText.glossaryTitle
+      session: siteText.session
+      visitors: siteText.visitors
+      geographical: siteText.geographical
+      average: siteText.average
+      traffic: siteText.traffic
+      device: siteText.device
   -
     id: footer
     publisher: section
     template: layout/templates/footer.mustache
+  -
+    id: jquery-js
+    location: layout/js/jquery.min.js
+    mimetype: text/javascript
+  -
+    id: app-js
+    location: layout/js/app.js
+    mimetype: text/javascript
     
