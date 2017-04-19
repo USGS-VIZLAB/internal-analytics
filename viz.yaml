@@ -136,6 +136,7 @@ visualize:
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
+    rangetext: "-1 month"
     plottype: device_type
     mimetype: text/csv
     location: cache/visualize/viz_device_type.csv

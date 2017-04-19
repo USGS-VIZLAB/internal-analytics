@@ -9,39 +9,34 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
                   stringsAsFactors = FALSE)
 
   plot_type <- viz[["plottype"]]
+  range_text <- viz[["rangetext"]]
   
-  year_days = seq(Sys.Date(), length = 2, by = range_text)
+  range_days = seq(Sys.Date(), length = 2, by = range_text)
   
   for(i in unique(viz.data$viewID)){
     sub_data <- filter(viz.data, viewID == i)
     
-    sub_data_year <- select(sub_data, date, sessions) %>%
-      filter(date >= year_days[2]) %>%
-      group_by(date) %>%
-      summarize(sessions = sum(sessions, na.rm = TRUE)) 
+    sub_data_range <- sub_data %>%
+      filter(date >= range_days[2]) %>%
+      select(-date) %>%
+      group_by(deviceCategory) %>%
+      summarize(totals = n())
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
-    if(nrow(sub_data_year) > 0){
+    if(nrow(sub_data_range) > 0){
       
       png(location) 
-      par(oma=c(0,0,0,0),mar=c(8,4,8,1),las=1)
-      plot(x = sub_data_year$date, sub_data_year$sessions, axes=FALSE, 
-           type="l",xlab="",ylab="")
-      axis(1, at=c(0,max(sub_data_year$date)), 
-           labels = c("",""),tck = 0)
-      axis(2, at=c(0,max(sub_data_year$sessions)), 
-           labels = c(0,max(sub_data_year$sessions)),tck = 0)
+      par(oma=c(0,0,0,0),las=1)
+      barplot(sub_data_range$totals, horiz=TRUE,
+              names.arg=sub_data_range$deviceCategory)
       dev.off()
     } else {
       png(location) 
       par(oma=c(0,0,0,0),mar=c(8,4,8,1),las=1)
-      plot(1, axes=FALSE, 
-           type="n",xlab="",ylab="")
-      axis(1, at=c(0,10), 
-           labels = c("",""),tck = 0)
-      axis(2, at=c(0,10), 
-           labels = c(0,10),tck = 0)      
+      barplot(c(0,0,0), horiz=TRUE,
+              names.arg=c("desktop","mobile","tablet"),
+              xlim = c(0,10))    
       dev.off()
     }
     
