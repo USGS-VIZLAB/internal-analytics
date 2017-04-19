@@ -45,7 +45,6 @@ fetch:
     mimetype: text/csv
     remoteFilename: 'gaData.csv'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-<<<<<<< HEAD
     update: FALSE #check for newer data from GA, and upload to sciencebase if there is
     useLocal: TRUE #Don't even download sciencebase file - overrides update
     depends: 
@@ -60,9 +59,6 @@ fetch:
     remoteItemId: '58e56f3ce4b09da679997f7f'
     update: FALSE
     useLocal: TRUE
-=======
-    update: FALSE #check for newer data from GA, and upload to sciencebase if so?
->>>>>>> f67c27c8f3cbc52978379ae0d985c5f64620f2ee
     depends:
       project_table: project_table
   -
@@ -96,7 +92,7 @@ process:
     id: sessions_and_new_users_daily
     processor: sessions_and_new_users_daily 
     scripts: scripts/process/sessions_and_new_users_daily.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users_daily.rds
 visualize:
