@@ -21,7 +21,7 @@ visualize.viz_y_sessions <- function(viz){
       group_by(date) %>%
       summarize(sessions = sum(sessions, na.rm = TRUE)) 
     
-    location <- paste0("cache/visualize/",i,"_year.png")
+    location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
     if(nrow(sub_data_year) > 0){
       
