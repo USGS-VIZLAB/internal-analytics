@@ -1,11 +1,19 @@
 #' Creates templated html for each project
 library(dplyr)
 publish.projectpage <- function(viz = as.viz("projectPages")) {
+  
   deps <- readDepends(viz)
+  
   projects <- deps[['project_table']][['viewID']] # get projects from deps
+  
   img.files <- list(
-    month_sessions = deps[['viz_month_sessions']]
+    month_sessions = deps[['viz_month_sessions']],
+    year_line_sessions = deps[['viz_y_sessions']],
+    month_line_sessions = deps[['viz_m_sessions']],
+    week_line_sessions = deps[['viz_w_sessions']],
+    day_line_sessions = deps[['viz_d_sessions']]
   )
+  
   for (proj in projects) {
     # get relative paths for images
     proj.imgs <- sapply(img.files, function(x){
@@ -31,7 +39,11 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       publisher = "section",
       template = viz[['template']],
       context = list(
-        monthly_users_chart = proj.imgs[['month_sessions']]
+        monthly_users_chart = proj.imgs[['month_sessions']],
+        year_line_sessions = proj.imgs[['year_line_sessions']],
+        month_line_sessions = proj.imgs[['month_line_sessions']],
+        week_line_sessions = proj.imgs[['week_line_sessions']],
+        day_line_sessions = proj.imgs[['day_line_sessions']]
       )
     )
     contents <- as.viz(contents)
@@ -48,7 +60,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
         header = viz[['context']][['header']],
         footer = viz[['context']][['footer']],
         resources = viz[['resources']],
-        sections = c(sectionId)
+        sections = sectionId
       )
     )
     
