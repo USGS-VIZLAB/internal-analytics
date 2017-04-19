@@ -114,7 +114,7 @@ process:
     id: source_counts
     processor: source_counts 
     scripts: scripts/process/source_counts.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     rangetext: "-1 month"
     reader: rds
     location: cache/process/source_counts.rds
@@ -122,7 +122,7 @@ process:
     id: geo_apps
     processor: geo_apps 
     scripts: scripts/process/geo_apps.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     rangetext: "-1 month"
     reader: rds
     location: cache/process/geo_apps.rds

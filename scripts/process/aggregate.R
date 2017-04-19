@@ -9,5 +9,5 @@ process.aggregate_ga <- function(viz) {
               filter(date > as.Date("2014-01-01"))
   
   #add dateTime
-  fwrite(viz.data, file=viz[["location"]], quote = TRUE, row.names = FALSE)
+  fwrite(allDataDF, file=viz[["location"]], quote = TRUE, row.names = FALSE)
 }
