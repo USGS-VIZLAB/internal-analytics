@@ -3,6 +3,9 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
   
   viz.data <- readDepends(viz)[["sessions_and_new_users"]]
   
+  height = viz[["height"]]
+  width = viz[["width"]]
+  
   viz.data <- viz.data %>%
     filter(date >= seq(Sys.Date(), length = 2, by = "-1 months")[2])
   
@@ -19,7 +22,8 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
     row.names(x) <- c("New Users","Sessions")
     
     
-    png(paste0("cache/visualize/",i,"_session_pie.png"))
+    png(paste0("cache/visualize/",i,"_session_pie.png"), 
+        width = width, height = height)
       pie(x, labels = c(paste0("New", percent_new,"%"),
                       "Returning"))
     
