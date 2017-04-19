@@ -1,6 +1,5 @@
 visualize.viz_y_sessions <- function(viz){
   library(dplyr)
-  library(ggplot2)
   
   viz.data <- readDepends(viz)[["sessions_and_new_users"]]
   x <- data.frame(id = character(),

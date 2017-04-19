@@ -116,6 +116,14 @@ visualize:
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
+  -
+    id: viz_d_sessions
+    visualizer: viz_d_sessions 
+    scripts: scripts/visualize/viz_d_sessions.R
+    depends: sessions_and_new_users_daily
+    plottype: day_line
+    mimetype: text/csv
+    location: cache/visualize/viz_d_sessions.csv
 publish:
   -
     id: openSans
@@ -189,6 +197,7 @@ publish:
       viz_y_sessions: viz_y_sessions
       viz_m_sessions: viz_m_sessions
       viz_w_sessions: viz_w_sessions
+      viz_d_sessions: viz_d_sessions
     context:
       header: header
       footer: footer

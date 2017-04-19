@@ -3,13 +3,16 @@ process.sessions_and_new_users_daily <- function(viz = as.viz("sessions_and_new_
   
   viz.data <- readDepends(viz)[["clean_up_raw"]]
   
-  yesterday <- as.POSIXct(seq(Sys.Date()-1, length = 2, by = "-1 day")[1])
-  the_day_before <- as.POSIXct(seq(Sys.Date()-1, length = 2, by = "-1 day")[2])
+  yesterday <- seq(Sys.Date()-1, length = 2, by = "-1 day")[1]
+  the_day_before <- seq(Sys.Date()-1, length = 2, by = "-1 day")[2]
   
-  session_users <- select(viz.data, dateTime,viewID,sessions,newUsers) %>%
-    mutate(dateTime = as.POSIXct(dateTime)) %>%
+  session_users <- select(viz.data, date, dateTime,viewID,sessions,newUsers) %>%
+    mutate(date = as.Date(date)) %>%
     filter(dateTime > the_day_before) %>%
-    filter(dateTime <= yesterday) 
+    filter(dateTime <= yesterday) %>%
+    mutate(dateTime = as.POSIXct(dateTime, format = "%Y-%m-%dT%H:%M:%SZ")) %>%
+    select(-date)
+
   
   saveRDS(session_users, file=viz[["location"]])
   
