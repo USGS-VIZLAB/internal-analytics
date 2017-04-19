@@ -106,12 +106,23 @@ publish:
     mimetype: text/css
     publisher: resource
   -
+    id: footerCSS
+    location: layout/css/footer.css
+    mimetype: text/css
+    publisher: resource
+  -
     id: arrow
     location: images/arrow.svg
     mimetype: image/svg
     inline: true
     title: "Toggle"
     alttext: "Toggle Arrow"
+  -
+    id: usgsLogo
+    location: images/usgsLogo.png
+    mimetype: image/png
+    title: "USGS"
+    alttext: "USGS Logo"
   -
     id: index
     name: index
@@ -125,13 +136,14 @@ publish:
       internalAnalyticsCSS: internalAnalyticsCSS
       detailsCSS: detailsCSS
       headerCSS: lib-header-css
+      footerCSS : footerCSS
       jquery: jquery-js
       appJS: app-js
     context:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["jquery", "appJS", "openSans", "headerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "appJS", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: projectPages
     publisher: projectpage
@@ -142,6 +154,8 @@ publish:
       footer: footer
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
+      detailsCSS: detailsCSS
+      footerCSS : footerCSS
       details: details
       project_table: project_table
       viz_month_sessions: viz_month_sessions
@@ -149,7 +163,7 @@ publish:
       header: header
       footer: footer
       sections: [ "details" ]
-      resources: ["headerCSS", "internalAnalyticsCSS"]
+      resources: ["headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: header
     publisher: section
@@ -200,6 +214,10 @@ publish:
     id: footer
     publisher: section
     template: layout/templates/footer.mustache
+    depends: 
+      usgsLogo: usgsLogo
+    context:
+      usgsLogo: usgsLogo
   -
     id: jquery-js
     location: layout/js/jquery.min.js
