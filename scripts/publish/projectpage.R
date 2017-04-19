@@ -5,6 +5,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
   deps <- readDepends(viz)
   
   projects <- deps[['project_table']][['viewID']] # get projects from deps
+  
   img.files <- list(
     month_sessions = deps[['viz_month_sessions']],
     year_line_sessions = deps[['viz_y_sessions']],

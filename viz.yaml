@@ -187,6 +187,8 @@ publish:
       project_table: project_table
       viz_month_sessions: viz_month_sessions
       viz_y_sessions: viz_y_sessions
+      viz_m_sessions: viz_m_sessions
+      viz_w_sessions: viz_w_sessions
     context:
       header: header
       footer: footer
