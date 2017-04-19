@@ -295,6 +295,7 @@ publish:
       viz_d_sessions: viz_d_sessions
       viz_device_type: viz_device_type
       viz_source: viz_source
+      viz_geo_apps: viz_geo_apps
     context:
       header: header
       footer: footer
