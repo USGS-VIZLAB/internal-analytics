@@ -99,7 +99,7 @@ process:
     id: device_type
     processor: device_type 
     scripts: scripts/process/device_type.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     reader: rds
     location: cache/process/device_type.rds
 visualize:
