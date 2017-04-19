@@ -248,6 +248,8 @@ visualize:
   -
     id: portfolio_day_sessions
     visualizer: portfolio_sessions_day 
+    height: 480
+    width: 200
     scripts: scripts/visualize/portfolio_sessions_day.R
     depends: 
       sessions_and_new_users_daily: sessions_and_new_users_daily
@@ -260,6 +262,8 @@ visualize:
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
+    height: 480
+    width: 480
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
@@ -270,7 +274,9 @@ visualize:
     location: figures/portfolio_device_type.png
   -
     id: portfolio_source
-    visualizer: portfolio_source 
+    visualizer: portfolio_source
+    height: 480
+    width: 480
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
