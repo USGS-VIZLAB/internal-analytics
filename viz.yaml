@@ -45,6 +45,7 @@ fetch:
     mimetype: text/csv
     remoteFilename: 'gaData.csv'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
+<<<<<<< HEAD
     update: FALSE #check for newer data from GA, and upload to sciencebase if there is
     useLocal: TRUE #Don't even download sciencebase file - overrides update
     depends: 
@@ -59,6 +60,9 @@ fetch:
     remoteItemId: '58e56f3ce4b09da679997f7f'
     update: FALSE
     useLocal: TRUE
+=======
+    update: FALSE #check for newer data from GA, and upload to sciencebase if so?
+>>>>>>> f67c27c8f3cbc52978379ae0d985c5f64620f2ee
     depends:
       project_table: project_table
   -
@@ -88,6 +92,13 @@ process:
     depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users.rds
+  -
+    id: sessions_and_new_users_daily
+    processor: sessions_and_new_users_daily 
+    scripts: scripts/process/sessions_and_new_users_daily.R
+    depends: clean_up_raw
+    reader: rds
+    location: cache/process/sessions_and_new_users_daily.rds
 visualize:
   -
     id: viz_month_sessions
@@ -97,12 +108,40 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_month_sessions.csv
   -
-    id: viz_ymd_sessions
-    visualizer: viz_ymd_sessions 
-    scripts: scripts/visualize/visualize.viz_ymd_sessions.R
+    id: viz_y_sessions
+    visualizer: viz_y_sessions 
+    scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users
+    rangetext: "-1 year"
+    plottype: year_line
     mimetype: text/csv
-    location: cache/visualize/viz_ymd_sessions.csv
+    location: cache/visualize/viz_y_sessions.csv
+  -
+    id: viz_m_sessions
+    visualizer: viz_y_sessions 
+    scripts: scripts/visualize/viz_y_sessions.R
+    depends: sessions_and_new_users
+    rangetext: "-1 month"
+    plottype: month_line
+    mimetype: text/csv
+    location: cache/visualize/viz_m_sessions.csv
+  -
+    id: viz_w_sessions
+    visualizer: viz_y_sessions 
+    scripts: scripts/visualize/viz_y_sessions.R
+    depends: sessions_and_new_users
+    rangetext: "-1 week"
+    plottype: week_line
+    mimetype: text/csv
+    location: cache/visualize/viz_w_sessions.csv
+  -
+    id: viz_d_sessions
+    visualizer: viz_d_sessions 
+    scripts: scripts/visualize/viz_d_sessions.R
+    depends: sessions_and_new_users_daily
+    plottype: day_line
+    mimetype: text/csv
+    location: cache/visualize/viz_d_sessions.csv
 publish:
   -
     id: openSans
@@ -120,12 +159,23 @@ publish:
     mimetype: text/css
     publisher: resource
   -
+    id: footerCSS
+    location: layout/css/footer.css
+    mimetype: text/css
+    publisher: resource
+  -
     id: arrow
     location: images/arrow.svg
     mimetype: image/svg
     inline: true
     title: "Toggle"
     alttext: "Toggle Arrow"
+  -
+    id: usgsLogo
+    location: images/usgsLogo.png
+    mimetype: image/png
+    title: "USGS"
+    alttext: "USGS Logo"
   -
     id: index
     name: index
@@ -139,13 +189,14 @@ publish:
       internalAnalyticsCSS: internalAnalyticsCSS
       detailsCSS: detailsCSS
       headerCSS: lib-header-css
+      footerCSS : footerCSS
       jquery: jquery-js
       appJS: app-js
     context:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["jquery", "appJS", "openSans", "headerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "appJS", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: projectPages
     publisher: projectpage
@@ -156,14 +207,20 @@ publish:
       footer: footer
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
+      detailsCSS: detailsCSS
+      footerCSS : footerCSS
       details: details
       project_table: project_table
       viz_month_sessions: viz_month_sessions
+      viz_y_sessions: viz_y_sessions
+      viz_m_sessions: viz_m_sessions
+      viz_w_sessions: viz_w_sessions
+      viz_d_sessions: viz_d_sessions
     context:
       header: header
       footer: footer
       sections: [ "details" ]
-      resources: ["headerCSS", "internalAnalyticsCSS"]
+      resources: ["headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: header
     publisher: section
@@ -214,6 +271,10 @@ publish:
     id: footer
     publisher: section
     template: layout/templates/footer.mustache
+    depends: 
+      usgsLogo: usgsLogo
+    context:
+      usgsLogo: usgsLogo
   -
     id: jquery-js
     location: layout/js/jquery.min.js
