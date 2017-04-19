@@ -44,7 +44,7 @@ fetch:
     location: cache/fetch/gaData.csv
     mimetype: text/csv
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE
+    update: FALSE #check for newer data from GA, and upload to sciencebase if so?
     depends:
       project_table: project_table
   -
@@ -74,6 +74,13 @@ process:
     depends: clean_up_raw
     reader: rds
     location: cache/process/sessions_and_new_users.rds
+  -
+    id: sessions_and_new_users_daily
+    processor: sessions_and_new_users_daily 
+    scripts: scripts/process/sessions_and_new_users_daily.R
+    depends: clean_up_raw
+    reader: rds
+    location: cache/process/sessions_and_new_users_daily.rds
 visualize:
   -
     id: viz_month_sessions
@@ -83,12 +90,40 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_month_sessions.csv
   -
-    id: viz_ymd_sessions
-    visualizer: viz_ymd_sessions 
-    scripts: scripts/visualize/visualize.viz_ymd_sessions.R
+    id: viz_y_sessions
+    visualizer: viz_y_sessions 
+    scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users
+    rangetext: "-1 year"
+    plottype: year_line
     mimetype: text/csv
-    location: cache/visualize/viz_ymd_sessions.csv
+    location: cache/visualize/viz_y_sessions.csv
+  -
+    id: viz_m_sessions
+    visualizer: viz_y_sessions 
+    scripts: scripts/visualize/viz_y_sessions.R
+    depends: sessions_and_new_users
+    rangetext: "-1 month"
+    plottype: month_line
+    mimetype: text/csv
+    location: cache/visualize/viz_m_sessions.csv
+  -
+    id: viz_w_sessions
+    visualizer: viz_y_sessions 
+    scripts: scripts/visualize/viz_y_sessions.R
+    depends: sessions_and_new_users
+    rangetext: "-1 week"
+    plottype: week_line
+    mimetype: text/csv
+    location: cache/visualize/viz_w_sessions.csv
+  -
+    id: viz_d_sessions
+    visualizer: viz_d_sessions 
+    scripts: scripts/visualize/viz_d_sessions.R
+    depends: sessions_and_new_users_daily
+    plottype: day_line
+    mimetype: text/csv
+    location: cache/visualize/viz_d_sessions.csv
 publish:
   -
     id: openSans
@@ -159,6 +194,10 @@ publish:
       details: details
       project_table: project_table
       viz_month_sessions: viz_month_sessions
+      viz_y_sessions: viz_y_sessions
+      viz_m_sessions: viz_m_sessions
+      viz_w_sessions: viz_w_sessions
+      viz_d_sessions: viz_d_sessions
     context:
       header: header
       footer: footer
