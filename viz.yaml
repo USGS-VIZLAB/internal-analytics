@@ -145,7 +145,7 @@ visualize:
     scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users
     rangetext: "-1 month"
-    height: 200
+    height: 480
     width: 480
     plottype: month_line
     mimetype: text/csv
@@ -187,6 +187,8 @@ visualize:
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
+    height: 480
+    width: 480
     rangetext: "-1 month"
     plottype: device_type
     mimetype: text/csv
@@ -195,6 +197,8 @@ visualize:
     id: viz_source
     visualizer: viz_source 
     scripts: scripts/visualize/viz_source.R
+    height: 480
+    width: 480
     depends: source_counts
     plottype: source_counts
     mimetype: text/csv
@@ -202,6 +206,8 @@ visualize:
   -
     id: portfolio_year_sessions
     visualizer: portfolio_sessions 
+    height: 200
+    width: 480
     scripts: scripts/visualize/portfolio_sessions.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
@@ -214,6 +220,8 @@ visualize:
   -
     id: portfolio_month_sessions
     visualizer: portfolio_sessions 
+    height: 200
+    width: 480
     scripts: scripts/visualize/portfolio_sessions.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
@@ -227,6 +235,8 @@ visualize:
     id: portfolio_week_sessions
     visualizer: portfolio_sessions 
     scripts: scripts/visualize/portfolio_sessions.R
+    height: 200
+    width: 480
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
