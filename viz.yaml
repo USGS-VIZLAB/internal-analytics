@@ -78,7 +78,9 @@ process:
     id: aggregate_ga
     processor: aggregate_ga
     scripts: scripts/process/aggregate.R
-    depends: [fetchGA_cida, fetchGA_nwis]
+    depends: 
+      cida: fetchGA_cida
+      nwis: fetchGA_nwis
     mimetype: text/csv
     location: cache/process/aggregate_ga.csv
   -
