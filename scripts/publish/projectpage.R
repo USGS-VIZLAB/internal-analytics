@@ -11,7 +11,8 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     year_line_sessions = deps[['viz_y_sessions']],
     month_line_sessions = deps[['viz_m_sessions']],
     week_line_sessions = deps[['viz_w_sessions']],
-    day_line_sessions = deps[['viz_d_sessions']]
+    day_line_sessions = deps[['viz_d_sessions']],
+    device_type = deps[['viz_device_type']]
   )
   
   for (proj in projects) {
@@ -45,7 +46,8 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
         year_line_sessions = proj.imgs[['year_line_sessions']],
         month_line_sessions = proj.imgs[['month_line_sessions']],
         week_line_sessions = proj.imgs[['week_line_sessions']],
-        day_line_sessions = proj.imgs[['day_line_sessions']]
+        day_line_sessions = proj.imgs[['day_line_sessions']],
+        device_type = proj.imgs[['device_type']]
       )
     )
     pub <- as.viz(pub)
