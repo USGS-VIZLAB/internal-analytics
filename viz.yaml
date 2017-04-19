@@ -297,6 +297,8 @@ publish:
       traffic: siteText.traffic
       device: siteText.device
       portfolio_year_sessions: portfolio_year_sessions
+      portfolio_month_sessions: portfolio_month_sessions
+      portfolio_week_sessions: portfolio_week_sessions
   -
     id: details
     template: layout/templates/details.mustache
