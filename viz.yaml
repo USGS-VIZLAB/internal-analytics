@@ -88,6 +88,14 @@ process:
     depends: clean_up_raw
     reader: rds
     location: cache/process/device_type.rds
+  -
+    id: source_counts
+    processor: source_counts 
+    scripts: scripts/process/source_counts.R
+    depends: clean_up_raw
+    rangetext: "-1 month"
+    reader: rds
+    location: cache/process/source_counts.rds
 visualize:
   -
     id: viz_month_sessions
@@ -140,6 +148,14 @@ visualize:
     plottype: device_type
     mimetype: text/csv
     location: cache/visualize/viz_device_type.csv
+  -
+    id: viz_source
+    visualizer: viz_source 
+    scripts: scripts/visualize/viz_source.R
+    depends: source_counts
+    plottype: source_counts
+    mimetype: text/csv
+    location: cache/visualize/viz_source.csv
 publish:
   -
     id: openSans
@@ -215,6 +231,7 @@ publish:
       viz_w_sessions: viz_w_sessions
       viz_d_sessions: viz_d_sessions
       viz_device_type: viz_device_type
+      viz_source: viz_source
     context:
       header: header
       footer: footer
