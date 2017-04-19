@@ -34,14 +34,12 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       return(img.out)
     })
     
-    pub <- list(
-      id = paste0(proj, "-page"),
-      publisher = "page",
+    sectionId <- paste0(proj, "-section")
+    contents <- list(
+      id = sectionId,
+      publisher = "section",
       template = viz[['template']],
-      depends = viz[['depends']],
       context = list(
-        header = viz[['context']][['header']],
-        footer = viz[['context']][['footer']],
         monthly_users_chart = proj.imgs[['month_sessions']],
         year_line_sessions = proj.imgs[['year_line_sessions']],
         month_line_sessions = proj.imgs[['month_line_sessions']],
@@ -50,6 +48,25 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
         device_type = proj.imgs[['device_type']]
       )
     )
+    contents <- as.viz(contents)
+    contents <- as.publisher(contents)
+    viz[['depends']][[sectionId]] <- contents
+    
+    pub <- list(
+      id = paste0(proj, "-page"),
+      name = proj,
+      publisher = "page",
+      template = "fullpage",
+      depends = viz[['depends']],
+      context = list(
+        header = viz[['context']][['header']],
+        footer = viz[['context']][['footer']],
+        resources = viz[['context']][['resources']],
+        sections = sectionId
+      )
+    )
+    
+    
     pub <- as.viz(pub)
     pub <- as.publisher(pub)
     publish(pub)
