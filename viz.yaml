@@ -231,6 +231,7 @@ publish:
       viz_w_sessions: viz_w_sessions
       viz_d_sessions: viz_d_sessions
       viz_device_type: viz_device_type
+      viz_source: viz_source
     context:
       header: header
       footer: footer
