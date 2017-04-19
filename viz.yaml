@@ -34,6 +34,12 @@ info:
     assertthat:
       repo: CRAN
       version: 0.2.0
+    ggplot2:
+      repo: CRAN
+      version: 2.2.1
+    maps:
+      repo: CRAN
+      version: 3.1.1
       
 fetch:
   -
@@ -96,6 +102,14 @@ process:
     rangetext: "-1 month"
     reader: rds
     location: cache/process/source_counts.rds
+  -
+    id: geo_apps
+    processor: geo_apps 
+    scripts: scripts/process/geo_apps.R
+    depends: clean_up_raw
+    rangetext: "-1 month"
+    reader: rds
+    location: cache/process/geo_apps.rds
 visualize:
   -
     id: viz_month_sessions
@@ -139,6 +153,15 @@ visualize:
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
+  -
+    id: viz_geo_apps
+    visualizer: viz_geo_apps 
+    scripts: scripts/visualize/viz_geo_apps.R
+    depends: geo_apps
+    plottype: geo_month
+    rangetext: "-1 month"
+    mimetype: text/csv
+    location: cache/visualize/viz_geo_apps.csv
   -
     id: viz_device_type
     visualizer: viz_device_type 
