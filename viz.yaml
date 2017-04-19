@@ -95,6 +95,13 @@ process:
     depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users_daily.rds
+  -
+    id: device_type
+    processor: device_type 
+    scripts: scripts/process/device_type.R
+    depends: clean_up_raw
+    reader: rds
+    location: cache/process/device_type.rds
 visualize:
   -
     id: viz_month_sessions
@@ -138,6 +145,15 @@ visualize:
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
+  -
+    id: viz_device_type
+    visualizer: viz_device_type 
+    scripts: scripts/visualize/viz_device_type.R
+    depends: device_type
+    rangetext: "-1 month"
+    plottype: device_type
+    mimetype: text/csv
+    location: cache/visualize/viz_device_type.csv
 publish:
   -
     id: openSans
@@ -212,6 +228,7 @@ publish:
       viz_m_sessions: viz_m_sessions
       viz_w_sessions: viz_w_sessions
       viz_d_sessions: viz_d_sessions
+      viz_device_type: viz_device_type
     context:
       header: header
       footer: footer
