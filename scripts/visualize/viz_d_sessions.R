@@ -11,7 +11,11 @@ visualize.viz_d_sessions <- function(viz){
 
   
   for(i in unique(viz.data$viewID)){
-    sub_data <- filter(viz.data, viewID == i)
+    
+    sub_data <- select(viz.data, dateTime, viewID, sessions) %>%
+      filter(viewID == i) %>%
+      group_by(dateTime) %>%
+      summarize(sessions = sum(sessions, na.rm = TRUE)) 
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
