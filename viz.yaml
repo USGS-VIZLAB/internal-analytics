@@ -92,7 +92,7 @@ visualize:
   -
     id: viz_y_sessions
     visualizer: viz_y_sessions 
-    scripts: scripts/viz_y_sessions.R
+    scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users
     mimetype: text/csv
     location: cache/visualize/viz_y_sessions.csv
