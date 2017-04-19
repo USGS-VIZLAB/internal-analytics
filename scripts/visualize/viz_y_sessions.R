@@ -3,6 +3,10 @@ visualize.viz_y_sessions <- function(viz = as.viz("viz_y_sessions")){
   library(ggplot2)
   
   viz.data <- readDepends(viz)[["sessions_and_new_users"]]
+  x <- data.frame(id = character(),
+                  loc = character(),
+                  type = character(),
+                  stringsAsFactors = FALSE)
   
   for(i in unique(viz.data$viewID)){
     sub_data <- filter(viz.data, viewID == i)
@@ -13,7 +17,9 @@ visualize.viz_y_sessions <- function(viz = as.viz("viz_y_sessions")){
       group_by(date) %>%
       summarize(sessions = sum(sessions, na.rm = TRUE)) 
     
-    png(paste0("cache/visualize/",i,"_year.png")) 
+    location <- paste0("cache/visualize/",i,"_year.png")
+    
+    png(location) 
       par(oma=c(0,0,0,0),mar=c(8,4,8,1),las=1)
       plot(x = sub_data_year$date, sub_data_year$sessions, axes=FALSE, 
            type="l",xlab="",ylab="")
@@ -22,15 +28,14 @@ visualize.viz_y_sessions <- function(viz = as.viz("viz_y_sessions")){
       axis(2, at=c(0,max(sub_data_year$sessions)), 
            labels = c(0,max(sub_data_year$sessions)),tck = 0)
     dev.off()
+    
+    x <- bind_rows(x, data.frame(id = i,
+                                 loc = location,
+                                 type = "year_line",
+                                 stringsAsFactors = FALSE))
+    
   }
   
-  x <- data.frame(id = unique(viz.data$viewID),
-                  loc = paste0("cache/visualize/",
-                               unique(viz.data$viewID),
-                               "_year.png"),
-                  type = "year_line",
-                  stringsAsFactors = FALSE)
   write.csv(x, file=viz[["location"]], row.names = FALSE)
 
-  
 }
