@@ -88,6 +88,14 @@ process:
     depends: clean_up_raw
     reader: rds
     location: cache/process/device_type.rds
+  -
+    id: project_links
+    processor: projectlinks
+    scripts: ["scripts/process/projectlinks.R", "scripts/publish/utils.R"]
+    depends: project_table
+    reader: rds
+    publisher: none
+    location: cache/process/project_links.rds
 visualize:
   -
     id: viz_month_sessions
@@ -179,6 +187,7 @@ publish:
     name: index
     publisher: page
     template: fullpage
+    scripts: scripts/publish/
     depends:
       openSans: openSans
       header: header
@@ -198,16 +207,21 @@ publish:
   -
     id: projectPages
     publisher: projectpage
-    scripts: scripts/publish/projectpage.R
+    scripts: scripts/publish/
     template: layout/templates/details.mustache
     depends:
       header: header
       footer: footer
+      arrow: arrow
+      siteText: siteText
+      projects: project_list
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
       detailsCSS: detailsCSS
       footerCSS : footerCSS
-      details: details
+      jquery: jquery-js
+      appJS: app-js
+      openSans: openSans
       project_table: project_table
       viz_month_sessions: viz_month_sessions
       viz_y_sessions: viz_y_sessions
@@ -216,10 +230,28 @@ publish:
       viz_d_sessions: viz_d_sessions
       viz_device_type: viz_device_type
     context:
+      arrow: arrow
+      projects: projects
+      aboutThisReport: siteText.aboutThisReport
+      disclaimerTitle: siteText.disclaimerTitle
+      disclaimer1: siteText.disclaimer1
+      disclaimer2: siteText.disclaimer2
+      glossaryTitle: siteText.glossaryTitle
+      session: siteText.session
+      visitors: siteText.visitors
+      geographical: siteText.geographical
+      average: siteText.average
+      traffic: siteText.traffic
+      device: siteText.device
       header: header
       footer: footer
-      sections: [ "details" ]
-      resources: ["headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "appJS", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
+  -
+    id: project_list
+    publisher: projectlist
+    scripts: scripts/publish/
+    template: layout/templates/projects.mustache
+    depends: project_links
   -
     id: header
     publisher: section
@@ -230,9 +262,11 @@ publish:
     id: frontPage
     template: layout/templates/frontPage.mustache
     publisher: section
+    scripts: scripts/publish/
     depends:
       arrow: arrow
       siteText: siteText
+      projects: project_list
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -246,26 +280,7 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
-  -
-    id: details
-    template: layout/templates/details.mustache
-    publisher: section
-    depends:
-      arrow: arrow
-      siteText: siteText
-    context:
-      arrow: arrow
-      aboutThisReport: siteText.aboutThisReport
-      disclaimerTitle: siteText.disclaimerTitle
-      disclaimer1: siteText.disclaimer1
-      disclaimer2: siteText.disclaimer2
-      glossaryTitle: siteText.glossaryTitle
-      session: siteText.session
-      visitors: siteText.visitors
-      geographical: siteText.geographical
-      average: siteText.average
-      traffic: siteText.traffic
-      device: siteText.device
+      projects: projects
   -
     id: footer
     publisher: section
@@ -282,4 +297,3 @@ publish:
     id: app-js
     location: layout/js/app.js
     mimetype: text/javascript
-    
