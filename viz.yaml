@@ -380,9 +380,11 @@ publish:
       viz_device_type: viz_device_type
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
+      timeDayUse_app: timeDayUse_app
     context:
       arrow: arrow
       projects: projects
+      timeDayUse_app: timeDayUse_app
       aboutThisReport: siteText.aboutThisReport
       disclaimerTitle: siteText.disclaimerTitle
       disclaimer1: siteText.disclaimer1
