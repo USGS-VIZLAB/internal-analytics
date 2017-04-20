@@ -4,6 +4,7 @@ visualize.viz_y_sessions <- function(viz){
   
   height = viz[["height"]]
   width = viz[["width"]]
+  dpi = viz[["dpi"]]
   
   viz.data <- readDepends(viz)[["sessions_and_new_users"]]
   x <- data.frame(id = character(),
@@ -25,31 +26,41 @@ visualize.viz_y_sessions <- function(viz){
       summarize(sessions = sum(sessions, na.rm = TRUE)) 
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
-
+    
+    png(location, height = height, width = width)
+    
+    par(oma=c(0,0,0,0),
+        mar=c(2,3,2,1),
+        las=1, 
+        mgp = c(2,0.5,0),
+        tck=0.05)
+    
     if(nrow(sub_data_year) > 0){
       
-      gplot <- ggplot(data = sub_data_year, aes(x=date, y=sessions))
-      
       if(range_text == "-1 week"){
-        gplot <- gplot +
-          geom_line(aes(x=date, y=sessions)) +
-          geom_point() + geom_line()
+        plot(x = sub_data_year$date, 
+             sub_data_year$sessions, 
+             type="b",xlab="",ylab="",yaxt='n',
+             frame.plot = FALSE)
       } else {
-        gplot <- gplot +
-          geom_line()
+        plot(x = sub_data_year$date, 
+             sub_data_year$sessions, 
+             type="l",xlab="",ylab="",yaxt='n',
+             frame.plot = FALSE)
       }
 
     } else {
-      gplot <- ggplot(data = data.frame(date= 1, sessions = 1)) 
+      plot(1, axes=FALSE, 
+           type="n",xlab="",ylab="")
     }
       
-    gplot <- gplot +
-      theme_minimal() +
-      ylab("") + xlab("") +
-      labs(title = paste(range(sub_data_year$date), collapse = " to ")) +
-      theme(plot.title = element_text(size=7))
-    
-    ggsave(location, width = width, height = height, dpi = 72)
+    axis(1, at=c(par()$usr[1],par()$usr[2]), 
+         labels = c("",""),lwd.tick=0)
+    axis(2, at=c(0,max(sub_data_year$sessions)), 
+         labels = c(0,max(sub_data_year$sessions)),tck = 0)
+    title(main = paste0(range(sub_data_year$date), collapse = " to "), 
+            cex.main = 1, adj=0)
+    dev.off()
     
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
