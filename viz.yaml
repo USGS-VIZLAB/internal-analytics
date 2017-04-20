@@ -40,7 +40,15 @@ info:
     maps:
       repo: CRAN
       version: 3.1.1
-      
+    maptools:
+      repo: CRAN
+      version: 0.9-2
+    sp:
+      repo: CRAN
+      version: 1.2-4
+    tidyr:
+      repo: CRAN
+      version: 0.6.1
 fetch:
   -
     id: fetchGA_cida
@@ -220,61 +228,19 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_source.csv
   -
-    id: portfolio_year_sessions
-    visualizer: portfolio_sessions 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions.R
+    id: portfolio_sessions_all
+    visualizer: portfolio_sessions_all 
+    height: 8
+    width: 10
+    scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
-    rangetext: "-1 year"
+      sessions_and_new_users_daily: sessions_and_new_users_daily
     mimetype: image/png
     alttext: "Latest year sessions"
     title: "Latest year sessions"
-    location: figures/portfolio_year_sessions.png
-  -
-    id: portfolio_month_sessions
-    visualizer: portfolio_sessions 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions.R
-    depends: 
-      sessions_and_new_users: sessions_and_new_users
-      project_table: project_table
-    rangetext: "-1 month"
-    mimetype: image/png
-    alttext: "Latest month sessions"
-    title: "Latest month sessions"
-    location: figures/portfolio_month_sessions.png
-  -
-    id: portfolio_week_sessions
-    visualizer: portfolio_sessions 
-    scripts: scripts/visualize/portfolio_sessions.R
-    height: 480
-    width: 200
-    depends: 
-      sessions_and_new_users: sessions_and_new_users
-      project_table: project_table
-    rangetext: "-1 week"
-    mimetype: image/png
-    alttext: "Latest week sessions"
-    title: "Latest week sessions"
-    location: figures/portfolio_week_sessions.png
-  -
-    id: portfolio_day_sessions
-    visualizer: portfolio_sessions_day 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions_day.R
-    depends: 
-      sessions_and_new_users_daily: sessions_and_new_users_daily
-      project_table: project_table
-    rangetext: "-1 week"
-    mimetype: image/png
-    alttext: "Latest day sessions"
-    title: "Latest day sessions"
-    location: figures/portfolio_day_sessions.png
+    location: figures/portfolio_sessions_all.png
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
@@ -439,10 +405,7 @@ publish:
       arrow: arrow
       siteText: siteText
       projects: project_list
-      portfolio_year_sessions: portfolio_year_sessions
-      portfolio_month_sessions: portfolio_month_sessions
-      portfolio_week_sessions: portfolio_week_sessions
-      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_sessions_all: portfolio_sessions_all
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
@@ -460,10 +423,7 @@ publish:
       traffic: siteText.traffic
       device: siteText.device
       projects: projects
-      portfolio_year_sessions: portfolio_year_sessions
-      portfolio_month_sessions: portfolio_month_sessions
-      portfolio_week_sessions: portfolio_week_sessions
-      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_sessions_all: portfolio_sessions_all
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
