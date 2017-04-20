@@ -49,8 +49,22 @@ fetch:
     scripts: scripts/fetch/fetchGA.R
     location: cache/fetch/gaData.csv
     mimetype: text/csv
+    remoteFilename: 'gaData.csv'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE #check for newer data from GA, and upload to sciencebase if so?
+    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
+    useLocal: TRUE #Don't even download sciencebase file - overrides update
+    depends: 
+      project_table: project_table
+  -
+    id: fetchGA_nwis
+    login: nwis
+    fetcher: GAviews
+    scripts: scripts/fetch/fetchGA.R
+    location: cache/fetch/gaData_nwis.csv
+    mimetype: text/csv
+    remoteItemId: '58e56f3ce4b09da679997f7f'
+    update: FALSE
+    useLocal: TRUE
     depends:
       project_table: project_table
   -
@@ -67,31 +81,33 @@ fetch:
     mimetype: text/yaml
 process:
   -
-    id: clean_up_raw
-    processor: clean_up_raw 
-    scripts: scripts/process/clean_up_raw.R
-    depends: fetchGA_cida
+    id: aggregate_ga
+    processor: aggregate_ga
+    scripts: scripts/process/aggregate.R
+    depends: 
+      cida: fetchGA_cida
+      nwis: fetchGA_nwis
     mimetype: text/csv
-    location: cache/process/clean_up_raw.csv
+    location: cache/process/aggregate_ga.csv
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 
     scripts: scripts/process/sessions_and_new_users.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users.rds
   -
     id: sessions_and_new_users_daily
     processor: sessions_and_new_users_daily 
     scripts: scripts/process/sessions_and_new_users_daily.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users_daily.rds
   -
     id: device_type
     processor: device_type 
     scripts: scripts/process/device_type.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     reader: rds
     location: cache/process/device_type.rds
   -
@@ -106,7 +122,7 @@ process:
     id: source_counts
     processor: source_counts 
     scripts: scripts/process/source_counts.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     rangetext: "-1 month"
     reader: rds
     location: cache/process/source_counts.rds
@@ -114,7 +130,7 @@ process:
     id: geo_apps
     processor: geo_apps 
     scripts: scripts/process/geo_apps.R
-    depends: clean_up_raw
+    depends: aggregate_ga
     rangetext: "-1 month"
     reader: rds
     location: cache/process/geo_apps.rds
