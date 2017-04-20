@@ -183,7 +183,7 @@ visualize:
     scripts: scripts/visualize/viz_d_sessions.R
     depends: sessions_and_new_users_daily
     height: 200
-    width: 480
+    width: 600
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
