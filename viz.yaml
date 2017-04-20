@@ -49,6 +49,9 @@ info:
     tidyr:
       repo: CRAN
       version: 0.6.1
+    googleAuthR:
+      repo: CRAN
+      version: 0.4.0
 fetch:
   -
     id: fetchGA_cida
