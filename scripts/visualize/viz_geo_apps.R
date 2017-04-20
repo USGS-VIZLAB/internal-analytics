@@ -4,7 +4,8 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
   library(maps)
   
   viz.data <- readDepends(viz)[["geo_apps"]]
-  
+  height = viz[["height"]]
+  width = viz[["width"]]
   x <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
@@ -50,7 +51,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
               axis.title = element_blank())
     }
     
-    ggsave(map_plot, filename = location)
+    ggsave(map_plot, filename = location, height = height, width = width, units = "in")
 
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,

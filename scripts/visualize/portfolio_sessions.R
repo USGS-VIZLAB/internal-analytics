@@ -2,6 +2,8 @@ visualize.portfolio_sessions <- function(viz){
   library(dplyr)
   
   deps <- readDepends(viz)
+  height = viz[["height"]]
+  width = viz[["width"]]
   viz.data <- deps[["sessions_and_new_users"]]
   ga_table <- deps[["project_table"]] 
   ga_table$viewID <- as.character(ga_table$viewID)
@@ -21,8 +23,8 @@ visualize.portfolio_sessions <- function(viz){
   
   dater <- t(as.matrix(summary_sessions[,c("newUsers", "oldUsers")]))
   
-  png(viz[["location"]])
-    par(las=1)
+  png(viz[["location"]], height = height, width = width)
+    par(las=1, oma=c(0,0,0,0))
     barplot(dater, horiz = TRUE,
             names.arg = summary_sessions$shortName)
   dev.off()

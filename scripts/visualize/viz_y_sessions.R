@@ -1,5 +1,10 @@
 visualize.viz_y_sessions <- function(viz){
   library(dplyr)
+  library(ggplot2)
+  
+  height = viz[["height"]]
+  width = viz[["width"]]
+  dpi = viz[["dpi"]]
   
   viz.data <- readDepends(viz)[["sessions_and_new_users"]]
   x <- data.frame(id = character(),
@@ -22,33 +27,45 @@ visualize.viz_y_sessions <- function(viz){
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
+    png(location, height = height, width = width)
+    
+    par(oma=c(0,0,0,0),
+        mar=c(2,3,2,1),
+        las=1, 
+        mgp = c(2,0.5,0),
+        tck=0.05)
+    
     if(nrow(sub_data_year) > 0){
       
-      png(location) 
-      par(oma=c(0,0,0,0),mar=c(8,4,8,1),las=1)
-      plot(x = sub_data_year$date, sub_data_year$sessions, axes=FALSE, 
-           type="l",xlab="",ylab="")
-      axis(1, at=c(0,max(sub_data_year$date)), 
-           labels = c("",""),tck = 0)
-      axis(2, at=c(0,max(sub_data_year$sessions)), 
-           labels = c(0,max(sub_data_year$sessions)),tck = 0)
-      dev.off()
+      if(range_text == "-1 week"){
+        plot(x = sub_data_year$date, 
+             sub_data_year$sessions, 
+             type="b",xlab="",ylab="",yaxt='n',
+             frame.plot = FALSE)
+      } else {
+        plot(x = sub_data_year$date, 
+             sub_data_year$sessions, 
+             type="l",xlab="",ylab="",yaxt='n',
+             frame.plot = FALSE)
+      }
+
     } else {
-      png(location) 
-      par(oma=c(0,0,0,0),mar=c(8,4,8,1),las=1)
-        plot(1, axes=FALSE, 
-             type="n",xlab="",ylab="")
-        axis(1, at=c(0,10), 
-             labels = c("",""),tck = 0)
-        axis(2, at=c(0,10), 
-             labels = c(0,10),tck = 0)      
-      dev.off()
+      plot(1, axes=FALSE, 
+           type="n",xlab="",ylab="")
     }
       
-      x <- bind_rows(x, data.frame(id = i,
-                                   loc = location,
-                                   type = plot_type,
-                                   stringsAsFactors = FALSE))      
+    axis(1, at=c(par()$usr[1],par()$usr[2]), 
+         labels = c("",""),lwd.tick=0)
+    axis(2, at=c(0,max(sub_data_year$sessions)), 
+         labels = c(0,max(sub_data_year$sessions)),tck = 0)
+    title(main = paste0(range(sub_data_year$date), collapse = " to "), 
+            cex.main = 1, adj=0)
+    dev.off()
+    
+    x <- bind_rows(x, data.frame(id = i,
+                                 loc = location,
+                                 type = plot_type,
+                                 stringsAsFactors = FALSE))      
 
   }
   
