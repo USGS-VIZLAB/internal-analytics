@@ -40,6 +40,9 @@ info:
     maps:
       repo: CRAN
       version: 3.1.1
+    googleAuthR:
+      repo: CRAN
+      version: 0.4.0
       
 fetch:
   -
@@ -51,8 +54,8 @@ fetch:
     mimetype: text/csv
     remoteFilename: 'gaData.csv'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: TRUE #Don't even download sciencebase file - overrides update
+    update: TRUE #check for newer data from GA, and upload to sciencebase if there is
+    useLocal: FALSE #Don't even download sciencebase file - overrides update
     depends: 
       project_table: project_table
   -

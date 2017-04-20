@@ -1,5 +1,6 @@
 #fetch Google Analytics data for all viewIDs supplied
 library(googleAnalyticsR)
+library(googleAuthR)
 library(dplyr)
 library(data.table)
 library(sbtools)
@@ -18,7 +19,7 @@ fetch.GAviews <- function(viz) {
     message('Downloaded SB file')
     
     if(viz[['update']]) {
-      masterTable <- fread('data/ga_table.csv', colClasses = "character")
+      masterTable <- readDepends(viz)[['project_table']]
       masterTable <- filter(masterTable, login == viz[['login']])
       #check if it is up to date (has yesterday's data) for each ID
       fileDF <- fread(viz[['location']], colClasses = c(viewID = "character", year = "character",
@@ -39,7 +40,7 @@ fetch.GAviews <- function(viz) {
       if(nrow(needToUpdate) > 0) {
         message("Sciencebase file is out of date, updating from GA")
         new_GA_DF <- data.frame()
-        ga_auth() #need to already have token 
+        gar_auth_service(file.path(Sys.getenv("HOME"), ".vizlab/VIZLAB-a48f4107248c.json"))
         for(i in 1:nrow(needToUpdate)) { 
           #NOTE: only want to pull full days, so don't pull today's data!  
           #this way we can just append the new data without having overlap
