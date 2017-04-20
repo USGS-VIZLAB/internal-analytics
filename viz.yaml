@@ -207,6 +207,16 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_geo_apps.csv
   -
+    id: timeDayUse_app
+    visualizer: timeDayUse_app 
+    scripts: scripts/visualize/timeDayUse.R
+    depends: aggregate_ga
+    plottype: app_hist
+    height: 3
+    width: 3
+    mimetype: text/csv
+    location: cache/visualize/timeDayUse_apps.csv
+  -
     id: viz_device_type
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
