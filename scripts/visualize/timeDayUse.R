@@ -12,7 +12,7 @@ visualize.timeDayUse_all <- function(viz) {
   dev.off()
 }
 
-visualize.timeDayUse_app <- function(viz) {
+visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
   
   viz.data <- readDepends(viz)[["aggregate_ga"]]
   height = viz[["height"]]

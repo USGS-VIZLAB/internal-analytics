@@ -215,8 +215,8 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: aggregate_ga
     plottype: app_hist
-    height: 3
-    width: 3
+    height: 600
+    width: 600
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
   -
