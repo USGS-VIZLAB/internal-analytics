@@ -40,6 +40,9 @@ info:
     maps:
       repo: CRAN
       version: 3.1.1
+    googleAuthR:
+      repo: CRAN
+      version: 0.4.0
       
 fetch:
   -
