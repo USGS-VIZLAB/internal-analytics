@@ -1,9 +1,13 @@
 #portfolio-wide
 library(dplyr)
-visualize.timeDayUse_all <- function(viz) {
-  viz.data <- readDepends(viz)[["sessions_and_new_users"]] #not sure which
+visualize.timeDayUse_all <- function(viz=as.viz("timeDayUse_port")) {
+  viz.data <- readDepends(viz)[["aggregate_ga"]] #not sure which
   hourSum <- group_by(viz.data, hour) %>% summarise(n = n()) #need to set to numeric?
-  png("cache/visualize/timeDayUse_all.png")
+  height = viz[["height"]]
+  width = viz[["width"]]
+  
+  png(viz[["location"]], height = height, width=width)
+
   plot(hourSum$hour, hourSum$n, type = "l", xlab = "Hour of Day", 
        ylab = "Sessions", main = "Portfolio-wide sessions, sum total per hour for all apps", 
        xaxt = "n", lwd = 2, col = "blue")

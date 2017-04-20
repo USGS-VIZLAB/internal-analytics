@@ -220,6 +220,18 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
   -
+    id: timeDayUse_port
+    visualizer: timeDayUse_all 
+    scripts: scripts/visualize/timeDayUse.R
+    depends: aggregate_ga
+    plottype: app_hist
+    height: 600
+    width: 600
+    mimetype: image/png
+    alttext: "timeDayUse"
+    title: "timeDayUse"
+    location: figures/timeDayUse.png
+  -
     id: viz_device_type
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
@@ -384,7 +396,6 @@ publish:
     context:
       arrow: arrow
       projects: projects
-      timeDayUse_app: timeDayUse_app
       aboutThisReport: siteText.aboutThisReport
       disclaimerTitle: siteText.disclaimerTitle
       disclaimer1: siteText.disclaimer1
@@ -424,6 +435,7 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
+      timeDayUse_port: timeDayUse_port
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -442,6 +454,7 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
+      timeDayUse_port: timeDayUse_port
   -
     id: footer
     publisher: section

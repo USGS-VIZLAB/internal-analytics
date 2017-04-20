@@ -14,7 +14,8 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     day_line_sessions = deps[['viz_d_sessions']],
     device_type = deps[['viz_device_type']],
     source_counts = deps[['viz_source']],
-    viz_geo_apps = deps[["viz_geo_apps"]]
+    viz_geo_apps = deps[["viz_geo_apps"]],
+    timeDayUse_app = deps[["timeDayUse_app"]]
   )
   
   for (proj in projects) {
@@ -53,7 +54,8 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           day_line_sessions = proj.imgs[['day_line_sessions']],
           device_type = proj.imgs[['device_type']],
           source_counts = proj.imgs[['source_counts']],
-          viz_geo_apps = proj.imgs[["viz_geo_apps"]]
+          viz_geo_apps = proj.imgs[["viz_geo_apps"]],
+          timeDayUse_app = proj.imgs[["timeDayUse_app"]]
       ))
     )
     contents <- as.viz(contents)
