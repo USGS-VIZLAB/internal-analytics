@@ -1,7 +1,7 @@
 process.geo_apps <- function(viz = as.viz("geo_apps")){
   library(dplyr)
   
-  viz.data <- readDepends(viz)[["clean_up_raw"]]
+  viz.data <- readDepends(viz)[["aggregate_ga"]]
   
   range_text <- viz[["rangetext"]]
   
