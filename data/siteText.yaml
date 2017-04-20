@@ -1,7 +1,6 @@
 aboutThisReport: |
-  Many USGS Water websites and web applications use Google Analytics (GA) to track and report web traffic. 
-  With this report, you can compare traffic across a number of USGS Water web applications and see individual 
-  application traffic details. The GA API is used to update data on a daily basis. 
+  This report summarizes web traffic across a subset of USGS Water data delivery applications using Google Analytics. A summary across all applications
+  and information on individual applications are available. Data are updated on a daily basis. 
 
 disclaimerTitle: "Disclaimer"
 
@@ -10,14 +9,16 @@ disclaimer1: |
 
   Web applications included in this report have used GA for varying periods of time; therefore retrospective analysis 
   may be limited by the GA history available for any given website or application.
+  
+  Web service calls (such as a user accessing data through the NWIS API) are not included in this report; only user visits 
+  to websites are tracked.
 
 disclaimer2: |  
   [Bot Filtering](https://support.google.com/analytics/answer/1010249?hl=en) is a function that removes traffic attributed 
   to automated crawlers (not real users) from web traffic tracking and reporting. Until recently bot filtering was used 
   inconsistently across projects included in this report. Bots and spiders may artificially inflate the reported traffic 
   for a website; reported data from low traffic websites without bot filtering enabled should be used with caution.  
-  Web service calls (such as a user accessing data through the NWIS API) are not included in this report; only user visits 
-  to websites are tracked.
+
   
 glossaryTitle: "Google Analytics Glossary"
 
@@ -33,7 +34,7 @@ visitors: |
   
 geographical: |
   [Geographical data](https://support.google.com/analytics/answer/6160484?hl=en): 
-  Geographical data are obtained from IP-based locations and is approximate. 
+  Geographical data are obtained from IP-based locations and are approximate. 
 
 average: |
   [Average time on page](http://help.analyticsedge.com/googleanalytics/misunderstood-metrics-time-on-page-session-duration/): 
