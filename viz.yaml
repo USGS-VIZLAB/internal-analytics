@@ -198,7 +198,7 @@ visualize:
   -
     id: viz_geo_apps
     visualizer: viz_geo_apps 
-    scripts: scripts/visualize/viz_geo_apps.R
+    scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
     height: 3

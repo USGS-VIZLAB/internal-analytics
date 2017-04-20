@@ -9,6 +9,132 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   height = viz[["height"]]
   width = viz[["width"]]
   
+  states.out <- get_map_stuff()
+
+  region_summary <- data.frame(table(viz.data$region), stringsAsFactors = FALSE)  %>%
+    arrange(desc(Freq)) %>%
+    mutate(region = tolower(Var1)) %>%
+    select(-Var1) %>%
+    right_join(data.frame(region = names(states.out), stringsAsFactors = FALSE), by="region") 
+  
+  if(nrow(region_summary) > 0){
+
+    sf.points <- fortify(states.out, region="region")
+    sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))
+
+    gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
+      coord_equal() +
+      geom_polygon(colour="white", size=0.1, alpha = 0.75,
+                   aes(group=group)) +
+      theme_minimal() +
+      theme(panel.grid = element_blank(),
+            axis.text = element_blank(),
+            axis.title = element_blank(),
+            legend.position="bottom",
+            legend.title = element_blank(),
+            legend.key.size = unit(0.25, "cm"),
+            legend.key.width = unit(2, "cm")) +
+      scale_fill_gradient(na.value = 'transparent',
+                          low = "white", high = "steelblue")
+    
+    
+  } else {
+    gsMap <- ggplot(states.out,aes(x=long, y=lat)) + 
+      coord_equal() +
+      geom_polygon(colour="white", size=0.1, alpha = 0.75,
+                   aes(group=group)) +
+      theme_minimal() +
+      theme(panel.grid = element_blank(),
+            axis.text = element_blank(),
+            axis.title = element_blank())
+  }
+  
+  ggsave(gsMap, filename = viz[["location"]], height = height, width = width)
+  
+}
+
+visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
+  library(dplyr)
+  library(maptools)
+  library(maps)
+  library(sp)
+  library(ggplot2)
+  
+  viz.data <- readDepends(viz)[["geo_apps"]]
+  height = viz[["height"]]
+  width = viz[["width"]]
+  
+  x <- data.frame(id = character(),
+                  loc = character(),
+                  type = character(),
+                  stringsAsFactors = FALSE)
+  
+  plot_type <- viz[["plottype"]]
+  
+  states.out <- get_map_stuff()
+  
+  for(i in unique(viz.data$viewID)){
+    
+    sub_data <- filter(viz.data, viewID == i)
+    
+    region_summary <- data.frame(table(sub_data$region), stringsAsFactors = FALSE)  %>%
+      arrange(desc(Freq)) %>%
+      mutate(region = tolower(Var1)) %>%
+      select(-Var1) 
+    
+    location <- paste0("cache/visualize/",i,"_",plot_type,".png")
+    
+    if(nrow(region_summary) > 0){
+
+      sf.points <- fortify(states.out, region="region")
+      sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))
+      
+      gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
+        coord_equal() +
+        geom_polygon(colour="white", size=0.1, alpha = 0.75,
+                     aes(group=group)) +
+        theme_minimal() +
+        theme(panel.grid = element_blank(),
+              axis.text = element_blank(),
+              axis.title = element_blank(),
+              legend.position="bottom",
+              legend.title = element_blank(),
+              legend.key.size = unit(0.25, "cm"),
+              legend.key.width = unit(2, "cm")) +
+        scale_fill_gradient(na.value = 'transparent',
+                            low = "white", high = "steelblue")
+      
+      
+    } else {
+      gsMap <- ggplot(states.out,aes(x=long, y=lat)) + 
+        coord_equal() +
+        geom_polygon(colour="white", size=0.1, alpha = 0.75,
+                     aes(group=group)) +
+        theme_minimal() +
+        theme(panel.grid = element_blank(),
+              axis.text = element_blank(),
+              axis.title = element_blank())
+    }
+    
+    ggsave(gsMap, filename = location, height = height, width = width)
+    
+    x <- bind_rows(x, data.frame(id = i,
+                                 loc = location,
+                                 type = plot_type,
+                                 stringsAsFactors = FALSE))      
+    
+  }
+  
+  write.csv(x, file=viz[["location"]], row.names = FALSE)
+  
+}
+
+
+get_map_stuff <- function(){
+  library(maptools)
+  library(maps)
+  library(sp)
+  
   proj.string <- "+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs"
   
   to_sp <- function(...){
@@ -62,7 +188,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   states.out <- conus
   
   wgs84 <- "+init=epsg:4326"
-
+  
   
   for(i in names(move_variables)){
     shifted <- do.call(shift_sp, c(sp = stuff_to_move[[i]], 
@@ -72,48 +198,6 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
     states.out <- rbind(shifted, states.out, makeUniqueIDs = TRUE)
     
   }
-
-  region_summary <- data.frame(table(viz.data$region), stringsAsFactors = FALSE)  %>%
-    arrange(desc(Freq)) %>%
-    mutate(region = tolower(Var1)) %>%
-    select(-Var1) %>%
-    right_join(data.frame(region = names(states.out), stringsAsFactors = FALSE), by="region") 
   
-  if(nrow(region_summary) > 0){
-
-    sp_fill <- SpatialPolygonsDataFrame(states.out,
-                                        data=data.frame(row.names=region_summary$region,
-                                                        fill_col = region_summary$Freq))
-    sf.points <- fortify(states.out, region="region")
-    sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))
-
-    gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
-      coord_equal() +
-      geom_polygon(colour="white", size=0.1, alpha = 0.75,
-                   aes(group=group)) +
-      theme_minimal() +
-      theme(panel.grid = element_blank(),
-            axis.text = element_blank(),
-            axis.title = element_blank(),
-            legend.position="bottom",
-            legend.title = element_blank(),
-            legend.key.size = unit(0.25, "cm"),
-            legend.key.width = unit(2, "cm")) +
-      scale_fill_gradient(na.value = 'transparent',
-                          low = "white", high = "steelblue")
-    
-    
-  } else {
-    gsMap <- ggplot(states.out,aes(x=long, y=lat)) + 
-      coord_equal() +
-      geom_polygon(colour="white", size=0.1, alpha = 0.75,
-                   aes(group=group)) +
-      theme_minimal() +
-      theme(panel.grid = element_blank(),
-            axis.text = element_blank(),
-            axis.title = element_blank())
-  }
-  
-  ggsave(gsMap, filename = viz[["location"]], height = height, width = width)
-  
+  return(states.out)
 }
