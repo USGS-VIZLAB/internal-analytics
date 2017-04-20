@@ -125,8 +125,8 @@ visualize:
     scripts: scripts/visualize/viz_month_sessions.R
     depends: sessions_and_new_users
     mimetype: text/csv
-    height: 200
-    width: 200
+    height: 480
+    width: 480
     location: cache/visualize/viz_month_sessions.csv
   -
     id: viz_y_sessions
