@@ -297,6 +297,12 @@ publish:
     title: "USGS"
     alttext: "USGS Logo"
   -
+    id: missingImg
+    location: "images/missing-01.png"
+    mimetype: image/png
+    title: "Missing"
+    alttext: "Missing data"
+  -
     id: index
     name: index
     publisher: page
