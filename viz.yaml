@@ -58,12 +58,12 @@ fetch:
     login: cida #only fetch CIDA acct views
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
-    location: cache/fetch/gaData.csv
-    mimetype: text/csv
-    remoteFilename: 'gaData.csv'
+    location: cache/fetch/gaData.rds
+    reader: rds
+    remoteFilename: 'gaData.rds'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: TRUE #Don't even download sciencebase file - overrides update
+    update: TRUE #check for newer data from GA, and upload to sciencebase if there is
+    useLocal: FALSE #Don't even download sciencebase file - overrides update
     depends: 
       project_table: project_table
   -
@@ -71,9 +71,10 @@ fetch:
     login: nwis
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
-    location: cache/fetch/gaData_nwis.csv
-    mimetype: text/csv
+    location: cache/fetch/gaData_nwis.rds
+    reader: rds
     remoteItemId: '58e56f3ce4b09da679997f7f'
+    remoteFilename: 'gaData_nwis.rds'
     update: FALSE
     useLocal: TRUE
     depends:
@@ -98,8 +99,8 @@ process:
     depends: 
       cida: fetchGA_cida
       nwis: fetchGA_nwis
-    mimetype: text/csv
-    location: cache/process/aggregate_ga.csv
+    reader: rds
+    location: cache/process/aggregate_ga.rds
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 
@@ -145,6 +146,7 @@ process:
     rangetext: "-1 month"
     reader: rds
     location: cache/process/geo_apps.rds
+
 visualize:
   -
     id: viz_month_sessions
