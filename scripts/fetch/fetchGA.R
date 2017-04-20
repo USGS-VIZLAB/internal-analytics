@@ -70,6 +70,11 @@ fetch.GAviews <- function(viz) {
         message("Sciencebase file is up to date, using that")
       }
     } else {message("update set to false in viz.yaml, using Sciencebase file")}
-  } else {message("useLocal = TRUE, not downloading anything")}
+  } else {message("useLocal = TRUE, not downloading anything")
+      if(!file.exists(viz[['location']])) {
+        stop("You don't have any local data!  Set useLocal = FALSE to download
+             from Sciencebase")
+      }
+    }
 }
 
