@@ -8,7 +8,6 @@
   			    {{{arrow}}}
   			  </div>
   			</h4>
-  			
         {{{projects}}}
 		  </div>
 		</div>
@@ -32,7 +31,7 @@
 	<div class="topHalf flexContainer">
 		<div id="project" class="flex1">
 			<div id="projectName" class="topicHeader">
-				<h2>Project Name</h2>
+				<h2>{{project_name}}</h2>
 			</div>
 			<div id="projectLineChart">
 				<div id="yearLineChart" class="lineChart">
@@ -63,9 +62,11 @@
 		</div>
 		<div id="monthlyInteractions" class="flex1">
 			<div class="topicHeader">
-				<h2>Interactions: Previous Month</h2>
+				<h2>Time-of-Day Activity</h2>
 			</div>
-			<div id="pageStats" class="box"></div>
+			<div id="pageStats" class="box">
+			{{{timeDayUse_app}}}
+			</div>
 		</div>
 	</div>
 	<div class="bottomHalf flexContainer">

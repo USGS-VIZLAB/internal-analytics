@@ -1,13 +1,14 @@
 process.aggregate_ga <- function(viz) {
   library(dplyr)
   library(data.table)
+  library(lubridate)
   viz.data <- readDepends(viz) #list of all depends
   allDataDF <- do.call("bind_rows", viz.data)
   
-  #drop data before 2014 we aren't using right now
+  #drop data before longer than a year ago
   allDataDF <- allDataDF %>% mutate(date = as.Date(date)) %>% 
-              filter(date > as.Date("2014-01-01"))
+              filter(date > (max(date) - duration(1, "year")))
   
   #add dateTime
-  fwrite(allDataDF, file=viz[["location"]], quote = TRUE, row.names = FALSE)
+  saveRDS(object = allDataDF, file=viz[["location"]])
 }

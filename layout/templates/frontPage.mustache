@@ -37,31 +37,8 @@
     </div>
     <div id="Timelines" class="flexContainer">
       <div id="year" class="sessionTimeline flex1 box">
-        <h3>Annual</h3>
-        <p>{{year1}} - {{year2}}</p>
         <div class="timelinePlot">
-        {{{portfolio_year_sessions}}}
-        </div>
-      </div>
-      <div id="month" class="sessionTimeline flex1 box">
-        <h3>Month</h3>
-        <p>{{month1}} - {{month2}}</p>
-        <div class="timelinePlot">
-        {{{portfolio_month_sessions}}}
-        </div>
-      </div>
-      <div id="week" class="sessionTimeline flex1 box">
-        <h3>Week</h3>
-        <p>{{week1}} - {{week2}}</p>
-        <div class="timelinePlot">
-        {{{portfolio_week_sessions}}}
-        </div>
-      </div>
-      <div id="day" class="sessionTimeline flex1 box">
-        <h3>Day</h3>
-        <p>-</p>
-        <div class="timelinePlot">
-        {{{portfolio_day_sessions}}}
+          {{{portfolio_sessions_all}}}
         </div>
       </div>
     </div>
@@ -87,6 +64,9 @@
       </div>
       <div id="traffic" class="box">
       {{{portfolio_source}}}
+      </div>
+      <div id="timeDay" class="box">
+      {{{timeDayUse_port}}}
       </div>
     </div>
   </div>
