@@ -37,7 +37,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
                   type = character(),
                   stringsAsFactors = FALSE)
   
-  range_days = rev(seq(Sys.Date(), length = 2, by = range_text))
+  range_days = rev(seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text))
   
   for(i in unique(viz.data$viewID)) {
     location <- paste0("cache/visualize/timeDayUse_", i, ".png")
