@@ -58,7 +58,7 @@ visualize.viz_y_sessions <- function(viz){
          labels = c("",""),lwd.tick=0)
     axis(2, at=c(0,max(sub_data_year$sessions)), 
          labels = c(0,max(sub_data_year$sessions)),tck = 0)
-    title(main = paste0(range(sub_data_year$date), collapse = " to "), 
+    title(main = paste0(rev(range(sub_data_year$date)), collapse = " to "), 
             cex.main = 1, adj=0)
     dev.off()
     

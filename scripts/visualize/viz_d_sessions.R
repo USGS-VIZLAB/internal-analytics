@@ -43,7 +43,7 @@ visualize.viz_d_sessions <- function(viz){
          labels = c("",""),lwd.tick=0)
     axis(2, at=c(par()$usr[3],max(sub_data$sessions)), 
          labels = c("",max(sub_data$sessions)),tck = 0)
-    title(main = paste0(range(sub_data$dateTime), collapse = " to "), 
+    title(main = paste0(rev(range(sub_data$dateTime)), collapse = " to "), 
           cex.main = 1, adj=0)
     dev.off()
     x <- bind_rows(x, data.frame(id = i,
