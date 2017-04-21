@@ -7,7 +7,7 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
   width = viz[["width"]]
   
   viz.data <- viz.data %>%
-    filter(date >= seq(Sys.Date(), length = 2, by = "-1 months")[2])
+    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = "-1 months")[2])
   
   for(i in unique(viz.data$viewID)){
     sub_data <- filter(viz.data, viewID == i)
