@@ -24,25 +24,27 @@ visualize.viz_d_sessions <- function(viz){
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
     png(location, width = width, height = height)
+    par(oma=c(0,0,0,0),
+        mar=c(2,3,2,1),
+        las=1, 
+        mgp = c(2,0.5,0),
+        tck=0.05)
     
     if(nrow(sub_data) > 0){
-      par(oma=c(0,0,0,0),las=1)
-      plot(x = sub_data$dateTime, sub_data$sessions, axes=FALSE, 
-           type="b",xlab="",ylab="")
-      axis(1, at=c(0,max(sub_data$dateTime)), 
-           labels = c("",""),tck = 0)
-      axis(2, at=c(0,max(sub_data$sessions)), 
-           labels = c(0,max(sub_data$sessions)),tck = 0)
-
+      plot(x = sub_data$dateTime, 
+           sub_data$sessions, 
+           type="b",xlab="",ylab="",yaxt='n',
+           frame.plot = FALSE)
     } else { 
-      par(oma=c(0,0,0,0),las=1)
       plot(1, axes=FALSE, 
            type="n",xlab="",ylab="")
-      axis(1, at=c(0,10), 
-           labels = c("",""),tck = 0)
-      axis(2, at=c(0,10), 
-           labels = c(0,10),tck = 0)      
     }
+    axis(1, at=c(par()$usr[1],par()$usr[2]), 
+         labels = c("",""),lwd.tick=0)
+    axis(2, at=c(par()$usr[3],max(sub_data$sessions)), 
+         labels = c("",max(sub_data$sessions)),tck = 0)
+    title(main = paste0(range(sub_data$dateTime), collapse = " to "), 
+          cex.main = 1, adj=0)
     dev.off()
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,

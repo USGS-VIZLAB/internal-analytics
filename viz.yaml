@@ -46,15 +46,36 @@ info:
     sp:
       repo: CRAN
       version: 1.2-4
+<<<<<<< HEAD
+=======
+    rgeos:
+      repo: CRAN
+      version: 0.3-22
+    rgdal:
+      repo: CRAN
+      version: 1.2-5
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     tidyr:
       repo: CRAN
       version: 0.6.1
     googleAuthR:
       repo: CRAN
       version: 0.4.0
+<<<<<<< HEAD
     lubridate:
       repo: CRAN
       version: 1.6.0
+=======
+    yaml:
+      repo: CRAN
+      version: 2.1.14
+    lubridate:
+      repo: CRAN
+      version: 1.6.0
+    gridExtra:
+      repo: CRAN
+      version: 2.2.1
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
 fetch:
   -
     id: fetchGA_cida
@@ -94,12 +115,6 @@ fetch:
     scripts:
     reader: md
     mimetype: text/yaml
-  -
-    id: lastUpdatedGA
-    location: data/lastUpdated.yaml
-    scripts:
-    reader: md
-    mimetype: text/yaml
 process:
   -
     id: aggregate_ga
@@ -110,6 +125,15 @@ process:
       nwis: fetchGA_nwis
     reader: rds
     location: cache/process/aggregate_ga.rds
+  -
+    id: lastUpdated
+    processor: lastUpdated
+    location: cache/process/lastUpdated.yaml
+    scripts: scripts/process/lastUpdated.R
+    depends:
+      data: aggregate_ga
+    mimetype: text/yaml
+    reader: md # need a better plain text reader
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 
@@ -174,7 +198,7 @@ visualize:
     rangetext: "-1 year"
     plottype: year_line
     height: 200
-    width: 600
+    width: 800
     mimetype: text/csv
     location: cache/visualize/viz_y_sessions.csv
   -
@@ -184,7 +208,7 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 month"
     height: 200
-    width: 600
+    width: 800
     plottype: month_line
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
@@ -195,7 +219,7 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 week"
     height: 200
-    width: 600
+    width: 800
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
@@ -205,7 +229,11 @@ visualize:
     scripts: scripts/visualize/viz_d_sessions.R
     depends: sessions_and_new_users_daily
     height: 200
+<<<<<<< HEAD
     width: 600
+=======
+    width: 800
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
@@ -226,6 +254,10 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: aggregate_ga
     plottype: app_hist
+<<<<<<< HEAD
+=======
+    rangetext: "-1 month"
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     height: 600
     width: 600
     mimetype: text/csv
@@ -277,6 +309,33 @@ visualize:
     alttext: "Latest year sessions"
     title: "Latest year sessions"
     location: figures/portfolio_sessions_all.png
+<<<<<<< HEAD
+=======
+  -
+    id: portfolio_time
+    visualizer: portfolio_time 
+    height: 500
+    width: 500
+    scripts: scripts/visualize/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: image/png
+    alttext: "portfolio_time"
+    title: "portfolio_time"
+    location: figures/portfolio_time.png
+  -
+    id: app_time
+    visualizer: app_time 
+    height: 500
+    width: 500
+    rangetext: "-1 month"
+    plottype: mean_time
+    scripts: scripts/visualize/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: text/csv
+    location: cache/visualize/viz_time.csv
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
@@ -393,8 +452,12 @@ publish:
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
       timeDayUse_app: timeDayUse_app
+<<<<<<< HEAD
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
+=======
+      app_time: app_time
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
@@ -422,6 +485,7 @@ publish:
       siteText: siteText
       projects: project_list
       portfolio_sessions_all: portfolio_sessions_all
+<<<<<<< HEAD
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
@@ -432,10 +496,13 @@ publish:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
+=======
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
+<<<<<<< HEAD
   -
     id: sideBar
     publisher: section
@@ -452,6 +519,9 @@ publish:
     template: layout/templates/text.mustache
     depends:
       siteText: siteText
+=======
+      portfolio_time: portfolio_time
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     context:
       aboutThisReport: siteText.aboutThisReport
       disclaimerTitle: siteText.disclaimerTitle
@@ -464,16 +534,26 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
+<<<<<<< HEAD
+=======
+      projects: projects
+      portfolio_sessions_all: portfolio_sessions_all
+      portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
+      viz_geo_portfolio: viz_geo_portfolio
+      timeDayUse_port: timeDayUse_port
+      portfolio_time: portfolio_time
+>>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
   -
     id: footer
     publisher: section
     template: layout/templates/footer.mustache
     depends: 
       usgsLogo: usgsLogo
-      lastUpdatedGA: lastUpdatedGA
+      lastUpdatedGA: lastUpdated
     context:
       usgsLogo: usgsLogo
-      lastUpdatedGA: lastUpdatedGA.lastUpdated
+      lastUpdatedGA: lastUpdatedGA.time
   -
     id: jquery-js
     location: layout/js/jquery.min.js
