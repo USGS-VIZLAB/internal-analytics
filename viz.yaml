@@ -55,6 +55,9 @@ info:
     lubridate:
       repo: CRAN
       version: 1.6.0
+    gridExtra:
+      repo: CRAN
+      version: gridExtra
 fetch:
   -
     id: fetchGA_cida
@@ -174,7 +177,7 @@ visualize:
     rangetext: "-1 year"
     plottype: year_line
     height: 200
-    width: 600
+    width: 800
     mimetype: text/csv
     location: cache/visualize/viz_y_sessions.csv
   -
@@ -184,7 +187,7 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 month"
     height: 200
-    width: 600
+    width: 800
     plottype: month_line
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
@@ -195,7 +198,7 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 week"
     height: 200
-    width: 600
+    width: 800
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
@@ -205,7 +208,7 @@ visualize:
     scripts: scripts/visualize/viz_d_sessions.R
     depends: sessions_and_new_users_daily
     height: 200
-    width: 600
+    width: 800
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
@@ -226,6 +229,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: aggregate_ga
     plottype: app_hist
+    rangetext: "-1 month"
     height: 600
     width: 600
     mimetype: text/csv
@@ -277,6 +281,30 @@ visualize:
     alttext: "Latest year sessions"
     title: "Latest year sessions"
     location: figures/portfolio_sessions_all.png
+  -
+    id: portfolio_time
+    visualizer: portfolio_time 
+    height: 500
+    width: 500
+    scripts: scripts/visualize/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: image/png
+    alttext: "portfolio_time"
+    title: "portfolio_time"
+    location: figures/portfolio_time.png
+  -
+    id: app_time
+    visualizer: app_time 
+    height: 500
+    width: 500
+    rangetext: "-1 month"
+    plottype: mean_time
+    scripts: scripts/visualize/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: text/csv
+    location: cache/visualize/viz_time.csv
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
@@ -404,6 +432,7 @@ publish:
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
       timeDayUse_app: timeDayUse_app
+      app_time: app_time
     context:
       arrow: arrow
       projects: projects
@@ -447,6 +476,7 @@ publish:
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
+      portfolio_time: portfolio_time
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -466,6 +496,7 @@ publish:
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
+      portfolio_time: portfolio_time
   -
     id: footer
     publisher: section

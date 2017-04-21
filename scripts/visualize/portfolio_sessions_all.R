@@ -67,7 +67,7 @@ visualize.portfolio_sessions_all <- function(viz){
   summary_data$shortName <- factor(summary_data$shortName, levels = shortName_ordered)
   
   port_graph <- ggplot(data = summary_data, aes(x = shortName, y = sessions)) +
-    geom_bar(stat="identity") +
+    geom_bar(stat="identity", fill = "steelblue") +
     coord_flip() +
     facet_wrap(~ type, scales = "free_x", nrow = 1) +
     theme_minimal() +
