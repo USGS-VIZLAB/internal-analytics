@@ -63,7 +63,7 @@ info:
       version: 1.6.0
     gridExtra:
       repo: CRAN
-      version: gridExtra
+      version: 2.2.1
 fetch:
   -
     id: fetchGA_cida
