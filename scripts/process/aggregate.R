@@ -10,5 +10,5 @@ process.aggregate_ga <- function(viz) {
               filter(date > (max(date) - duration(1, "year")))
   
   #add dateTime
-  saveRDS(object = allDataDF, file=viz[["location"]])
+  saveRDS(object = allDataDF, file=viz[["location"]], compress = FALSE)
 }

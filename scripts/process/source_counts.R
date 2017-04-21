@@ -10,6 +10,6 @@ process.source_counts <- function(viz = as.viz("source_counts")){
     filter(date >= range_days[2]) %>%
     select(-date)
   
-  saveRDS(source_counts, file=viz[["location"]])
+  saveRDS(source_counts, file=viz[["location"]], compress = FALSE)
   
 }

@@ -11,6 +11,6 @@ process.geo_apps <- function(viz = as.viz("geo_apps")){
     filter(date >= range_days[2]) %>%
     select(-date)
   
-  saveRDS(regions, file=viz[["location"]])
+  saveRDS(regions, file=viz[["location"]], compress = FALSE)
   
 }
