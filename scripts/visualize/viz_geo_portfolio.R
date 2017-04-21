@@ -24,7 +24,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
 
     gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
       coord_equal() +
-      geom_polygon(colour="white", size=0.1, alpha = 0.75,
+      geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
                    aes(group=group)) +
       theme_minimal() +
       theme(panel.grid = element_blank(),
@@ -91,7 +91,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
       
       gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
         coord_equal() +
-        geom_polygon(colour="white", size=0.1, alpha = 0.75,
+        geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
                      aes(group=group)) +
         theme_minimal() +
         theme(panel.grid = element_blank(),
@@ -108,7 +108,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
     } else {
       gsMap <- ggplot(states.out,aes(x=long, y=lat)) + 
         coord_equal() +
-        geom_polygon(colour="white", size=0.1, alpha = 0.75,
+        geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
                      aes(group=group)) +
         theme_minimal() +
         theme(panel.grid = element_blank(),
