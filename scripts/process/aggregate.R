@@ -12,5 +12,5 @@ process.aggregate_ga <- function(viz) {
     distinct()
   
   #add dateTime
-  saveRDS(object = allDataDF, file=viz[["location"]])
+  saveRDS(object = allDataDF, file=viz[["location"]], compress = FALSE)
 }
