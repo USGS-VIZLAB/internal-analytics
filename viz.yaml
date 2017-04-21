@@ -79,6 +79,12 @@ fetch:
     scripts:
     reader: md
     mimetype: text/yaml
+  -
+    id: lastUpdatedGA
+    location: data/lastUpdated.yaml
+    scripts:
+    reader: md
+    mimetype: text/yaml
 process:
   -
     id: aggregate_ga
@@ -419,8 +425,10 @@ publish:
     template: layout/templates/footer.mustache
     depends: 
       usgsLogo: usgsLogo
+      lastUpdatedGA: lastUpdatedGA
     context:
       usgsLogo: usgsLogo
+      lastUpdatedGA: lastUpdatedGA.lastUpdated
   -
     id: jquery-js
     location: layout/js/jquery.min.js
