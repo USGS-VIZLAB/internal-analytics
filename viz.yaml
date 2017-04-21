@@ -43,7 +43,9 @@ info:
     googleAuthR:
       repo: CRAN
       version: 0.4.0
-      
+    yaml:
+      repo: CRAN
+      version: 2.1.14
 fetch:
   -
     id: fetchGA_cida
@@ -92,6 +94,15 @@ process:
       nwis: fetchGA_nwis
     mimetype: text/csv
     location: cache/process/aggregate_ga.csv
+  -
+    id: lastUpdated
+    processor: lastUpdated
+    location: cache/process/lastUpdated.yaml
+    scripts: scripts/process/lastUpdated.R
+    depends:
+      data: aggregate_ga
+    mimetype: text/yaml
+    reader: md # need a better plain text reader
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 

@@ -22,7 +22,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     # get relative paths for images
     proj.imgs <- sapply(img.files, function(x){
       row <- filter(x, id == proj)
-      img.out <- "missing"
+      img <- "missingImg"
       if (nrow(row) > 0) {
         img <- list(
           location = row[['loc']],
@@ -30,10 +30,11 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           alttext = row[['type']],
           title = row[['type']]
         )
-        img <- as.viz(img)
-        img <- as.publisher(img)
-        img.out <- publish(img)
       }
+      img <- as.viz(img)
+      img <- as.publisher(img)
+      img.out <- publish(img)
+
       return(img.out)
     })
     
