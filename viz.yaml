@@ -46,26 +46,21 @@ info:
     sp:
       repo: CRAN
       version: 1.2-4
-<<<<<<< HEAD
-=======
     rgeos:
       repo: CRAN
       version: 0.3-22
     rgdal:
       repo: CRAN
       version: 1.2-5
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     tidyr:
       repo: CRAN
       version: 0.6.1
     googleAuthR:
       repo: CRAN
       version: 0.4.0
-<<<<<<< HEAD
     lubridate:
       repo: CRAN
       version: 1.6.0
-=======
     yaml:
       repo: CRAN
       version: 2.1.14
@@ -75,7 +70,9 @@ info:
     gridExtra:
       repo: CRAN
       version: 2.2.1
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
+    googleAuthR:
+      repo: CRAN
+      version: 0.4.0
 fetch:
   -
     id: fetchGA_cida
@@ -100,7 +97,7 @@ fetch:
     remoteItemId: '58e56f3ce4b09da679997f7f'
     remoteFilename: 'gaData_nwis.rds'
     update: FALSE
-    useLocal: FALSE
+    useLocal: TRUE
     depends:
       project_table: project_table
   -
@@ -229,18 +226,14 @@ visualize:
     scripts: scripts/visualize/viz_d_sessions.R
     depends: sessions_and_new_users_daily
     height: 200
-<<<<<<< HEAD
-    width: 600
-=======
     width: 800
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
   -
     id: viz_geo_apps
     visualizer: viz_geo_apps 
-    scripts: scripts/visualize/viz_geo_portfolio.R
+    scripts: scripts/visualize/viz_geo_apps.R
     depends: geo_apps
     plottype: geo_month
     height: 3
@@ -254,10 +247,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: aggregate_ga
     plottype: app_hist
-<<<<<<< HEAD
-=======
     rangetext: "-1 month"
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     height: 600
     width: 600
     mimetype: text/csv
@@ -296,21 +286,19 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_source.csv
   -
-    id: portfolio_sessions_all
-    visualizer: portfolio_sessions_all 
-    height: 8
-    width: 10
-    scripts: scripts/visualize/portfolio_sessions_all.R
+    id: portfolio_year_sessions
+    visualizer: portfolio_sessions 
+    height: 480
+    width: 200
+    scripts: scripts/visualize/portfolio_sessions.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
-      sessions_and_new_users_daily: sessions_and_new_users_daily
+    rangetext: "-1 year"
     mimetype: image/png
     alttext: "Latest year sessions"
     title: "Latest year sessions"
     location: figures/portfolio_sessions_all.png
-<<<<<<< HEAD
-=======
   -
     id: portfolio_time
     visualizer: portfolio_time 
@@ -335,7 +323,48 @@ visualize:
       aggregate_ga: aggregate_ga
     mimetype: text/csv
     location: cache/visualize/viz_time.csv
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
+  -
+    id: portfolio_month_sessions
+    visualizer: portfolio_sessions 
+    height: 480
+    width: 200
+    scripts: scripts/visualize/portfolio_sessions.R
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
+    rangetext: "-1 month"
+    mimetype: image/png
+    alttext: "Latest month sessions"
+    title: "Latest month sessions"
+    location: figures/portfolio_month_sessions.png
+  -
+    id: portfolio_week_sessions
+    visualizer: portfolio_sessions 
+    scripts: scripts/visualize/portfolio_sessions.R
+    height: 480
+    width: 200
+    depends: 
+      sessions_and_new_users: sessions_and_new_users
+      project_table: project_table
+    rangetext: "-1 week"
+    mimetype: image/png
+    alttext: "Latest week sessions"
+    title: "Latest week sessions"
+    location: figures/portfolio_week_sessions.png
+  -
+    id: portfolio_day_sessions
+    visualizer: portfolio_sessions_day 
+    height: 480
+    width: 200
+    scripts: scripts/visualize/portfolio_sessions_day.R
+    depends: 
+      sessions_and_new_users_daily: sessions_and_new_users_daily
+      project_table: project_table
+    rangetext: "-1 week"
+    mimetype: image/png
+    alttext: "Latest day sessions"
+    title: "Latest day sessions"
+    location: figures/portfolio_day_sessions.png
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
@@ -452,12 +481,9 @@ publish:
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
       timeDayUse_app: timeDayUse_app
-<<<<<<< HEAD
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
-=======
       app_time: app_time
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
@@ -483,26 +509,30 @@ publish:
     scripts: scripts/publish/
     depends:
       siteText: siteText
-      projects: project_list
       portfolio_sessions_all: portfolio_sessions_all
-<<<<<<< HEAD
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
+      portfolio_year_sessions: portfolio_year_sessions
+      portfolio_month_sessions: portfolio_month_sessions
+      portfolio_week_sessions: portfolio_week_sessions
+      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
+      viz_geo_portfolio: viz_geo_portfolio
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
+      portfolio_time: portfolio_time
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
-=======
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
-<<<<<<< HEAD
+      portfolio_time: portfolio_time
   -
     id: sideBar
     publisher: section
@@ -519,9 +549,6 @@ publish:
     template: layout/templates/text.mustache
     depends:
       siteText: siteText
-=======
-      portfolio_time: portfolio_time
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
     context:
       aboutThisReport: siteText.aboutThisReport
       disclaimerTitle: siteText.disclaimerTitle
@@ -534,16 +561,6 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
-<<<<<<< HEAD
-=======
-      projects: projects
-      portfolio_sessions_all: portfolio_sessions_all
-      portfolio_device_type: portfolio_device_type
-      portfolio_source: portfolio_source
-      viz_geo_portfolio: viz_geo_portfolio
-      timeDayUse_port: timeDayUse_port
-      portfolio_time: portfolio_time
->>>>>>> 23736f18b673725f108f5153a0c85c72131c4f6b
   -
     id: footer
     publisher: section
