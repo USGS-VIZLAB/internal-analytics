@@ -64,15 +64,9 @@ info:
     yaml:
       repo: CRAN
       version: 2.1.14
-    lubridate:
-      repo: CRAN
-      version: 1.6.0
     gridExtra:
       repo: CRAN
       version: 2.2.1
-    googleAuthR:
-      repo: CRAN
-      version: 0.4.0
 fetch:
   -
     id: fetchGA_cida
@@ -97,7 +91,7 @@ fetch:
     remoteItemId: '58e56f3ce4b09da679997f7f'
     remoteFilename: 'gaData_nwis.rds'
     update: FALSE
-    useLocal: TRUE
+    useLocal: FALSE
     depends:
       project_table: project_table
   -
@@ -233,7 +227,7 @@ visualize:
   -
     id: viz_geo_apps
     visualizer: viz_geo_apps 
-    scripts: scripts/visualize/viz_geo_apps.R
+    scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
     height: 3
@@ -286,15 +280,15 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_source.csv
   -
-    id: portfolio_year_sessions
-    visualizer: portfolio_sessions 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions.R
+    id: portfolio_sessions_all
+    visualizer: portfolio_sessions_all 
+    height: 8
+    width: 10
+    scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
-    rangetext: "-1 year"
+      sessions_and_new_users_daily: sessions_and_new_users_daily
     mimetype: image/png
     alttext: "Latest year sessions"
     title: "Latest year sessions"
@@ -323,48 +317,6 @@ visualize:
       aggregate_ga: aggregate_ga
     mimetype: text/csv
     location: cache/visualize/viz_time.csv
-  -
-    id: portfolio_month_sessions
-    visualizer: portfolio_sessions 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions.R
-    depends: 
-      sessions_and_new_users: sessions_and_new_users
-      project_table: project_table
-    rangetext: "-1 month"
-    mimetype: image/png
-    alttext: "Latest month sessions"
-    title: "Latest month sessions"
-    location: figures/portfolio_month_sessions.png
-  -
-    id: portfolio_week_sessions
-    visualizer: portfolio_sessions 
-    scripts: scripts/visualize/portfolio_sessions.R
-    height: 480
-    width: 200
-    depends: 
-      sessions_and_new_users: sessions_and_new_users
-      project_table: project_table
-    rangetext: "-1 week"
-    mimetype: image/png
-    alttext: "Latest week sessions"
-    title: "Latest week sessions"
-    location: figures/portfolio_week_sessions.png
-  -
-    id: portfolio_day_sessions
-    visualizer: portfolio_sessions_day 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions_day.R
-    depends: 
-      sessions_and_new_users_daily: sessions_and_new_users_daily
-      project_table: project_table
-    rangetext: "-1 week"
-    mimetype: image/png
-    alttext: "Latest day sessions"
-    title: "Latest day sessions"
-    location: figures/portfolio_day_sessions.png
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
