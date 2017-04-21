@@ -5,6 +5,6 @@ process.device_type <- function(viz = as.viz("device_type")){
   
   device_users <- select(viz.data, date, viewID,deviceCategory) 
   
-  saveRDS(device_users, file=viz[["location"]])
+  saveRDS(device_users, file=viz[["location"]], compress = FALSE)
   
 }
