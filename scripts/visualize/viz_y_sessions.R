@@ -4,7 +4,6 @@ visualize.viz_y_sessions <- function(viz){
   
   height = viz[["height"]]
   width = viz[["width"]]
-  dpi = viz[["dpi"]]
   
   viz.data <- readDepends(viz)[["sessions_and_new_users"]]
   x <- data.frame(id = character(),
