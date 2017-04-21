@@ -20,7 +20,7 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
       arrange(desc(Freq))
     
     source_sum <- source_sum[1:min(c(5, nrow(source_sum))),]
-    max_char = max(nchar(source_sum$Var1), na.rm = TRUE)
+    max_char = max(nchar(as.character(source_sum$Var1)), na.rm = TRUE)
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     png(location, height = height, width = width)
