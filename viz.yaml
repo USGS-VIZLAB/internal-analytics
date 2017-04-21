@@ -46,6 +46,9 @@ info:
     sp:
       repo: CRAN
       version: 1.2-4
+    rgeos:
+      repo: CRAN
+      version: 0.3-22
     tidyr:
       repo: CRAN
       version: 0.6.1
