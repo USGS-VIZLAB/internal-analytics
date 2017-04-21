@@ -13,13 +13,21 @@ visualize.viz_d_sessions <- function(viz){
   
   plot_type <- viz[["plottype"]]
 
+  max_date <- max(viz.data$dateTime, na.rm = TRUE)
+  full_dates <- seq(max_date, length = 24, by=-60*60)
+  empty_df <- data.frame(dateTime=full_dates)
   
   for(i in unique(viz.data$viewID)){
     
     sub_data <- select(viz.data, dateTime, viewID, sessions) %>%
       filter(viewID == i) %>%
       group_by(dateTime) %>%
-      summarize(sessions = sum(sessions, na.rm = TRUE)) 
+      summarize(sessions = sum(sessions, na.rm = TRUE)) %>%
+      data.frame() %>%
+      right_join(empty_df, by="dateTime") %>%
+      arrange(desc(dateTime))
+    
+    sub_data$sessions[is.na(sub_data$sessions)] <- 0
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
