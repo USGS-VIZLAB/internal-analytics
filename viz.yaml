@@ -52,6 +52,9 @@ info:
     googleAuthR:
       repo: CRAN
       version: 0.4.0
+    lubridate:
+      repo: CRAN
+      version: 1.6.0
 fetch:
   -
     id: fetchGA_cida
