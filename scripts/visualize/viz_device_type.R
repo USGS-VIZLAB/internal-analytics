@@ -25,7 +25,15 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     png(location, height = height, width = width)
-    par(oma=c(0,0,0,0),las=1)
+    
+    max_char = max(nchar(sub_data_range$deviceCategory), na.rm = TRUE)
+    
+    par(oma = c(0,0,0,0),
+        mgp = c(3,0.5,0),
+        mar = c(0,(max_char-3)/2,0,0.1),
+        tck = -0.05,
+        las=1)
+    
     if(nrow(sub_data_range) > 0){
       barplot(rev(sub_data_range$totals), horiz=TRUE,
               names.arg=rev(sub_data_range$deviceCategory))
@@ -34,7 +42,9 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
               names.arg=c("desktop","mobile","tablet"),
               xlim = c(0,10))    
     }
+    
     dev.off()
+    
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
                                  type = plot_type,

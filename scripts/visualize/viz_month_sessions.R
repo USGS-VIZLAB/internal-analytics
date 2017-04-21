@@ -18,14 +18,18 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
     percent_new <- 100*newUsers/(sum(sub_data$sessions, na.rm = TRUE))
     percent_new <- sprintf(percent_new, fmt = "%1.1f")
     
+    percent_return <- 100*sessions/(sum(sub_data$sessions, na.rm = TRUE))
+    percent_return <- sprintf(percent_return, fmt = "%1.1f")
+    
     x <- matrix(c(newUsers, sessions))
     row.names(x) <- c("New Users","Sessions")
     
     
     png(paste0("cache/visualize/",i,"_session_pie.png"), 
         width = width, height = height)
-      pie(x, labels = c(paste0("New", percent_new,"%"),
-                      "Returning"))
+      par(oma=c(0,0,0,0), mar=c(0,1,0,1))
+      pie(x, labels = c(paste("New", percent_new,"%"),
+                        paste("Returning", percent_return,"%")))
     
     dev.off()
     
