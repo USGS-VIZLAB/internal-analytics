@@ -49,6 +49,9 @@ info:
     rgeos:
       repo: CRAN
       version: 0.3-22
+    rgdal:
+      repo: CRAN
+      version: 1.2-5
     tidyr:
       repo: CRAN
       version: 0.6.1
@@ -100,12 +103,6 @@ fetch:
   -
     id: siteText
     location: data/siteText.yaml
-    scripts:
-    reader: md
-    mimetype: text/yaml
-  -
-    id: lastUpdatedGA
-    location: data/lastUpdated.yaml
     scripts:
     reader: md
     mimetype: text/yaml
@@ -518,10 +515,10 @@ publish:
     template: layout/templates/footer.mustache
     depends: 
       usgsLogo: usgsLogo
-      lastUpdatedGA: lastUpdatedGA
+      lastUpdatedGA: lastUpdated
     context:
       usgsLogo: usgsLogo
-      lastUpdatedGA: lastUpdatedGA.lastUpdated
+      lastUpdatedGA: lastUpdatedGA.time
   -
     id: jquery-js
     location: layout/js/jquery.min.js
