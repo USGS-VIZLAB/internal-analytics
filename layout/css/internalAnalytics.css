@@ -16,17 +16,26 @@ h6{
   font-weight:400;
 }
 
+.flexContainer{
+  display:flex;
+  flex-direction:row;
+}
+.flex1{
+  flex:1; 
+}
+
 .container{
   min-height:100%;
 }
 
 .sideBar{
-  width:300px;
   border-right:1px solid rgb(220,220,220);
+  width:20%;
+  max-width:316px;
 }
 
 .sideBar h4{
-  padding:7px 10px 5px 10px;
+  padding:7px 2% 5px 2%;
 }
 
 .content{
@@ -47,12 +56,6 @@ h6{
 .slider h4{
   line-height:28px;
   float:left;
-}
-
-.glossary,
-.disclaimer{
-  width:760px;
-  margin:0 auto;
 }
 
 .disclaimer h3,
@@ -84,8 +87,8 @@ h6{
   color:rgb(0,51,102);
   text-decoration:none;
   display:inline-block;
-  width:280px;
-  padding:10px;
+  padding:10px 2%;
+  width:96%;
   border-top:1px solid rgb(220,220,220);
 }
 
@@ -123,12 +126,23 @@ h6{
 
 .sessionTimeline{
   min-height:100px;
-  margin-top:10px;
 }
 
 .timelinePlot{
   min-height:50px;
   margin-top:10px;
+}
+
+.timelinePlot img,
+#geoMap img,
+#deviceType img,
+#traffic img{
+  width:100%;
+}
+
+#geo,
+#deviceTraffic{
+  width:50%;
 }
 
 #geoMap{
@@ -148,24 +162,8 @@ h6{
 }
 
 @media screen and (min-width:768px){
-  .flexContainer{
-    display:flex;
-    flex-direction:row;
-  }
-  .flex1{
-    flex:1; 
-  }
   .topicHeader{
     margin:0 0 5px 0;
-  }
-  .sessionTimeline{
-    margin-right:10px;
-  }
-  .sessionTimeline:nth-child(4){
-    margin-right:0;
-  }
-  #sessions h2{
-    width:110px;
   }
   #geo,
   #project,
@@ -178,15 +176,20 @@ h6{
   #projectListHolder{
     width:300px;
   }
+  .glossary,
+  .disclaimer{
+    width:760px;
+    margin:0 auto;
+  }
   .glossary h3{
     margin-top:10px;
   }
 }
 
-/*@media screen and (min-width:1700px){
+@media screen and (min-width:1700px){
   .content{
     width:1680px;
     margin:0 auto;
   }
-}*/
+}
 
