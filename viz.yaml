@@ -174,7 +174,7 @@ visualize:
     rangetext: "-1 year"
     plottype: year_line
     height: 200
-    width: 600
+    width: 800
     mimetype: text/csv
     location: cache/visualize/viz_y_sessions.csv
   -
@@ -184,7 +184,7 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 month"
     height: 200
-    width: 600
+    width: 800
     plottype: month_line
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
@@ -195,7 +195,7 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 week"
     height: 200
-    width: 600
+    width: 800
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
@@ -205,7 +205,7 @@ visualize:
     scripts: scripts/visualize/viz_d_sessions.R
     depends: sessions_and_new_users_daily
     height: 200
-    width: 600
+    width: 800
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
