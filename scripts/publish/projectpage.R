@@ -72,7 +72,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     
     pub <- list(
       id = paste0(viewID, "-page"),
-      name = viewID,
+      name = proj$shortName,
       publisher = "page",
       template = "fullpage",
       depends = depends,
