@@ -57,7 +57,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
     
     barplot(hourSum$n, names.arg = hourSum$hour,
             xlab = "Hour of Day",ylab = "Sessions",
-            main = paste("Frome",paste(range_days,collapse = " to ")),
+            main = paste("From",paste(range_days[c(2,1)],collapse = " to ")),
             col = "steelblue")
     dev.off()
     
