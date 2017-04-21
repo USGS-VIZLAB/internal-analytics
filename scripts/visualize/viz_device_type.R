@@ -2,7 +2,8 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
   library(dplyr)
   
   viz.data <- readDepends(viz)[["device_type"]]
-  
+  height = viz[["height"]]
+  width = viz[["width"]]
   x <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
@@ -23,23 +24,17 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
       summarize(totals = n())
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
-    
+    png(location, height = height, width = width)
+    par(oma=c(0,0,0,0),las=1)
     if(nrow(sub_data_range) > 0){
-      
-      png(location) 
-      par(oma=c(0,0,0,0),las=1)
-      barplot(sub_data_range$totals, horiz=TRUE,
-              names.arg=sub_data_range$deviceCategory)
-      dev.off()
+      barplot(rev(sub_data_range$totals), horiz=TRUE,
+              names.arg=rev(sub_data_range$deviceCategory))
     } else {
-      png(location) 
-      par(oma=c(0,0,0,0),las=1)
       barplot(c(0,0,0), horiz=TRUE,
               names.arg=c("desktop","mobile","tablet"),
               xlim = c(0,10))    
-      dev.off()
     }
-    
+    dev.off()
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
                                  type = plot_type,

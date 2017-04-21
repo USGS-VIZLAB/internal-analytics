@@ -40,6 +40,9 @@ info:
     maps:
       repo: CRAN
       version: 3.1.1
+    googleAuthR:
+      repo: CRAN
+      version: 0.4.0
       
 fetch:
   -
@@ -47,12 +50,12 @@ fetch:
     login: cida #only fetch CIDA acct views
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
-    location: cache/fetch/gaData.csv
-    mimetype: text/csv
-    remoteFilename: 'gaData.csv'
+    location: cache/fetch/gaData.rds
+    reader: rds
+    remoteFilename: 'gaData.rds'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: TRUE #Don't even download sciencebase file - overrides update
+    update: TRUE #check for newer data from GA, and upload to sciencebase if there is
+    useLocal: FALSE #Don't even download sciencebase file - overrides update
     depends: 
       project_table: project_table
   -
@@ -60,9 +63,10 @@ fetch:
     login: nwis
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
-    location: cache/fetch/gaData_nwis.csv
-    mimetype: text/csv
+    location: cache/fetch/gaData_nwis.rds
+    reader: rds
     remoteItemId: '58e56f3ce4b09da679997f7f'
+    remoteFilename: 'gaData_nwis.rds'
     update: FALSE
     useLocal: TRUE
     depends:
@@ -93,8 +97,8 @@ process:
     depends: 
       cida: fetchGA_cida
       nwis: fetchGA_nwis
-    mimetype: text/csv
-    location: cache/process/aggregate_ga.csv
+    reader: rds
+    location: cache/process/aggregate_ga.rds
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 
@@ -140,6 +144,7 @@ process:
     rangetext: "-1 month"
     reader: rds
     location: cache/process/geo_apps.rds
+
 visualize:
   -
     id: viz_month_sessions
@@ -147,6 +152,8 @@ visualize:
     scripts: scripts/visualize/viz_month_sessions.R
     depends: sessions_and_new_users
     mimetype: text/csv
+    height: 480
+    width: 480
     location: cache/visualize/viz_month_sessions.csv
   -
     id: viz_y_sessions
@@ -155,6 +162,8 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 year"
     plottype: year_line
+    height: 200
+    width: 600
     mimetype: text/csv
     location: cache/visualize/viz_y_sessions.csv
   -
@@ -163,6 +172,8 @@ visualize:
     scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users
     rangetext: "-1 month"
+    height: 200
+    width: 600
     plottype: month_line
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
@@ -172,6 +183,8 @@ visualize:
     scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users
     rangetext: "-1 week"
+    height: 200
+    width: 600
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
@@ -180,6 +193,8 @@ visualize:
     visualizer: viz_d_sessions 
     scripts: scripts/visualize/viz_d_sessions.R
     depends: sessions_and_new_users_daily
+    height: 200
+    width: 480
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
@@ -189,6 +204,8 @@ visualize:
     scripts: scripts/visualize/viz_geo_apps.R
     depends: geo_apps
     plottype: geo_month
+    height: 3
+    width: 3
     rangetext: "-1 month"
     mimetype: text/csv
     location: cache/visualize/viz_geo_apps.csv
@@ -197,6 +214,8 @@ visualize:
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
+    height: 480
+    width: 480
     rangetext: "-1 month"
     plottype: device_type
     mimetype: text/csv
@@ -205,6 +224,8 @@ visualize:
     id: viz_source
     visualizer: viz_source 
     scripts: scripts/visualize/viz_source.R
+    height: 480
+    width: 480
     depends: source_counts
     plottype: source_counts
     mimetype: text/csv
@@ -212,6 +233,8 @@ visualize:
   -
     id: portfolio_year_sessions
     visualizer: portfolio_sessions 
+    height: 480
+    width: 200
     scripts: scripts/visualize/portfolio_sessions.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
@@ -224,6 +247,8 @@ visualize:
   -
     id: portfolio_month_sessions
     visualizer: portfolio_sessions 
+    height: 480
+    width: 200
     scripts: scripts/visualize/portfolio_sessions.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
@@ -237,6 +262,8 @@ visualize:
     id: portfolio_week_sessions
     visualizer: portfolio_sessions 
     scripts: scripts/visualize/portfolio_sessions.R
+    height: 480
+    width: 200
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
@@ -248,6 +275,8 @@ visualize:
   -
     id: portfolio_day_sessions
     visualizer: portfolio_sessions_day 
+    height: 480
+    width: 200
     scripts: scripts/visualize/portfolio_sessions_day.R
     depends: 
       sessions_and_new_users_daily: sessions_and_new_users_daily
@@ -260,6 +289,8 @@ visualize:
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
+    height: 480
+    width: 480
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
@@ -268,6 +299,30 @@ visualize:
     alttext: "portfolio_device_type"
     title: "portfolio_device_type"
     location: figures/portfolio_device_type.png
+  -
+    id: portfolio_source
+    visualizer: portfolio_source
+    height: 480
+    width: 480
+    scripts: scripts/visualize/portfolio_source.R
+    depends: 
+      source_counts: source_counts
+    rangetext: "-1 month"
+    mimetype: image/png
+    alttext: "portfolio_source"
+    title: "portfolio_source"
+    location: figures/portfolio_source.png
+  -
+    id: viz_geo_portfolio
+    visualizer: viz_geo_portfolio 
+    scripts: scripts/visualize/viz_geo_portfolio.R
+    depends: geo_apps
+    height: 3
+    width: 3
+    alttext: "viz_geo_portfolio"
+    title: "viz_geo_portfolio"
+    mimetype: image/png
+    location: figures/viz_geo_portfolio.png
 publish:
   -
     id: openSans
@@ -400,6 +455,8 @@ publish:
       portfolio_week_sessions: portfolio_week_sessions
       portfolio_day_sessions: portfolio_day_sessions
       portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
+      viz_geo_portfolio: viz_geo_portfolio
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -419,6 +476,8 @@ publish:
       portfolio_week_sessions: portfolio_week_sessions
       portfolio_day_sessions: portfolio_day_sessions
       portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
+      viz_geo_portfolio: viz_geo_portfolio
   -
     id: footer
     publisher: section
