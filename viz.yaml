@@ -40,10 +40,21 @@ info:
     maps:
       repo: CRAN
       version: 3.1.1
+    maptools:
+      repo: CRAN
+      version: 0.9-2
+    sp:
+      repo: CRAN
+      version: 1.2-4
+    tidyr:
+      repo: CRAN
+      version: 0.6.1
     googleAuthR:
       repo: CRAN
       version: 0.4.0
-      
+    lubridate:
+      repo: CRAN
+      version: 1.6.0
 fetch:
   -
     id: fetchGA_cida
@@ -194,14 +205,14 @@ visualize:
     scripts: scripts/visualize/viz_d_sessions.R
     depends: sessions_and_new_users_daily
     height: 200
-    width: 480
+    width: 600
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
   -
     id: viz_geo_apps
     visualizer: viz_geo_apps 
-    scripts: scripts/visualize/viz_geo_apps.R
+    scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
     height: 3
@@ -209,6 +220,28 @@ visualize:
     rangetext: "-1 month"
     mimetype: text/csv
     location: cache/visualize/viz_geo_apps.csv
+  -
+    id: timeDayUse_app
+    visualizer: timeDayUse_app 
+    scripts: scripts/visualize/timeDayUse.R
+    depends: aggregate_ga
+    plottype: app_hist
+    height: 600
+    width: 600
+    mimetype: text/csv
+    location: cache/visualize/timeDayUse_apps.csv
+  -
+    id: timeDayUse_port
+    visualizer: timeDayUse_all 
+    scripts: scripts/visualize/timeDayUse.R
+    depends: aggregate_ga
+    plottype: app_hist
+    height: 600
+    width: 600
+    mimetype: image/png
+    alttext: "timeDayUse"
+    title: "timeDayUse"
+    location: figures/timeDayUse.png
   -
     id: viz_device_type
     visualizer: viz_device_type 
@@ -231,61 +264,19 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_source.csv
   -
-    id: portfolio_year_sessions
-    visualizer: portfolio_sessions 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions.R
+    id: portfolio_sessions_all
+    visualizer: portfolio_sessions_all 
+    height: 8
+    width: 10
+    scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
-    rangetext: "-1 year"
+      sessions_and_new_users_daily: sessions_and_new_users_daily
     mimetype: image/png
     alttext: "Latest year sessions"
     title: "Latest year sessions"
-    location: figures/portfolio_year_sessions.png
-  -
-    id: portfolio_month_sessions
-    visualizer: portfolio_sessions 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions.R
-    depends: 
-      sessions_and_new_users: sessions_and_new_users
-      project_table: project_table
-    rangetext: "-1 month"
-    mimetype: image/png
-    alttext: "Latest month sessions"
-    title: "Latest month sessions"
-    location: figures/portfolio_month_sessions.png
-  -
-    id: portfolio_week_sessions
-    visualizer: portfolio_sessions 
-    scripts: scripts/visualize/portfolio_sessions.R
-    height: 480
-    width: 200
-    depends: 
-      sessions_and_new_users: sessions_and_new_users
-      project_table: project_table
-    rangetext: "-1 week"
-    mimetype: image/png
-    alttext: "Latest week sessions"
-    title: "Latest week sessions"
-    location: figures/portfolio_week_sessions.png
-  -
-    id: portfolio_day_sessions
-    visualizer: portfolio_sessions_day 
-    height: 480
-    width: 200
-    scripts: scripts/visualize/portfolio_sessions_day.R
-    depends: 
-      sessions_and_new_users_daily: sessions_and_new_users_daily
-      project_table: project_table
-    rangetext: "-1 week"
-    mimetype: image/png
-    alttext: "Latest day sessions"
-    title: "Latest day sessions"
-    location: figures/portfolio_day_sessions.png
+    location: figures/portfolio_sessions_all.png
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
@@ -412,6 +403,7 @@ publish:
       viz_device_type: viz_device_type
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
+      timeDayUse_app: timeDayUse_app
     context:
       arrow: arrow
       projects: projects
@@ -450,13 +442,11 @@ publish:
       arrow: arrow
       siteText: siteText
       projects: project_list
-      portfolio_year_sessions: portfolio_year_sessions
-      portfolio_month_sessions: portfolio_month_sessions
-      portfolio_week_sessions: portfolio_week_sessions
-      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_sessions_all: portfolio_sessions_all
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
+      timeDayUse_port: timeDayUse_port
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -471,13 +461,11 @@ publish:
       traffic: siteText.traffic
       device: siteText.device
       projects: projects
-      portfolio_year_sessions: portfolio_year_sessions
-      portfolio_month_sessions: portfolio_month_sessions
-      portfolio_week_sessions: portfolio_week_sessions
-      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_sessions_all: portfolio_sessions_all
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
+      timeDayUse_port: timeDayUse_port
   -
     id: footer
     publisher: section
