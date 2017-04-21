@@ -4,7 +4,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
   
   deps <- readDepends(viz)
   
-  projects <- deps[['project_table']][['viewID']] # get projects from deps
+  projects <- deps[['project_table']] # get projects from deps
   
   img.files <- list(
     month_sessions = deps[['viz_month_sessions']],
@@ -18,11 +18,12 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     timeDayUse_app = deps[["timeDayUse_app"]]
   )
   
-  for (proj in projects) {
-    message("publishing", proj)
+  for (i in 1:nrow(projects)) {
+    proj <- projects[i,]
+    viewID <- proj$viewID
     # get relative paths for images
     proj.imgs <- sapply(img.files, function(x){
-      row <- filter(x, id == proj)
+      row <- filter(x, id == viewID)
       img.out <- "missing"
       if (nrow(row) > 0) {
         img <- list(
@@ -38,7 +39,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       return(img.out)
     })
     
-    sectionId <- paste0(proj, "-section")
+    sectionId <- paste0(viewID, "-section")
     contents <- list(
       id = sectionId,
       publisher = "section",
@@ -47,6 +48,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       context = c(
         viz[['context']],
         list(
+          project_name = proj$longName,
           monthly_users_chart = proj.imgs[['month_sessions']],
           year_line_sessions = proj.imgs[['year_line_sessions']],
           month_line_sessions = proj.imgs[['month_line_sessions']],
@@ -65,8 +67,8 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     depends[[sectionId]] <- contents
     
     pub <- list(
-      id = paste0(proj, "-page"),
-      name = proj,
+      id = paste0(viewID, "-page"),
+      name = viewID,
       publisher = "page",
       template = "fullpage",
       depends = depends,
