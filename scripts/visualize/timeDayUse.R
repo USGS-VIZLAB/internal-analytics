@@ -26,18 +26,26 @@ visualize.timeDayUse_all <- function(viz=as.viz("timeDayUse_port")) {
 visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
   
   viz.data <- readDepends(viz)[["aggregate_ga"]]
+  
   height = viz[["height"]]
   width = viz[["width"]]
   plot_type <- viz[["plottype"]]
+  range_text <- viz[["rangetext"]]
   
   x <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
                   stringsAsFactors = FALSE)
   
+  range_days = seq(Sys.Date(), length = 2, by = range_text)
+  
   for(i in unique(viz.data$viewID)) {
     location <- paste0("cache/visualize/timeDayUse_", i, ".png")
-    hourSum <- filter(viz.data, viewID == i) %>% group_by(hour) %>% summarise(n = n()) #need to set to numeric?
+    
+    hourSum <- filter(viz.data, viewID == i) %>% 
+      filter(date >= range_days[2]) %>%
+      group_by(hour) %>% 
+      summarise(n = n()) #need to set to numeric?
 
     png(location, height = height, width = width)
 
@@ -49,7 +57,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
     
     barplot(hourSum$n, names.arg = hourSum$hour,
             xlab = "Hour of Day",ylab = "Sessions",
-            main = "Sum total per hour",
+            main = paste("Frome",paste(range_days,collapse = " to ")),
             col = "steelblue")
     dev.off()
     

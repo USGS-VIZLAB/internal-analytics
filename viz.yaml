@@ -226,6 +226,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: aggregate_ga
     plottype: app_hist
+    rangetext: "-1 month"
     height: 600
     width: 600
     mimetype: text/csv
@@ -277,6 +278,18 @@ visualize:
     alttext: "Latest year sessions"
     title: "Latest year sessions"
     location: figures/portfolio_sessions_all.png
+  -
+    id: portfolio_time
+    visualizer: portfolio_time 
+    height: 8
+    width: 10
+    scripts: scripts/visualize/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: image/png
+    alttext: "portfolio_time"
+    title: "portfolio_time"
+    location: figures/portfolio_time.png
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
@@ -447,6 +460,7 @@ publish:
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
+      portfolio_time: portfolio_time
     context:
       arrow: arrow
       aboutThisReport: siteText.aboutThisReport
@@ -466,6 +480,7 @@ publish:
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
+      portfolio_time: portfolio_time
   -
     id: footer
     publisher: section
