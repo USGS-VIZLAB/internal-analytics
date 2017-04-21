@@ -4,7 +4,7 @@ process.source_counts <- function(viz = as.viz("source_counts")){
   viz.data <- readDepends(viz)[["aggregate_ga"]]
   range_text <- viz[["rangetext"]]
   
-  range_days = seq(Sys.Date(), length = 2, by = range_text)
+  range_days = seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text)
   
   source_counts <- select(viz.data, date, viewID,source) %>%
     filter(date >= range_days[2]) %>%

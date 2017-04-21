@@ -5,7 +5,7 @@ process.geo_apps <- function(viz = as.viz("geo_apps")){
   
   range_text <- viz[["rangetext"]]
   
-  range_days = seq(Sys.Date(), length = 2, by = range_text)
+  range_days = seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text)
   
   regions <- select(viz.data, date, viewID, region) %>%
     filter(date >= range_days[2]) %>%
