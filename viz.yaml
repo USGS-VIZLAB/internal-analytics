@@ -46,12 +46,18 @@ info:
     sp:
       repo: CRAN
       version: 1.2-4
+    rgeos:
+      repo: CRAN
+      version: 0.3-22
     tidyr:
       repo: CRAN
       version: 0.6.1
     googleAuthR:
       repo: CRAN
       version: 0.4.0
+    yaml:
+      repo: CRAN
+      version: 2.1.14
     lubridate:
       repo: CRAN
       version: 1.6.0
@@ -113,6 +119,15 @@ process:
       nwis: fetchGA_nwis
     reader: rds
     location: cache/process/aggregate_ga.rds
+  -
+    id: lastUpdated
+    processor: lastUpdated
+    location: cache/process/lastUpdated.yaml
+    scripts: scripts/process/lastUpdated.R
+    depends:
+      data: aggregate_ga
+    mimetype: text/yaml
+    reader: md # need a better plain text reader
   -
     id: sessions_and_new_users
     processor: sessions_and_new_users 
