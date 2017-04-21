@@ -466,10 +466,6 @@ publish:
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
-      portfolio_year_sessions: portfolio_year_sessions
-      portfolio_month_sessions: portfolio_month_sessions
-      portfolio_week_sessions: portfolio_week_sessions
-      portfolio_day_sessions: portfolio_day_sessions
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_time: portfolio_time
