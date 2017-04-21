@@ -34,6 +34,20 @@
   min-height:100px;
 }
 
+#projectLineChart img,
+#monthlyGeoMap img,
+#monthlyDeviceChart img,
+#monthlyUsersChart img,
+#monthlyTrafficChart img,
+#monthlyTimeChart img{
+  width:100%;
+}
+
+#monthlyGeo,
+#monthlyDeviceCharts{
+  width:50%;
+}
+
 #monthlyGeoMap{
   min-height:185px;
 }
