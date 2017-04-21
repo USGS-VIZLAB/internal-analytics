@@ -91,6 +91,11 @@ h6{
   clear:both;
 }
 
+#projects a{
+  color:rgb(0,51,102);
+  text-decoration:none;
+}
+
 #projects p{
   font-size:.8em;
   padding:0 0 10px 5px;
