@@ -54,8 +54,8 @@ fetch:
     reader: rds
     remoteFilename: 'gaData.rds'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
-    update: TRUE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: FALSE #Don't even download sciencebase file - overrides update
+    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
+    useLocal: TRUE #Don't even download sciencebase file - overrides update
     depends: 
       project_table: project_table
   -
@@ -345,13 +345,6 @@ publish:
     mimetype: text/css
     publisher: resource
   -
-    id: arrow
-    location: images/arrow.svg
-    mimetype: image/svg
-    inline: true
-    title: "Toggle"
-    alttext: "Toggle Arrow"
-  -
     id: usgsLogo
     location: images/usgsLogo.png
     mimetype: image/png
@@ -393,9 +386,9 @@ publish:
     depends:
       header: header
       footer: footer
-      arrow: arrow
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
       siteText: siteText
-      projects: project_list
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
       detailsCSS: detailsCSS
@@ -413,19 +406,8 @@ publish:
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
     context:
-      arrow: arrow
-      projects: projects
-      aboutThisReport: siteText.aboutThisReport
-      disclaimerTitle: siteText.disclaimerTitle
-      disclaimer1: siteText.disclaimer1
-      disclaimer2: siteText.disclaimer2
-      glossaryTitle: siteText.glossaryTitle
-      session: siteText.session
-      visitors: siteText.visitors
-      geographical: siteText.geographical
-      average: siteText.average
-      traffic: siteText.traffic
-      device: siteText.device
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
       header: header
       footer: footer
       resources: ["jquery", "appJS", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
@@ -447,9 +429,7 @@ publish:
     publisher: section
     scripts: scripts/publish/
     depends:
-      arrow: arrow
       siteText: siteText
-      projects: project_list
       portfolio_year_sessions: portfolio_year_sessions
       portfolio_month_sessions: portfolio_month_sessions
       portfolio_week_sessions: portfolio_week_sessions
@@ -457,8 +437,35 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
     context:
-      arrow: arrow
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
+      portfolio_year_sessions: portfolio_year_sessions
+      portfolio_month_sessions: portfolio_month_sessions
+      portfolio_week_sessions: portfolio_week_sessions
+      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
+      viz_geo_portfolio: viz_geo_portfolio
+  -
+    id: sideBar
+    publisher: section
+    scripts: scripts/publish/
+    template: layout/templates/sideBar.mustache
+    depends:
+      projects: project_list
+    context:
+      projects: projects
+  -
+    id: disclaimerGlossaryText
+    publisher: section
+    scripts: scripts/publish/
+    template: layout/templates/text.mustache
+    depends:
+      siteText: siteText
+    context:
       aboutThisReport: siteText.aboutThisReport
       disclaimerTitle: siteText.disclaimerTitle
       disclaimer1: siteText.disclaimer1
@@ -470,14 +477,6 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
-      projects: projects
-      portfolio_year_sessions: portfolio_year_sessions
-      portfolio_month_sessions: portfolio_month_sessions
-      portfolio_week_sessions: portfolio_week_sessions
-      portfolio_day_sessions: portfolio_day_sessions
-      portfolio_device_type: portfolio_device_type
-      portfolio_source: portfolio_source
-      viz_geo_portfolio: viz_geo_portfolio
   -
     id: footer
     publisher: section

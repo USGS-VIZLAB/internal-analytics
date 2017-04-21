@@ -3,6 +3,8 @@
 body,
 html{
   font-family:"Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height:100%;
+  min-width:767px;
 }
 
 h1,
@@ -15,7 +17,21 @@ h6{
 }
 
 .container{
+  min-height:100%;
+}
+
+.sideBar{
+  width:300px;
+  border-right:1px solid rgb(220,220,220);
+}
+
+.sideBar h4{
+  padding:7px 10px 5px 10px;
+}
+
+.content{
   padding:10px;
+  width:80%;
 }
 
 .box{
@@ -33,13 +49,19 @@ h6{
   float:left;
 }
 
-.disclaimerText h3,
+.glossary,
+.disclaimer{
+  width:760px;
+  margin:0 auto;
+}
+
+.disclaimer h3,
 .glossary h3{
   font-weight:600;
   margin-top:20px;
 }
 
-.disclaimerText a,
+.disclaimer a,
 .glossary a{
   color:rgb(0,51,102);
   font-weight:600;
@@ -47,58 +69,33 @@ h6{
   cursor:pointer;
 }
 
-.disclaimerText a:hover,
+.disclaimer a:hover,
 .glossary a:hover{
   text-decoration:underline;
 }
 
-.disclaimerText p,
+.disclaimer p,
 .glossary p{
   margin-bottom:10px;
   font-size:1em;
 }
 
-#projectListHolder,
-.disclaimerHolder{
-  position:relative;
-  cursor: pointer;
-  transition: all 1s ease;
-}
-
-.disclaimerHolder{
-  clear:both;
-}
-
-.disclaimer:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-
-.arrow{
-  height:8px;
-  width:8px;
-  float:right;
-  margin:-1px 0 0 10px;
-}
-
-#projects,
-.disclaimerText{
-  display:none;
-  clear:both;
-}
-
 #projects a{
   color:rgb(0,51,102);
   text-decoration:none;
+  display:inline-block;
+  width:280px;
+  padding:10px;
+  border-top:1px solid rgb(220,220,220);
+}
+
+#projects a:hover{
+  background:rgb(0,51,102);
+  color:#fff;
 }
 
 #projects p{
   font-size:.8em;
-  padding:0 0 10px 5px;
 }
 
 #projects p:nth-child(1){
@@ -113,10 +110,6 @@ h6{
 
 .bottomHalf{
   min-height:100px;
-}
-
-#sessions{
-  margin-top:10px;
 }
 
 #users{
@@ -190,10 +183,10 @@ h6{
   }
 }
 
-@media screen and (min-width:1700px){
-  .container{
+/*@media screen and (min-width:1700px){
+  .content{
     width:1680px;
     margin:0 auto;
   }
-}
+}*/
 
