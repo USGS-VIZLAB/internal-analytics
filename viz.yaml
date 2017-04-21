@@ -58,12 +58,12 @@ info:
     googleAuthR:
       repo: CRAN
       version: 0.4.0
-    yaml:
-      repo: CRAN
-      version: 2.1.14
     lubridate:
       repo: CRAN
       version: 1.6.0
+    yaml:
+      repo: CRAN
+      version: 2.1.14
     gridExtra:
       repo: CRAN
       version: 2.2.1
@@ -376,13 +376,6 @@ publish:
     mimetype: text/css
     publisher: resource
   -
-    id: arrow
-    location: images/arrow.svg
-    mimetype: image/svg
-    inline: true
-    title: "Toggle"
-    alttext: "Toggle Arrow"
-  -
     id: usgsLogo
     location: images/usgsLogo.png
     mimetype: image/png
@@ -410,12 +403,11 @@ publish:
       headerCSS: lib-header-css
       footerCSS : footerCSS
       jquery: jquery-js
-      appJS: app-js
     context:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["jquery", "appJS", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: projectPages
     publisher: projectpage
@@ -424,15 +416,12 @@ publish:
     depends:
       header: header
       footer: footer
-      arrow: arrow
       siteText: siteText
-      projects: project_list
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
       detailsCSS: detailsCSS
       footerCSS : footerCSS
       jquery: jquery-js
-      appJS: app-js
       openSans: openSans
       project_table: project_table
       viz_month_sessions: viz_month_sessions
@@ -444,24 +433,15 @@ publish:
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
       timeDayUse_app: timeDayUse_app
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
       app_time: app_time
     context:
-      arrow: arrow
-      projects: projects
-      aboutThisReport: siteText.aboutThisReport
-      disclaimerTitle: siteText.disclaimerTitle
-      disclaimer1: siteText.disclaimer1
-      disclaimer2: siteText.disclaimer2
-      glossaryTitle: siteText.glossaryTitle
-      session: siteText.session
-      visitors: siteText.visitors
-      geographical: siteText.geographical
-      average: siteText.average
-      traffic: siteText.traffic
-      device: siteText.device
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
       header: header
       footer: footer
-      resources: ["jquery", "appJS", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
     publisher: projectlist
@@ -480,17 +460,48 @@ publish:
     publisher: section
     scripts: scripts/publish/
     depends:
-      arrow: arrow
       siteText: siteText
-      projects: project_list
+      portfolio_sessions_all: portfolio_sessions_all
+      portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
+      viz_geo_portfolio: viz_geo_portfolio
+      timeDayUse_port: timeDayUse_port
+      portfolio_year_sessions: portfolio_year_sessions
+      portfolio_month_sessions: portfolio_month_sessions
+      portfolio_week_sessions: portfolio_week_sessions
+      portfolio_day_sessions: portfolio_day_sessions
+      portfolio_device_type: portfolio_device_type
+      portfolio_source: portfolio_source
+      viz_geo_portfolio: viz_geo_portfolio
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
+      portfolio_time: portfolio_time
+    context:
+      sideBar: sideBar
+      disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
       portfolio_time: portfolio_time
+  -
+    id: sideBar
+    publisher: section
+    scripts: scripts/publish/
+    template: layout/templates/sideBar.mustache
+    depends:
+      projects: project_list
     context:
-      arrow: arrow
+      projects: projects
+  -
+    id: disclaimerGlossaryText
+    publisher: section
+    scripts: scripts/publish/
+    template: layout/templates/text.mustache
+    depends:
+      siteText: siteText
+    context:
       aboutThisReport: siteText.aboutThisReport
       disclaimerTitle: siteText.disclaimerTitle
       disclaimer1: siteText.disclaimer1
@@ -502,13 +513,6 @@ publish:
       average: siteText.average
       traffic: siteText.traffic
       device: siteText.device
-      projects: projects
-      portfolio_sessions_all: portfolio_sessions_all
-      portfolio_device_type: portfolio_device_type
-      portfolio_source: portfolio_source
-      viz_geo_portfolio: viz_geo_portfolio
-      timeDayUse_port: timeDayUse_port
-      portfolio_time: portfolio_time
   -
     id: footer
     publisher: section

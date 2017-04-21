@@ -1,3 +1,20 @@
+.return{
+  padding:8px 10px;
+  background:rgb(0,51,102);
+  color:#fff;
+  border-radius:5px;
+  border:1px solid rgb(0,51,102);
+  font-size:.9em;
+  outline:none;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+
+.return:hover{
+  background:#fff;
+  color:rgb(0,51,102);
+}
+
 #sliders,
 #project,
 #monthlyGeo{
