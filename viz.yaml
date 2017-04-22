@@ -230,7 +230,7 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
-    height: 3
+    height: 2.25
     width: 3
     rangetext: "-1 month"
     mimetype: text/csv
@@ -242,8 +242,8 @@ visualize:
     depends: aggregate_ga
     plottype: app_hist
     rangetext: "-1 month"
-    height: 600
-    width: 600
+    height: 480
+    width: 480
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
   -

@@ -98,9 +98,10 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
               axis.text = element_blank(),
               axis.title = element_blank(),
               legend.position="bottom",
+              plot.margin=unit(c(0,0,0,0), "cm"),
               legend.title = element_blank(),
-              legend.key.size = unit(0.25, "cm"),
-              legend.key.width = unit(2, "cm")) +
+              legend.key.size = unit(0.15, "cm"),
+              legend.key.width = unit(1.4, "cm")) +
         scale_fill_gradient(na.value = 'transparent',
                             low = "white", high = "steelblue")
       
@@ -175,17 +176,19 @@ get_map_stuff <- function(){
   # -- if moving any more states, do it here: --
   move_variables <- list(
     alaska = list(scale=0.33, shift = c(80,-450), rotate=-50),
-    hawaii = list(scale=1, shift=c(520, -110), rotate=-35)
+    hawaii = list(scale=1, shift=c(520, -110), rotate=-35),
+    `district of columbia` = list(scale=8, shift = c(40,-1), rotate=0)
     # PR = list(scale=2.5, shift = c(-140, 90), rotate=20)
   )
   
   stuff_to_move <- list(
     alaska = to_sp("world", "USA:alaska"),
-    hawaii = to_sp("world", "USA:hawaii")
+    hawaii = to_sp("world", "USA:hawaii"),
+    `district of columbia` = conus[names(conus) == 'district of columbia', ]
     # PR = to_sp("world", "Puerto Rico")
   )
   
-  states.out <- conus
+  states.out <- conus[names(conus) != 'district of columbia', ]
   
   wgs84 <- "+init=epsg:4326"
   
