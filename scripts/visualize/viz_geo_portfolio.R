@@ -177,7 +177,7 @@ get_map_stuff <- function(){
   move_variables <- list(
     alaska = list(scale=0.33, shift = c(80,-450), rotate=-50),
     hawaii = list(scale=1, shift=c(520, -110), rotate=-35),
-    `district of columbia` = list(scale=8, shift = c(40,-1), rotate=0)
+    `district of columbia` = list(scale = 8, shift = c(30,-1), rotate=0)
     # PR = list(scale=2.5, shift = c(-140, 90), rotate=20)
   )
   
