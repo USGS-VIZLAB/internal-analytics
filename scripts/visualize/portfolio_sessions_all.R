@@ -16,14 +16,14 @@ visualize.portfolio_sessions_all <- function(viz){
   ga_table$viewID <- as.character(ga_table$viewID)
   
   range_text <- c("-1 year","-1 month","-1 week")
-  names(range_text) <- c("Year:\n","Month:\n","Week:\n")
+  names(range_text) <- c("Year:","Month:","Week:")
   
   latest_day = max(viz.data$date, na.rm = TRUE)
   
   summary_data <- data.frame()
   level_text <- c()
   
-  for(i in 1:3){
+  for(i in seq_len(length(range_text))){
     range_days = seq(latest_day, length = 2, by = range_text[i])
     
     j <- paste(names(range_text)[i],paste0(range(range_days), collapse = " to "))
@@ -57,7 +57,7 @@ visualize.portfolio_sessions_all <- function(viz){
     mutate(bin = cut(sessions, breaks = c(-Inf, viz[['breaks']], Inf))) %>% arrange(desc(sessions))
   
   lm <- 1.7
-  tm <- 0.15
+  tm <- 0.25
   v.spc <- 0.05
   h.spc <- 0.035
   bm <- 0.05
@@ -75,6 +75,8 @@ visualize.portfolio_sessions_all <- function(viz){
   bins <- unique(as.character(year_data$bin))
   cols <- sprintf('grey%1.0f', seq(from = 80, to = 95, length.out = length(bins)))
   bump <- seq(from = 1.2, to = 1.3, length.out = length(bins)) # makes the maximums of the smaller categories a little smaller
+  text(0, y.0+tm/2, labels=unique(year_data$type), pos=4, offset=0.2, cex = 1.25)
+  text(1, y.0+tm/2, labels=filter(summary_data, grepl("Week", type)) %>% .$type %>% unique(), pos=4, offset=0.2, cex = 1.25)
   for (cat.bin in bins) { # are already ranked w/ bins
     
     cat.data <- filter(year_data, bin == cat.bin)
