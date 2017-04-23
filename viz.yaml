@@ -284,6 +284,7 @@ visualize:
     visualizer: portfolio_sessions_all 
     height: 8
     width: 10
+    breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
