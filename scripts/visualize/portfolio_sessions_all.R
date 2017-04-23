@@ -42,19 +42,6 @@ visualize.portfolio_sessions_all <- function(viz){
 
   }
   
-  range_days = seq(latest_day, length = 2, by = "-1 day")
-  j <- paste("Day:\n",paste0(range(range_days), collapse = " to "))
-  level_text <- c(level_text, j)
-  
-  summary_day <- viz.data.daily %>%
-    group_by(viewID) %>%
-    summarize(sessions = sum(sessions, na.rm = TRUE)) %>%
-    arrange(sessions) %>%
-    left_join(select(ga_table, viewID, shortName), by="viewID") %>%
-    mutate(type = j) %>%
-    select(-viewID)
-  
-  summary_data <- bind_rows(summary_data, summary_day)
   
   summary_data <- summary_data[!is.na(summary_data$shortName),]
   
@@ -66,13 +53,17 @@ visualize.portfolio_sessions_all <- function(viz){
   summary_data$type <- factor(summary_data$type, levels = level_text)
   summary_data$shortName <- factor(summary_data$shortName, levels = shortName_ordered)
   
+  summary_data <- filter(summary_data, type == 'Year:\n 2016-04-19 to 2017-04-19') %>% 
+    mutate(bin = cut(sessions, breaks = c(-Inf, viz[['breaks']], Inf)))
+  
+  
   port_graph <- ggplot(data = summary_data, aes(x = shortName, y = sessions)) +
     geom_bar(stat="identity", fill = "steelblue") +
     coord_flip() +
-    facet_wrap(~ type, scales = "free_x", nrow = 1) +
+    facet_wrap(~ bin, scales = "free", ncol = 1) +
     theme_minimal() +
     theme(axis.title = element_blank()) +
-    scale_y_log10(labels=fancyNumbers) 
+    scale_y_continuous(labels=fancyNumbers) 
   
   ggsave(port_graph, filename = viz[["location"]], 
          height = height, width = width)
