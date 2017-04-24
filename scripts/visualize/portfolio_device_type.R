@@ -6,7 +6,7 @@ visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type"
   width = viz[["width"]]
   
   range_text <- viz[["rangetext"]]
-  range_days = seq(Sys.Date(), length = 2, by = range_text)
+  range_days = seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text)
   
   sub_data_range <- viz.data %>%
     filter(date >= range_days[2]) %>%

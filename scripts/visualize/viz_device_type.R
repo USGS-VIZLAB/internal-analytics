@@ -12,7 +12,7 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
   plot_type <- viz[["plottype"]]
   range_text <- viz[["rangetext"]]
   
-  range_days = seq(Sys.Date(), length = 2, by = range_text)
+  range_days = seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text)
   
   for(i in unique(viz.data$viewID)){
     sub_data <- filter(viz.data, viewID == i)
