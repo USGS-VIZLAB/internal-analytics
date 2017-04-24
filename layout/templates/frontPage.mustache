@@ -1,48 +1,58 @@
 <div class="container flexContainer">
   {{{sideBar}}}
   <div class="content">
-    <div class="topHalf">
-      <div id="sessions" class="topicHeader">
-        <h2>Sessions</h2>
-      </div>
-      <div id="Timelines" class="flexContainer">
-        <div id="year" class="sessionTimeline flex1">
-          <div class="timelinePlot">
-            {{{portfolio_sessions_all}}}
-          </div>
-        </div>
+    <div id="sessions" class="topicHeader">
+      <h3>Sessions</h3>
+    </div>
+    <div id="timeline">
+      <div class="timelinePlot">
+        {{{portfolio_sessions_all}}}
       </div>
     </div>
-    <div class="bottomHalf flexContainer">
-      <div id="geo" class="flex1">
+    <div id="geo">
+      <div class="topicHeader">
+        <h3>Geographic Location</h3>
+      </div>
+      <div id="geoMap">
+        {{{viz_geo_portfolio}}}
+      </div>
+    </div>
+    <div id="deviceTraffic" class="flexContainer">
+      <div id="deviceType" class="flex1">
         <div class="topicHeader">
-          <h2>Geographic Location</h2>
+          <h3>Device Type</h3>
         </div>
-        <div id="geoMap">
-          {{{viz_geo_portfolio}}}
+        <div id="deviceTypeChart">
+          {{{portfolio_device_type}}}
         </div>
       </div>
-      <div id="deviceTraffic" class="flex1">
+      <div id="traffic" class="flex1">
         <div class="topicHeader">
-          <h2>Device Type</h2>
+          <h3>Traffic Source</h3>
         </div>
-        <div id="deviceType">
-        {{{portfolio_device_type}}}
+        <div id="trafficChart">
+          {{{portfolio_source}}}
         </div>
+      </div>
+    </div><!--deviceTraffic-->
+    <div id="time" class="flexContainer">
+      <div id="timeDay" class="flex1">
         <div class="topicHeader">
-          <h2>Traffic Source</h2>
+          <h3>Time of Day</h3>
         </div>
-        <div id="traffic">
-        {{{portfolio_source}}}
+        <div id="timeDayChart">
+          {{{timeDayUse_port}}}
         </div>
-        <div id="timeDay">
-        {{{timeDayUse_port}}}
+      </div>
+      <div id="aveTime" class="flex1">
+        <div class="topicHeader">
+          <h3>Average Time</h3>
         </div>
-        <div id="AveTime">
-        {{{portfolio_time}}}
+        <div id="AveTimeChart">
+          {{{portfolio_time}}}
         </div>
       </div>
     </div>
     {{{disclaimerGlossaryText}}}
-  </div>
-</div>
+  </div><!--content-->
+</div><!--container-->
