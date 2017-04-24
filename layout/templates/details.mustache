@@ -4,101 +4,88 @@
     <a href="index.html">
       <button class="return">Return to Summary</button>
     </a>
-  	<div class="topHalf flexContainer">
-      <div id="project" class="flex1">
-          <div id="projectName" class="topicHeader">
-              <h2>{{project_name}}</h2>
-          </div>
-          <div id="projectLineChart">
-              <div id="yearLineChart" class="lineChart">
-                  <h3>Year</h3>
-                  <div class="chart">
-                      {{{year_line_sessions}}}
-                  </div>
-              </div>
-              <div id="monthLineChart" class="lineChart">
-                  <h3>Month</h3>
-                  <div class="chart">
-                      {{{month_line_sessions}}}
-                  </div>
-              </div>
-              <div id="weekLineChart" class="lineChart">
-                  <h3>Week</h3>
-                  <div class="chart">
-                      {{{week_line_sessions}}}
-                  </div>
-              </div>
-              <div id="dayLineChart" class="lineChart">
-                  <h3>Day</h3>
-                  <div class="chart">
-                      {{{day_line_sessions}}}
-                  </div>
-              </div>
-          </div>
+  	<div id="projectName" class="topicHeader">
+      <h2>{{project_name}}</h2>
+    </div>
+    <div id="projectLineChart">
+      <div id="yearLineChart" class="lineChart">
+        <h3>Year</h3>
+        <div class="chart">
+          {{{year_line_sessions}}}
+        </div>
+      </div>
+      <div id="monthLineChart" class="lineChart">
+        <h3>Month</h3>
+        <div class="chart">
+          {{{month_line_sessions}}}
+        </div>
+      </div>
+      <div id="weekLineChart" class="lineChart">
+        <h3>Week</h3>
+        <div class="chart">
+          {{{week_line_sessions}}}
+        </div>
+      </div>
+      <div id="dayLineChart" class="lineChart">
+        <h3>Day</h3>
+        <div class="chart">
+          {{{day_line_sessions}}}
+        </div>
       </div>
     </div>
     <div id="monthlyGeo" class="flex1">
       <div class="topicHeader">
-        <h2>Geographic Locations: Previous Month</h2>
+        <h3>Geographic Locations: Previous Month</h3>
       </div>
       <div id="monthlyGeoMap">
-              {{{viz_geo_apps}}}
+        {{{viz_geo_apps}}}
       </div>
     </div>
-  	<div class="bottomHalf flexContainer">
+    <div class="flexContainer">
       <div id="monthlyInteractions" class="flex1">
-          <div class="topicHeader">
-              <h2>Time-of-Day Activity</h2>
-          </div>
-          <div id="pageStats">
-              {{{timeDayUse_app}}}
-          </div>
+        <div class="topicHeader">
+          <h3>Time-of-Day Activity</h3>
+        </div>
+        <div id="pageStats">
+          {{{timeDayUse_app}}}
+        </div>
       </div>
-      <div id="monthlyDeviceCharts" class="flex1">
-          <div class="topicHeader">
-              <h2>Device Type: Previous Month</h2>
-          </div>
-          <div id="deviceCharts">
-              <div class="topHalf flexContainer">
-                  <div id="monthlyDeviceTypes" class="flex1">
-                      <div class="topicHeader">
-                          <h5>Device Type</h5>
-                      </div>
-                      <div id="monthlyDeviceChart">
-                          {{{device_type}}}
-                      </div>
-                  </div>
-                  <div id="monthlyUsers" class="flex1">
-                      <div class="topicHeader">
-                          <h5>New vs Returning Users</h5>
-                      </div>
-                      <div id="monthlyUsersChart">
-                          {{{monthly_users_chart}}}
-                      </div>
-                  </div>
-              </div>
-              <div class="bottomHalf flexContainer">
-                  <div id="monthlyTraffic" class="flex1">
-                      <div class="topicHeader">
-                          <h5>Traffic Sources</h5>
-                      </div>
-                      <div id="monthlyTrafficChart">
-                          {{{source_counts}}}
-                      </div>
-                  </div>
-                  <div id="monthlyTime" class="flex1">
-                      <div class="topicHeader">
-                          <h5>Average Time on Page</h5>
-                      </div>
-                      <div id="monthlyTimeChart">
-                          {{{app_time}}}
-                      </div>
-                  </div>
-              </div>
-          </div>
+      <div id="monthlyDeviceTypes" class="flex1">
+        <div class="topicHeader">
+          <h3>Device Type</h3>
+        </div>
+        <div id="monthlyDeviceChart">
+          {{{device_type}}}
+        </div>
+      </div>
+    </div><!--flexcontainer-->
+    <div class="flexContainer">
+      <div id="monthlyUsers" class="flex1">
+        <div class="topicHeader">
+          <h3>New vs Returning Users</h3>
+        </div>
+        <div id="monthlyUsersChart">
+          {{{monthly_users_chart}}}
+        </div>
+      </div>
+      <div id="monthlyTraffic" class="flex1">
+        <div class="topicHeader">
+          <h3>Traffic Sources</h3>
+        </div>
+        <div id="monthlyTrafficChart">
+          {{{source_counts}}}
+        </div>
+      </div>
+    </div><!--flexcontainer-->
+    <div id="monthlyTime" class="flex1">
+      <div class="topicHeader">
+        <h3>Average Time on Page</h3>
+      </div>
+      <div id="monthlyTimeChart">
+        {{{app_time}}}
       </div>
     </div>
-    {{{disclaimerGlossaryText}}}
-  </div>
+  {{{disclaimerGlossaryText}}}
+  </div><!--content-->
 </div>
   
