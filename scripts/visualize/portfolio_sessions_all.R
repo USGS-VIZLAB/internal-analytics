@@ -42,18 +42,12 @@ visualize.portfolio_sessions_all <- function(viz){
 
   }
   
+  summary_data <- summary_data[!is.na(summary_data$shortName),] %>% arrange(desc(sessions))
   
-  summary_data <- summary_data[!is.na(summary_data$shortName),]
+  time.facets <- c("Year", "Week")
+  break.by <- "Year"
   
-  shortName_ordered  <- filter(summary_data, type == level_text[1]) %>%
-    arrange(sessions)
-  
-  shortName_ordered <- unique(shortName_ordered$shortName)
-  
-  summary_data$type <- factor(summary_data$type, levels = level_text)
-  summary_data$shortName <- factor(summary_data$shortName, levels = shortName_ordered)
-  
-  year_data <- filter(summary_data, grepl("Year", type)) %>% 
+  break_data <- filter(summary_data, grepl(break.by, type)) %>% 
     mutate(bin = cut(sessions, breaks = c(-Inf, viz[['breaks']], Inf))) %>% arrange(desc(sessions))
   
   lm <- 1.7
@@ -64,51 +58,58 @@ visualize.portfolio_sessions_all <- function(viz){
   rect.buffer <- 0.13 # buffer between top (and bottom) of each category and the rectangle border
   cat.total <- height - tm - bm - v.spc*length(viz[['breaks']]) - rect.buffer*2*(length(viz[['breaks']]) + 1) 
     # total space for app info
-  app.h <- cat.total / length(unique(year_data$shortName)) # what happens when a category bin is empty?
+  app.h <- cat.total / length(unique(break_data$shortName)) # what happens when a category bin is empty?
   
   png(filename = viz[["location"]], 
       height = height, width = width, units = 'in', res = 150)
   par(mar = c(0, 0, 0, 0), omi = c(0, lm, 0, 0), xpd = NA)
-  plot(0, NA, ylim = c(0, height), xlim = c(0, 2), axes = FALSE, xlab="", ylab="", xaxs = 'i', yaxs = 'i') # 10% wider for text
+  plot(0, NA, ylim = c(0, height), xlim = c(0, length(time.facets)), 
+       axes = FALSE, xlab="", ylab="", xaxs = 'i', yaxs = 'i') # 10% wider for text
   # xlim 0 to number of time facets
-  y.0 <- height - tm
-  bins <- unique(as.character(year_data$bin))
-  cols <- sprintf('grey%1.0f', seq(from = 80, to = 95, length.out = length(bins)))
-  bump <- seq(from = 1.2, to = 1.3, length.out = length(bins)) # makes the maximums of the smaller categories a little smaller
-  text(0, y.0+tm/2, labels=unique(year_data$type), pos=4, offset=0.2, cex = 1.25)
-  text(1, y.0+tm/2, labels=filter(summary_data, grepl("Week", type)) %>% .$type %>% unique(), pos=4, offset=0.2, cex = 1.25)
-  for (cat.bin in bins) { # are already ranked w/ bins
-    
-    cat.data <- filter(year_data, bin == cat.bin)
-    week.data <- filter(summary_data, shortName %in% cat.data$shortName, grepl("Week", type))
-    cat.max <- cat.data %>% .$sessions %>% max() %>% "*"(bump[1])
-    week.max <- week.data %>% .$sessions %>% max() %>% "*"(bump[1])
-    rect(0, y.0-(nrow(cat.data) - 1)*app.h - 2 * rect.buffer, xright = 1.0-h.spc, ytop = y.0, col = cols[1], border = NA)
-    rect(1, y.0-(nrow(cat.data) - 1)*app.h - 2 * rect.buffer, xright = 2-h.spc, ytop = y.0, col = cols[1], border = NA)
-    y.0 <- y.0 - rect.buffer
-    for (j in seq_len(nrow(cat.data))){
-      
-      segments(0,y.0, cat.data$sessions[j]/cat.max, lend = 1)
-      segments(0,y.0, cat.data$newUsers[j]/cat.max, lwd = 3, lend = 1)
-      week.x <- filter(week.data, shortName == cat.data$shortName[j])
-      segments(1, y.0, 1 + week.x$sessions[1]/week.max, lend = 1)
-      segments(1,y.0, 1 + week.x$newUsers[1]/week.max, lwd = 3, lend = 1)
-      points(x = cat.data$sessions[j]/cat.max, y = y.0, pch = 20, col='black')
-      points(x = 1 + week.x$sessions[1]/week.max, y = y.0, pch = 20, col='black')
-      text(cat.data$sessions[j]/cat.max, y = y.0, labels = pretty_num(cat.data$sessions[j]), pos = 4)
-      text(1 + week.x$sessions[1]/week.max, y = y.0, labels = pretty_num(week.x$sessions[1]), pos = 4)
-      text(0, y = y.0, labels = cat.data$shortName[j], pos=2)
-      
-      y.0 <- y.0 - app.h
-      
+  
+  bins <- unique(as.character(break_data$bin))
+  cat.names <- c('very high traffic','high traffic','moderate traffic','low traffic')
+  
+  x.0 <- 0
+  for (t in time.facets){
+    y.0 <- height - tm
+    text(x.0, y.0+tm/2, labels=filter(summary_data, grepl(t, type)) %>% .$type %>% unique(), pos=4, offset=0.2, cex = 1.25)
+    cols <- sprintf('grey%1.0f', seq(from = 80, to = 95, length.out = length(bins)))
+    bump <- seq(from = 1.2, to = 1.3, length.out = length(bins)) # makes the maximums of the smaller categories a little smaller
+    for (cat.bin in bins) { # are already ranked w/ bins
+      bin.names <- break_data %>% filter(bin %in% cat.bin) %>% .$shortName %>% as.character()
+      cat.data <- filter(summary_data, shortName %in% bin.names, grepl(t, type))
+      cat.max <- cat.data %>% .$sessions %>% max() %>% "*"(bump[1])
+      # need to based this off of the breaks!! and order based on breaks!!
+      rect(x.0, y.0-(nrow(cat.data) - 1)*app.h - 2 * rect.buffer, xright = x.0 + 1.0-h.spc, ytop = y.0, col = cols[1], border = NA)
+      if (t == time.facets[1]){
+        text(x.0+1.0-h.spc, y.0-(nrow(cat.data) - 1)*app.h - 2 * rect.buffer, labels = cat.names[1], adj = c(1.05,-0.5), cex = 0.75)  
+      }
+      y.0 <- y.0 - rect.buffer
+      for (j in seq_len(nrow(cat.data))){
+        segments(x.0,y.0, x.0+cat.data$sessions[j]/cat.max, lend = 1)
+        segments(x.0,y.0, x.0+cat.data$newUsers[j]/cat.max, lwd = 3, lend = 1)
+        
+        points(x = x.0+cat.data$sessions[j]/cat.max, y = y.0, pch = 20, col='black')
+        text(x.0+cat.data$sessions[j]/cat.max, y = y.0, labels = pretty_num(cat.data$sessions[j]), pos = 4)
+        if (t == time.facets[1]){
+          text(x.0, y = y.0, labels = cat.data$shortName[j], pos=2)
+        }
+        y.0 <- y.0 - app.h
+      }
+      y.0 <- y.0 - (app.h - rect.buffer)
+      cols <- tail(cols, -1L)
+      bump <- tail(bump, -1L)
+      cat.names <- tail(cat.names, -1L)
     }
-    y.0 <- y.0 - (app.h - rect.buffer)
-    cols <- tail(cols, -1L)
-    bump <- tail(bump, -1L)
+    x.0 <- x.0 + 1
   }
+  
+  
   
   dev.off()
 }
+
 
 fancyNumbers <- function(n){
   nNoNA <- n[!is.na(n)]
