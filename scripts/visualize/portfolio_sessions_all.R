@@ -42,7 +42,7 @@ visualize.portfolio_sessions_all <- function(viz){
 
   }
   
-  summary_data <- summary_data[!is.na(summary_data$shortName),] %>% arrange(desc(sessions))
+  summary_data <- summary_data %>% filter(!is.na(shortName)) %>% arrange(desc(sessions))
   
   time.facets <- c("Year", "Week")
   break.by <- "Year"
@@ -50,14 +50,15 @@ visualize.portfolio_sessions_all <- function(viz){
   break_data <- filter(summary_data, grepl(break.by, type)) %>% 
     mutate(bin = cut(sessions, breaks = c(-Inf, viz[['breaks']], Inf))) %>% arrange(desc(sessions))
   
-  lm <- 1.7
-  tm <- 0.25
-  v.spc <- 0.05
-  h.spc <- 0.035
-  bm <- 0.05
-  rect.buffer <- 0.13 # buffer between top (and bottom) of each category and the rectangle border
+  lm <- 1.7 # left margin
+  tm <- 0.25 # top margin
+  v.spc <- 0.05 # vertical space
+  h.spc <- 0.035 # horizontal space
+  bm <- 0.05 # bottom margin
+  rect.buffer <- 0.13 # buffer between top (and bottom) apps of each category and the rectangle border
+  
+  # total space for app info:
   cat.total <- height - tm - bm - v.spc*length(viz[['breaks']]) - rect.buffer*2*(length(viz[['breaks']]) + 1) 
-    # total space for app info
   app.h <- cat.total / length(unique(break_data$shortName)) # what happens when a category bin is empty?
   
   png(filename = viz[["location"]], 
@@ -65,7 +66,7 @@ visualize.portfolio_sessions_all <- function(viz){
   par(mar = c(0, 0, 0, 0), omi = c(0, lm, 0, 0), xpd = NA)
   plot(0, NA, ylim = c(0, height), xlim = c(0, length(time.facets)), 
        axes = FALSE, xlab="", ylab="", xaxs = 'i', yaxs = 'i') # 10% wider for text
-  # xlim 0 to number of time facets
+  # xlim is 0 to number of time facets
   
   bins <- unique(as.character(break_data$bin))
   cat.names <- c('very high traffic','high traffic','moderate traffic','low traffic')
@@ -73,28 +74,47 @@ visualize.portfolio_sessions_all <- function(viz){
   x.0 <- 0
   for (t in time.facets){
     y.0 <- height - tm
-    text(x.0, y.0+tm/2, labels=filter(summary_data, grepl(t, type)) %>% .$type %>% unique(), pos=4, offset=0.2, cex = 1.25)
+    top.text <- filter(summary_data, grepl(t, type)) %>% .$type %>% unique()
+    text(x.0, y.0+tm/2, labels=top.text, pos=4, offset=0.2, cex = 1.25)
     cols <- sprintf('grey%1.0f', seq(from = 80, to = 95, length.out = length(bins)))
-    bump <- seq(from = 1.2, to = 1.3, length.out = length(bins)) # makes the maximums of the smaller categories a little smaller
+    # makes the maximums of the smaller categories a little smaller, larger numbers = further left:
+    bump <- seq(from = 1.2, to = 1.3, length.out = length(bins)) 
+    
     for (cat.bin in bins) { # are already ranked w/ bins
+      # make the rectangle, calculate which apps are included:
       bin.names <- break_data %>% filter(bin %in% cat.bin) %>% .$shortName %>% as.character()
+      rect(x.0, y.0-(length(bin.names) - 1)*app.h - 2*rect.buffer, xright = x.0 + 1.0-h.spc, ytop = y.0, col = cols[1], border = NA)
+      
       cat.data <- filter(summary_data, shortName %in% bin.names, grepl(t, type))
       cat.max <- cat.data %>% .$sessions %>% max() %>% "*"(bump[1])
-      # need to based this off of the breaks!! and order based on breaks!!
-      rect(x.0, y.0-(nrow(cat.data) - 1)*app.h - 2 * rect.buffer, xright = x.0 + 1.0-h.spc, ytop = y.0, col = cols[1], border = NA)
       if (t == time.facets[1]){
         text(x.0+1.0-h.spc, y.0-(nrow(cat.data) - 1)*app.h - 2 * rect.buffer, labels = cat.names[1], adj = c(1.05,-0.5), cex = 0.75)  
       }
       y.0 <- y.0 - rect.buffer
-      for (j in seq_len(nrow(cat.data))){
-        segments(x.0,y.0, x.0+cat.data$sessions[j]/cat.max, lend = 1)
-        segments(x.0,y.0, x.0+cat.data$newUsers[j]/cat.max, lwd = 3, lend = 1)
-        
-        points(x = x.0+cat.data$sessions[j]/cat.max, y = y.0, pch = 20, col='black')
-        text(x.0+cat.data$sessions[j]/cat.max, y = y.0, labels = pretty_num(cat.data$sessions[j]), pos = 4)
-        if (t == time.facets[1]){
-          text(x.0, y = y.0, labels = cat.data$shortName[j], pos=2)
+      for (app in bin.names){
+        app.data <- filter(cat.data, shortName == app)
+        if (nrow(app.data) == 0) {
+          sess.len <- 0
+          user.len <- 0
+          short.name <- ""
+          app.num <- 0
+        } else {
+          app.num <- app.data$sessions
+          sess.len <- app.num/cat.max
+          user.len <- app.data$newUsers/cat.max
+          short.name <- app.data$shortName
         }
+        
+        # plot lollipops and label: 
+        segments(c(x.0,x.0), c(y.0,y.0), c(x.0+sess.len,x.0+user.len), c(y.0,y.0),
+                 lend = 1, lwd = c(1,3))
+        points(x = x.0+sess.len, y = y.0, pch = 20, col='black')
+        text(x = x.0+sess.len, y = y.0, labels = pretty_num(app.num), pos = 4)
+        
+        if (t == time.facets[1]){ # label the y-axis
+          text(x.0, y = y.0, labels = short.name, pos=2)
+        }
+        
         y.0 <- y.0 - app.h
       }
       y.0 <- y.0 - (app.h - rect.buffer)
