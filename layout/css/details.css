@@ -6,7 +6,7 @@
   border:1px solid rgb(0,51,102);
   font-size:.9em;
   outline:none;
-  margin-bottom:20px;
+  margin:10px;
   cursor:pointer;
 }
 
@@ -15,70 +15,6 @@
   color:rgb(0,51,102);
 }
 
-
-#project,
-#monthlyGeo{
-  margin-bottom:10px;
-}
-
-#projectName{
-  margin-bottom:20px;
-}
-
-.chart{
-  min-height:50px;
-  margin-bottom:10px;
-}
-
-#pageStats{
-  min-height:100px;
-}
-
-#projectLineChart{
-  min-height:100px;
-}
-
-#monthlyGeoMap img,
-#monthlyDeviceChart img,
-#monthlyUsersChart img,
-#monthlyTrafficChart img,
-#pageStats img{
-  width:100%;
-}
-
-#projectLineChart,
-#monthlyGeoMap,
-#monthlyDeviceChart,
-#monthlyUsersChart,
-#monthlyTrafficChart,
-#pageStats{
-  margin-bottom:10px;
-}
-
-#monthlyGeoMap{
-  min-height:185px;
-}
-
-#monthlyGeo,
-#monthlyTraffic,
-#monthlyUsers,
-#monthlyInteractions,
-#monthlyDeviceTypes{
-  min-height:50px;
-  margin-top:30px;
-}
-
-@media screen and (min-width:768px){
-  
-  #monthlyGeo,
-  #monthlyDeviceTypes,
-  #monthlyTraffic{
-    margin-right:10px;
-  }
-}
-
-@media screen and (min-width: 1200px){
-  #projectLineChart img{
-    width:90%;
-  }
+.projectName{
+  margin:0 10px 10px 10px;
 }

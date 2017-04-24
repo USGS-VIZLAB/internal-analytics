@@ -24,38 +24,56 @@ h6{
   flex:1; 
 }
 
+.flex5{
+  flex:5;
+}
+
 .container{
   min-height:100%;
 }
 
 .sideBar{
-  border-right:1px solid rgb(220,220,220);
-  width:20%;
-  max-width:316px;
+  min-width:250px;
+	max-width:300px;
+	border-right:2px solid rgb(220,220,220);
 }
 
 .sideBar h4{
   padding:7px 2% 5px 2%;
 }
 
-.content{
-  padding:10px;
-  width:80%;
+.full{
+	min-height:100px;
 }
 
-.box{
-  border:1px solid #000;
+.header{
+	background:rgb(240,240,240);
+	height:26px;
+	padding:2px 10px;
+	margin-bottom:20px
 }
 
-.rotate{
-  -ms-transform: rotate(-90deg); /* IE 9 */
-  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-  transform: rotate(-90deg);
+.chartArea{
+	min-height:100px;
+	text-align: center;
+	padding:0 10px 10px 10px;
 }
 
-.slider h4{
-  line-height:28px;
-  float:left;
+.chartArea h3{
+  text-align:left;
+}
+
+.chartArea img{
+	width:100%;
+}
+
+.flexBorder{
+	border-right:2px solid rgb(220,220,220);
+}
+
+.disclaimer,
+.glossary{
+  padding:0 10px 10px 10px;
 }
 
 .disclaimer h3,
@@ -105,93 +123,25 @@ h6{
   padding-top:5px;
 }
 
-.topHalf{
-  min-height:100px;
-  margin-bottom:10px;
-  clear:both;
-}
-
-.bottomHalf{
-  min-height:100px;
-}
-
-#users{
-  min-height:50px;
-}
-
-#timeline{
-  min-height:100px;
-  text-align:center;
-}
-
-.timelinePlot{
-  min-height:50px;
-  margin-top:10px;
-}
-
-.timelinePlot img,
-#geoMap img,
-#deviceType img,
-#traffic img,
-#timeDayChart img,
-#AveTimeChart img{
-  width:100%;
-}
-
-#deviceTraffic{
-  margin-bottom:10px;
-}
-
-#deviceType{
-  margin-right:10px;
-}
-
-#geoMap{
-  min-height:100px;
-}
-
-#deviceType{
-   min-height:100px;
-}
-
-#traffic{
-  min-height:100px;
-}
-
-.topicHeader{
-  margin:10px 0 5px 0;
-}
-
-.topicHeader h3{
-  font-weight:600;
-}
-
 @media screen and (min-width:768px){
-  .topicHeader{
-    margin:0 0 5px 0;
-  }
-  #geo,
-  #project,
-  #projectListHolder{
-    margin-right:10px;
-  }
-  #deviceType{
-    margin-bottom:10px;
-  }
-  #projectListHolder{
-    width:300px;
-  }
-  .glossary,
-  .disclaimer{
-    width:600px;
-    margin:0 auto;
-  }
+  .disclaimer h3,
   .glossary h3{
+    margin-top:10px;
+  }
+  .disclaimer p,
+  .glossary p{
     margin-top:10px;
   }
 }
 
 @media screen and (min-width: 1200px){
+  .chartArea h3{
+    width:60%;
+    margin:0 auto;
+  }
+  .chartArea img{
+		width:60%;
+	}
   .glossary,
   .disclaimer{
     width:960px;
