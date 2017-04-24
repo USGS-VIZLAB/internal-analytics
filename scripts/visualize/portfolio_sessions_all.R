@@ -52,14 +52,14 @@ visualize.portfolio_sessions_all <- function(viz){
   
   lm <- 1.7 # left margin
   tm <- 0.25 # top margin
-  v.spc <- 0.05 # vertical space
+  v.spc <- 0.05 # vertical space in between category rectangles
   h.spc <- 0.035 # horizontal space
   bm <- 0.05 # bottom margin
   rect.buffer <- 0.13 # buffer between top (and bottom) apps of each category and the rectangle border
   
   # total space for app info:
   cat.total <- height - tm - bm - v.spc*length(viz[['breaks']]) - rect.buffer*2*(length(viz[['breaks']]) + 1) 
-  app.h <- cat.total / length(unique(break_data$shortName)) # what happens when a category bin is empty?
+  app.h <- cat.total / (length(unique(break_data$shortName)) - 1) # what happens when a category bin is empty?
   
   png(filename = viz[["location"]], 
       height = height, width = width, units = 'in', res = 150)
