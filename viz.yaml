@@ -349,7 +349,7 @@ visualize:
     visualizer: viz_geo_portfolio 
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
-    height: 3
+    height: 2.25
     width: 3
     alttext: "viz_geo_portfolio"
     title: "viz_geo_portfolio"
