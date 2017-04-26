@@ -67,6 +67,9 @@ info:
     gridExtra:
       repo: CRAN
       version: 2.2.1
+    RColorBrewer:
+      repo: CRAN
+      version: 1.1-2
 fetch:
   -
     id: fetchGA_cida
@@ -282,8 +285,8 @@ visualize:
   -
     id: portfolio_sessions_all
     visualizer: portfolio_sessions_all 
-    height: 8
-    width: 10
+    height: 10
+    width: 14
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 

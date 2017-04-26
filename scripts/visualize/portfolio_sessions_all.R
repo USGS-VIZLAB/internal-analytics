@@ -2,6 +2,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   library(dplyr)
   library(tidyr)
   library(ggplot2)
+  library(RColorBrewer)
   
   deps <- readDepends(viz)
   
@@ -76,6 +77,9 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     group_by(bin) %>%
     slice(which.min(sessions))
   
+  summary_data_full$scaled_value <- summary_data_full$sessions*summary_data_full$scaler
+  summary_data_full$scaled_newUser <- summary_data_full$newUsers*summary_data_full$scaler
+
   mean_sessions <- summary_data_full %>%
     filter(type == levels(summary_data_full$type)[3]) 
   mean_sessions <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
@@ -87,9 +91,6 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         y = mean_sessions,
                         stringsAsFactors = FALSE)
   
-  summary_data_full$scaled_value <- summary_data_full$sessions*summary_data_full$scaler
-  summary_data_full$scaled_newUser <- summary_data_full$newUsers*summary_data_full$scaler
-
   port_graph <- ggplot(data = summary_data_full, aes(x = shortName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,alpha = 0.1) +
