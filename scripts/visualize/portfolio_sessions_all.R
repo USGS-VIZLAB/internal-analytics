@@ -26,7 +26,6 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     range_days = seq(latest_day, length = 2, by = range_text[i])
     
     j <- names(range_text)[i]
-    level_text <- c(level_text, j)
     
     summary_sessions <- viz.data %>%
       filter(date >= range_days[2]) %>%
@@ -35,8 +34,10 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                 newUsers = sum(newUsers, na.rm = TRUE)) %>%
       arrange(sessions) %>%
       left_join(select(ga_table, viewID, shortName), by="viewID") %>%
-      mutate(type = j) %>%
+      mutate(type = paste(j,"\n",paste0(range(range_days), collapse = " to "))) %>%
       select(-viewID)
+    
+    level_text <- c(level_text, paste(j,"\n",paste0(range(range_days), collapse = " to ")))
     
     summary_data <- bind_rows(summary_data, summary_sessions)
     
@@ -45,10 +46,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   summary_data <- summary_data %>% 
     filter(!is.na(shortName)) %>% 
     arrange(desc(sessions)) %>%
-    mutate(type = factor(paste(type,"\n",paste0(range(range_days), collapse = " to ")),
-                         levels = paste(names(range_text),"\n",paste0(range(range_days), collapse = " to "))),
-           session_text = sapply(sessions, function(x) pretty_num(x))
-    )
+    mutate(session_text = sapply(sessions, function(x) pretty_num(x)),
+           type = factor(type, levels = level_text))
   
   break.by <- "Year"
   
@@ -133,3 +132,5 @@ pretty_num <- function(n){
   }
   return(out)
 }
+
+
