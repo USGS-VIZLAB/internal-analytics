@@ -86,9 +86,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   
   mean_sessions <- summary_data_full %>%
     filter(type == levels(summary_data_full$type)[3]) 
+  
   sessions_85_week <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
   sessions_50_week <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.6))
   sessions_75_week <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.7))
+  sessions_100 <- max(mean_sessions$scaled_value, na.rm = TRUE)
   
   text_df <- data.frame(label = c("very high traffic","high traffic","moderate traffic","low traffic"),
                         type = factor(levels(summary_data_full$type)[1], levels = levels(summary_data_full$type)),
@@ -104,22 +106,30 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         y = sessions_85_week,
                         y_50 = sessions_50_week,
                         y_75 = sessions_75_week,
+                        y_max = 1.35*sessions_100,
                         stringsAsFactors = FALSE)
   
   port_graph <- ggplot(data = summary_data_full, aes(x = shortName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,alpha = 0.1) +
+    geom_point() +
     geom_segment(aes(xend = shortName), yend=0) +
-    geom_text(data = fake_legend, aes(x = shortName, y = y, label = label), size = 3.5) +
     geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="grey", size=2) + 
+    geom_text(aes(label = session_text), size = 3, hjust = -0.25) + 
+    geom_rect(data = fake_legend[1,], aes(y = 0),
+              ymin = fake_legend$y_50[1]*0.95, 
+              ymax = fake_legend$y_max[1], 
+              xmin = .4,
+              xmax = 2.6,
+              color = "black", fill = "white") +
+    geom_text(data = fake_legend, aes(x = shortName, y = y, label = label), size = 3) +
     geom_segment(data = fake_legend[2,],
                  aes(x = shortName, 
                      xend = shortName, 
                      y = y_50, yend=y_75), col="grey", size=2) + 
-    geom_point() +
     geom_segment(data = fake_legend[1,], aes(xend = shortName, y=y_50, yend=y_75)) +
     geom_point(data = fake_legend[1,], aes(x = shortName, y=y_75)) +
-    geom_text(aes(label = session_text), size = 3, hjust = -0.25) + 
+    
     geom_text(data = text_df, aes(x = shortName, y = y, label = label), size = 3.5) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
