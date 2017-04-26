@@ -289,7 +289,6 @@ visualize:
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
-      sessions_and_new_users_daily: sessions_and_new_users_daily
     mimetype: image/png
     alttext: "Latest year sessions"
     title: "Latest year sessions"
