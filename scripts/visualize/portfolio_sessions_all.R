@@ -30,7 +30,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     summary_sessions <- viz.data %>%
       filter(date >= range_days[2]) %>%
       group_by(viewID) %>%
-      summarize(sessions = sum(sessions, na.rm = TRUE), newUsers = sum(newUsers, na.rm = TRUE)) %>%
+      summarize(sessions = sum(sessions, na.rm = TRUE), 
+                newUsers = sum(newUsers, na.rm = TRUE)) %>%
       arrange(sessions) %>%
       left_join(select(ga_table, viewID, shortName), by="viewID") %>%
       mutate(type = j) %>%
@@ -70,21 +71,48 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     summary_data_full$scaler[summary_data_full$bin == i] <- (scale_to / max_sess)
   }
   
-  summary_data_full$scaled_value <- summary_data_full$sessions*summary_data_full$scaler
+  min_app <- select(summary_data_full, bin, type, sessions, shortName) %>%
+    filter(type == levels(summary_data_full$type)[1]) %>%
+    group_by(bin) %>%
+    slice(which.min(sessions))
   
+  mean_sessions <- summary_data_full %>%
+    filter(type == levels(summary_data_full$type)[3]) 
+  mean_sessions <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
+  
+  text_df <- data.frame(label = c("very high traffic","high traffic","moderate traffic","low traffic"),
+                        type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
+                        bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
+                        shortNames = min_app$shortName,
+                        y = mean_sessions,
+                        stringsAsFactors = FALSE)
+  
+  summary_data_full$scaled_value <- summary_data_full$sessions*summary_data_full$scaler
+  summary_data_full$scaled_newUser <- summary_data_full$newUsers*summary_data_full$scaler
+
   port_graph <- ggplot(data = summary_data_full, aes(x = shortName, y = scaled_value)) +
+    geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
+              ymin = -Inf,ymax = Inf,alpha = 0.1) +
     geom_segment(aes(xend = shortName), yend=0) +
+    geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="grey", size=2) + 
     geom_point() +
-    geom_text(aes(label = session_text), size = 3.5, hjust = -0.25) +
+    geom_text(aes(label = session_text), size = 2.5, hjust = -0.25) + 
+    geom_text(data = text_df, aes(x = shortNames, y = y, label = label), size = 2.5) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
-    scale_y_continuous(expand = c(0.15,0) ) +
-    theme_minimal() +
+    scale_fill_manual(values = rev(brewer.pal(4,"Blues"))) +
+    scale_y_continuous(expand = c(.35,0) ) +
+    theme_bw() +
     theme(axis.title = element_blank(),
           axis.text.x =  element_blank(),
-          strip.text.y = element_text(angle = 0),
-          plot.margin = unit(c(0, 0, 0, 0), "cm")) 
+          strip.text.y = element_blank(),
+          # plot.margin = unit(c(0, 0, 0, 0.2), "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          strip.background = element_blank(),
+          axis.ticks=element_blank(),
+          legend.position="none") 
   
   ggsave(port_graph, file = viz[["location"]], height = height, width = width)
   
