@@ -188,8 +188,8 @@ visualize:
     depends: sessions_and_new_users
     rangetext: "-1 year"
     plottype: year_line
-    height: 200
-    width: 800
+    height: 300
+    width: 1000
     mimetype: text/csv
     location: cache/visualize/viz_y_sessions.csv
   -
@@ -198,29 +198,29 @@ visualize:
     scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users
     rangetext: "-1 month"
-    height: 200
-    width: 800
+    height: 300
+    width: 1000
     plottype: month_line
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
   -
     id: viz_w_sessions
     visualizer: viz_y_sessions 
-    scripts: scripts/visualize/viz_y_sessions.R
+    scripts: [scripts/visualize/viz_y_sessions.R]
     depends: sessions_and_new_users
     rangetext: "-1 week"
-    height: 200
-    width: 800
+    height: 300
+    width: 1000
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
   -
     id: viz_d_sessions
     visualizer: viz_d_sessions 
-    scripts: scripts/visualize/viz_d_sessions.R
+    scripts: scripts/visualize/viz_y_sessions.R
     depends: sessions_and_new_users_daily
-    height: 200
-    width: 800
+    height: 300
+    width: 1000
     plottype: day_line
     mimetype: text/csv
     location: cache/visualize/viz_d_sessions.csv
@@ -230,7 +230,7 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
-    height: 3
+    height: 2.25
     width: 3
     rangetext: "-1 month"
     mimetype: text/csv
@@ -242,8 +242,8 @@ visualize:
     depends: aggregate_ga
     plottype: app_hist
     rangetext: "-1 month"
-    height: 600
-    width: 600
+    height: 480
+    width: 480
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
   -
@@ -284,6 +284,7 @@ visualize:
     visualizer: portfolio_sessions_all 
     height: 8
     width: 10
+    breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
@@ -348,7 +349,7 @@ visualize:
     visualizer: viz_geo_portfolio 
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
-    height: 3
+    height: 2.25
     width: 3
     alttext: "viz_geo_portfolio"
     title: "viz_geo_portfolio"

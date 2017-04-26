@@ -10,7 +10,7 @@ visualize.portfolio_sessions <- function(viz){
   
   range_text <- viz[["rangetext"]]
   
-  range_days = seq(Sys.Date(), length = 2, by = range_text)
+  range_days = seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text)
   
   summary_sessions <- viz.data %>%
     filter(date >= range_days[2]) %>%

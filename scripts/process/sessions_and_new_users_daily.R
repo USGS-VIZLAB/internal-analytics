@@ -9,6 +9,6 @@ process.sessions_and_new_users_daily <- function(viz = as.viz("sessions_and_new_
     select(-date)
 
   
-  saveRDS(session_users, file=viz[["location"]])
+  saveRDS(session_users, file=viz[["location"]], compress = FALSE)
   
 }

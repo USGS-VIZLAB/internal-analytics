@@ -1,51 +1,63 @@
 <div class="container flexContainer">
   {{{sideBar}}}
-  <div class="content flex1">
-    <div class="topHalf">
-      <div id="sessions" class="topicHeader flexContainer box">
-        <h2>Sessions</h2>
-        <div id="users" class="box flex1">
-          new & returning users bar
-        </div>
-      </div>
-      <div id="Timelines" class="flexContainer">
-        <div id="year" class="sessionTimeline flex1 box">
-          <div class="timelinePlot">
-            {{{portfolio_sessions_all}}}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="bottomHalf flexContainer">
-      <div id="geo" class="box flex1">
-        <div class="topicHeader">
-          <h2>Geographic Location</h2>
-        </div>
-        <div id="geoMap" class="box">
-          {{{viz_geo_portfolio}}}
-        </div>
-      </div>
-      <div id="deviceTraffic" class="box flex1">
-        <div class="topicHeader">
-          <h2>Device Type</h2>
-        </div>
-        <div id="deviceType" class="box">
-        {{{portfolio_device_type}}}
-        </div>
-        <div class="topicHeader">
-          <h2>Traffic Source</h2>
-        </div>
-        <div id="traffic" class="box">
-        {{{portfolio_source}}}
-        </div>
-        <div id="timeDay" class="box">
-        {{{timeDayUse_port}}}
-        </div>
-        <div id="AveTime" class="box">
-        {{{portfolio_time}}}
-        </div>
-      </div>
-    </div>
-    {{{disclaimerGlossaryText}}}
-  </div>
-</div>
+  <div class="content flex5">
+    <section class="full">
+      <div class="header">
+				<h3>Sessions</h3>
+			</div>
+			<div class="chartArea">
+				{{{portfolio_sessions_all}}}
+			</div>
+    </section>
+    <section class="full">
+			<div class="header">
+				<h3>Geographic Location</h3>
+			</div>
+			<div class="chartArea">
+				{{{viz_geo_portfolio}}}
+			</div>
+		</section>
+		<section class="half flexContainer">
+		  <div class="flex1 flexBorder">
+				<div class="header">
+					<h3>Device Type</h3>
+				</div>
+				<div class="chartArea">
+				  {{{portfolio_device_type}}}
+				</div>
+			</div>
+			<div class="flex1">
+				<div class="header">
+					<h3>Traffic Source</h3>
+				</div>
+				<div class="chartArea">
+					{{{portfolio_source}}}
+				</div>
+			</div>
+		</section>
+		<section class="half flexContainer">
+		  <div class="flex1 flexBorder">
+				<div class="header">
+					<h3>Time of Day</h3>
+				</div>
+				<div class="chartArea">
+					{{{timeDayUse_port}}}
+				</div>
+			</div>
+			<div class="flex1">
+				<div class="header">
+					<h3>Average Time</h3>
+				</div>
+				<div class="chartArea">
+					{{{portfolio_time}}}
+				</div>
+			</div>
+		</section>
+		<section class="disclaimerGlossary">
+		  <div class="header">
+				<h3>Disclaimer/Glossary</h3>
+			</div>
+		  {{{disclaimerGlossaryText}}}
+		</section>
+  </div><!--content-->
+</div><!--container-->

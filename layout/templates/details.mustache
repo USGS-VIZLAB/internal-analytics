@@ -1,104 +1,89 @@
 <div class="container flexContainer">
 	{{{sideBar}}}
-  <div class="content flex1">
+  <div class="content flex5">
     <a href="index.html">
       <button class="return">Return to Summary</button>
     </a>
-  	<div class="topHalf flexContainer">
-      <div id="project" class="flex1">
-          <div id="projectName" class="topicHeader">
-              <h2>{{project_name}}</h2>
-          </div>
-          <div id="projectLineChart">
-              <div id="yearLineChart" class="lineChart">
-                  <h3>Year</h3>
-                  <div class="chart">
-                      {{{year_line_sessions}}}
-                  </div>
-              </div>
-              <div id="monthLineChart" class="lineChart">
-                  <h3>Month</h3>
-                  <div class="chart">
-                      {{{month_line_sessions}}}
-                  </div>
-              </div>
-              <div id="weekLineChart" class="lineChart">
-                  <h3>Week</h3>
-                  <div class="chart">
-                      {{{week_line_sessions}}}
-                  </div>
-              </div>
-              <div id="dayLineChart" class="lineChart">
-                  <h3>Day</h3>
-                  <div class="chart">
-                      {{{day_line_sessions}}}
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div id="monthlyInteractions" class="flex1">
-          <div class="topicHeader">
-              <h2>Time-of-Day Activity</h2>
-          </div>
-          <div id="pageStats" class="box">
-              {{{timeDayUse_app}}}
-          </div>
-      </div>
-    </div>
-  	<div class="bottomHalf flexContainer">
-      <div id="monthlyGeo" class="flex1">
-          <div class="topicHeader">
-              <h2>Geographic Locations: Previous Month</h2>
-          </div>
-          <div id="monthlyGeoMap" class="box">
-              {{{viz_geo_apps}}}
-          </div>
-      </div>
-      <div id="monthlyDeviceCharts" class="flex1">
-          <div class="topicHeader">
-              <h2>Device Type: Previous Month</h2>
-          </div>
-          <div id="deviceCharts">
-              <div class="topHalf flexContainer">
-                  <div id="monthlyDeviceTypes" class="flex1">
-                      <div class="topicHeader">
-                          <h5>Device Type</h5>
-                      </div>
-                      <div id="monthlyDeviceChart" class="box">
-                          {{{device_type}}}
-                      </div>
-                  </div>
-                  <div id="monthlyUsers" class="flex1">
-                      <div class="topicHeader">
-                          <h5>New vs Returning Users</h5>
-                      </div>
-                      <div id="monthlyUsersChart" class="box">
-                          {{{monthly_users_chart}}}
-                      </div>
-                  </div>
-              </div>
-              <div class="bottomHalf flexContainer">
-                  <div id="monthlyTraffic" class="flex1">
-                      <div class="topicHeader">
-                          <h5>Traffic Sources</h5>
-                      </div>
-                      <div id="monthlyTrafficChart" class="box">
-                          {{{source_counts}}}
-                      </div>
-                  </div>
-                  <div id="monthlyTime" class="flex1">
-                      <div class="topicHeader">
-                          <h5>Average Time on Page</h5>
-                      </div>
-                      <div id="monthlyTimeChart" class="box">
-                          {{{app_time}}}
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-    {{{disclaimerGlossaryText}}}
-  </div>
+    <h2 class="projectName">{{project_name}}</h2>
+    <section class="full">
+      <div class="header">
+				<h3>Project Timeline Summaries</h3>
+			</div>
+			<div class="chartArea">
+			  <h3>Year</h3>
+				{{{year_line_sessions}}}
+			</div>
+			<div class="chartArea">
+			  <h3>Month</h3>
+				{{{month_line_sessions}}}
+			</div>
+			<div class="chartArea">
+			  <h3>Week</h3>
+				{{{week_line_sessions}}}
+			</div>
+			<div class="chartArea">
+			  <h3>Day</h3>
+				{{{day_line_sessions}}}
+			</div>
+    </section>
+    <section class="full">
+			<div class="header">
+				<h3>Geographic Locations: Previous Month</h3>
+			</div>
+			<div class="chartArea">
+				{{{viz_geo_apps}}}
+			</div>
+    </section>
+    <section class="half flexContainer">
+			<div class="flex1 flexBorder">
+				<div class="header">
+					<h3>Time-of-Day Activity</h3>
+				</div>
+				<div class="chartArea">
+					{{{timeDayUse_app}}}
+				</div>
+			</div>
+			<div class="flex1">
+				<div class="header">
+					<h3>Device Type</h3>
+				</div>
+				<div class="chartArea">
+					{{{device_type}}}
+				</div>
+			</div>
+		</section>
+		<section class="half flexContainer">
+		  <div class="flex1 flexBorder">
+			  <div class="header">
+					<h3>Traffic Sources</h3>
+				</div>
+				<div class="chartArea">
+					{{{source_counts}}}
+				</div>
+			</div>
+			<div class="flex1">
+			  <div class="header">
+					<h3>Average Time on Page</h3>
+				</div>
+				<div class="chartArea">
+					{{{app_time}}}
+				</div>	
+			</div>
+		</section>
+		<section class="full">
+		  <div class="header">
+				<h3>New vs Returning Users</h3>
+			</div>
+			<div class="chartArea">
+				{{{monthly_users_chart}}}
+			</div>
+		</section>
+		<section class="disclaimerGlossary">
+		  <div class="header">
+				<h3>Disclaimer/Glossary</h3>
+			</div>
+		  {{{disclaimerGlossaryText}}}
+		</section>
+  </div><!--content-->
 </div>
   
