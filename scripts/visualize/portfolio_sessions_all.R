@@ -81,11 +81,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   summary_data_full$scaled_newUser <- summary_data_full$newUsers*summary_data_full$scaler
 
   mean_sessions <- summary_data_full %>%
-    filter(type == levels(summary_data_full$type)[3]) 
+    filter(type == levels(summary_data_full$type)[1]) 
   mean_sessions <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
   
   text_df <- data.frame(label = c("very high traffic","high traffic","moderate traffic","low traffic"),
-                        type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
+                        type = factor(levels(summary_data_full$type)[1], levels = levels(summary_data_full$type)),
                         bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
                         shortNames = min_app$shortName,
                         y = mean_sessions,
@@ -98,7 +98,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="grey", size=2) + 
     geom_point() +
     geom_text(aes(label = session_text), size = 3, hjust = -0.25) + 
-    geom_text(data = text_df, aes(x = shortNames, y = y, label = label), size = 4) +
+    geom_text(data = text_df, aes(x = shortNames, y = y, label = label), size = 3.5) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +

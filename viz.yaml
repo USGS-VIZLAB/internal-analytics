@@ -286,7 +286,7 @@ visualize:
     id: portfolio_sessions_all
     visualizer: portfolio_sessions_all 
     height: 5
-    width: 7
+    width: 9
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
