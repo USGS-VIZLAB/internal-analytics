@@ -97,8 +97,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_segment(aes(xend = shortName), yend=0) +
     geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="grey", size=2) + 
     geom_point() +
-    geom_text(aes(label = session_text), size = 2.5, hjust = -0.25) + 
-    geom_text(data = text_df, aes(x = shortNames, y = y, label = label), size = 2.5) +
+    geom_text(aes(label = session_text), size = 3, hjust = -0.25) + 
+    geom_text(data = text_df, aes(x = shortNames, y = y, label = label), size = 4) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
@@ -108,7 +108,6 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     theme(axis.title = element_blank(),
           axis.text.x =  element_blank(),
           strip.text.y = element_blank(),
-          # plot.margin = unit(c(0, 0, 0, 0.2), "cm"),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           strip.background = element_blank(),
