@@ -1,7 +1,8 @@
-visualize.portfolio_sessions_all <- function(viz){
+visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all")){
   library(dplyr)
   library(tidyr)
   library(ggplot2)
+  library(RColorBrewer)
   
   deps <- readDepends(viz)
   
@@ -10,13 +11,11 @@ visualize.portfolio_sessions_all <- function(viz){
   
   viz.data <- deps[["sessions_and_new_users"]]
   
-  viz.data.daily <- deps[["sessions_and_new_users_daily"]]
-  
   ga_table <- deps[["project_table"]] 
   ga_table$viewID <- as.character(ga_table$viewID)
   
   range_text <- c("-1 year","-1 month","-1 week")
-  names(range_text) <- c("Year:","Month:","Week:")
+  names(range_text) <- c("Year","Month","Week")
   
   latest_day = max(viz.data$date, na.rm = TRUE)
   
@@ -26,123 +25,143 @@ visualize.portfolio_sessions_all <- function(viz){
   for(i in seq_len(length(range_text))){
     range_days = seq(latest_day, length = 2, by = range_text[i])
     
-    j <- paste(names(range_text)[i],paste0(range(range_days), collapse = " to "))
-    level_text <- c(level_text, j)
+    j <- names(range_text)[i]
     
     summary_sessions <- viz.data %>%
       filter(date >= range_days[2]) %>%
       group_by(viewID) %>%
-      summarize(sessions = sum(sessions, na.rm = TRUE), newUsers = sum(newUsers, na.rm = TRUE)) %>%
+      summarize(sessions = sum(sessions, na.rm = TRUE), 
+                newUsers = sum(newUsers, na.rm = TRUE)) %>%
       arrange(sessions) %>%
       left_join(select(ga_table, viewID, shortName), by="viewID") %>%
-      mutate(type = j) %>%
+      mutate(type = paste(j,"\n",paste0(range(range_days), collapse = " to "))) %>%
       select(-viewID)
-
+    
+    level_text <- c(level_text, paste(j,"\n",paste0(range(range_days), collapse = " to ")))
+    
     summary_data <- bind_rows(summary_data, summary_sessions)
-
+    
   }
   
-  summary_data <- summary_data %>% filter(!is.na(shortName)) %>% arrange(desc(sessions))
+  summary_data <- summary_data %>% 
+    filter(!is.na(shortName)) %>% 
+    arrange(desc(sessions)) %>%
+    mutate(session_text = sapply(sessions, function(x) pretty_num(x)),
+           type = factor(type, levels = level_text))
   
-  time.facets <- c("Year", "Week")
   break.by <- "Year"
   
   break_data <- filter(summary_data, grepl(break.by, type)) %>% 
-    mutate(bin = cut(sessions, breaks = c(-Inf, viz[['breaks']], Inf))) %>% arrange(desc(sessions))
+    mutate(bin = cut(sessions, 
+                     breaks = c(-Inf, viz[['breaks']], Inf),
+                     labels = c("low traffic", "moderate traffic", "high traffic", "very high traffic") )) %>% 
+    arrange(desc(sessions))
   
-  lm <- 1.7 # left margin
-  tm <- 0.25 # top margin
-  v.spc <- 0.05 # vertical space in between category rectangles
-  h.spc <- 0.035 # horizontal space
-  bm <- 0.05 # bottom margin
-  rect.buffer <- 0.13 # buffer between top (and bottom) apps of each category and the rectangle border
+  summary_data_full <- left_join(summary_data, 
+                                 select(break_data, bin, shortName), by="shortName")%>%
+    mutate(shortName = factor(shortName, levels = rev(break_data$shortName)),
+           bin = factor(bin, levels = c("very high traffic","high traffic","moderate traffic","low traffic")),
+           scaler = 1)
   
-  # total space for app info:
-  cat.total <- height - tm - bm - v.spc*length(viz[['breaks']]) - rect.buffer*2*(length(viz[['breaks']]) + 1) 
-  app.h <- cat.total / (length(unique(break_data$shortName)) - 1) # what happens when a category bin is empty?
+  scale_to <- max(summary_data_full$sessions, na.rm = TRUE)
   
-  png(filename = viz[["location"]], 
-      height = height, width = width, units = 'in', res = 150)
-  par(mar = c(0, 0, 0, 0), omi = c(0, lm, 0, 0), xpd = NA)
-  plot(0, NA, ylim = c(0, height), xlim = c(0, length(time.facets)), 
-       axes = FALSE, xlab="", ylab="", xaxs = 'i', yaxs = 'i') # 10% wider for text
-  # xlim is 0 to number of time facets
+  scaler_df <- summary_data_full %>%
+    group_by(bin) %>%
+    summarize(max_bin = max(sessions, na.rm = TRUE)) %>%
+    data.frame()
   
-  bins <- unique(as.character(break_data$bin))
-  cat.names <- c('very high traffic','high traffic','moderate traffic','low traffic')
+  summary_data_full <- summary_data_full %>%
+    left_join(scaler_df, by = "bin") %>%
+    mutate(scaler = scale_to / max_bin,
+           scaled_value = sessions * scaler, 
+           scaled_newUser = newUsers * scaler) %>%
+    select(-max_bin, -scaler)
   
-  x.0 <- 0
-  for (t in time.facets){
-    y.0 <- height - tm
-    top.text <- filter(summary_data, grepl(t, type)) %>% .$type %>% unique()
-    text(x.0, y.0+tm/2, labels=top.text, pos=4, offset=0.2, cex = 1.25)
-    cols <- sprintf('grey%1.0f', seq(from = 80, to = 95, length.out = length(bins)))
-    # makes the maximums of the smaller categories a little smaller, larger numbers = further left:
-    bump <- seq(from = 1.2, to = 1.3, length.out = length(bins)) 
+  min_app <- select(summary_data_full, bin, type, sessions, shortName) %>%
+    filter(type == levels(summary_data_full$type)[1]) %>%
+    group_by(bin) %>%
+    slice(which.min(sessions))
+
+  max_vals <- summary_data_full %>%
+    group_by(type) %>%
+    summarize(max_val = max(scaled_value, na.rm = TRUE)) 
+  
+  summary_data_full <- summary_data_full %>%  
+    left_join(max_vals, by = "type") %>%
+    mutate(text_placement = scaled_value + 0.15*max_val)
+  
+  mean_sessions <- summary_data_full %>%
+    filter(type == levels(summary_data_full$type)[1]) 
+  
+  sessions_85 <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
+  
+  mean_sessions <- summary_data_full %>%
+    filter(type == levels(summary_data_full$type)[3]) 
+  
+  sessions_85_week <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
+  sessions_50_week <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.6))
+  sessions_75_week <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.7))
+  sessions_100 <- max(mean_sessions$scaled_value, na.rm = TRUE)
+  
+  text_df <- data.frame(label = c("very high traffic","high traffic","moderate traffic","low traffic"),
+                        type = factor(levels(summary_data_full$type)[1], levels = levels(summary_data_full$type)),
+                        bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
+                        shortName = min_app$shortName,
+                        y = sessions_85,
+                        stringsAsFactors = FALSE)
+  
+  fake_legend <- data.frame(label = c("Total","New User"),
+                        type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
+                        bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
+                        shortName = rev(levels(summary_data_full$shortName)[1:2]),
+                        y = sessions_85_week,
+                        y_50 = sessions_50_week,
+                        y_75 = sessions_75_week,
+                        y_max = 1.35*sessions_100,
+                        stringsAsFactors = FALSE)
+  
+  port_graph <- ggplot(data = summary_data_full, aes(x = shortName, y = scaled_value)) +
+    geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
+              ymin = -Inf,ymax = Inf,alpha = 0.1) +
+    geom_point() +
+    geom_segment(aes(xend = shortName), yend=0) +
+    geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="grey", size=2) + 
+    geom_text(aes(label = session_text, y = text_placement), 
+              size = 3, hjust = .75) + 
+    geom_rect(data = fake_legend[1,], aes(y = 0),
+              ymin = fake_legend$y_50[1]*0.95, 
+              ymax = fake_legend$y_max[1], 
+              xmin = .4,
+              xmax = 2.6,
+              color = "black", fill = "white") +
+    geom_text(data = fake_legend, aes(x = shortName, y = y, label = label), size = 3) +
+    geom_segment(data = fake_legend[2,],
+                 aes(x = shortName, 
+                     xend = shortName, 
+                     y = y_50, yend=y_75), col="grey", size=2) + 
+    geom_segment(data = fake_legend[1,], aes(xend = shortName, y=y_50, yend=y_75)) +
+    geom_point(data = fake_legend[1,], aes(x = shortName, y=y_75)) +
     
-    for (cat.bin in bins) { # are already ranked w/ bins
-      # make the rectangle, calculate which apps are included:
-      bin.names <- break_data %>% filter(bin %in% cat.bin) %>% .$shortName %>% as.character()
-      rect(x.0, y.0-(length(bin.names) - 1)*app.h - 2*rect.buffer, xright = x.0 + 1.0-h.spc, ytop = y.0, col = cols[1], border = NA)
-      
-      cat.data <- filter(summary_data, shortName %in% bin.names, grepl(t, type))
-      cat.max <- cat.data %>% .$sessions %>% max() %>% "*"(bump[1])
-      if (t == time.facets[1]){
-        text(x.0+1.0-h.spc, y.0-(nrow(cat.data) - 1)*app.h - 2 * rect.buffer, labels = cat.names[1], adj = c(1.05,-0.5), cex = 0.75)  
-      }
-      y.0 <- y.0 - rect.buffer
-      for (app in bin.names){
-        app.data <- filter(cat.data, shortName == app)
-        if (nrow(app.data) == 0) {
-          sess.len <- 0
-          user.len <- 0
-          short.name <- ""
-          app.num <- 0
-        } else {
-          app.num <- app.data$sessions
-          sess.len <- app.num/cat.max
-          user.len <- app.data$newUsers/cat.max
-          short.name <- app.data$shortName
-        }
-        
-        # plot lollipops and label: 
-        segments(c(x.0,x.0), c(y.0,y.0), c(x.0+sess.len,x.0+user.len), c(y.0,y.0),
-                 lend = 1, lwd = c(1,3))
-        points(x = x.0+sess.len, y = y.0, pch = 20, col='black')
-        text(x = x.0+sess.len, y = y.0, labels = pretty_num(app.num), pos = 4)
-        
-        if (t == time.facets[1]){ # label the y-axis
-          text(x.0, y = y.0, labels = short.name, pos=2)
-        }
-        
-        y.0 <- y.0 - app.h
-      }
-      y.0 <- y.0 - (app.h - rect.buffer)
-      cols <- tail(cols, -1L)
-      bump <- tail(bump, -1L)
-      cat.names <- tail(cat.names, -1L)
-    }
-    x.0 <- x.0 + 1
-  }
+    geom_text(data = text_df, aes(x = shortName, y = y, label = label), size = 3.5) +
+    facet_grid(bin ~ type, scales = "free",
+               space = "free_y", drop = TRUE) +
+    coord_flip() +
+    scale_fill_manual(values = rev(brewer.pal(4,"Blues"))) +
+    theme_bw() +
+    theme(axis.title = element_blank(),
+          axis.text.x =  element_blank(),
+          strip.text.y = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          strip.background = element_blank(),
+          axis.ticks=element_blank(),
+          legend.position = "none"
+          ) 
+
+  ggsave(port_graph, file = viz[["location"]], height = height, width = width)
   
-  
-  
-  dev.off()
 }
 
-
-fancyNumbers <- function(n){
-  nNoNA <- n[!is.na(n)]
-  x <-gsub(pattern = "1e",replacement = "10^",x = format(nNoNA, scientific = TRUE))
-  exponents <- as.numeric(sapply(strsplit(x, "\\^"), function(j) j[2]))
-  base <- ifelse(exponents == 0, "1", ifelse(exponents == 1, "10","10^"))
-  exponents[base == "1" | base == "10"] <- ""
-  textNums <- rep(NA, length(n))  
-  textNums[!is.na(n)] <- paste0(base,exponents)
-  
-  textReturn <- parse(text=textNums)
-  return(textReturn)
-}
 pretty_num <- function(n){
   if (is.na(n)) n = 0
   if (n > 1e7){
@@ -158,3 +177,4 @@ pretty_num <- function(n){
   }
   return(out)
 }
+

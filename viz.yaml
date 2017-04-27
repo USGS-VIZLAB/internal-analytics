@@ -67,6 +67,9 @@ info:
     gridExtra:
       repo: CRAN
       version: 2.2.1
+    RColorBrewer:
+      repo: CRAN
+      version: 1.1-2
 fetch:
   -
     id: fetchGA_cida
@@ -282,14 +285,13 @@ visualize:
   -
     id: portfolio_sessions_all
     visualizer: portfolio_sessions_all 
-    height: 8
-    width: 10
+    height: 5
+    width: 9
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
       sessions_and_new_users: sessions_and_new_users
       project_table: project_table
-      sessions_and_new_users_daily: sessions_and_new_users_daily
     mimetype: image/png
     alttext: "Latest year sessions"
     title: "Latest year sessions"

@@ -20,18 +20,20 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   if(nrow(region_summary) > 0){
 
     sf.points <- fortify(states.out, region="region")
-    sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))
+    sf.points <- left_join(sf.points, region_summary, by=c("id"="region")) %>%
+      rename(Sessions = Freq)
 
-    gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
+    gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
       coord_equal() +
       geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
                    aes(group=group)) +
+      guides(fill=guide_legend(title.position="top")) +
       theme_minimal() +
       theme(panel.grid = element_blank(),
             axis.text = element_blank(),
             axis.title = element_blank(),
             legend.position="bottom",
-            legend.title = element_blank(),
+            legend.title.align=0.5,
             legend.key.size = unit(0.25, "cm"),
             legend.key.width = unit(2, "cm")) +
       scale_fill_gradient(na.value = 'transparent',
@@ -87,19 +89,20 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
     if(nrow(region_summary) > 0){
 
       sf.points <- fortify(states.out, region="region")
-      sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))
+      sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))%>%
+        rename(Sessions = Freq)
       
-      gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
+      gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
         coord_equal() +
         geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
                      aes(group=group)) +
+        guides(fill=guide_legend(title.position="top")) +
         theme_minimal() +
         theme(panel.grid = element_blank(),
               axis.text = element_blank(),
               axis.title = element_blank(),
               legend.position="bottom",
               plot.margin=unit(c(0,0,0,0), "cm"),
-              legend.title = element_blank(),
               legend.key.size = unit(0.15, "cm"),
               legend.key.width = unit(1.4, "cm")) +
         scale_fill_gradient(na.value = 'transparent',
