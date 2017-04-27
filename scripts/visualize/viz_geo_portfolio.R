@@ -20,9 +20,10 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   if(nrow(region_summary) > 0){
 
     sf.points <- fortify(states.out, region="region")
-    sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))
+    sf.points <- left_join(sf.points, region_summary, by=c("id"="region")) %>%
+      rename(Sessions = Freq)
 
-    gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
+    gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
       coord_equal() +
       geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
                    aes(group=group)) +
@@ -88,9 +89,10 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
     if(nrow(region_summary) > 0){
 
       sf.points <- fortify(states.out, region="region")
-      sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))
+      sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))%>%
+        rename(Sessions = Freq)
       
-      gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Freq)) + 
+      gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
         coord_equal() +
         geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
                      aes(group=group)) +

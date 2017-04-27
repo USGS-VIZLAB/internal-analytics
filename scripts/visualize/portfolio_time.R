@@ -24,8 +24,8 @@ visualize.portfolio_time <- function(viz = as.viz("portfolio_time")){
   range_days = seq(latest_day, length = 2, by = range_text[3])
   total_time_week <- sum(viz.data$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
 
-  x <- pretty_time(c(ave_time_on_page, total_time_year, total_time_month, total_time_week))
-  row.names(x) <- c("Average","Total Year","Total Month", "Total Week")
+  x <- pretty_time(c(ave_time_on_page, total_time_week, total_time_month, total_time_year))
+  row.names(x) <- c("Average", "Total Week","Total Month","Total Year")
   
   tt <- ttheme_default(base_size = 25)
   png(viz[["location"]], height=height, width=width)
@@ -115,8 +115,8 @@ visualize.app_time <- function(viz = as.viz("app_time")){
     range_days = seq(latest_day, length = 2, by = range_text[3])
     total_time_week <- sum(sub_data_range$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
     
-    df <- pretty_time(c(ave_time_on_page, total_time_year, total_time_month, total_time_week))
-    row.names(df) <- c("Average","Total Year","Total Month", "Total Week")
+    df <- pretty_time(c(ave_time_on_page, total_time_week, total_time_month, total_time_year))
+    row.names(df) <- c("Average", "Total Week","Total Month","Total Year")
 
     tt <- ttheme_default(base_size = 25)
     
