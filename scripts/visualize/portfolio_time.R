@@ -12,27 +12,46 @@ visualize.portfolio_time <- function(viz = as.viz("portfolio_time")){
   
   ave_time_on_page <- mean(viz.data$avgSessionDuration, na.rm = TRUE)
   
-  hours <- floor(ave_time_on_page/60/60)
-  minutes <- floor(ave_time_on_page/60) - hours*60
-  seconds <- floor(ave_time_on_page) - hours*60 - minutes*60
+  latest_day = max(viz.data$date, na.rm = TRUE)
+  range_text <- c("-1 year","-1 month","-1 week")
   
-  hours <- zeroPad(as.character(hours),2)
-  minutes <- zeroPad(as.character(minutes),2)
-  seconds <- zeroPad(as.character(seconds),2)
+  range_days = seq(latest_day, length = 2, by = range_text[1])
+  total_time_year <- sum(viz.data$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
   
-  df <- data.frame(hours = hours,
-                   minutes = minutes,
-                   seconds = seconds,
-                   stringsAsFactors = FALSE,
-                   row.names = NULL)
+  range_days = seq(latest_day, length = 2, by = range_text[2])
+  total_time_month <- sum(viz.data$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
   
+  range_days = seq(latest_day, length = 2, by = range_text[3])
+  total_time_week <- sum(viz.data$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
+
+  x <- pretty_time(c(ave_time_on_page, total_time_year, total_time_month, total_time_week))
+  row.names(x) <- c("Average","Total Year","Total Month", "Total Week")
+  
+  tt <- ttheme_default(base_size = 25)
   png(viz[["location"]], height=height, width=width)
-    p<-tableGrob(df, rows = NULL)
-    grid.arrange(p)
+  grid.table(x, theme = tt)
   dev.off()
   
 }
 
+pretty_time <- function(time){
+  days <- floor(time/60/60/24)
+  hours <- floor(time/60/60) - 24*days
+  minutes <- floor(time/60) - hours*60 - 24*days*60
+  seconds <- floor(time) - hours*60*60 - minutes*60 - 24*days*60*60
+  
+  hours <- zeroPad(as.character(hours),2)
+  minutes <- zeroPad(as.character(minutes),2)
+  seconds <- zeroPad(as.character(seconds),2) 
+  
+  df <- data.frame(Days = as.character(days),
+                   Hours = hours,
+                   Minutes = minutes,
+                   Seconds = seconds,
+                   stringsAsFactors = FALSE)
+  return(df)
+  
+}
 zeroPad <- function(x,padTo){
   if(padTo <= 1) return(x)
   
@@ -69,11 +88,11 @@ visualize.app_time <- function(viz = as.viz("app_time")){
                   stringsAsFactors = FALSE)
   
   plot_type <- viz[["plottype"]]
-  range_text <- viz[["rangetext"]]
-  
-  range_days = seq(Sys.Date(), length = 2, by = range_text)
   
   viz.data <- deps[["aggregate_ga"]]
+  range_text <- c("-1 year","-1 month","-1 week")
+  
+  latest_day = max(viz.data$date, na.rm = TRUE)
   
   for(i in unique(viz.data$viewID)){
     
@@ -81,27 +100,28 @@ visualize.app_time <- function(viz = as.viz("app_time")){
     
     sub_data <- filter(viz.data, viewID == i)
     
+    range_days = seq(latest_day, length = 2, by = range_text[1])
+    
     sub_data_range <- sub_data %>%
       filter(date >= range_days[2])
     
     ave_time_on_page <- mean(sub_data_range$avgSessionDuration, na.rm = TRUE)
-    hours <- floor(ave_time_on_page/60/60)
-    minutes <- floor(ave_time_on_page/60) - hours*60
-    seconds <- floor(ave_time_on_page) - hours*60 - minutes*60
     
-    hours <- zeroPad(as.character(hours),2)
-    minutes <- zeroPad(as.character(minutes),2)
-    seconds <- zeroPad(as.character(seconds),2)
+    total_time_year <- sum(sub_data_range$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
     
-    df <- data.frame(hours = hours,
-                     minutes = minutes,
-                     seconds = seconds,
-                     stringsAsFactors = FALSE,
-                     row.names = NULL)
+    range_days = seq(latest_day, length = 2, by = range_text[2])
+    total_time_month <- sum(sub_data_range$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
+    
+    range_days = seq(latest_day, length = 2, by = range_text[3])
+    total_time_week <- sum(sub_data_range$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
+    
+    df <- pretty_time(c(ave_time_on_page, total_time_year, total_time_month, total_time_week))
+    row.names(df) <- c("Average","Total Year","Total Month", "Total Week")
+
+    tt <- ttheme_default(base_size = 25)
     
     png(location, height=height, width=width)
-    p<-tableGrob(df, rows = NULL)
-    grid.arrange(p)
+      grid.table(df, theme = tt)
     dev.off()
     
     x <- bind_rows(x, data.frame(id = i,
