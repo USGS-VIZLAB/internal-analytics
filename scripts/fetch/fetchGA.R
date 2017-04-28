@@ -29,7 +29,7 @@ fetch.GAviews <- function(viz) {
       needToUpdate <- filter(fileDF_summary, lastDate < Sys.Date() - 1)
       #get out of date AND new IDs
       viewID <- masterTable$viewID[!masterTable$viewID %in% fileDF_summary$viewID]
-      newIDs <- data.frame(viewID = viewID,
+      newIDs <- data.frame(viewID = as.character(viewID),
                            lastDate = as.Date(rep("2007-01-01", length(viewID))),#arbitrary early start date
                            stringsAsFactors = FALSE)  
       needToUpdate <- bind_rows(needToUpdate, newIDs)
