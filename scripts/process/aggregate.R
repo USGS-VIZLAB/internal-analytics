@@ -14,6 +14,9 @@ process.aggregate_ga <- function(viz) {
   
   #make sure none of today's data snuck in on one-off GA pull
   assert_that(max(allDataDF$date) == (Sys.Date() - 1))
+  assert_that(!anyDuplicated(allDataDF))
+  #make sure there aren't duplicates!
+
   
   #add dateTime
   saveRDS(object = allDataDF, file=viz[["location"]], compress = FALSE)
