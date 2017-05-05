@@ -1,11 +1,10 @@
 process.aggregate_ga <- function(viz) {
+  #not really aggregating anymore - just drops > year old data, adds dateTime
   library(dplyr)
   library(data.table)
   library(lubridate)
   library(assertthat)
-  viz.data <- readDepends(viz) #list of all depends
-  allDataDF <- do.call("bind_rows", viz.data)
-  rm(viz.data) # free memory
+  allDataDF <- readDepends(viz)[['fetchGA']] #list of all depends
 
   #drop data before longer than a year ago
   allDataDF <- allDataDF %>%

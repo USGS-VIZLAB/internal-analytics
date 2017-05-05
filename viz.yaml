@@ -72,30 +72,16 @@ info:
       version: 1.1-2
 fetch:
   -
-    id: fetchGA_cida
-    login: cida #only fetch CIDA acct views
+    id: fetchGA
     fetcher: GAviews
     scripts: scripts/fetch/fetchGA.R
-    location: cache/fetch/gaData.rds
+    location: cache/fetch/current.rds
     reader: rds
-    remoteFilename: 'gaData.rds'
+    remoteFilename: 'current.rds'
     remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
     update: TRUE #check for newer data from GA, and upload to sciencebase if there is
     useLocal: FALSE #Don't even download sciencebase file - overrides update
     depends: 
-      project_table: project_table
-  -
-    id: fetchGA_nwis
-    login: nwis
-    fetcher: GAviews
-    scripts: scripts/fetch/fetchGA.R
-    location: cache/fetch/gaData_nwis.rds
-    reader: rds
-    remoteItemId: '58e56f3ce4b09da679997f7f'
-    remoteFilename: 'gaData_nwis.rds'
-    update: TRUE
-    useLocal: FALSE
-    depends:
       project_table: project_table
   -
     id: project_table
@@ -114,9 +100,7 @@ process:
     id: aggregate_ga
     processor: aggregate_ga
     scripts: scripts/process/aggregate.R
-    depends: 
-      cida: fetchGA_cida
-      nwis: fetchGA_nwis
+    depends: fetchGA
     reader: rds
     location: cache/process/aggregate_ga.rds
   -

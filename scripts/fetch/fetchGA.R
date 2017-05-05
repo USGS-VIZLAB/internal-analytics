@@ -20,7 +20,7 @@ fetch.GAviews <- function(viz) {
     
     if(viz[['update']]) {
       masterTable <- readDepends(viz)[['project_table']]
-      masterTable <- filter(masterTable, login == viz[['login']])
+      #masterTable <- filter(masterTable, login == viz[['login']])
       #check if it is up to date (has yesterday's data) for each ID
       fileDF <- readRDS(viz[['location']])
       fileDF_summary <- group_by(fileDF, viewID) %>% summarise(lastDate = max(date)) 
