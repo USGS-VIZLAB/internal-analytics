@@ -38,7 +38,7 @@ fetch.GAviews <- function(viz) {
         message("Sciencebase file is out of date, updating from GA")
         new_GA_DF <- data.frame()
         gar_auth_service(file.path(Sys.getenv("HOME"), ".vizlab/VIZLAB-a48f4107248c.json"))
-        for(i in 1:nrow(needToUpdate)) {
+        for(i in seq_len(nrow(needToUpdate))) {
           #NOTE: only want to pull full days, so don't pull today's data!
           #this way we can just append the new data without having overlap
           dateRange <- c(as.character(needToUpdate$lastDate[i] + 1), as.character(Sys.Date() - 1 ))
