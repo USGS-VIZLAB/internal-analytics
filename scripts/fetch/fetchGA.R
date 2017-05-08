@@ -20,7 +20,7 @@ fetch.GAviews <- function(viz) {
     
     if(viz[['update']]) {
       masterTable <- readDepends(viz)[['project_table']]
-      masterTable <- filter(masterTable, login == viz[['login']])
+      #masterTable <- filter(masterTable, login == viz[['login']])
       #check if it is up to date (has yesterday's data) for each ID
       fileDF <- readRDS(viz[['location']])
       fileDF_summary <- group_by(fileDF, viewID) %>% summarise(lastDate = max(date)) 
@@ -41,7 +41,7 @@ fetch.GAviews <- function(viz) {
         for(i in 1:nrow(needToUpdate)) { 
           #NOTE: only want to pull full days, so don't pull today's data!  
           #this way we can just append the new data without having overlap
-          dateRange <- c(as.character(needToUpdate$lastDate[i]), as.character(Sys.Date() - 1 ))
+          dateRange <- c(as.character(needToUpdate$lastDate[i] + 1), as.character(Sys.Date() - 1 ))
           
           #API is limited to 7 dimensions per call 
           idDF <- google_analytics_4(viewId =needToUpdate$viewID[i], date_range = dateRange, 
