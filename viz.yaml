@@ -116,21 +116,21 @@ process:
     id: sessions_and_new_users
     processor: sessions_and_new_users 
     scripts: scripts/process/sessions_and_new_users.R
-    depends: fetchGA
+    depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users.rds
   -
     id: sessions_and_new_users_daily
     processor: sessions_and_new_users_daily 
     scripts: scripts/process/sessions_and_new_users_daily.R
-    depends: fetchGA
+    depends: aggregate_ga
     reader: rds
     location: cache/process/sessions_and_new_users_daily.rds
   -
     id: device_type
     processor: device_type 
     scripts: scripts/process/device_type.R
-    depends: fetchGA
+    depends: aggregate_ga
     reader: rds
     location: cache/process/device_type.rds
   -
@@ -145,7 +145,7 @@ process:
     id: source_counts
     processor: source_counts 
     scripts: scripts/process/source_counts.R
-    depends: fetchGA
+    depends: aggregate_ga
     rangetext: "-1 month"
     reader: rds
     location: cache/process/source_counts.rds
@@ -153,7 +153,7 @@ process:
     id: geo_apps
     processor: geo_apps 
     scripts: scripts/process/geo_apps.R
-    depends: fetchGA
+    depends: aggregate_ga
     rangetext: "-1 month"
     reader: rds
     location: cache/process/geo_apps.rds
@@ -226,7 +226,7 @@ visualize:
     id: timeDayUse_app
     visualizer: timeDayUse_app 
     scripts: scripts/visualize/timeDayUse.R
-    depends: fetchGA
+    depends: aggregate_ga
     plottype: app_hist
     rangetext: "-1 month"
     height: 480
@@ -237,7 +237,7 @@ visualize:
     id: timeDayUse_port
     visualizer: timeDayUse_all 
     scripts: scripts/visualize/timeDayUse.R
-    depends: fetchGA
+    depends: aggregate_ga
     plottype: app_hist
     height: 600
     width: 600
@@ -287,7 +287,7 @@ visualize:
     width: 500
     scripts: scripts/visualize/portfolio_time.R
     depends: 
-      aggregate_ga: fetchGA
+      aggregate_ga: aggregate_ga
     mimetype: image/png
     alttext: "portfolio_time"
     title: "portfolio_time"
@@ -301,7 +301,7 @@ visualize:
     plottype: mean_time
     scripts: scripts/visualize/portfolio_time.R
     depends: 
-      aggregate_ga: fetchGA
+      aggregate_ga: aggregate_ga
     mimetype: text/csv
     location: cache/visualize/viz_time.csv
   -

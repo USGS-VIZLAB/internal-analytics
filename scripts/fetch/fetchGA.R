@@ -65,17 +65,6 @@ fetch.GAviews <- function(viz) {
         message("Updating Sciencebase...")
         item_replace_files(viz[['remoteItemId']], viz[['location']])
         
-        
-        max_date <- max(allDataDF$date)
-        last_year <- max_date - 365
-
-        y <- allDataDF %>%
-          filter(date > last_year) %>%
-          setDT() %>%
-          unique() %>%
-          setDF()
-        
-        saveRDS(y, file = viz[['location']])
       } else {
         message("Sciencebase file is up to date, using that")
       }
