@@ -9,10 +9,10 @@ process.aggregate_ga <- function(viz) {
   #drop data before longer than a year ago
   allDataDF <- allDataDF %>%
     filter(date > (max(date) - duration(1, "year"))) %>%
-    unique()
+    distinct()
   
   #make sure none of today's data snuck in on one-off GA pull
-  assert_that(max(allDataDF$date) < (Sys.Date()))
+  # assert_that(max(allDataDF$date) < (Sys.Date()))
   #This takes FOREVER: and unique instead of distinct or data.table.unique seems to do the trick
   # assert_that(anyDuplicated(allDataDF) == 0)
   #make sure there aren't duplicates!
