@@ -109,7 +109,7 @@ process:
     location: cache/process/lastUpdated.yaml
     scripts: scripts/process/lastUpdated.R
     depends:
-      data: fetchGA
+      data: aggregate_ga
     mimetype: text/yaml
     reader: md # need a better plain text reader
   -
