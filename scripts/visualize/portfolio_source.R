@@ -1,5 +1,6 @@
 visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   library(dplyr)
+  library(ggplot2)
   
   viz.data <- readDepends(viz)[["source_counts"]]
   height = viz[["height"]]
@@ -12,23 +13,17 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   
   source_sum <- source_sum[1:min(c(10, nrow(source_sum))),]
   
-  max_char = max(nchar(source_sum$source), na.rm = TRUE)
+  port_source <- ggplot(data = source_sum) +
+    geom_col(aes(x = reorder(source, count), y=count)) +
+    coord_flip() +
+    theme_minimal() +
+    ylab("Total Sessions") +
+    theme(axis.title.y=element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_blank())
   
-  png(viz[["location"]], height = height, width = width)  
+  ggsave(port_source, filename = viz[["location"]], 
+         height = height, width = width)
   
-  par(oma = c(0,0,0,0),
-      mgp = c(3,0.5,0),
-      mar = c(2,(max_char-3)/2,0.1,0.1),
-      tck = -0.01,
-      las=1)
-  if(nrow(source_sum) > 0){
-    barplot(rev(source_sum$count), horiz=TRUE,
-            names.arg=rev(source_sum$source))
-  } else {
-    barplot(c(0,0), horiz=TRUE,
-            names.arg=c("google","(direct)"),
-            xlim = c(0,10))
-  }
-  dev.off()      
-
 }

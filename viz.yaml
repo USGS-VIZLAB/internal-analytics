@@ -250,8 +250,8 @@ visualize:
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
-    height: 480
-    width: 480
+    height: 4
+    width: 4
     rangetext: "-1 month"
     plottype: device_type
     mimetype: text/csv
@@ -260,8 +260,8 @@ visualize:
     id: viz_source
     visualizer: viz_source 
     scripts: scripts/visualize/viz_source.R
-    height: 480
-    width: 480
+    height: 4
+    width: 4
     depends: source_counts
     plottype: source_counts
     mimetype: text/csv
@@ -307,8 +307,8 @@ visualize:
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
-    height: 480
-    width: 480
+    height: 4
+    width: 4
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
@@ -320,8 +320,8 @@ visualize:
   -
     id: portfolio_source
     visualizer: portfolio_source
-    height: 480
-    width: 480
+    height: 4
+    width: 4
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts

@@ -1,5 +1,6 @@
 visualize.viz_source <- function(viz = as.viz("viz_source")){
   library(dplyr)
+  library(ggplot2)
   
   viz.data <- readDepends(viz)[["source_counts"]]
   height = viz[["height"]]
@@ -17,30 +18,34 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
     
     source_sum <- data.frame(table(sub_data$source),
                              stringsAsFactors = FALSE) %>%
-      arrange(desc(Freq))
+      arrange(desc(Freq)) %>%
+      mutate(source = as.character(Var1)) %>%
+      data.frame() 
     
     source_sum <- source_sum[1:min(c(5, nrow(source_sum))),]
-    max_char = max(nchar(as.character(source_sum$Var1)), na.rm = TRUE)
+    
+
+    if(nrow(source_sum) == 0){
+      source_sum <- data.frame(source=c("google","(direct)"),
+                               Freq = c(NA,NA),
+                               stringsAsFactors = FALSE) 
+    }
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
-    png(location, height = height, width = width)
     
-    par(oma = c(0,0,0,0),
-        mgp = c(3,0.5,0),
-        mar = c(2,(max_char-3)/2,0.1,0.1),
-        tck = -0.01,
-        las=1)
+    port_source <-   ggplot(data = source_sum) +
+      geom_col(aes(x = reorder(source, Freq), y=Freq)) +
+      coord_flip() +
+      theme_minimal() +
+      ylab("Total Sessions") +
+      theme(axis.title.y=element_blank(),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+            panel.border = element_blank())
     
-    if(nrow(source_sum) > 0){
-      barplot(rev(source_sum$Freq), horiz=TRUE,
-              names.arg=rev(source_sum$Var1))
-      
-    } else {
-      barplot(c(0,0), horiz=TRUE,
-              names.arg=c("google","(direct)"),
-              xlim = c(0,10)) 
-    }
-    dev.off()
+    ggsave(port_source, filename = location, 
+           height = height, width = width)
+    
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
                                  type = plot_type,
