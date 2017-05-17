@@ -33,6 +33,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
   
   library(dplyr)
   library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["aggregate_ga"]]
   
@@ -59,7 +60,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
     hourSum$hour <- as.numeric(hourSum$hour)
     
     port_device <-   ggplot(data = hourSum) +
-      geom_col(aes(x = hour, y=n)) +
+      geom_col(aes(x = hour, y=n), fill = "steelblue") +
       theme_minimal() +
       ylab("Sessions") +
       xlab("Hour of the Day") +

@@ -25,7 +25,7 @@ visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type"
   }
   
   port_device <-   ggplot(data = sub_data_range) +
-    geom_col(aes(x = reorder(deviceCategory, totals), y=totals)) +
+    geom_col(aes(x = reorder(deviceCategory, totals), y=totals), fill = "steelblue") +
     coord_flip() +
     theme_minimal() +
     ylab("Total Sessions") +
@@ -33,7 +33,8 @@ visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type"
           axis.text = element_text(size = 14),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
-          panel.border = element_blank())
+          panel.border = element_blank()) +
+    scale_y_continuous(labels = comma)
   
   ggsave(port_device, filename = viz[["location"]], 
          height = height, width = width)

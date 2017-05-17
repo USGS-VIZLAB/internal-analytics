@@ -1,6 +1,7 @@
 visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   library(dplyr)
   library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["source_counts"]]
   height = viz[["height"]]
@@ -14,7 +15,7 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   source_sum <- source_sum[1:min(c(10, nrow(source_sum))),]
   
   port_source <- ggplot(data = source_sum) +
-    geom_col(aes(x = reorder(source, count), y=count)) +
+    geom_col(aes(x = reorder(source, count), y=count), fill = "steelblue") +
     coord_flip() +
     theme_minimal() +
     ylab("Total Sessions") +
@@ -22,7 +23,8 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           axis.text = element_text(size = 14),
-          panel.border = element_blank())
+          panel.border = element_blank()) +
+    scale_y_continuous(labels = comma)
   
   ggsave(port_source, filename = viz[["location"]], 
          height = height, width = width)

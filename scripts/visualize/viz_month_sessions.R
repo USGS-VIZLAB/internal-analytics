@@ -28,7 +28,7 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
     png(paste0("cache/visualize/",i,"_session_pie.png"), 
         width = width, height = height)
       par(oma=c(0,0,0,0), mar=c(0,1,0,1))
-      pie(x, col = c("white","grey"),
+      pie(x, col = c("white","steelblue"),
           labels = c(paste("New", percent_new,"%"),
                         paste("Returning", percent_return,"%")))
     
