@@ -73,6 +73,9 @@ info:
     htmlTable:
       repo: CRAN
       version: 1.9
+    scales:
+      repo: CRAN
+      version: 0.4.1
 fetch:
   -
     id: fetchGA
@@ -232,8 +235,8 @@ visualize:
     depends: aggregate_ga
     plottype: app_hist
     rangetext: "-1 month"
-    height: 480
-    width: 480
+    height: 6
+    width: 6
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
   -
@@ -242,8 +245,8 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: aggregate_ga
     plottype: app_hist
-    height: 600
-    width: 600
+    height: 6
+    width: 6
     mimetype: image/png
     alttext: "timeDayUse"
     title: "timeDayUse"

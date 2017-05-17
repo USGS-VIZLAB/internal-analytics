@@ -1,6 +1,7 @@
 visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type")){
   library(dplyr)
   library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["device_type"]]
   height = viz[["height"]]

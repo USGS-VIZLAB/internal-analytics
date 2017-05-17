@@ -125,7 +125,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
               ymin = -Inf,ymax = Inf,alpha = 0.1, color = NA) +
     geom_point() +
     geom_segment(aes(xend = shortName), yend=0) +
-    geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="grey", size=2) + 
+    geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="black", size=2) + 
     geom_text(aes(label = session_text, y = text_placement), 
               size = 3, hjust = .75) + 
     geom_rect(data = fake_legend[1,], aes(y = 0),
@@ -138,7 +138,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_segment(data = fake_legend[2,],
                  aes(x = shortName, 
                      xend = shortName, 
-                     y = y_50, yend=y_75), col="grey", size=2) + 
+                     y = y_50, yend=y_75), col="black", size=2) + 
     geom_segment(data = fake_legend[1,], aes(xend = shortName, y=y_50, yend=y_75)) +
     geom_point(data = fake_legend[1,], aes(x = shortName, y=y_75)) +
     
@@ -310,7 +310,7 @@ visualize.portfolio_sessions_sparky <- function(viz=as.viz("portfolio_sessions_a
               ymin = -Inf,ymax = Inf,alpha = 0.5) +
     geom_point() +
     geom_segment(aes(xend = shortName), yend=0) +
-    geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="grey", size=2) + 
+    geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="black", size=2) + 
     geom_text(aes(label = session_text, y = text_placement), 
               size = 3, hjust = .75) + 
     geom_rect(data = fake_legend[1,], aes(y = 0),
@@ -323,7 +323,7 @@ visualize.portfolio_sessions_sparky <- function(viz=as.viz("portfolio_sessions_a
     geom_segment(data = fake_legend[2,],
                  aes(x = shortName, 
                      xend = shortName, 
-                     y = y_50, yend=y_75), col="grey", size=2) + 
+                     y = y_50, yend=y_75), col="black", size=2) + 
     geom_segment(data = fake_legend[1,], aes(xend = shortName, y=y_50, yend=y_75)) +
     geom_point(data = fake_legend[1,], aes(x = shortName, y=y_75)) +
     geom_text(data = text_df, aes(x = shortName, y = y, label = label), size = 3.5) +
