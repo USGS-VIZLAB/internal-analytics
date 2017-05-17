@@ -303,7 +303,7 @@ visualize:
     id: portfolio_source
     visualizer: portfolio_source
     height: 4
-    width: 6
+    width: 8
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
