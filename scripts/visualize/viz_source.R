@@ -30,6 +30,10 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
       source_sum <- data.frame(source=c("google","(direct)"),
                                Freq = c(NA,NA),
                                stringsAsFactors = FALSE) 
+    } else if(nrow(source_sum) < 5){
+      source_sum <- rbind(source_sum,data.frame(source=rep("",5-nrow(source_sum)),
+                               Freq = rep(NA,5-nrow(source_sum)),
+                               stringsAsFactors = FALSE) )
     }
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")

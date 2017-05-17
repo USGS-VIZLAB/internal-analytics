@@ -27,7 +27,7 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
 
     port_device <-   ggplot(data = sub_data_range) +
-      geom_col(aes(x = reorder(deviceCategory, totals), y=totals)) +
+      geom_col(aes(x = reorder(deviceCategory, totals), y=totals), fill = "steelblue") +
       coord_flip() +
       theme_minimal() +
       ylab("Total Sessions") +

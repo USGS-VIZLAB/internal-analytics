@@ -33,7 +33,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
       summarize(sessions = sum(sessions, na.rm = TRUE), 
                 newUsers = sum(newUsers, na.rm = TRUE)) %>%
       arrange(sessions) %>%
-      left_join(select(ga_table, viewID, shortName), by="viewID") %>%
+      left_join(select(ga_table, viewID, longName), by="viewID") %>%
       mutate(type = paste(j,"\n",paste0(range(range_days), collapse = " to "))) %>%
       select(-viewID)
     
@@ -44,7 +44,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   }
   
   summary_data <- summary_data %>% 
-    filter(!is.na(shortName)) %>% 
+    filter(!is.na(longName)) %>% 
     arrange(desc(sessions)) %>%
     mutate(session_text = sapply(sessions, function(x) pretty_num(x)),
            type = factor(type, levels = level_text))
@@ -58,8 +58,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     arrange(desc(sessions))
   
   summary_data_full <- left_join(summary_data, 
-                                 select(break_data, bin, shortName), by="shortName")%>%
-    mutate(shortName = factor(shortName, levels = rev(break_data$shortName)),
+                                 select(break_data, bin, longName), by="longName")%>%
+    mutate(longName = factor(longName, levels = rev(break_data$longName)),
            bin = factor(bin, levels = c("very high traffic","high traffic","moderate traffic","low traffic")),
            scaler = 1)
   
@@ -77,7 +77,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
            scaled_newUser = newUsers * scaler) %>%
     select(-max_bin, -scaler)
   
-  min_app <- select(summary_data_full, bin, type, sessions, shortName) %>%
+  min_app <- select(summary_data_full, bin, type, sessions, longName) %>%
     filter(type == levels(summary_data_full$type)[1]) %>%
     group_by(bin) %>%
     slice(which.min(sessions))
@@ -98,19 +98,19 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   text_df <- data.frame(label = c("very high traffic","high traffic","moderate traffic","low traffic"),
                         type = factor(levels(summary_data_full$type)[1], levels = levels(summary_data_full$type)),
                         bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
-                        shortName = min_app$shortName,
+                        longName = min_app$longName,
                         y = sessions_85,
                         stringsAsFactors = FALSE)
   
-  port_graph <- ggplot(data = summary_data_full, aes(x = shortName, y = scaled_value)) +
+  port_graph <- ggplot(data = summary_data_full, aes(x = longName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,alpha = 0.1, color = NA) +
     geom_point() +
-    geom_segment(aes(xend = shortName), yend=0) +
-    geom_segment(aes(xend = shortName, y = scaled_newUser), yend=0, col="black", size=1) + 
+    geom_segment(aes(xend = longName), yend=0) +
+    geom_segment(aes(xend = longName, y = scaled_newUser), yend=0, col="black", size=1) + 
     geom_text(aes(label = session_text, y = text_placement), 
               size = 3, hjust = .75) + 
-    geom_text(data = text_df, aes(x = shortName, y = y, label = label), size = 3.5) +
+    geom_text(data = text_df, aes(x = longName, y = y, label = label), size = 3.5) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
@@ -142,7 +142,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   fake_legend <- data.frame(label = c("Total","New User"),
                             type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
                             bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
-                            shortName = rev(levels(summary_data_full$shortName)[1:2]),
+                            longName = rev(levels(summary_data_full$longName)[1:2]),
                             ymin = ymin,
                             ystart = ystart,
                             ymid = ymid,
@@ -158,14 +158,14 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
             xmax = 2.6,
             color = "black", fill = "white") +
   geom_text(data = fake_legend,
-            aes(x = shortName, y = yend, label = label), 
+            aes(x = longName, y = yend, label = label), 
             size = 3, hjust = "right") +
   geom_segment(data = fake_legend[2,],
-               aes(x = shortName,
-                   xend = shortName,
+               aes(x = longName,
+                   xend = longName,
                    y = ystart, yend=ymid), col="black", size=1) +
-  geom_segment(data = fake_legend[1,], aes(xend = shortName, y=ystart, yend=ymid)) + 
-  geom_point(data = fake_legend[1,], aes(x = shortName, y=ymid)) 
+  geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid)) + 
+  geom_point(data = fake_legend[1,], aes(x = longName, y=ymid)) 
   
   ggsave(port_graph, file = viz[["location"]], height = height, width = width)
   

@@ -223,7 +223,7 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
-    height: 6
+    height: 4
     width: 6
     rangetext: "-1 month"
     mimetype: text/csv
@@ -317,7 +317,7 @@ visualize:
     visualizer: viz_geo_portfolio 
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
-    height: 6
+    height: 4
     width: 6
     alttext: "viz_geo_portfolio"
     title: "viz_geo_portfolio"
