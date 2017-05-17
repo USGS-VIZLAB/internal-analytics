@@ -15,6 +15,15 @@
   color:rgb(0,51,102);
 }
 
+.projectURL{
+  color:rgb(0,51,102);
+  text-decoration:none;
+}
+
+.projectURL:hover{
+  text-decoration:underline;
+}
+
 .projectName{
   margin:0 10px 5px 10px;
 }
