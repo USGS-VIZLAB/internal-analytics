@@ -15,7 +15,7 @@ fetch.GAviews <- function(viz) {
     viz[['fetcher']] <- 'sciencebase'
     viz[['remoteFilename']] <- basename(viz[['location']])
     message("Downloading SB file...")
-    #fetch(as.fetcher(viz))
+    fetch(as.fetcher(viz))
     message('Downloaded SB file')
 
     if(viz[['update']]) {
@@ -62,7 +62,7 @@ fetch.GAviews <- function(viz) {
 
         saveRDS(allDF, file = viz[['location']])
         message("Updating Sciencebase...")
-        #item_replace_files(viz[['remoteItemId']], viz[['location']])
+        item_replace_files(viz[['remoteItemId']], viz[['location']])
         
       } else {
         message("Sciencebase file is up to date, using that")
