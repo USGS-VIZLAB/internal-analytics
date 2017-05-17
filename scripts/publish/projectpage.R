@@ -57,6 +57,8 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
         viz[['context']],
         list(
           project_name = proj$longName,
+          project_description = proj$description,
+          project_URL = proj$websiteUrl,
           monthly_users_chart = proj.imgs[['month_sessions']],
           year_line_sessions = proj.imgs[['year_line_sessions']],
           month_line_sessions = proj.imgs[['month_line_sessions']],
