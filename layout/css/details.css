@@ -16,7 +16,13 @@
 }
 
 .projectName{
-  margin:0 10px 10px 10px;
+  margin:0 10px 5px 10px;
+}
+
+.projectDescription{
+  font-size:.9em;
+  max-width:600px;
+  margin:0 10px 15px 10px;
 }
 
 @media screen and (min-width:1050px){
