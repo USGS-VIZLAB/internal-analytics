@@ -3,6 +3,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   library(tidyr)
   library(ggplot2)
   library(RColorBrewer)
+  library(grid)
   
   deps <- readDepends(viz)
   
@@ -91,14 +92,14 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     mutate(text_placement = scaled_value + 0.15*max_val)
   
   mean_sessions <- summary_data_full %>%
-    filter(type == levels(summary_data_full$type)[1]) 
+    filter(type == levels(summary_data_full$type)[2]) 
   
   sessions_85 <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
   
-  text_df <- data.frame(label = c("very high traffic","high traffic","moderate traffic","low traffic"),
-                        type = factor(levels(summary_data_full$type)[1], levels = levels(summary_data_full$type)),
+  text_df <- data.frame(label = c("Very High Traffic","High Traffic","Moderate Traffic","Low Traffic"),
+                        type = factor(levels(summary_data_full$type)[2], levels = levels(summary_data_full$type)),
                         bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
-                        longName = min_app$longName,
+                        longName = 1,
                         y = sessions_85,
                         stringsAsFactors = FALSE)
   
@@ -120,6 +121,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
           axis.text.x =  element_blank(),
           strip.text.y = element_blank(),
           panel.grid.major = element_blank(),
+          panel.spacing.y=unit(1, "lines"),
           panel.grid.minor = element_blank(),
           panel.border = element_blank(),
           strip.background = element_blank(),
@@ -167,7 +169,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid)) + 
   geom_point(data = fake_legend[1,], aes(x = longName, y=ymid)) 
   
-  ggsave(port_graph, file = viz[["location"]], height = height, width = width)
+  gt = ggplot_gtable(ggplot_build(port_graph))
+  gt$layout$clip = "off"
+  grid.draw(gt)
+  
+  ggsave(gt, file = viz[["location"]], height = height, width = width)
   
 }
 

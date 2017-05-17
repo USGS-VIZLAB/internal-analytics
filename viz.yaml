@@ -235,7 +235,7 @@ visualize:
     depends: aggregate_ga
     plottype: app_hist
     rangetext: "-1 month"
-    height: 6
+    height: 4
     width: 6
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
@@ -245,7 +245,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: aggregate_ga
     plottype: app_hist
-    height: 6
+    height: 4
     width: 6
     mimetype: image/png
     alttext: "timeDayUse"
@@ -256,7 +256,7 @@ visualize:
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
-    height: 6
+    height: 4
     width: 6
     rangetext: "-1 month"
     plottype: device_type
@@ -266,7 +266,7 @@ visualize:
     id: viz_source
     visualizer: viz_source 
     scripts: scripts/visualize/viz_source.R
-    height: 6
+    height: 4
     width: 6
     depends: source_counts
     plottype: source_counts
@@ -289,7 +289,7 @@ visualize:
   -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
-    height: 6
+    height: 4
     width: 6
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
@@ -302,7 +302,7 @@ visualize:
   -
     id: portfolio_source
     visualizer: portfolio_source
-    height: 6
+    height: 4
     width: 6
     scripts: scripts/visualize/portfolio_source.R
     depends: 
