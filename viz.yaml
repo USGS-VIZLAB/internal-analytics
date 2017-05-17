@@ -70,6 +70,9 @@ info:
     RColorBrewer:
       repo: CRAN
       version: 1.1-2
+    htmlTable:
+      repo: CRAN
+      version: 1.9
 fetch:
   -
     id: fetchGA
@@ -217,8 +220,8 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
-    height: 2.25
-    width: 3
+    height: 6
+    width: 6
     rangetext: "-1 month"
     mimetype: text/csv
     location: cache/visualize/viz_geo_apps.csv
@@ -250,8 +253,8 @@ visualize:
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
-    height: 4
-    width: 4
+    height: 6
+    width: 6
     rangetext: "-1 month"
     plottype: device_type
     mimetype: text/csv
@@ -260,8 +263,8 @@ visualize:
     id: viz_source
     visualizer: viz_source 
     scripts: scripts/visualize/viz_source.R
-    height: 4
-    width: 4
+    height: 6
+    width: 6
     depends: source_counts
     plottype: source_counts
     mimetype: text/csv
@@ -281,34 +284,10 @@ visualize:
     title: "Latest year sessions"
     location: figures/portfolio_sessions_all.png
   -
-    id: portfolio_time
-    visualizer: portfolio_time 
-    height: 500
-    width: 500
-    scripts: scripts/visualize/portfolio_time.R
-    depends: 
-      aggregate_ga: aggregate_ga
-    mimetype: image/png
-    alttext: "portfolio_time"
-    title: "portfolio_time"
-    location: figures/portfolio_time.png
-  -
-    id: app_time
-    visualizer: app_time 
-    height: 500
-    width: 500
-    rangetext: "-1 month"
-    plottype: mean_time
-    scripts: scripts/visualize/portfolio_time.R
-    depends: 
-      aggregate_ga: aggregate_ga
-    mimetype: text/csv
-    location: cache/visualize/viz_time.csv
-  -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
-    height: 4
-    width: 4
+    height: 6
+    width: 6
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
@@ -320,8 +299,8 @@ visualize:
   -
     id: portfolio_source
     visualizer: portfolio_source
-    height: 4
-    width: 4
+    height: 6
+    width: 6
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
@@ -335,13 +314,32 @@ visualize:
     visualizer: viz_geo_portfolio 
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
-    height: 2.25
-    width: 3
+    height: 6
+    width: 6
     alttext: "viz_geo_portfolio"
     title: "viz_geo_portfolio"
     mimetype: image/png
     location: figures/viz_geo_portfolio.png
+  -
+    id: app_time
+    visualizer: app_time 
+    rangetext: "-1 month"
+    plottype: mean_time
+    scripts: scripts/publish/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: text/csv
+    location: cache/publish/viz_time.csv
 publish:
+  -
+    id: portfolio_time
+    publisher: portfolio_time 
+    scripts: scripts/publish/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: text/html
+    alttext: "portfolio_time"
+    title: "portfolio_time"
   -
     id: openSans
     publisher: googlefont

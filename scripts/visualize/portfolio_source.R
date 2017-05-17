@@ -21,6 +21,7 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
     theme(axis.title.y=element_blank(),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
+          axis.text = element_text(size = 14),
           panel.border = element_blank())
   
   ggsave(port_source, filename = viz[["location"]], 

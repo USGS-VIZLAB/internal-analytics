@@ -40,6 +40,7 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
       ylab("Total Sessions") +
       theme(axis.title.y=element_blank(),
             panel.grid.major = element_blank(),
+            axis.text = element_text(size = 14),
             panel.grid.minor = element_blank(),
             panel.border = element_blank())
     

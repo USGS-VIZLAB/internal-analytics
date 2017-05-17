@@ -25,7 +25,9 @@ publish.portfolio_time <- function(viz = as.viz("portfolio_time")){
   
   return(htmlTable(x, 
             caption="Average Time",
-            rnames = row.names(x), align=c("l","l","l"), col.rgroup = c("none", "#F7F7F7"), 
+            rnames = row.names(x),  
+            col.rgroup = c("none", "#F7F7F7"), 
+            css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
             css.cell="padding-bottom: 0.5em; padding-right: 0.5em; padding-top: 0.5em;"))
   
   
@@ -116,7 +118,9 @@ visualize.app_time <- function(viz = as.viz("app_time")){
     sink(location)
       cat(htmlTable(df, 
            caption="Average Time",
-           rnames=row.names(df), align=c("l","l","l"), col.rgroup = c("none", "#F7F7F7"), 
+           rnames=row.names(df), 
+           col.rgroup = c("none", "#F7F7F7"), 
+           css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
            css.cell="padding-bottom: 0.5em; padding-right: 0.5em; padding-top: 0.5em;"))
     sink()
     
