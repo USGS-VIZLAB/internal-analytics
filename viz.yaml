@@ -290,7 +290,7 @@ visualize:
     id: portfolio_device_type
     visualizer: portfolio_device_type 
     height: 4
-    width: 6
+    width: 8
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
