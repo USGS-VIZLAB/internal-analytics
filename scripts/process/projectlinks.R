@@ -1,8 +1,8 @@
 #' create the urls of all the project pages
 library(dplyr)
 process.projectlinks <- function(viz = as.viz("project_links")) {
-  deps <- readDepends(viz)
-  table <- deps[['project_table']] %>%
+  masterTable <- do.call(bind_rows, readDepends(viz)[['project_table']])
+  table <- masterTable %>%
     select(shortName, longName) %>%
     mutate(url = paste0(shortName, ".html")) %>%
     arrange(longName)

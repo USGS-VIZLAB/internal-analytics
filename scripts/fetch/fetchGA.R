@@ -15,12 +15,11 @@ fetch.GAviews <- function(viz) {
     viz[['fetcher']] <- 'sciencebase'
     viz[['remoteFilename']] <- basename(viz[['location']])
     message("Downloading SB file...")
-    fetch(as.fetcher(viz))
+    #fetch(as.fetcher(viz))
     message('Downloaded SB file')
 
     if(viz[['update']]) {
-      masterTable <- readDepends(viz)[['project_table']]
-
+      masterTable <- do.call(bind_rows, readDepends(viz)[['project_table']])
       #check if it is up to date (has yesterday's data) for each ID
       fileDF <- readRDS(viz[['location']])
       fileDF_summary <- group_by(fileDF, viewID) %>% summarise(lastDate = max(date))
@@ -63,7 +62,7 @@ fetch.GAviews <- function(viz) {
 
         saveRDS(allDF, file = viz[['location']])
         message("Updating Sciencebase...")
-        item_replace_files(viz[['remoteItemId']], viz[['location']])
+        #item_replace_files(viz[['remoteItemId']], viz[['location']])
         
       } else {
         message("Sciencebase file is up to date, using that")

@@ -86,9 +86,9 @@ fetch:
   -
     id: project_table
     fetcher: file
-    location: data/ga_table.csv
+    location: data/gaTable.yaml
     scripts:
-    mimetype: text/csv
+    mimetype: text/yaml
   -
     id: siteText
     location: data/siteText.yaml

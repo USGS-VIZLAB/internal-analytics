@@ -4,7 +4,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
   
   deps <- readDepends(viz)
   
-  projects <- deps[['project_table']] # get projects from deps
+  projects <- do.call(bind_rows, deps[['project_table']]) # get projects from deps
   
   img.files <- list(
     month_sessions = deps[['viz_month_sessions']],
