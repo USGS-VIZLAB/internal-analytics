@@ -31,7 +31,7 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
                                Freq = c(NA,NA),
                                stringsAsFactors = FALSE) 
     } else if(nrow(source_sum) < 5){
-      source_sum <- rbind(source_sum,data.frame(source=rep("",5-nrow(source_sum)),
+      source_sum <- rbind(source_sum[,c("source","Freq")],data.frame(source=rep("",5-nrow(source_sum)),
                                Freq = rep(NA,5-nrow(source_sum)),
                                stringsAsFactors = FALSE) )
     }

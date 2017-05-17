@@ -24,10 +24,17 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
       group_by(deviceCategory) %>%
       summarize(totals = n())
     
+    if(nrow(sub_data_range) <3){
+      sub_data_range <- rbind(sub_data_range[,c("deviceCategory","totals")],
+                              data.frame(deviceCategory=rep("",3-nrow(sub_data_range)),
+                                        totals = rep(NA,3-nrow(sub_data_range)),
+                                        stringsAsFactors = FALSE) )
+    }
+    
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
 
     port_device <-   ggplot(data = sub_data_range) +
-      geom_col(aes(x = reorder(deviceCategory, totals), y=totals), fill = "steelblue") +
+      geom_col(aes(x = reorder(deviceCategory, totals, ), y=totals), fill = "steelblue") +
       coord_flip() +
       theme_minimal() +
       ylab("Total Sessions") +

@@ -139,7 +139,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   yend <- 0.90*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
   
   
-  fake_legend <- data.frame(label = c("Total","New User"),
+  fake_legend <- data.frame(label = c("Total Users","New Users"),
                             type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
                             bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
                             longName = rev(levels(summary_data_full$longName)[1:2]),
