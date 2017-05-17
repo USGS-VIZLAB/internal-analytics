@@ -15,14 +15,19 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     device_type = deps[['viz_device_type']],
     source_counts = deps[['viz_source']],
     viz_geo_apps = deps[["viz_geo_apps"]],
-    timeDayUse_app = deps[["timeDayUse_app"]],
-    app_time = deps[["app_time"]]
+    timeDayUse_app = deps[["timeDayUse_app"]]
   )
+  
+  table.files <- deps[["app_time"]]
   
   for (i in 1:nrow(projects)) {
     proj <- projects[i,]
     viewID <- proj$viewID
     # get relative paths for images
+    
+    table.data <- filter(table.files, id == viewID)
+    table.html <- readChar(table.data$loc, file.info(table.data$loc)$size)
+    
     proj.imgs <- sapply(img.files, function(x){
       img <- "missingImg"
       
@@ -61,7 +66,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           source_counts = proj.imgs[['source_counts']],
           viz_geo_apps = proj.imgs[["viz_geo_apps"]],
           timeDayUse_app = proj.imgs[["timeDayUse_app"]],
-          app_time = proj.imgs[["app_time"]]
+          app_time = table.html
       ))
     )
     contents <- as.viz(contents)
