@@ -34,8 +34,13 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
             axis.title = element_blank(),
             legend.position="bottom",
             legend.title.align=0.5,
-            legend.key.size = unit(0.25, "cm"),
-            legend.key.width = unit(2, "cm")) +
+            plot.margin=unit(c(0,0,0,0), "cm"),
+            legend.direction = "horizontal",
+            legend.text=element_text(size=7),
+            legend.title = element_text(size = 7),
+            # legend.key.size = unit(1, "cm"),
+            legend.key.width = unit(0.5, "cm")) +
+      # guides(fill=guide_legend(ncol=4)) +
       scale_fill_gradient(na.value = 'transparent',
                           low = "white", high = "steelblue")
     
@@ -103,8 +108,11 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
               axis.title = element_blank(),
               legend.position="bottom",
               plot.margin=unit(c(0,0,0,0), "cm"),
-              legend.key.size = unit(0.15, "cm"),
-              legend.key.width = unit(1.4, "cm")) +
+              legend.direction = "horizontal",
+              legend.text=element_text(size=7),
+              legend.title = element_text(size = 7),
+              # legend.key.size = unit(1, "cm"),
+              legend.key.width = unit(0.5, "cm")) +
         scale_fill_gradient(na.value = 'transparent',
                             low = "white", high = "steelblue")
       
