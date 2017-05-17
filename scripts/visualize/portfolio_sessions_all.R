@@ -136,7 +136,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   
   ystart <- 0.50*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
   ymid <- 0.6*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
-  yend <- 0.90*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
+  yend <- 0.95*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
   
   
   fake_legend <- data.frame(label = c("Total Users","New Users"),
