@@ -1,34 +1,34 @@
-longName,shortName,accountName,viewID,accountId,webPropertyId,internalWebPropertyId,viewName,timezone,websiteUrl,siteSearchQueryParameters,stripSiteSearchQueryParameters,created,updated,botFilteringEnabled,include,login
-Publications Warehouse,Pubs,pubs.er.usgs.gov,20354817,10113280,UA-10113280-1,22153976,pubs.er.usgs.gov,America/Chicago,http://pubs.er.usgs.gov,"q,advanced",TRUE,8/6/09 14:30,1/13/15 18:15,TRUE,YES,cida
-Water Quality Portal,WQP,WQP,53642301,27507375,UA-27507375-1,52832367,WQP,America/Chicago,http://www.waterqualitydata.us,,,12/6/11 3:20,7/24/15 16:13,TRUE,YES,cida
-National Ground Water Monitoring Network Data Portal,NGWMN,NGWMN Data Portal,56773153,29564531,UA-29564531-2,55739376,NGWMN Data Portal,America/Chicago,http://cida.usgs.gov/ngwmn,,,2/28/12 16:51,1/5/16 15:37,,YES,cida
-Geo Data Portal,GDP,Geo Data Portal,63434149,34380265,UA-34380265-1,61904170,Geo Data Portal,America/Chicago,http://cida.usgs.gov/gdp/,,,8/27/12 19:18,8/27/12 19:18,,YES,cida
-NAWQA SPARROW Decision Support System,SPARROWDSS,Sparrow DSS,64208920,34936068,UA-34936068-1,62621963,Sparrow DSS,America/Chicago,http://cida.usgs.gov/sparrow,,,9/19/12 20:14,1/16/13 19:14,,YES,cida
-Great Lakes Restoration Initiative Phragmites,GLRIPhragmites,USGS GLRI Phragmites,98561198,42203160,UA-42203160-1,71881585,GLRI Phragmites - No Internal Traffic,America/Chicago,http://cida.usgs.gov/glri/phragmites/,,,2/27/15 17:43,2/27/15 17:43,,YES,cida
-Coastal Change Hazards Portal,CCH,CIDA CCH,79994645,46378632,UA-46378632-1,77384024,All Web Site Data,America/Chicago,http://cida.usgs.gov/coastalchangehazardsportal/,,,12/11/13 19:43,12/20/13 16:10,,YES,cida
-Biodata,BiodataIn,BioData,91413881,47407832,UA-47407832-1,78657237,BioData Input with Most CIDA Traffic Filtered Out,America/Chicago,https://internal.aquatic.biodata.usgs.gov,,,9/19/14 19:58,7/10/15 18:22,FALSE,YES,cida
-Biodata Retrieval,BiodataRet,BioData,84991236,47407832,UA-47407832-2,78668543,BioData Retrieval,America/Chicago,https://aquatic.biodata.usgs.gov,,,4/18/14 15:40,5/13/14 12:37,,YES,cida
-NWIS Reporting Application,NWIS-RA,NWIS-RA,85268102,50379402,UA-50379402-1,82341003,All Web Site Data,America/Chicago,https://nwisdata.usgs.gov,,,4/24/14 20:34,12/16/16 16:03,FALSE,YES,cida
-CIDA Website,CIDA,CIDA_Website,85293745,50382493,UA-50382493-1,82375136,All Web Site Data,America/Chicago,http://cida.usgs.gov/,,,4/25/14 17:11,4/25/14 17:11,,YES,cida
-Great Lakes Restoration Initiative,GLRI,USGS GLRI,98563485,50454186,UA-50454186-1,82455211,GLRI w/ Internal Traffic,America/Chicago,http://cida.usgs.gov/glri/,,,2/27/15 17:39,3/3/15 23:17,FALSE,YES,cida
-WAUSP National Water Census,NWC,National Water Census,86002663,50928997,UA-50928997-1,83038855,All Web Site Data,America/Chicago,http://cida.usgs.gov/nwc,,,5/13/14 14:54,5/13/14 14:54,,YES,cida
-NAWQA Watershed Regressions on Pesticides,WARP,WARP Map Public,88377604,52690803,UA-52690803-1,85238605,All Web Site Data,America/Chicago,http://cida.usgs.gov/WARP,,,7/9/14 19:10,7/9/14 19:10,,YES,cida
-USGS-R Resources,USGS-R,USGS-R,98740675,53797708,UA-53797708-5,94745748,All Web Site Data,America/Chicago,http://owi.usgs.gov/R,,,3/3/15 15:01,3/3/15 15:01,,YES,cida
-VizLab: California Drought,VizLabCADrought,CIDA drought app,94771699,57400827,UA-57400827-1,91087966,All Web Site Data,America/Chicago,http://cida.usgs.gov/ca_drought,,,12/5/14 22:25,12/5/14 22:25,,YES,cida
-NAWQA Water Quality Mapper,NAR,NAWQA Annual Reports,105752773,65551512,UA-65551512-1,101784549,NAR Website Excluding Internal Traffic,America/Chicago,http://cida.usgs.gov/quality/rivers/sites,,,7/23/15 18:37,10/27/15 14:22,TRUE,YES,cida
-National Soil Moisture Network,NSMN,National Soil Moisture Network,106021339,65742231,UA-65742231-1,102024536,All Web Site Data,America/Chicago,http://cida.usgs.gov/nsmn_pilot/,,,7/29/15 16:44,7/29/15 16:44,,YES,cida
-VizLab: Colorado River Drought,VizLabCRBDrought,OWDI Drought Vizzy,106583560,66155743,UA-66155743-1,102550529,All Web Site Data,America/Chicago,https://cida-test.er.usgs.gov/bluedragon/dev/,,,8/10/15 18:07,8/10/15 18:07,,YES,cida
-OWI Website,OWI,OWI Website,119859676,76112553,UA-76112553-1,114685767,All Web Site Data,America/Chicago,http://owi.usgs.gov,,,4/7/16 15:47,4/7/16 15:47,,YES,cida
-VizLab Landing Page,VizLab,Vizlab,122971190,78530187,UA-78530187-1,117580756,All Web Site Data,America/Chicago,http://owi.usgs.gov/vizlab,,,5/31/16 18:35,5/31/16 18:35,,YES,cida
-VizLab: Climate Change and Fisheries,VizLabClimateFish,Vizlab,129299951,78530187,UA-78530187-2,124964749,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/climate-change-walleye-bass/,,,9/7/16 15:12,9/7/16 15:12,,YES,cida
-VizLab: Microplastics in Our Waterways,VizLabMicroplastics,Vizlab,129289964,78530187,UA-78530187-3,124954360,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/microplastics/,,,9/7/16 15:31,9/7/16 15:31,,YES,cida
-VizLab: Hurricane Matthew's Water Footprint,VizLabMatthew,Vizlab,131371952,78530187,UA-78530187-4,127687029,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/hurricane-matthew,,,10/11/16 18:39,10/11/16 18:39,,YES,cida
-VizLab: Water Use,VizLabWaterUse,Vizlab,135016013,78530187,UA-78530187-5,131088296,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/water-use,,,11/30/16 22:55,1/11/17 0:14,TRUE,YES,cida
-Environmental Data Discovery and Transformation,EnDDaT,EnDDaT,124403435,79713582,UA-79713582-1,118926018,All Web Site Data,America/Chicago,http://cida-test.er.usgs.gov/enddat/,,,6/22/16 14:39,6/22/16 14:39,,YES,cida
-Grand Canyon Monitoring Research Center Website,GCMRC,CIDA GCMRC Analytics,80089136,46435687,UA-46435687-1,,All Web Site Data,America/Chicago,https://www.gcmrc.gov/discharge_qw_sediment/,,,,,,YES,cida
-National Environmental Methods Index,NEMI,nemi_usgs,71090861,,UA-39958467-1,,All Web Site Data,,https://www.nemi.gov,,,,,,YES,cida
-NWISWeb Mobile,NWISWebMobile,USGS Mobile Water Data & Water Services,73906131,42005086,UA-42005086-1,71636360,,,http://m.waterdata.usgs.gov,,,,,,,nwis
-NWISWeb Desktop,NWISWebDesktop,USGS Water Data for the Nation,49785472,25350863,UA-25350863-1,49291662,,,http://waterdata.usgs.gov,,,,,,,nwis
-Health Based Screening Levels,HBSL,NAWQA Data Warehouse,83069807,27722501,UA-27722501-13,80288862,All Web Site Data,America/Chicago,http://water.usgs.gov/nawqa/HBSL,,,3/6/14 5:19,3/6/14 5:19,,YES,cida
-Groundwater Watch,GroundwaterWatch,,77121234,,,,,,http://groundwaterwatch.usgs.gov,,,,,,,nwis
-USGS WaterWatch,WaterWatch,,18857756,,,,,,waterwatch.usgs.gov,,,,,,,nwis
+longName,shortName,accountName,viewID,accountId,webPropertyId,internalWebPropertyId,viewName,timezone,websiteUrl,siteSearchQueryParameters,stripSiteSearchQueryParameters,created,updated,botFilteringEnabled,include,login,description
+Publications Warehouse,Pubs,pubs.er.usgs.gov,20354817,10113280,UA-10113280-1,22153976,pubs.er.usgs.gov,America/Chicago,http://pubs.er.usgs.gov,"q,advanced",TRUE,8/6/09 14:30,1/13/15 18:15,TRUE,YES,cida,I am example of project description
+Water Quality Portal,WQP,WQP,53642301,27507375,UA-27507375-1,52832367,WQP,America/Chicago,http://www.waterqualitydata.us,,,12/6/11 3:20,7/24/15 16:13,TRUE,YES,cida,
+National Ground Water Monitoring Network Data Portal,NGWMN,NGWMN Data Portal,56773153,29564531,UA-29564531-2,55739376,NGWMN Data Portal,America/Chicago,http://cida.usgs.gov/ngwmn,,,2/28/12 16:51,1/5/16 15:37,,YES,cida,
+Geo Data Portal,GDP,Geo Data Portal,63434149,34380265,UA-34380265-1,61904170,Geo Data Portal,America/Chicago,http://cida.usgs.gov/gdp/,,,8/27/12 19:18,8/27/12 19:18,,YES,cida,
+NAWQA SPARROW Decision Support System,SPARROWDSS,Sparrow DSS,64208920,34936068,UA-34936068-1,62621963,Sparrow DSS,America/Chicago,http://cida.usgs.gov/sparrow,,,9/19/12 20:14,1/16/13 19:14,,YES,cida,
+Great Lakes Restoration Initiative Phragmites,GLRIPhragmites,USGS GLRI Phragmites,98561198,42203160,UA-42203160-1,71881585,GLRI Phragmites - No Internal Traffic,America/Chicago,http://cida.usgs.gov/glri/phragmites/,,,2/27/15 17:43,2/27/15 17:43,,YES,cida,
+Coastal Change Hazards Portal,CCH,CIDA CCH,79994645,46378632,UA-46378632-1,77384024,All Web Site Data,America/Chicago,http://cida.usgs.gov/coastalchangehazardsportal/,,,12/11/13 19:43,12/20/13 16:10,,YES,cida,
+Biodata,BiodataIn,BioData,91413881,47407832,UA-47407832-1,78657237,BioData Input with Most CIDA Traffic Filtered Out,America/Chicago,https://internal.aquatic.biodata.usgs.gov,,,9/19/14 19:58,7/10/15 18:22,FALSE,YES,cida,I am example of project description
+Biodata Retrieval,BiodataRet,BioData,84991236,47407832,UA-47407832-2,78668543,BioData Retrieval,America/Chicago,https://aquatic.biodata.usgs.gov,,,4/18/14 15:40,5/13/14 12:37,,YES,cida,
+NWIS Reporting Application,NWIS-RA,NWIS-RA,85268102,50379402,UA-50379402-1,82341003,All Web Site Data,America/Chicago,https://nwisdata.usgs.gov,,,4/24/14 20:34,12/16/16 16:03,FALSE,YES,cida,
+CIDA Website,CIDA,CIDA_Website,85293745,50382493,UA-50382493-1,82375136,All Web Site Data,America/Chicago,http://cida.usgs.gov/,,,4/25/14 17:11,4/25/14 17:11,,YES,cida,
+Great Lakes Restoration Initiative,GLRI,USGS GLRI,98563485,50454186,UA-50454186-1,82455211,GLRI w/ Internal Traffic,America/Chicago,http://cida.usgs.gov/glri/,,,2/27/15 17:39,3/3/15 23:17,FALSE,YES,cida,
+WAUSP National Water Census,NWC,National Water Census,86002663,50928997,UA-50928997-1,83038855,All Web Site Data,America/Chicago,http://cida.usgs.gov/nwc,,,5/13/14 14:54,5/13/14 14:54,,YES,cida,
+NAWQA Watershed Regressions on Pesticides,WARP,WARP Map Public,88377604,52690803,UA-52690803-1,85238605,All Web Site Data,America/Chicago,http://cida.usgs.gov/WARP,,,7/9/14 19:10,7/9/14 19:10,,YES,cida,
+USGS-R Resources,USGS-R,USGS-R,98740675,53797708,UA-53797708-5,94745748,All Web Site Data,America/Chicago,http://owi.usgs.gov/R,,,3/3/15 15:01,3/3/15 15:01,,YES,cida,
+VizLab: California Drought,VizLabCADrought,CIDA drought app,94771699,57400827,UA-57400827-1,91087966,All Web Site Data,America/Chicago,http://cida.usgs.gov/ca_drought,,,12/5/14 22:25,12/5/14 22:25,,YES,cida,
+NAWQA Water Quality Mapper,NAR,NAWQA Annual Reports,105752773,65551512,UA-65551512-1,101784549,NAR Website Excluding Internal Traffic,America/Chicago,http://cida.usgs.gov/quality/rivers/sites,,,7/23/15 18:37,10/27/15 14:22,TRUE,YES,cida,
+National Soil Moisture Network,NSMN,National Soil Moisture Network,106021339,65742231,UA-65742231-1,102024536,All Web Site Data,America/Chicago,http://cida.usgs.gov/nsmn_pilot/,,,7/29/15 16:44,7/29/15 16:44,,YES,cida,
+VizLab: Colorado River Drought,VizLabCRBDrought,OWDI Drought Vizzy,106583560,66155743,UA-66155743-1,102550529,All Web Site Data,America/Chicago,https://cida-test.er.usgs.gov/bluedragon/dev/,,,8/10/15 18:07,8/10/15 18:07,,YES,cida,
+OWI Website,OWI,OWI Website,119859676,76112553,UA-76112553-1,114685767,All Web Site Data,America/Chicago,http://owi.usgs.gov,,,4/7/16 15:47,4/7/16 15:47,,YES,cida,
+VizLab Landing Page,VizLab,Vizlab,122971190,78530187,UA-78530187-1,117580756,All Web Site Data,America/Chicago,http://owi.usgs.gov/vizlab,,,5/31/16 18:35,5/31/16 18:35,,YES,cida,
+VizLab: Climate Change and Fisheries,VizLabClimateFish,Vizlab,129299951,78530187,UA-78530187-2,124964749,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/climate-change-walleye-bass/,,,9/7/16 15:12,9/7/16 15:12,,YES,cida,
+VizLab: Microplastics in Our Waterways,VizLabMicroplastics,Vizlab,129289964,78530187,UA-78530187-3,124954360,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/microplastics/,,,9/7/16 15:31,9/7/16 15:31,,YES,cida,
+VizLab: Hurricane Matthew's Water Footprint,VizLabMatthew,Vizlab,131371952,78530187,UA-78530187-4,127687029,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/hurricane-matthew,,,10/11/16 18:39,10/11/16 18:39,,YES,cida,
+VizLab: Water Use,VizLabWaterUse,Vizlab,135016013,78530187,UA-78530187-5,131088296,All Web Site Data,America/Chicago,https://owi.usgs.gov/vizlab/water-use,,,11/30/16 22:55,1/11/17 0:14,TRUE,YES,cida,
+Environmental Data Discovery and Transformation,EnDDaT,EnDDaT,124403435,79713582,UA-79713582-1,118926018,All Web Site Data,America/Chicago,http://cida-test.er.usgs.gov/enddat/,,,6/22/16 14:39,6/22/16 14:39,,YES,cida,
+Grand Canyon Monitoring Research Center Website,GCMRC,CIDA GCMRC Analytics,80089136,46435687,UA-46435687-1,,All Web Site Data,America/Chicago,https://www.gcmrc.gov/discharge_qw_sediment/,,,,,,YES,cida,
+National Environmental Methods Index,NEMI,nemi_usgs,71090861,,UA-39958467-1,,All Web Site Data,,https://www.nemi.gov,,,,,,YES,cida,
+NWISWeb Mobile,NWISWebMobile,USGS Mobile Water Data & Water Services,73906131,42005086,UA-42005086-1,71636360,,,http://m.waterdata.usgs.gov,,,,,,,nwis,
+NWISWeb Desktop,NWISWebDesktop,USGS Water Data for the Nation,49785472,25350863,UA-25350863-1,49291662,,,http://waterdata.usgs.gov,,,,,,,nwis,
+Health Based Screening Levels,HBSL,NAWQA Data Warehouse,83069807,27722501,UA-27722501-13,80288862,All Web Site Data,America/Chicago,http://water.usgs.gov/nawqa/HBSL,,,3/6/14 5:19,3/6/14 5:19,,YES,cida,
+Groundwater Watch,GroundwaterWatch,,77121234,,,,,,http://groundwaterwatch.usgs.gov,,,,,,,nwis,
+USGS WaterWatch,WaterWatch,,18857756,,,,,,waterwatch.usgs.gov,,,,,,,nwis,
