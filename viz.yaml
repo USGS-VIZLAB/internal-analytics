@@ -432,7 +432,11 @@ publish:
       info_geo: >-
         This is really long information about the map for each app.
       info_device: "Info on device."
-      info_ave_time: "Info on avg time."
+      info_ave_time: "Info on avg time table."
+      info_time_of_day: "Info on time of day graph"
+      info_new_return: "Info on new vs returning pie chart"
+      info_session_time: >-
+        Info on year, month, week, day graphs
       resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
