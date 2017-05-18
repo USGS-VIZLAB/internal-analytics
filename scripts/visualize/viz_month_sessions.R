@@ -1,5 +1,7 @@
 visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
   library(dplyr)
+  library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["sessions_and_new_users"]]
   
@@ -13,25 +15,28 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
     sub_data <- filter(viz.data, viewID == i)
     
     newUsers <- sum(sub_data$newUsers, na.rm = TRUE)
-    sessions <- sum(sub_data$sessions, na.rm = TRUE) - newUsers
+    returningUsers <- sum(sub_data$sessions, na.rm = TRUE) - newUsers
+
+    x <- data.frame(sessions = c(newUsers,returningUsers),
+                    users = c("New Users","Returning Users"),
+                    stringsAsFactors = FALSE)
     
-    percent_new <- 100*newUsers/(sum(sub_data$sessions, na.rm = TRUE))
-    percent_new <- sprintf(percent_new, fmt = "%1.1f")
+    location <- paste0("cache/visualize/",i,"_session_pie.png")
     
-    percent_return <- 100*sessions/(sum(sub_data$sessions, na.rm = TRUE))
-    percent_return <- sprintf(percent_return, fmt = "%1.1f")
+    port_source <- ggplot(data = x) +
+      geom_col(aes(x = reorder(users, sessions), y=sessions), fill = "steelblue") +
+      coord_flip() +
+      theme_minimal() +
+      ylab("Sessions") +
+      theme(axis.title.y=element_blank(),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+            axis.text = element_text(size = 14),
+            panel.border = element_blank()) +
+      scale_y_continuous(labels = comma)
     
-    x <- matrix(c(newUsers, sessions))
-    row.names(x) <- c("New Users","Sessions")
-    
-    
-    png(paste0("cache/visualize/",i,"_session_pie.png"), 
-        width = width, height = height)
-      par(oma=c(0,0,0,0), mar=c(0,1,0,1))
-      pie(x, labels = c(paste("New", percent_new,"%"),
-                        paste("Returning", percent_return,"%")))
-    
-    dev.off()
+    ggsave(port_source, filename = location, 
+           height = height, width = width)
     
   }
   

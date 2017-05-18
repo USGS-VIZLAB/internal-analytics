@@ -1,5 +1,8 @@
 #portfolio-wide
 library(dplyr)
+library(ggplot2)
+library(scales)
+
 visualize.timeDayUse_all <- function(viz=as.viz("timeDayUse_port")) {
   
   viz.data <- readDepends(viz)[["aggregate_ga"]] #not sure which
@@ -7,23 +10,30 @@ visualize.timeDayUse_all <- function(viz=as.viz("timeDayUse_port")) {
   height = viz[["height"]]
   width = viz[["width"]]
   
-  png(viz[["location"]], height = height, width=width)
+  hourSum$hour <- as.numeric(hourSum$hour)
   
-  par(oma = c(0,0,0,0),
-      mgp = c(3,0.5,0),
-      mar = c(4,6,2,0.1),
-      tck = -0.01,
-      las=1)
-
-  barplot(hourSum$n, names.arg = hourSum$hour,
-          xlab = "Hour of Day",ylab = "Sessions",
-          main = "Sum total per hour for all apps",
-          col = "steelblue")
-
-  dev.off()
+  port_device <-   ggplot(data = hourSum) +
+    geom_col(aes(x = hour, y=n)) +
+    theme_minimal() +
+    ylab("Sessions") +
+    xlab("Hour of the Day") +
+    theme(axis.title.y=element_blank(),
+          axis.text = element_text(size = 14),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+    scale_y_continuous(labels = comma) 
+  
+  ggsave(port_device, filename = viz[["location"]], 
+         height = height, width = width)
+  
+  
 }
 
 visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
+  
+  library(dplyr)
+  library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["aggregate_ga"]]
   
@@ -47,19 +57,21 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
       group_by(hour) %>% 
       summarise(n = n()) #need to set to numeric?
 
-    png(location, height = height, width = width)
-
-    par(oma = c(0,0,0,0),
-        mgp = c(3,0.5,0),
-        mar = c(4,6,2,0.1),
-        tck = -0.01,
-        las=1)
+    hourSum$hour <- as.numeric(hourSum$hour)
     
-    barplot(hourSum$n, names.arg = hourSum$hour,
-            xlab = "Hour of Day",ylab = "Sessions",
-            main = paste("From",paste(range_days,collapse = " to ")),
-            col = "steelblue")
-    dev.off()
+    port_device <-   ggplot(data = hourSum) +
+      geom_col(aes(x = hour, y=n), fill = "steelblue") +
+      theme_minimal() +
+      ylab("Sessions") +
+      xlab("Hour of the Day") +
+      theme(axis.title.y=element_blank(),
+            axis.text = element_text(size = 14),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank()) +
+      scale_y_continuous(labels = comma) 
+    
+    ggsave(port_device, filename = location, 
+           height = height, width = width)
     
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
@@ -67,4 +79,16 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
                                  stringsAsFactors = FALSE))    
   }
   write.csv(x, file=viz[["location"]], row.names = FALSE)
+}
+
+
+fancy_scientific <- function(l) {
+  # turn in to character string in scientific notation
+  l <- format(l, scientific = TRUE)
+  # quote the part before the exponent to keep all the digits
+  l <- gsub("^(.*)e", "'\\1'e", l)
+  # turn the 'e+' into plotmath format
+  l <- gsub("e", "%*%10^", l)
+  # return this as an expression
+  parse(text=l)
 }

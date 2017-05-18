@@ -4,31 +4,41 @@
     <section class="full">
       <div class="header">
 				<h3>Sessions</h3>
+				<div class="information">
+				    {{{informationImg}}}
+				    <div class="informationContent">
+				      {{{info_sessions}}}
+				    </div>
+				  </div>
 			</div>
 			<div class="chartArea">
 				{{{portfolio_sessions_all}}}
 			</div>
     </section>
-    <section class="full">
-			<div class="header">
-				<h3>Geographic Location</h3>
-			</div>
-			<div class="chartArea">
-				{{{viz_geo_portfolio}}}
-			</div>
-		</section>
 		<section class="half flexContainer">
-		  <div class="flex1 flexBorder">
+			<div class="flex1 flexBorder">
 				<div class="header">
-					<h3>Device Type</h3>
+					<h3>Geographic Location</h3>
+					<div class="information">
+						{{{informationImg}}}
+						<div class="informationContent">
+						  {{{info_geo}}}
+						</div>
+					</div>
 				</div>
 				<div class="chartArea">
-				  {{{portfolio_device_type}}}
+					{{{viz_geo_portfolio}}}
 				</div>
 			</div>
 			<div class="flex1">
 				<div class="header">
 					<h3>Traffic Source</h3>
+					<div class="information">
+						{{{informationImg}}}
+						<div class="informationContent">
+						  {{{info_source}}}
+						</div>
+					</div>
 				</div>
 				<div class="chartArea">
 					{{{portfolio_source}}}
@@ -36,17 +46,29 @@
 			</div>
 		</section>
 		<section class="half flexContainer">
-		  <div class="flex1 flexBorder">
+			<div class="flex1 flexBorder">
 				<div class="header">
-					<h3>Time of Day</h3>
+					<h3>Device Type</h3>
+					<div class="information">
+						{{{informationImg}}}
+						<div class="informationContent">
+						  {{{info_device}}}
+						</div>
+					</div>
 				</div>
 				<div class="chartArea">
-					{{{timeDayUse_port}}}
+				  {{{portfolio_device_type}}}
 				</div>
 			</div>
 			<div class="flex1">
 				<div class="header">
 					<h3>Average Time</h3>
+					<div class="information">
+				    {{{informationImg}}}
+				    <div class="informationContent">
+				      {{{info_ave_time}}}
+				    </div>
+				  </div>
 				</div>
 				<div class="chartArea">
 					{{{portfolio_time}}}

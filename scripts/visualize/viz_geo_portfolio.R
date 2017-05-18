@@ -3,6 +3,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   library(maptools)
   library(maps)
   library(sp)
+  library(scales)
   library(ggplot2)
   
   viz.data <- readDepends(viz)[["geo_apps"]]
@@ -25,7 +26,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
 
     gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
       coord_equal() +
-      geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
+      geom_polygon(colour="grey75", size=0.1,
                    aes(group=group)) +
       guides(fill=guide_legend(title.position="top")) +
       theme_minimal() +
@@ -34,9 +35,12 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
             axis.title = element_blank(),
             legend.position="bottom",
             legend.title.align=0.5,
-            legend.key.size = unit(0.25, "cm"),
-            legend.key.width = unit(2, "cm")) +
-      scale_fill_gradient(na.value = 'transparent',
+            plot.margin=unit(c(0,0,0,0), "cm"),
+            legend.direction = "horizontal",
+            legend.text=element_text(size=10),
+            legend.title = element_text(size = 10),
+            legend.key.width = unit(0.5, "cm")) +
+      scale_fill_gradient(na.value = 'transparent',labels = comma,
                           low = "white", high = "steelblue")
     
     
@@ -61,6 +65,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
   library(maps)
   library(sp)
   library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["geo_apps"]]
   height = viz[["height"]]
@@ -94,7 +99,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
       
       gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
         coord_equal() +
-        geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
+        geom_polygon(colour="grey75", size=0.1, 
                      aes(group=group)) +
         guides(fill=guide_legend(title.position="top")) +
         theme_minimal() +
@@ -103,9 +108,12 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
               axis.title = element_blank(),
               legend.position="bottom",
               plot.margin=unit(c(0,0,0,0), "cm"),
-              legend.key.size = unit(0.15, "cm"),
-              legend.key.width = unit(1.4, "cm")) +
-        scale_fill_gradient(na.value = 'transparent',
+              legend.direction = "horizontal",
+              legend.text=element_text(size=10),
+              legend.title = element_text(size = 10),
+              # legend.key.size = unit(1, "cm"),
+              legend.key.width = unit(0.5, "cm")) +
+        scale_fill_gradient(na.value = 'transparent',labels = comma,
                             low = "white", high = "steelblue")
       
       

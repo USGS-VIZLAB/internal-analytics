@@ -1,13 +1,9 @@
-visualize.portfolio_time <- function(viz = as.viz("portfolio_time")){
+publish.portfolio_time <- function(viz = as.viz("portfolio_time")){
   library(dplyr)
-  library(ggplot2)
-  library(gridExtra)
+  library(htmlTable)
   
   deps <- readDepends(viz)
-  
-  height = viz[["height"]]
-  width = viz[["width"]]
-  
+
   viz.data <- deps[["aggregate_ga"]]
   
   ave_time_on_page <- mean(viz.data$avgSessionDuration, na.rm = TRUE)
@@ -27,10 +23,16 @@ visualize.portfolio_time <- function(viz = as.viz("portfolio_time")){
   x <- pretty_time(c(ave_time_on_page, total_time_week, total_time_month, total_time_year))
   row.names(x) <- c("Average", "Total Week","Total Month","Total Year")
   
-  tt <- ttheme_default(base_size = 25)
-  png(viz[["location"]], height=height, width=width)
-  grid.table(x, theme = tt)
-  dev.off()
+  
+  x$Days <- format(as.numeric(x$Days),big.mark=",",scientific=FALSE)
+  
+  return(htmlTable(x, 
+            caption="Average Time",
+            rnames = row.names(x),  
+            col.rgroup = c("none", "#F7F7F7"), 
+            css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
+            css.cell="padding-bottom: 0.5em; padding-right: 0.5em; padding-top: 0.5em;"))
+  
   
 }
 
@@ -52,6 +54,7 @@ pretty_time <- function(time){
   return(df)
   
 }
+
 zeroPad <- function(x,padTo){
   if(padTo <= 1) return(x)
   
@@ -74,14 +77,10 @@ zeroPad <- function(x,padTo){
 
 visualize.app_time <- function(viz = as.viz("app_time")){
   library(dplyr)
-  library(ggplot2)
-  library(gridExtra)
+  library(htmlTable)
   
   deps <- readDepends(viz)
-  
-  height = viz[["height"]]
-  width = viz[["width"]]
-  
+
   x <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
@@ -93,10 +92,11 @@ visualize.app_time <- function(viz = as.viz("app_time")){
   range_text <- c("-1 year","-1 month","-1 week")
   
   latest_day = max(viz.data$date, na.rm = TRUE)
+  dir.create(file.path("cache", "publish"), showWarnings = FALSE)
   
   for(i in unique(viz.data$viewID)){
     
-    location <- paste0("cache/visualize/",i,"_",plot_type,".png")
+    location <- paste0("cache/publish/",i,"_",plot_type,".html")
     
     sub_data <- filter(viz.data, viewID == i)
     
@@ -117,17 +117,22 @@ visualize.app_time <- function(viz = as.viz("app_time")){
     
     df <- pretty_time(c(ave_time_on_page, total_time_week, total_time_month, total_time_year))
     row.names(df) <- c("Average", "Total Week","Total Month","Total Year")
-
-    tt <- ttheme_default(base_size = 25)
     
-    png(location, height=height, width=width)
-      grid.table(df, theme = tt)
-    dev.off()
+    df$Days <- format(as.numeric(df$Days),big.mark=",",scientific=FALSE)
+    
+    sink(location)
+      cat(htmlTable(df, 
+           caption="Average Time",
+           rnames=row.names(df), 
+           col.rgroup = c("none", "#F7F7F7"), 
+           css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
+           css.cell="padding-bottom: 0.5em; padding-right: 0.5em; padding-top: 0.5em;"))
+    sink()
     
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
                                  type = plot_type,
-                                 stringsAsFactors = FALSE)) 
+                                 stringsAsFactors = FALSE))
   }
   
   write.csv(x, file=viz[["location"]], row.names = FALSE)
