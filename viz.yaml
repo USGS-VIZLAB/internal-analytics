@@ -465,6 +465,12 @@ publish:
       viz_geo_portfolio: viz_geo_portfolio
       portfolio_time: portfolio_time
       informationImg: informationImg
+      info_source: "This is the text on source"
+      info_geo: >-
+        This is really long information about the map.
+      info_sessions: "Information on big session graph"
+      info_device: "Info on device."
+      info_ave_time: "Info on avg time."
   -
     id: sideBar
     publisher: section
