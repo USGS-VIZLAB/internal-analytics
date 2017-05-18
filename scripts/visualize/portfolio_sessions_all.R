@@ -11,7 +11,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   
   viz.data <- deps[["sessions_and_new_users"]]
   
-  ga_table <- do.call(bind_rows, deps[['project_table']])
+  ga_table <- deps[['project_table']]
   ga_table$viewID <- as.character(ga_table$viewID)
   
   range_text <- c("-1 year","-1 month","-1 week")
