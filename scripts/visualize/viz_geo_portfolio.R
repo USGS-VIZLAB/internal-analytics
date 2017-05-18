@@ -26,7 +26,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
 
     gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
       coord_equal() +
-      geom_polygon(colour="grey75", size=0.1, alpha = 0.75,
+      geom_polygon(colour="grey75", size=0.1,
                    aes(group=group)) +
       guides(fill=guide_legend(title.position="top")) +
       theme_minimal() +
@@ -39,9 +39,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
             legend.direction = "horizontal",
             legend.text=element_text(size=10),
             legend.title = element_text(size = 10),
-            # legend.key.size = unit(1, "cm"),
             legend.key.width = unit(0.5, "cm")) +
-      # guides(fill=guide_legend(ncol=4)) +
       scale_fill_gradient(na.value = 'transparent',labels = comma,
                           low = "white", high = "steelblue")
     
@@ -101,7 +99,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
       
       gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
         coord_equal() +
-        geom_polygon(colour="grey75", size=0.1, alpha = 0.75,
+        geom_polygon(colour="grey75", size=0.1, 
                      aes(group=group)) +
         guides(fill=guide_legend(title.position="top")) +
         theme_minimal() +

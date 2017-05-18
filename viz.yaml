@@ -175,7 +175,7 @@ visualize:
     depends: sessions_and_new_users
     mimetype: text/csv
     height: 4
-    width: 8
+    width: 6
     location: cache/visualize/viz_month_sessions.csv
   -
     id: viz_y_sessions
