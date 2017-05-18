@@ -428,6 +428,11 @@ publish:
       header: header
       footer: footer
       informationImg: informationImg
+      info_source: "This is the text on traffic source for the app"
+      info_geo: >-
+        This is really long information about the map for each app.
+      info_device: "Info on device."
+      info_ave_time: "Info on avg time."
       resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
