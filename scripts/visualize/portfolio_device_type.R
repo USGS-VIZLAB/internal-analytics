@@ -1,5 +1,7 @@
 visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type")){
   library(dplyr)
+  library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["device_type"]]
   height = viz[["height"]]
@@ -16,23 +18,25 @@ visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type"
     
   max_char = max(nchar(sub_data_range$deviceCategory), na.rm = TRUE)
   
-  png(viz[["location"]], height = height, width = width) 
-  
-  par(oma = c(0,0,0,0),
-      mgp = c(3,0.5,0),
-      mar = c(2,(max_char)/2,0.1,0.1),
-      tck = -0.01,
-      las=1)
-  
-  if(nrow(sub_data_range) > 0){
-    barplot(rev(sub_data_range$totals), horiz=TRUE,
-            names.arg=rev(sub_data_range$deviceCategory))
-    
-  } else {
-    barplot(c(0,0,0), horiz=TRUE,
-            names.arg=c("desktop","mobile","tablet"),
-            xlim = c(0,10))    
+  if(nrow(sub_data_range) == 0){
+    sub_data_range <- data.frame(deviceCategory = c("desktop","mobile","tablet"),
+                                 totals = c(NA,NA,NA),
+                                 stringsAsFactors = FALSE)
   }
-  dev.off()
+  
+  port_device <-   ggplot(data = sub_data_range) +
+    geom_col(aes(x = reorder(deviceCategory, totals), y=totals), fill = "steelblue") +
+    coord_flip() +
+    theme_minimal() +
+    ylab("Total Sessions") +
+    theme(axis.title.y=element_blank(),
+          axis.text = element_text(size = 14),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_blank()) +
+    scale_y_continuous(labels = comma)
+  
+  ggsave(port_device, filename = viz[["location"]], 
+         height = height, width = width)
 
 }

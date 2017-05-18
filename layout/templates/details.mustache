@@ -1,24 +1,23 @@
 <div class="container flexContainer">
 	{{{sideBar}}}
-  <div class="content flex5">
-    <a href="index.html">
-      <button class="return">Return to Summary</button>
-    </a>
-    <h2 class="projectName">
-      <a  class="projectURL" href="{{project_URL}}" target="_blank">
-        {{project_name}}
-      </a>
-    </h2>
-    
-    <p class="projectDescription">{{project_description}}</p>
-    <section class="full">
-      <div class="header">
+	<div class="content flex5">
+		<a href="index.html">
+			<button class="return">Return to Summary</button>
+		</a>
+		<h2 class="projectName">
+		  <a  class="projectURL" href="{{project_URL}}" target="_blank">
+			{{project_name}}
+		  </a>
+		</h2>
+		<p class="projectDescription">{{project_description}}</p>
+		<section class="full">
+			<div class="header">
 				<h3>Project Timeline Summaries</h3>
 				<div class="information">
-				  {{{informationImg}}}
-				  <div class="informationContent">
-				    Add text here
-				  </div>
+					{{{informationImg}}}
+					<div class="informationContent">
+						{{{info_session_time}}}
+					</div>
 				</div>
 			</div>
 			<div class="chartArea">
@@ -37,30 +36,16 @@
 			  <h3>Day</h3>
 				{{{day_line_sessions}}}
 			</div>
-    </section>
-    <section class="full">
-			<div class="header">
-				<h3>Geographic Locations: Previous Month</h3>
-				<div class="information">
-				  {{{informationImg}}}
-				  <div class="informationContent">
-				    Add text here
-				  </div>
-				</div>
-			</div>
-			<div class="chartArea">
-				{{{viz_geo_apps}}}
-			</div>
-    </section>
-    <section class="half flexContainer">
+		</section>
+		<section class="half flexContainer">
 			<div class="flex1 flexBorder">
 				<div class="header">
 					<h3>Time-of-Day Activity</h3>
 					<div class="information">
-				    {{{informationImg}}}
-				    <div class="informationContent">
-				      Add text here
-				    </div>
+					{{{informationImg}}}
+					<div class="informationContent">
+					  {{{info_time_of_day}}}
+					</div>
 				  </div>
 				</div>
 				<div class="chartArea">
@@ -69,29 +54,29 @@
 			</div>
 			<div class="flex1">
 				<div class="header">
-					<h3>Device Type</h3>
+					<h3>Geographic Locations: Previous Month</h3>
 					<div class="information">
-				    {{{informationImg}}}
-				    <div class="informationContent">
-				      Add text here
-				    </div>
-				  </div>
+					  {{{informationImg}}}
+					  <div class="informationContent">
+						{{{info_geo}}}
+					  </div>
+					</div>
 				</div>
 				<div class="chartArea">
-					{{{device_type}}}
+					{{{viz_geo_apps}}}
 				</div>
 			</div>
 		</section>
 		<section class="half flexContainer">
-		  <div class="flex1 flexBorder">
+			<div class="flex1 flexBorder">
 			  <div class="header">
 					<h3>Traffic Sources</h3>
 					<div class="information">
-				    {{{informationImg}}}
-				    <div class="informationContent">
-				      Add text here
-				    </div>
-				  </div>
+						{{{informationImg}}}
+						<div class="informationContent">
+						  {{{info_source}}}
+						</div>
+					</div>
 				</div>
 				<div class="chartArea">
 					{{{source_counts}}}
@@ -101,10 +86,10 @@
 			  <div class="header">
 					<h3>Average Time on Page</h3>
 					<div class="information">
-				    {{{informationImg}}}
-				    <div class="informationContent">
-				      Add text here
-				    </div>
+					{{{informationImg}}}
+					<div class="informationContent">
+					  {{{info_ave_time}}}
+					</div>
 				  </div>
 				</div>
 				<div class="chartArea">
@@ -112,18 +97,34 @@
 				</div>	
 			</div>
 		</section>
-		<section class="full">
-		  <div class="header">
-				<h3>New vs Returning Users</h3>
-				<div class="information">
-				    {{{informationImg}}}
-				    <div class="informationContent">
-				      Add text here
-				    </div>
+		<section class="half flexContainer">
+			<div class="flex1 flexBorder">
+				<div class="header">
+					<h3>New vs Returning Users</h3>
+					<div class="information">
+						{{{informationImg}}}
+						<div class="informationContent">
+						  {{{info_new_return}}}
+						</div>
+					</div>
+				</div>
+				<div id="pieChart" class="chartArea">
+					{{{monthly_users_chart}}}
 				</div>
 			</div>
-			<div id="pieChart" class="chartArea">
-				{{{monthly_users_chart}}}
+			<div class="flex1">
+				<div class="header">
+					<h3>Device Type</h3>
+					<div class="information">
+					{{{informationImg}}}
+					<div class="informationContent">
+					  {{{info_device}}}
+					</div>
+				  </div>
+				</div>
+				<div class="chartArea">
+					{{{device_type}}}
+				</div>
 			</div>
 		</section>
 		<section class="disclaimerGlossary">
@@ -132,6 +133,6 @@
 			</div>
 		  {{{disclaimerGlossaryText}}}
 		</section>
-  </div><!--content-->
+	</div><!--content-->
 </div>
   

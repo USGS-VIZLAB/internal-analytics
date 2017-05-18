@@ -70,6 +70,15 @@ info:
     RColorBrewer:
       repo: CRAN
       version: 1.1-2
+    htmlTable:
+      repo: CRAN
+      version: 1.9
+    scales:
+      repo: CRAN
+      version: 0.4.1
+    stringr:
+      repo: CRAN
+      version: 1.2.0
 fetch:
   -
     id: fetchGA
@@ -217,8 +226,8 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     plottype: geo_month
-    height: 2.25
-    width: 3
+    height: 4
+    width: 8
     rangetext: "-1 month"
     mimetype: text/csv
     location: cache/visualize/viz_geo_apps.csv
@@ -229,29 +238,17 @@ visualize:
     depends: aggregate_ga
     plottype: app_hist
     rangetext: "-1 month"
-    height: 480
-    width: 480
+    height: 4
+    width: 8
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
-  -
-    id: timeDayUse_port
-    visualizer: timeDayUse_all 
-    scripts: scripts/visualize/timeDayUse.R
-    depends: aggregate_ga
-    plottype: app_hist
-    height: 600
-    width: 600
-    mimetype: image/png
-    alttext: "timeDayUse"
-    title: "timeDayUse"
-    location: figures/timeDayUse.png
   -
     id: viz_device_type
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
-    height: 480
-    width: 480
+    height: 4
+    width: 8
     rangetext: "-1 month"
     plottype: device_type
     mimetype: text/csv
@@ -260,8 +257,8 @@ visualize:
     id: viz_source
     visualizer: viz_source 
     scripts: scripts/visualize/viz_source.R
-    height: 480
-    width: 480
+    height: 4
+    width: 8
     depends: source_counts
     plottype: source_counts
     mimetype: text/csv
@@ -281,34 +278,10 @@ visualize:
     title: "Latest year sessions"
     location: figures/portfolio_sessions_all.png
   -
-    id: portfolio_time
-    visualizer: portfolio_time 
-    height: 500
-    width: 500
-    scripts: scripts/visualize/portfolio_time.R
-    depends: 
-      aggregate_ga: aggregate_ga
-    mimetype: image/png
-    alttext: "portfolio_time"
-    title: "portfolio_time"
-    location: figures/portfolio_time.png
-  -
-    id: app_time
-    visualizer: app_time 
-    height: 500
-    width: 500
-    rangetext: "-1 month"
-    plottype: mean_time
-    scripts: scripts/visualize/portfolio_time.R
-    depends: 
-      aggregate_ga: aggregate_ga
-    mimetype: text/csv
-    location: cache/visualize/viz_time.csv
-  -
     id: portfolio_device_type
     visualizer: portfolio_device_type 
-    height: 480
-    width: 480
+    height: 4
+    width: 8
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
@@ -320,8 +293,8 @@ visualize:
   -
     id: portfolio_source
     visualizer: portfolio_source
-    height: 480
-    width: 480
+    height: 4
+    width: 6
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
@@ -335,13 +308,32 @@ visualize:
     visualizer: viz_geo_portfolio 
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
-    height: 2.25
-    width: 3
+    height: 4
+    width: 6
     alttext: "viz_geo_portfolio"
     title: "viz_geo_portfolio"
     mimetype: image/png
     location: figures/viz_geo_portfolio.png
+  -
+    id: app_time
+    visualizer: app_time 
+    rangetext: "-1 month"
+    plottype: mean_time
+    scripts: scripts/publish/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: text/csv
+    location: cache/publish/viz_time.csv
 publish:
+  -
+    id: portfolio_time
+    publisher: portfolio_time 
+    scripts: scripts/publish/portfolio_time.R
+    depends: 
+      aggregate_ga: aggregate_ga
+    mimetype: text/html
+    alttext: "portfolio_time"
+    title: "portfolio_time"
   -
     id: openSans
     publisher: googlefont
@@ -436,6 +428,15 @@ publish:
       header: header
       footer: footer
       informationImg: informationImg
+      info_source: "This is the text on traffic source for the app"
+      info_geo: >-
+        This is really long information about the map for each app.
+      info_device: "Info on device."
+      info_ave_time: "Info on avg time table."
+      info_time_of_day: "Info on time of day graph"
+      info_new_return: "Info on new vs returning pie chart"
+      info_session_time: >-
+        Info on year, month, week, day graphs
       resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
@@ -460,7 +461,6 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
-      timeDayUse_port: timeDayUse_port
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_time: portfolio_time
@@ -472,9 +472,14 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
-      timeDayUse_port: timeDayUse_port
       portfolio_time: portfolio_time
       informationImg: informationImg
+      info_source: "This is the text on source"
+      info_geo: >-
+        This is really long information about the map.
+      info_sessions: "Information on big session graph"
+      info_device: "Info on device."
+      info_ave_time: "Info on avg time."
   -
     id: sideBar
     publisher: section

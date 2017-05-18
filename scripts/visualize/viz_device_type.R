@@ -1,5 +1,6 @@
 visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
   library(dplyr)
+  library(ggplot2)
   
   viz.data <- readDepends(viz)[["device_type"]]
   height = viz[["height"]]
@@ -23,27 +24,28 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
       group_by(deviceCategory) %>%
       summarize(totals = n())
     
-    location <- paste0("cache/visualize/",i,"_",plot_type,".png")
-    png(location, height = height, width = width)
-    
-    max_char = max(nchar(sub_data_range$deviceCategory), na.rm = TRUE)
-    
-    par(oma = c(0,0,0,0),
-        mgp = c(3,0.5,0),
-        mar = c(2,(max_char)/2,0.1,0.1),
-        tck = -0.01,
-        las=1)
-    
-    if(nrow(sub_data_range) > 0){
-      barplot(rev(sub_data_range$totals), horiz=TRUE,
-              names.arg=rev(sub_data_range$deviceCategory))
-    } else {
-      barplot(c(0,0,0), horiz=TRUE,
-              names.arg=c("desktop","mobile","tablet"),
-              xlim = c(0,10))    
+    if(nrow(sub_data_range) <3){
+      sub_data_range <- rbind(sub_data_range[,c("deviceCategory","totals")],
+                              data.frame(deviceCategory=rep("",3-nrow(sub_data_range)),
+                                        totals = rep(NA,3-nrow(sub_data_range)),
+                                        stringsAsFactors = FALSE) )
     }
     
-    dev.off()
+    location <- paste0("cache/visualize/",i,"_",plot_type,".png")
+
+    port_device <-   ggplot(data = sub_data_range) +
+      geom_col(aes(x = reorder(deviceCategory, totals, ), y=totals), fill = "steelblue") +
+      coord_flip() +
+      theme_minimal() +
+      ylab("Total Sessions") +
+      theme(axis.title.y=element_blank(),
+            panel.grid.major = element_blank(),
+            axis.text = element_text(size = 14),
+            panel.grid.minor = element_blank(),
+            panel.border = element_blank())
+    
+    ggsave(port_device, filename = location, 
+           height = height, width = width)
     
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
