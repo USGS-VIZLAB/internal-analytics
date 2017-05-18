@@ -107,8 +107,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,alpha = 0.1, color = NA) +
     geom_point() +
-    geom_segment(aes(xend = longName), yend=0) +
-    geom_segment(aes(xend = longName, y = scaled_newUser), yend=0, col="black", size=1) + 
+    geom_segment(aes(xend = longName), yend=0, size = 0.1) +
+    geom_segment(aes(xend = longName, y = scaled_newUser), yend=0, col="black", size=1.5) + 
     geom_text(aes(label = session_text, y = text_placement), 
               size = 3, hjust = .75) + 
     geom_text(data = text_df, aes(x = longName, y = y, label = label), size = 3.5) +
@@ -165,8 +165,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   geom_segment(data = fake_legend[2,],
                aes(x = longName,
                    xend = longName,
-                   y = ystart, yend=ymid), col="black", size=1) +
-  geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid)) + 
+                   y = ystart, yend=ymid), col="black", size=1.5) +
+  geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid), size=0.1) + 
   geom_point(data = fake_legend[1,], aes(x = longName, y=ymid)) 
   
   gt = ggplot_gtable(ggplot_build(port_graph))
