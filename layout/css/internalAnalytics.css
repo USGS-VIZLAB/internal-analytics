@@ -53,6 +53,41 @@ h6{
 	margin-bottom:20px
 }
 
+.header h3, 
+.information{
+  float:left;
+}
+
+.header h3{
+  margin-right:10px;
+}
+
+.information{
+  width:20px;
+  height:20px;
+  margin-top:4px;
+  position:relative;
+}
+
+.information img{
+  width:100%;
+}
+
+.informationContent{
+  background:#fff;
+  min-width:200px;
+  min-height:20px;
+  position:absolute;
+  top:25px;
+  padding:10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  display:none;
+}
+
+.information:hover .informationContent{
+  display:block;
+}
+
 .chartArea{
 	min-height:100px;
 	text-align: center;
