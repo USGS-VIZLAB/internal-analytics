@@ -169,13 +169,13 @@ h6{
   }
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1800px){
   .chartArea h3{
-    width:60%;
+    width:80%;
     margin:0 auto;
   }
   .chartArea img{
-		width:60%;
+		width:80%;
 	}
   .glossary,
   .disclaimer{
@@ -183,14 +183,8 @@ h6{
     margin:0 auto;
   }
   .content{
-    width:1100px;
-    margin:0 auto;
-  }
-}
-
-@media screen and (min-width:1700px){
-  .content{
     width:1400px;
+    margin:0 auto;
   }
 }
 
