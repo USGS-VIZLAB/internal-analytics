@@ -3,6 +3,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   library(maptools)
   library(maps)
   library(sp)
+  library(scales)
   library(ggplot2)
   
   viz.data <- readDepends(viz)[["geo_apps"]]
@@ -41,7 +42,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
             # legend.key.size = unit(1, "cm"),
             legend.key.width = unit(0.5, "cm")) +
       # guides(fill=guide_legend(ncol=4)) +
-      scale_fill_gradient(na.value = 'transparent',
+      scale_fill_gradient(na.value = 'transparent',labels = comma,
                           low = "white", high = "steelblue")
     
     
@@ -66,6 +67,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
   library(maps)
   library(sp)
   library(ggplot2)
+  library(scales)
   
   viz.data <- readDepends(viz)[["geo_apps"]]
   height = viz[["height"]]
@@ -113,7 +115,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
               legend.title = element_text(size = 10),
               # legend.key.size = unit(1, "cm"),
               legend.key.width = unit(0.5, "cm")) +
-        scale_fill_gradient(na.value = 'transparent',
+        scale_fill_gradient(na.value = 'transparent',labels = comma,
                             low = "white", high = "steelblue")
       
       
