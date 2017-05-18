@@ -375,6 +375,12 @@ publish:
     title: "Missing"
     alttext: "Missing data"
   -
+    id: informationImg
+    location: "images/information.png"
+    mimetype: image/png
+    title: ""
+    alttext: "Find out more Information question mark icon"
+  -
     id: index
     name: index
     publisher: page
@@ -423,11 +429,13 @@ publish:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       app_time: app_time
+      informationImg: informationImg
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       header: header
       footer: footer
+      informationImg: informationImg
       resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
@@ -456,6 +464,7 @@ publish:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_time: portfolio_time
+      informationImg: informationImg
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
@@ -465,6 +474,7 @@ publish:
       viz_geo_portfolio: viz_geo_portfolio
       timeDayUse_port: timeDayUse_port
       portfolio_time: portfolio_time
+      informationImg: informationImg
   -
     id: sideBar
     publisher: section
