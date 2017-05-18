@@ -45,20 +45,18 @@ fetch.GAviews <- function(viz) {
           #API is limited to 7 dimensions per call
           idDF <- google_analytics_4(viewId = needToUpdate$viewID[i], date_range = dateRange,
                                      metrics = c("sessions", "users", 'newUsers', 'avgSessionDuration'),
-                                     dimensions = c("year","month", "day", "hour",
+                                     dimensions = c("date", "hour",
                                                     "deviceCategory", 'region', 'source'),
                                      max = -1, anti_sample = TRUE, slow_fetch = TRUE)
           if (!is.null(idDF)) {
-            idDF <- mutate(idDF, viewID = needToUpdate$viewID[i],
-                         date = as.Date(paste(year, month, day, sep = "-")))
+            idDF <- mutate(idDF, viewID = needToUpdate$viewID[i])
             new_GA_DF <- bind_rows(new_GA_DF, idDF)
             print(paste("finished", needToUpdate$viewID[i]))
           }
         }
 
         allDF <- bind_rows(fileDF, new_GA_DF)
-        maxDate <- max(allDF$date)
-        assert_that(maxDate == (Sys.Date() - 1)) #note: is allDF$date char or date?
+        assert_that(max(allDF$date) == (Sys.Date() - 1)) #note: is allDF$date char or date?
 
         saveRDS(allDF, file = viz[['location']])
         message("Updating Sciencebase...")
