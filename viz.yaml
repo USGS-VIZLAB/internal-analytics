@@ -175,7 +175,7 @@ visualize:
     depends: sessions_and_new_users
     mimetype: text/csv
     height: 4
-    width: 6
+    width: 8
     location: cache/visualize/viz_month_sessions.csv
   -
     id: viz_y_sessions
@@ -294,7 +294,7 @@ visualize:
     id: portfolio_source
     visualizer: portfolio_source
     height: 4
-    width: 6
+    width: 8
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
@@ -309,7 +309,7 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     height: 4
-    width: 6
+    width: 8
     alttext: "viz_geo_portfolio"
     title: "viz_geo_portfolio"
     mimetype: image/png
