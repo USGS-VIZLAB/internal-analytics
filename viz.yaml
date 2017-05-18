@@ -243,18 +243,6 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
   -
-    id: timeDayUse_port
-    visualizer: timeDayUse_all 
-    scripts: scripts/visualize/timeDayUse.R
-    depends: aggregate_ga
-    plottype: app_hist
-    height: 4
-    width: 8
-    mimetype: image/png
-    alttext: "timeDayUse"
-    title: "timeDayUse"
-    location: figures/timeDayUse.png
-  -
     id: viz_device_type
     visualizer: viz_device_type 
     scripts: scripts/visualize/viz_device_type.R
@@ -306,7 +294,7 @@ visualize:
     id: portfolio_source
     visualizer: portfolio_source
     height: 4
-    width: 8
+    width: 6
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
@@ -379,6 +367,12 @@ publish:
     title: "Missing"
     alttext: "Missing data"
   -
+    id: informationImg
+    location: "images/information.png"
+    mimetype: image/png
+    title: ""
+    alttext: "Find out more Information question mark icon"
+  -
     id: index
     name: index
     publisher: page
@@ -427,11 +421,13 @@ publish:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       app_time: app_time
+      informationImg: informationImg
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       header: header
       footer: footer
+      informationImg: informationImg
       resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
@@ -456,10 +452,10 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
-      timeDayUse_port: timeDayUse_port
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_time: portfolio_time
+      informationImg: informationImg
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
@@ -467,8 +463,8 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
-      timeDayUse_port: timeDayUse_port
       portfolio_time: portfolio_time
+      informationImg: informationImg
   -
     id: sideBar
     publisher: section
