@@ -103,9 +103,12 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         y = sessions_85,
                         stringsAsFactors = FALSE)
   
-  port_graph <- ggplot(data = summary_data_full, aes(x = longName, y = scaled_value)) +
+  colfunc <- colorRampPalette(c("steelblue","white"))
+  
+  port_graph <- ggplot(data = summary_data_full, 
+                       aes(x = longName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
-              ymin = -Inf,ymax = Inf,alpha = 0.1, color = NA) +
+              ymin = -Inf,ymax = Inf,color = NA) +
     geom_point() +
     geom_segment(aes(xend = longName), yend=0, size = 0.1) +
     geom_segment(aes(xend = longName, y = scaled_newUser), yend=0, col="black", size=1.5) + 
@@ -115,7 +118,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
-    scale_fill_manual(values = rev(brewer.pal(4,"Blues"))) +
+    scale_fill_manual(values = colfunc(4)) +
     theme_bw() +
     theme(axis.title = element_blank(),
           axis.text.x =  element_blank(),

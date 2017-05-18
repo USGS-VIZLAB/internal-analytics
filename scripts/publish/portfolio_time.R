@@ -23,6 +23,9 @@ publish.portfolio_time <- function(viz = as.viz("portfolio_time")){
   x <- pretty_time(c(ave_time_on_page, total_time_week, total_time_month, total_time_year))
   row.names(x) <- c("Average", "Total Week","Total Month","Total Year")
   
+  
+  x$Days <- format(as.numeric(x$Days),big.mark=",",scientific=FALSE)
+  
   return(htmlTable(x, 
             caption="Average Time",
             rnames = row.names(x),  
@@ -114,6 +117,8 @@ visualize.app_time <- function(viz = as.viz("app_time")){
     
     df <- pretty_time(c(ave_time_on_page, total_time_week, total_time_month, total_time_year))
     row.names(df) <- c("Average", "Total Week","Total Month","Total Year")
+    
+    df$Days <- format(as.numeric(df$Days),big.mark=",",scientific=FALSE)
     
     sink(location)
       cat(htmlTable(df, 
