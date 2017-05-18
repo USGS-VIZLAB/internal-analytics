@@ -12,7 +12,7 @@ process.aggregate_ga <- function(viz) {
     filter(date > (max(date) - duration(1, "year"))) 
   
   #make sure none of today's data snuck in on one-off GA pull
-  assert_that(max(allDataDF$date) == (Sys.Date() - 1))
+  assert_that(max(allDataDF$date) <= (Sys.Date() - 1))
   assert_that(anyDuplicated(as.data.table(allDataDF)) == 0)
   #make sure there aren't duplicates!
 

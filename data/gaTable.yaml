@@ -1,0 +1,396 @@
+- longName: Publications Warehouse
+  shortName: Pubs
+  accountName: pubs.er.usgs.gov
+  viewID: '20354817'
+  accountId: '10113280'
+  webPropertyId: UA-10113280-1
+  internalWebPropertyId: '22153976'
+  viewName: pubs.er.usgs.gov
+  timezone: America/Chicago
+  websiteUrl: http://pubs.er.usgs.gov
+  botFilteringEnabled: 'TRUE'
+  description: I am example of project description
+- longName: Water Quality Portal
+  shortName: WQP
+  accountName: WQP
+  viewID: '53642301'
+  accountId: '27507375'
+  webPropertyId: UA-27507375-1
+  internalWebPropertyId: '52832367'
+  viewName: WQP
+  timezone: America/Chicago
+  websiteUrl: http://www.waterqualitydata.us
+  botFilteringEnabled: 'TRUE'
+  description: ''
+- longName: National Ground Water Monitoring Network Data Portal
+  shortName: NGWMN
+  accountName: NGWMN Data Portal
+  viewID: '56773153'
+  accountId: '29564531'
+  webPropertyId: UA-29564531-2
+  internalWebPropertyId: '55739376'
+  viewName: NGWMN Data Portal
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/ngwmn
+  botFilteringEnabled: ''
+  description: ''
+- longName: Geo Data Portal
+  shortName: GDP
+  accountName: Geo Data Portal
+  viewID: '63434149'
+  accountId: '34380265'
+  webPropertyId: UA-34380265-1
+  internalWebPropertyId: '61904170'
+  viewName: Geo Data Portal
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/gdp/
+  botFilteringEnabled: ''
+  description: ''
+- longName: NAWQA SPARROW Decision Support System
+  shortName: SPARROWDSS
+  accountName: Sparrow DSS
+  viewID: '64208920'
+  accountId: '34936068'
+  webPropertyId: UA-34936068-1
+  internalWebPropertyId: '62621963'
+  viewName: Sparrow DSS
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/sparrow
+  botFilteringEnabled: ''
+  description: ''
+- longName: Great Lakes Restoration Initiative Phragmites
+  shortName: GLRIPhragmites
+  accountName: USGS GLRI Phragmites
+  viewID: '98561198'
+  accountId: '42203160'
+  webPropertyId: UA-42203160-1
+  internalWebPropertyId: '71881585'
+  viewName: GLRI Phragmites - No Internal Traffic
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/glri/phragmites/
+  botFilteringEnabled: ''
+  description: ''
+- longName: Coastal Change Hazards Portal
+  shortName: CCH
+  accountName: CIDA CCH
+  viewID: '79994645'
+  accountId: '46378632'
+  webPropertyId: UA-46378632-1
+  internalWebPropertyId: '77384024'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/coastalchangehazardsportal/
+  botFilteringEnabled: ''
+  description: ''
+- longName: Biodata
+  shortName: BiodataIn
+  accountName: BioData
+  viewID: '91413881'
+  accountId: '47407832'
+  webPropertyId: UA-47407832-1
+  internalWebPropertyId: '78657237'
+  viewName: BioData Input with Most CIDA Traffic Filtered Out
+  timezone: America/Chicago
+  websiteUrl: https://internal.aquatic.biodata.usgs.gov
+  botFilteringEnabled: 'FALSE'
+  description: I am example of project description
+- longName: Biodata Retrieval
+  shortName: BiodataRet
+  accountName: BioData
+  viewID: '84991236'
+  accountId: '47407832'
+  webPropertyId: UA-47407832-2
+  internalWebPropertyId: '78668543'
+  viewName: BioData Retrieval
+  timezone: America/Chicago
+  websiteUrl: https://aquatic.biodata.usgs.gov
+  botFilteringEnabled: ''
+  description: ''
+- longName: NWIS Reporting Application
+  shortName: NWIS-RA
+  accountName: NWIS-RA
+  viewID: '85268102'
+  accountId: '50379402'
+  webPropertyId: UA-50379402-1
+  internalWebPropertyId: '82341003'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://nwisdata.usgs.gov
+  botFilteringEnabled: 'FALSE'
+  description: ''
+- longName: CIDA Website
+  shortName: CIDA
+  accountName: CIDA_Website
+  viewID: '85293745'
+  accountId: '50382493'
+  webPropertyId: UA-50382493-1
+  internalWebPropertyId: '82375136'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/
+  botFilteringEnabled: ''
+  description: ''
+- longName: Great Lakes Restoration Initiative
+  shortName: GLRI
+  accountName: USGS GLRI
+  viewID: '98563485'
+  accountId: '50454186'
+  webPropertyId: UA-50454186-1
+  internalWebPropertyId: '82455211'
+  viewName: GLRI w/ Internal Traffic
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/glri/
+  botFilteringEnabled: 'FALSE'
+  description: ''
+- longName: WAUSP National Water Census
+  shortName: NWC
+  accountName: National Water Census
+  viewID: '86002663'
+  accountId: '50928997'
+  webPropertyId: UA-50928997-1
+  internalWebPropertyId: '83038855'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/nwc
+  botFilteringEnabled: ''
+  description: ''
+- longName: NAWQA Watershed Regressions on Pesticides
+  shortName: WARP
+  accountName: WARP Map Public
+  viewID: '88377604'
+  accountId: '52690803'
+  webPropertyId: UA-52690803-1
+  internalWebPropertyId: '85238605'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/WARP
+  botFilteringEnabled: ''
+  description: ''
+- longName: USGS-R Resources
+  shortName: USGS-R
+  accountName: USGS-R
+  viewID: '98740675'
+  accountId: '53797708'
+  webPropertyId: UA-53797708-5
+  internalWebPropertyId: '94745748'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://owi.usgs.gov/R
+  botFilteringEnabled: ''
+  description: ''
+- longName: 'VizLab: California Drought'
+  shortName: VizLabCADrought
+  accountName: CIDA drought app
+  viewID: '94771699'
+  accountId: '57400827'
+  webPropertyId: UA-57400827-1
+  internalWebPropertyId: '91087966'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/ca_drought
+  botFilteringEnabled: ''
+  description: ''
+- longName: NAWQA Water Quality Mapper
+  shortName: NAR
+  accountName: NAWQA Annual Reports
+  viewID: '105752773'
+  accountId: '65551512'
+  webPropertyId: UA-65551512-1
+  internalWebPropertyId: '101784549'
+  viewName: NAR Website Excluding Internal Traffic
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/quality/rivers/sites
+  botFilteringEnabled: 'TRUE'
+  description: ''
+- longName: National Soil Moisture Network
+  shortName: NSMN
+  accountName: National Soil Moisture Network
+  viewID: '106021339'
+  accountId: '65742231'
+  webPropertyId: UA-65742231-1
+  internalWebPropertyId: '102024536'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://cida.usgs.gov/nsmn_pilot/
+  botFilteringEnabled: ''
+  description: ''
+- longName: 'VizLab: Colorado River Drought'
+  shortName: VizLabCRBDrought
+  accountName: OWDI Drought Vizzy
+  viewID: '106583560'
+  accountId: '66155743'
+  webPropertyId: UA-66155743-1
+  internalWebPropertyId: '102550529'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://cida-test.er.usgs.gov/bluedragon/dev/
+  botFilteringEnabled: ''
+  description: ''
+- longName: OWI Website
+  shortName: OWI
+  accountName: OWI Website
+  viewID: '119859676'
+  accountId: '76112553'
+  webPropertyId: UA-76112553-1
+  internalWebPropertyId: '114685767'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://owi.usgs.gov
+  botFilteringEnabled: ''
+  description: ''
+- longName: VizLab Landing Page
+  shortName: VizLab
+  accountName: Vizlab
+  viewID: '122971190'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-1
+  internalWebPropertyId: '117580756'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://owi.usgs.gov/vizlab
+  botFilteringEnabled: ''
+  description: ''
+- longName: 'VizLab: Climate Change and Fisheries'
+  shortName: VizLabClimateFish
+  accountName: Vizlab
+  viewID: '129299951'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-2
+  internalWebPropertyId: '124964749'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/climate-change-walleye-bass/
+  botFilteringEnabled: ''
+  description: ''
+- longName: 'VizLab: Microplastics in Our Waterways'
+  shortName: VizLabMicroplastics
+  accountName: Vizlab
+  viewID: '129289964'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-3
+  internalWebPropertyId: '124954360'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/microplastics/
+  botFilteringEnabled: ''
+  description: ''
+- longName: 'VizLab: Hurricane Matthew''s Water Footprint'
+  shortName: VizLabMatthew
+  accountName: Vizlab
+  viewID: '131371952'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-4
+  internalWebPropertyId: '127687029'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/hurricane-matthew
+  botFilteringEnabled: ''
+  description: ''
+- longName: 'VizLab: Water Use'
+  shortName: VizLabWaterUse
+  accountName: Vizlab
+  viewID: '135016013'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-5
+  internalWebPropertyId: '131088296'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/water-use
+  botFilteringEnabled: 'TRUE'
+  description: ''
+- longName: Environmental Data Discovery and Transformation
+  shortName: EnDDaT
+  accountName: EnDDaT
+  viewID: '124403435'
+  accountId: '79713582'
+  webPropertyId: UA-79713582-1
+  internalWebPropertyId: '118926018'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://cida-test.er.usgs.gov/enddat/
+  botFilteringEnabled: ''
+  description: ''
+- longName: Grand Canyon Monitoring Research Center Website
+  shortName: GCMRC
+  accountName: CIDA GCMRC Analytics
+  viewID: '80089136'
+  accountId: '46435687'
+  webPropertyId: UA-46435687-1
+  internalWebPropertyId: ''
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://www.gcmrc.gov/discharge_qw_sediment/
+  botFilteringEnabled: ''
+  description: ''
+- longName: National Environmental Methods Index
+  shortName: NEMI
+  accountName: nemi_usgs
+  viewID: '71090861'
+  accountId: ''
+  webPropertyId: UA-39958467-1
+  internalWebPropertyId: ''
+  viewName: All Web Site Data
+  timezone: ''
+  websiteUrl: https://www.nemi.gov
+  botFilteringEnabled: ''
+  description: ''
+- longName: NWISWeb Mobile
+  shortName: NWISWebMobile
+  accountName: USGS Mobile Water Data & Water Services
+  viewID: '73906131'
+  accountId: '42005086'
+  webPropertyId: UA-42005086-1
+  internalWebPropertyId: '71636360'
+  viewName: ''
+  timezone: ''
+  websiteUrl: http://m.waterdata.usgs.gov
+  botFilteringEnabled: ''
+  description: ''
+- longName: NWISWeb Desktop
+  shortName: NWISWebDesktop
+  accountName: USGS Water Data for the Nation
+  viewID: '49785472'
+  accountId: '25350863'
+  webPropertyId: UA-25350863-1
+  internalWebPropertyId: '49291662'
+  viewName: ''
+  timezone: ''
+  websiteUrl: http://waterdata.usgs.gov
+  botFilteringEnabled: ''
+  description: ''
+- longName: Health Based Screening Levels
+  shortName: HBSL
+  accountName: NAWQA Data Warehouse
+  viewID: '83069807'
+  accountId: '27722501'
+  webPropertyId: UA-27722501-13
+  internalWebPropertyId: '80288862'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://water.usgs.gov/nawqa/HBSL
+  botFilteringEnabled: ''
+  description: ''
+- longName: Groundwater Watch
+  shortName: GroundwaterWatch
+  accountName: ''
+  viewID: '77121234'
+  accountId: ''
+  webPropertyId: ''
+  internalWebPropertyId: ''
+  viewName: ''
+  timezone: ''
+  websiteUrl: http://groundwaterwatch.usgs.gov
+  botFilteringEnabled: ''
+  description: ''
+- longName: USGS WaterWatch
+  shortName: WaterWatch
+  accountName: ''
+  viewID: '18857756'
+  accountId: ''
+  webPropertyId: ''
+  internalWebPropertyId: ''
+  viewName: ''
+  timezone: ''
+  websiteUrl: waterwatch.usgs.gov
+  botFilteringEnabled: ''
+  description: ''

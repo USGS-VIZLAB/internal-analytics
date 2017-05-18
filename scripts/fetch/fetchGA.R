@@ -20,7 +20,6 @@ fetch.GAviews <- function(viz) {
 
     if(viz[['update']]) {
       masterTable <- readDepends(viz)[['project_table']]
-
       #check if it is up to date (has yesterday's data) for each ID
       fileDF <- readRDS(viz[['location']])
       fileDF_summary <- group_by(fileDF, viewID) %>% summarise(lastDate = max(date))
@@ -30,7 +29,7 @@ fetch.GAviews <- function(viz) {
       #get out of date AND new IDs
       viewID <- masterTable$viewID[!masterTable$viewID %in% fileDF_summary$viewID]
       newIDs <- data.frame(viewID = as.character(viewID),
-                           lastDate = as.Date(rep("2007-01-01", length(viewID))),#arbitrary early start date
+                           lastDate = as.Date(rep("2016-01-01", length(viewID))),#arbitrary early start date
                            stringsAsFactors = FALSE)
       needToUpdate <- bind_rows(needToUpdate, newIDs)
 
