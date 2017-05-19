@@ -41,7 +41,7 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
             legend.title = element_text(size = 10),
             legend.key.width = unit(0.5, "cm")) +
       scale_fill_gradient(na.value = 'transparent',labels = comma,
-                          low = "white", high = "steelblue")
+                          low = "white", high = "#F08600")
     
     
   } else {
@@ -114,7 +114,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
               # legend.key.size = unit(1, "cm"),
               legend.key.width = unit(0.5, "cm")) +
         scale_fill_gradient(na.value = 'transparent',labels = comma,
-                            low = "white", high = "steelblue")
+                            low = "white", high = "#F08600")
       
       
     } else {
