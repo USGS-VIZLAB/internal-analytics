@@ -429,7 +429,7 @@
   
 - longName: 'Water Science School'
   shortName: 'WaterSciSchool'
-  accountName: .na.character
+  accountName: ""
   viewID: '83658557'
   accountId: '22425935'
   webPropertyId: UA-22425935-1
@@ -437,12 +437,12 @@
   viewName: 1-Water Science School
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
-  botFilteringEnabled: .na.character
-  description: .na.character
+  botFilteringEnabled: ""
+  description: ""
   
 - longName: 'water.usgs.gov'
   shortName: 'water.usgs.gov'
-  accountName: .na.character
+  accountName: ""
   viewID: '83660223'
   accountId: '22425935'
   webPropertyId: UA-22425935-1
@@ -450,5 +450,5 @@
   viewName: 2-Not W.S. School
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
-  botFilteringEnabled: .na.character
-  description: .na.character
+  botFilteringEnabled: ""
+  description: ""

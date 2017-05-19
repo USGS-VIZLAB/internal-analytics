@@ -3,7 +3,6 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   library(tidyr)
   library(ggplot2)
   library(RColorBrewer)
-  library(grid)
   
   deps <- readDepends(viz)
   
@@ -55,13 +54,13 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   break_data <- filter(summary_data, grepl(break.by, type)) %>% 
     mutate(bin = cut(sessions, 
                      breaks = c(-Inf, viz[['breaks']], Inf),
-                     labels = c("low traffic", "moderate traffic", "high traffic", "very high traffic") )) %>% 
+                     labels = c("Low", "Moderate", "High", "Very High") )) %>% 
     arrange(desc(sessions))
   
   summary_data_full <- left_join(summary_data, 
                                  select(break_data, bin, longName), by="longName")%>%
     mutate(longName = factor(longName, levels = rev(break_data$longName)),
-           bin = factor(bin, levels = c("very high traffic","high traffic","moderate traffic","low traffic")),
+           bin = factor(bin, levels = c("Very High", "High", "Moderate", "Low")),
            scaler = 1)
   
   scale_to <- max(summary_data_full$sessions, na.rm = TRUE)
@@ -90,20 +89,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   summary_data_full <- summary_data_full %>%  
     left_join(max_vals, by = "type") %>%
     mutate(text_placement = scaled_value + 0.15*max_val)
-  
-  mean_sessions <- summary_data_full %>%
-    filter(type == levels(summary_data_full$type)[2]) 
-  
-  sessions_85 <- as.numeric(quantile(mean_sessions$scaled_value, probs = 0.85))
-  
-  text_df <- data.frame(label = c("Very High Traffic","High Traffic","Moderate Traffic","Low Traffic"),
-                        type = factor(levels(summary_data_full$type)[2], levels = levels(summary_data_full$type)),
-                        bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
-                        longName = 1,
-                        y = sessions_85,
-                        stringsAsFactors = FALSE)
-  
-  colfunc <- colorRampPalette(c("steelblue","white"))
+
+  # colfunc <- colorRampPalette(c("#E4B3C0","#FFF5F0"))
+  # colfunc <- colorRampPalette(c("maroon","#FFF5F0"))
+  colfunc <- colorRampPalette(c("grey75","grey95"))
+  cols <- colfunc(4)
   
   port_graph <- ggplot(data = summary_data_full, 
                        aes(x = longName, y = scaled_value)) +
@@ -114,17 +104,15 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_segment(aes(xend = longName, y = scaled_newUser), yend=0, col="black", size=1.5) + 
     geom_text(aes(label = session_text, y = text_placement), 
               size = 3, hjust = .75) + 
-    geom_text(data = text_df, aes(x = longName, y = y, label = label), size = 3.5) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
-    scale_fill_manual(values = colfunc(4)) +
+    scale_fill_manual(values = cols) +
     theme_bw() +
     theme(axis.title = element_blank(),
           axis.text.x =  element_blank(),
           strip.text.y = element_blank(),
           panel.grid.major = element_blank(),
-          panel.spacing.y=unit(1, "lines"),
           panel.grid.minor = element_blank(),
           panel.border = element_blank(),
           strip.background = element_blank(),
@@ -134,15 +122,24 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   
   info_graph <- ggplot_build(port_graph)
   layout_stuff <- info_graph$layout
-  lower_ranges <- layout_stuff$panel_ranges[[12]]
+  lower_ranges <- layout_stuff$panel_ranges[[12]]$x.range
+  mid_ranges <- layout_stuff$panel_ranges[[8]]$x.range
   
-  ymin <- 0.45*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
-  ymax <- 0.98*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
+  ymin <- 0.45*(diff(lower_ranges))+lower_ranges[1]
+  ymax <- 0.98*(diff(lower_ranges))+lower_ranges[1]
   
-  ystart <- 0.50*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
-  ymid <- 0.6*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
-  yend <- 0.95*(diff(lower_ranges$x.range))+lower_ranges$x.range[1]
+  ystart <- 0.50*(diff(lower_ranges))+lower_ranges[1]
+  ymid <- 0.6*(diff(lower_ranges))+lower_ranges[1]
+  yend <- 0.95*(diff(lower_ranges))+lower_ranges[1]
   
+  bin_mid <- 0.65*(diff(mid_ranges))+mid_ranges[1]
+  
+  text_df <- data.frame(label = c("Very High Traffic","High Traffic","Moderate Traffic","Low Traffic"),
+                        type = factor(levels(summary_data_full$type)[2], levels = levels(summary_data_full$type)),
+                        bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
+                        longName = 1,
+                        y = bin_mid,
+                        stringsAsFactors = FALSE)
   
   fake_legend <- data.frame(label = c("Total Users","New Users"),
                             type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
@@ -156,27 +153,24 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                             stringsAsFactors = FALSE)
   
   port_graph <- port_graph +
-  geom_rect(data = fake_legend[1,], aes(y = 0),
-            ymin = fake_legend$ymin[1],
-            ymax = fake_legend$ymax[1],
-            xmin = .4,
-            xmax = 2.6,
-            color = "black", fill = "white") +
-  geom_text(data = fake_legend,
-            aes(x = longName, y = yend, label = label), 
-            size = 3, hjust = "right") +
-  geom_segment(data = fake_legend[2,],
-               aes(x = longName,
-                   xend = longName,
-                   y = ystart, yend=ymid), col="black", size=1.5) +
-  geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid), size=0.1) + 
-  geom_point(data = fake_legend[1,], aes(x = longName, y=ymid)) 
-  
-  gt = ggplot_gtable(ggplot_build(port_graph))
-  gt$layout$clip = "off"
-  grid.draw(gt)
-  
-  ggsave(gt, file = viz[["location"]], height = height, width = width)
+    geom_label(data = text_df, aes(x = longName, y = y, label = label), size = 3.5) +
+    geom_rect(data = fake_legend[1,], aes(y = 0),
+              ymin = fake_legend$ymin[1],
+              ymax = fake_legend$ymax[1],
+              xmin = .4,
+              xmax = 2.6,
+              color = "black", fill = "white") +
+    geom_text(data = fake_legend,
+              aes(x = longName, y = yend, label = label), 
+              hjust = "right") +
+    geom_segment(data = fake_legend[2,],
+                 aes(x = longName,
+                     xend = longName,
+                     y = ystart, yend=ymid), col="black", size=1.5) +
+    geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid), size=0.1) + 
+    geom_point(data = fake_legend[1,], aes(x = longName, y=ymid)) 
+    
+  ggsave(port_graph, file = viz[["location"]], height = height, width = width)
   
 }
 
