@@ -3,6 +3,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   library(tidyr)
   library(ggplot2)
   library(RColorBrewer)
+  library(grid)
   
   deps <- readDepends(viz)
   
@@ -132,12 +133,12 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   ymid <- 0.6*(diff(lower_ranges))+lower_ranges[1]
   yend <- 0.95*(diff(lower_ranges))+lower_ranges[1]
   
-  bin_mid <- 0.65*(diff(mid_ranges))+mid_ranges[1]
+  bin_mid <- 0.95*(diff(mid_ranges))+mid_ranges[1]
   
   text_df <- data.frame(label = c("Very High Traffic","High Traffic","Moderate Traffic","Low Traffic"),
                         type = factor(levels(summary_data_full$type)[2], levels = levels(summary_data_full$type)),
                         bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
-                        longName = 1,
+                        longName = 1.25,
                         y = bin_mid,
                         stringsAsFactors = FALSE)
   
@@ -153,7 +154,9 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                             stringsAsFactors = FALSE)
   
   port_graph <- port_graph +
-    geom_label(data = text_df, aes(x = longName, y = y, label = label), size = 3.5) +
+    geom_label(data = text_df, 
+               aes(x = longName, y = y, label = label), 
+               size = 3.5,hjust = "right") +
     geom_rect(data = fake_legend[1,], aes(y = 0),
               ymin = fake_legend$ymin[1],
               ymax = fake_legend$ymax[1],
