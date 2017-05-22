@@ -174,7 +174,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                      y = ystart, yend=ymid), col=bar_line_col, size=1.5) +
     geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid), size=0.1, col=bar_line_col) + 
     geom_point(data = fake_legend[1,], aes(x = longName, y=ymid), col=bar_line_col) 
-    
+
   ggsave(port_graph, file = viz[["location"]], height = height, width = width)
   
 }

@@ -34,7 +34,8 @@ visualize.portfolio_device_type <- function(viz = as.viz("portfolio_device_type"
           axis.text = element_text(size = 14),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
-          panel.border = element_blank()) +
+          panel.border = element_blank(),
+          plot.margin=unit(c(0.1,1,0.1,0.1),"cm")) +
     scale_y_continuous(labels = comma)
   
   ggsave(port_device, filename = viz[["location"]], 

@@ -3,6 +3,7 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   library(ggplot2)
   library(scales)
   library(stringr)
+  library(grid)
   
   viz.data <- readDepends(viz)[["source_counts"]]
   height = viz[["height"]]
@@ -30,9 +31,10 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           axis.text = element_text(size = 14),
-          panel.border = element_blank()) +
+          panel.border = element_blank(),
+          plot.margin=unit(c(0.1,1,0.1,0.1),"cm")) +
     scale_y_continuous(labels = comma)
-  
+
   ggsave(port_source, filename = viz[["location"]], 
          height = height, width = width)
   
