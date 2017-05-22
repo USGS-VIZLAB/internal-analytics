@@ -7,6 +7,7 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   viz.data <- readDepends(viz)[["source_counts"]]
   height = viz[["height"]]
   width = viz[["width"]]
+  bar_line_col = viz[["bar_line_col"]]
   
   source_sum <- viz.data %>%
     group_by(source) %>%
@@ -21,7 +22,7 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   source_sum$source <- gsub("\n","\\.\n", source_sum$source)
   
   port_source <- ggplot(data = source_sum) +
-    geom_col(aes(x = reorder(source, count), y=count), fill = "steelblue") +
+    geom_col(aes(x = reorder(source, count), y=count), fill = bar_line_col) +
     coord_flip() +
     theme_minimal() +
     ylab("Total Sessions") +

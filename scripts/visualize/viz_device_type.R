@@ -6,6 +6,8 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
   viz.data <- readDepends(viz)[["device_type"]]
   height = viz[["height"]]
   width = viz[["width"]]
+  bar_line_col = viz[["bar_line_col"]]
+  
   x <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
@@ -35,7 +37,7 @@ visualize.viz_device_type <- function(viz = as.viz("viz_device_type")){
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
 
     port_device <-   ggplot(data = sub_data_range) +
-      geom_col(aes(x = reorder(deviceCategory, totals), y=totals), fill = "steelblue") +
+      geom_col(aes(x = reorder(deviceCategory, totals), y=totals), fill = bar_line_col) +
       coord_flip() +
       theme_minimal() +
       ylab("Total Sessions") +
