@@ -112,7 +112,7 @@ visualize.viz_d_sessions <- function(viz){
     
     png(location, width = width, height = height, res = 150)
     par(oma=c(0,0,0,0),
-        mar=c(1.5,2.5,1,1),
+        mar=c(1.5,2.5,1,1.5),
         las=1, 
         mgp = c(1,0.3,0),
         tck=0.02)
