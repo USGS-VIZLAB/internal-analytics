@@ -79,6 +79,7 @@ h6{
   min-height:20px;
   position:absolute;
   top:25px;
+  right:0;
   padding:10px;
   box-shadow: 0 2px 5px rgba(0,0,0,.2);
   display:none;
@@ -170,6 +171,12 @@ h6{
 }
 
 @media screen and (min-width: 1800px){
+  #lineAssessments .chartArea h3{
+    width:60%;
+  }
+  #lineAssessments .chartArea img{
+    width:60%;
+  }
   .chartArea h3{
     width:80%;
     margin:0 auto;
