@@ -4,7 +4,7 @@ publish.portfolio_time <- function(viz = as.viz("portfolio_time")){
   
   deps <- readDepends(viz)
 
-  viz.data <- deps[["aggregate_ga"]]
+  viz.data <- deps[["viz_data"]]
   
   ave_time_on_page <- mean(viz.data$avgSessionDuration, na.rm = TRUE)
   
@@ -87,7 +87,7 @@ visualize.app_time <- function(viz = as.viz("app_time")){
   
   plot_type <- viz[["plottype"]]
   
-  viz.data <- deps[["aggregate_ga"]]
+  viz.data <- deps[["viz_data"]]
   range_text <- c("-1 year","-1 month","-1 week")
   
   latest_day = max(viz.data$date, na.rm = TRUE)
