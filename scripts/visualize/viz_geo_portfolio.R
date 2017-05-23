@@ -1,3 +1,25 @@
+gsMap_fx <- function(sf.points){
+  gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
+    coord_equal() +
+    geom_polygon(colour="grey75", size=0.1,
+                 aes(group=group)) +
+    guides(fill=guide_legend(title.position="top")) +
+    theme_minimal() +
+    theme(panel.grid = element_blank(),
+          axis.text = element_blank(),
+          axis.title = element_blank(),
+          legend.title.align=0.5,
+          plot.margin=unit(c(0,0,0,0), "cm"),
+          legend.text=element_text(size=9),
+          legend.title = element_text(size = 9),
+          legend.key.width = unit(0.4, "cm"),
+          legend.key.height = unit(0.4, "cm")) +
+    scale_fill_gradient(na.value = 'transparent',labels = comma,
+                        low = "white", high = "#3182bd")
+  return(gsMap)
+  
+}
+
 visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   library(dplyr)
   library(maptools)
@@ -9,6 +31,10 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   viz.data <- readDepends(viz)[["geo_apps"]]
   height = viz[["height"]]
   width = viz[["width"]]
+  rangetext <- viz[["rangetext"]]
+  
+  viz.data <- viz.data %>%
+    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = rangetext)[2])
   
   states.out <- get_map_stuff()
 
@@ -18,42 +44,18 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
     select(-Var1) %>%
     right_join(data.frame(region = names(states.out), stringsAsFactors = FALSE), by="region") 
   
-  if(nrow(region_summary) > 0){
-
-    sf.points <- fortify(states.out, region="region")
-    sf.points <- left_join(sf.points, region_summary, by=c("id"="region")) %>%
-      rename(Sessions = Freq)
-
-    gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
-      coord_equal() +
-      geom_polygon(colour="grey75", size=0.1,
-                   aes(group=group)) +
-      guides(fill=guide_legend(title.position="top")) +
-      theme_minimal() +
-      theme(panel.grid = element_blank(),
-            axis.text = element_blank(),
-            axis.title = element_blank(),
-            legend.position="bottom",
-            legend.title.align=0.5,
-            plot.margin=unit(c(0,0,0,0), "cm"),
-            legend.direction = "horizontal",
-            legend.text=element_text(size=10),
-            legend.title = element_text(size = 10),
-            legend.key.width = unit(0.5, "cm")) +
-      scale_fill_gradient(na.value = 'transparent',labels = comma,
-                          low = "white", high = "#3182bd")
-    
-    
-  } else {
-    gsMap <- ggplot(states.out,aes(x=long, y=lat)) + 
-      coord_equal() +
-      geom_polygon(colour="white", size=0.1, alpha = 0.75,
-                   aes(group=group)) +
-      theme_minimal() +
-      theme(panel.grid = element_blank(),
-            axis.text = element_blank(),
-            axis.title = element_blank())
+  sf.points <- fortify(states.out, region="region")
+  
+  if(nrow(region_summary) <= 0){
+    region_summary <- data.frame(Freq = 0,
+                                 region = "district of columbia",
+                                 stringsAsFactors = FALSE)
   }
+  
+  sf.points <- left_join(sf.points, region_summary, by=c("id"="region")) %>%
+    rename(Sessions = Freq)
+  
+  gsMap <- gsMap_fx(sf.points)
   
   ggsave(gsMap, filename = viz[["location"]], height = height, width = width)
   
@@ -70,6 +72,10 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
   viz.data <- readDepends(viz)[["geo_apps"]]
   height = viz[["height"]]
   width = viz[["width"]]
+  rangetext <- viz[["rangetext"]]
+  
+  viz.data <- viz.data %>%
+    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = rangetext)[2])
   
   x <- data.frame(id = character(),
                   loc = character(),
@@ -89,44 +95,21 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
       mutate(region = tolower(Var1)) %>%
       select(-Var1) 
     
+    sf.points <- fortify(states.out, region="region")
+    
+    
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
-    if(nrow(region_summary) > 0){
-
-      sf.points <- fortify(states.out, region="region")
-      sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))%>%
-        rename(Sessions = Freq)
-      
-      gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
-        coord_equal() +
-        geom_polygon(colour="grey75", size=0.1, 
-                     aes(group=group)) +
-        guides(fill=guide_legend(title.position="top")) +
-        theme_minimal() +
-        theme(panel.grid = element_blank(),
-              axis.text = element_blank(),
-              axis.title = element_blank(),
-              legend.position="bottom",
-              plot.margin=unit(c(0,0,0,0), "cm"),
-              legend.direction = "horizontal",
-              legend.text=element_text(size=10),
-              legend.title = element_text(size = 10),
-              # legend.key.size = unit(1, "cm"),
-              legend.key.width = unit(0.5, "cm")) +
-        scale_fill_gradient(na.value = 'transparent',labels = comma,
-                            low = "white", high = "#3182bd")
-      
-      
-    } else {
-      gsMap <- ggplot(states.out,aes(x=long, y=lat)) + 
-        coord_equal() +
-        geom_polygon(colour="lightgrey", size=0.1, alpha = 0.75,
-                     aes(group=group)) +
-        theme_minimal() +
-        theme(panel.grid = element_blank(),
-              axis.text = element_blank(),
-              axis.title = element_blank())
-    }
+    if(nrow(region_summary) <= 0){
+      region_summary <- data.frame(Freq = 0,
+                                   region = "district of columbia",
+                                   stringsAsFactors = FALSE)
+    } 
+    
+    sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))%>%
+      rename(Sessions = Freq)
+    
+    gsMap <- gsMap_fx(sf.points)
     
     ggsave(gsMap, filename = location, height = height, width = width)
     

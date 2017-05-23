@@ -21,27 +21,13 @@
 				</div>
 			</div>
 			<div class="chartArea">
-			  <h3>Month</h3>
-				{{{month_line_sessions}}}
+			  <h3>Year</h3>
+				{{{year_line_sessions}}}
 			</div>
 		</section>
 		<section class="half flexContainer">
 			<div class="flex1 flexBorder">
-				<div class="header">
-					<h3>Time-of-Day Activity</h3>
-					<div class="information">
-					{{{informationImg}}}
-					<div class="informationContent">
-					  {{{info_time_of_day}}}
-					</div>
-				  </div>
-				</div>
-				<div class="chartArea">
-					{{{timeDayUse_app}}}
-				</div>
-			</div>
-			<div class="flex1">
-				<div class="header">
+							<div class="header">
 					<h3>Geographic Locations: Previous Month</h3>
 					<div class="information">
 					  {{{informationImg}}}
@@ -54,9 +40,7 @@
 					{{{viz_geo_apps}}}
 				</div>
 			</div>
-		</section>
-		<section class="half flexContainer">
-			<div class="flex1 flexBorder">
+			<div class="flex1">
 			  <div class="header">
 					<h3>Traffic Sources</h3>
 					<div class="information">
@@ -68,6 +52,22 @@
 				</div>
 				<div class="chartArea">
 					{{{source_counts}}}
+				</div>
+			</div>
+		</section>
+		<section class="half flexContainer">
+			<div class="flex1 flexBorder">
+								<div class="header">
+					<h3>Device Type</h3>
+					<div class="information">
+					{{{informationImg}}}
+					<div class="informationContent">
+					  {{{info_device}}}
+					</div>
+				  </div>
+				</div>
+				<div class="chartArea">
+					{{{device_type}}}
 				</div>
 			</div>
 			<div class="flex1">
@@ -97,21 +97,21 @@
 					</div>
 				</div>
 				<div class="chartArea">
-					{{{monthly_users_chart}}}
+					{{{new_vs_returning_year}}}
 				</div>
 			</div>
 			<div class="flex1">
 				<div class="header">
-					<h3>Device Type</h3>
+					<h3>Time-of-Day Activity</h3>
 					<div class="information">
 					{{{informationImg}}}
 					<div class="informationContent">
-					  {{{info_device}}}
+					  {{{info_time_of_day}}}
 					</div>
 				  </div>
 				</div>
 				<div class="chartArea">
-					{{{device_type}}}
+					{{{timeDayUse_app}}}
 				</div>
 			</div>
 		</section>

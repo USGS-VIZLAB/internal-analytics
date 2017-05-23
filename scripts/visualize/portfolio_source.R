@@ -9,6 +9,10 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   height = viz[["height"]]
   width = viz[["width"]]
   bar_line_col = viz[["bar_line_col"]]
+  rangetext <- viz[["rangetext"]]
+  
+  viz.data <- viz.data %>%
+    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = rangetext)[2])
   
   source_sum <- viz.data %>%
     group_by(source) %>%

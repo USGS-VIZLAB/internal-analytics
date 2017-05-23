@@ -169,19 +169,34 @@ process:
 
 visualize:
   -
-    id: viz_month_sessions
-    visualizer: viz_month_sessions 
-    scripts: scripts/visualize/viz_month_sessions.R
+    id: new_vs_returning_year
+    visualizer: viz_new_vs_returning 
+    scripts: scripts/visualize/new_vs_returning.R
     depends: sessions_and_new_users
     mimetype: text/csv
+    rangetext: "-1 year"
     height: 4
     width: 7
     bar_line_col: "#4f9a97"
-    location: cache/visualize/viz_month_sessions.csv
+    location: cache/visualize/new_vs_returning_year.csv
+  -
+    id: portfolio_new_return_year
+    visualizer: viz_new_vs_returning_portfolio 
+    scripts: scripts/visualize/new_vs_returning.R
+    depends: sessions_and_new_users
+    rangetext: "-1 year"
+    height: 4
+    width: 7
+    bar_line_col: "#4f9a97"
+    plottype: year_line
+    mimetype: image/png
+    alttext: "Latest year new vs returning"
+    title: "Latest year new vs returning"
+    location: figures/portfolio_new_return_year.png
   -
     id: viz_y_sessions
     visualizer: viz_y_sessions 
-    scripts: scripts/visualize/viz_y_sessions.R
+    scripts: scripts/visualize/portfolio_timeline.R
     depends: sessions_and_new_users
     rangetext: "-1 year"
     plottype: year_line
@@ -192,7 +207,7 @@ visualize:
   -
     id: viz_m_sessions
     visualizer: viz_y_sessions 
-    scripts: scripts/visualize/viz_y_sessions.R
+    scripts: scripts/visualize/portfolio_timeline.R
     depends: sessions_and_new_users
     rangetext: "-1 month"
     height: 300
@@ -201,7 +216,20 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
   -
-    id: portfolio_timeline
+    id: portfolio_timeline_year
+    visualizer: portfolio_timeline 
+    scripts: scripts/visualize/portfolio_timeline.R
+    depends: sessions_and_new_users
+    rangetext: "-1 year"
+    height: 300
+    width: 1000
+    plottype: year_line
+    mimetype: image/png
+    alttext: "Latest year timeline"
+    title: "Latest year timeline"
+    location: figures/portfolio_timeline_year.png
+  -
+    id: portfolio_timeline_month
     visualizer: portfolio_timeline 
     scripts: scripts/visualize/portfolio_timeline.R
     depends: sessions_and_new_users
@@ -212,11 +240,24 @@ visualize:
     mimetype: image/png
     alttext: "Latest month timeline"
     title: "Latest month timeline"
-    location: figures/portfolio_timeline.png
+    location: figures/portfolio_timeline_month.png
+  -
+    id: portfolio_timeline_week
+    visualizer: portfolio_timeline 
+    scripts: scripts/visualize/portfolio_timeline.R
+    depends: sessions_and_new_users
+    rangetext: "-1 week"
+    height: 300
+    width: 1000
+    plottype: month_week
+    mimetype: image/png
+    alttext: "Latest week timeline"
+    title: "Latest week timeline"
+    location: figures/portfolio_timeline_week.png
   -
     id: viz_w_sessions
     visualizer: viz_y_sessions 
-    scripts: [scripts/visualize/viz_y_sessions.R]
+    scripts: [scripts/visualize/portfolio_timeline.R]
     depends: sessions_and_new_users
     rangetext: "-1 week"
     height: 300
@@ -224,16 +265,6 @@ visualize:
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
-  -
-    id: viz_d_sessions
-    visualizer: viz_d_sessions 
-    scripts: scripts/visualize/viz_y_sessions.R
-    depends: sessions_and_new_users_daily
-    height: 300
-    width: 1000
-    plottype: day_line
-    mimetype: text/csv
-    location: cache/visualize/viz_d_sessions.csv
   -
     id: viz_geo_apps
     visualizer: viz_geo_apps 
@@ -301,11 +332,11 @@ visualize:
     visualizer: portfolio_device_type 
     height: 4
     width: 7
+    rangetext: "-1 year"
     bar_line_col: "#4f9a97"
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
-    rangetext: "-1 month"
     mimetype: image/png
     alttext: "portfolio_device_type"
     title: "portfolio_device_type"
@@ -316,25 +347,26 @@ visualize:
     height: 4
     width: 7
     bar_line_col: "#4f9a97"
+    rangetext: "-1 year"
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
-    rangetext: "-1 month"
     mimetype: image/png
     alttext: "portfolio_source"
     title: "portfolio_source"
     location: figures/portfolio_source.png
   -
-    id: viz_geo_portfolio
+    id: viz_geo_portfolio_year
     visualizer: viz_geo_portfolio 
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     height: 4
     width: 7
-    alttext: "viz_geo_portfolio"
-    title: "viz_geo_portfolio"
+    rangetext: "-1 year"
+    alttext: "Map of essions over the last year"
+    title: "Map of sessions over the last year"
     mimetype: image/png
-    location: figures/viz_geo_portfolio.png
+    location: figures/viz_geo_portfolio_year.png
   -
     id: app_time
     visualizer: app_time 
@@ -430,11 +462,10 @@ publish:
       jquery: jquery-js
       openSans: openSans
       project_table: project_table
-      viz_month_sessions: viz_month_sessions
+      new_vs_returning_year: new_vs_returning_year
       viz_y_sessions: viz_y_sessions
       viz_m_sessions: viz_m_sessions
       viz_w_sessions: viz_w_sessions
-      viz_d_sessions: viz_d_sessions
       viz_device_type: viz_device_type
       viz_source: viz_source
       viz_geo_apps: viz_geo_apps
@@ -481,9 +512,12 @@ publish:
       portfolio_sessions_all: portfolio_sessions_all
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
-      viz_geo_portfolio: viz_geo_portfolio
+      viz_geo_portfolio_year: viz_geo_portfolio_year
       portfolio_time: portfolio_time
-      portfolio_timeline: portfolio_timeline
+      portfolio_timeline_year: portfolio_timeline_year
+      portfolio_timeline_month: portfolio_timeline_month
+      portfolio_timeline_week: portfolio_timeline_week
+      portfolio_new_return_year: portfolio_new_return_year
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       informationImg: informationImg
@@ -491,13 +525,17 @@ publish:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
-      portfolio_timeline: portfolio_timeline
+      portfolio_timeline_year: portfolio_timeline_year
+      portfolio_timeline_month: portfolio_timeline_month
+      portfolio_timeline_week: portfolio_timeline_week
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
-      viz_geo_portfolio: viz_geo_portfolio
+      portfolio_new_return_year: portfolio_new_return_year
+      viz_geo_portfolio_year: viz_geo_portfolio_year
       portfolio_time: portfolio_time
       informationImg: informationImg
       info_source: "This is the text on source"
+      info_new_return: "Info on new vs returning pie chart"
       info_geo: >-
         This is really long information about the map.
       info_sessions: "Information on big session graph"
