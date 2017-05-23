@@ -175,7 +175,8 @@ visualize:
     depends: sessions_and_new_users
     mimetype: text/csv
     height: 4
-    width: 8
+    width: 7
+    bar_line_col: "#4f9a97"
     location: cache/visualize/viz_month_sessions.csv
   -
     id: viz_y_sessions
@@ -199,6 +200,19 @@ visualize:
     plottype: month_line
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
+  -
+    id: portfolio_timeline
+    visualizer: portfolio_timeline 
+    scripts: scripts/visualize/portfolio_timeline.R
+    depends: sessions_and_new_users
+    rangetext: "-1 month"
+    height: 300
+    width: 1000
+    plottype: month_line
+    mimetype: image/png
+    alttext: "Latest month timeline"
+    title: "Latest month timeline"
+    location: figures/portfolio_timeline.png
   -
     id: viz_w_sessions
     visualizer: viz_y_sessions 
@@ -227,7 +241,7 @@ visualize:
     depends: geo_apps
     plottype: geo_month
     height: 4
-    width: 8
+    width: 7
     rangetext: "-1 month"
     mimetype: text/csv
     location: cache/visualize/viz_geo_apps.csv
@@ -239,7 +253,8 @@ visualize:
     plottype: app_hist
     rangetext: "-1 month"
     height: 4
-    width: 8
+    width: 7
+    bar_line_col: "#4f9a97"
     mimetype: text/csv
     location: cache/visualize/timeDayUse_apps.csv
   -
@@ -248,7 +263,8 @@ visualize:
     scripts: scripts/visualize/viz_device_type.R
     depends: device_type
     height: 4
-    width: 8
+    width: 7
+    bar_line_col: "#4f9a97"
     rangetext: "-1 month"
     plottype: device_type
     mimetype: text/csv
@@ -258,7 +274,8 @@ visualize:
     visualizer: viz_source 
     scripts: scripts/visualize/viz_source.R
     height: 4
-    width: 8
+    width: 7
+    bar_line_col: "#4f9a97"
     depends: source_counts
     plottype: source_counts
     mimetype: text/csv
@@ -268,6 +285,8 @@ visualize:
     visualizer: portfolio_sessions_all 
     height: 8
     width: 12
+    text_col: "black"
+    bar_line_col: "black"
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
@@ -281,7 +300,8 @@ visualize:
     id: portfolio_device_type
     visualizer: portfolio_device_type 
     height: 4
-    width: 8
+    width: 7
+    bar_line_col: "#4f9a97"
     scripts: scripts/visualize/portfolio_device_type.R
     depends: 
       device_type: device_type
@@ -294,7 +314,8 @@ visualize:
     id: portfolio_source
     visualizer: portfolio_source
     height: 4
-    width: 8
+    width: 7
+    bar_line_col: "#4f9a97"
     scripts: scripts/visualize/portfolio_source.R
     depends: 
       source_counts: source_counts
@@ -309,7 +330,7 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: geo_apps
     height: 4
-    width: 8
+    width: 7
     alttext: "viz_geo_portfolio"
     title: "viz_geo_portfolio"
     mimetype: image/png
@@ -461,14 +482,16 @@ publish:
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
+      portfolio_time: portfolio_time
+      portfolio_timeline: portfolio_timeline
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
-      portfolio_time: portfolio_time
       informationImg: informationImg
     context:
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
+      portfolio_timeline: portfolio_timeline
       portfolio_device_type: portfolio_device_type
       portfolio_source: portfolio_source
       viz_geo_portfolio: viz_geo_portfolio
@@ -480,6 +503,8 @@ publish:
       info_sessions: "Information on big session graph"
       info_device: "Info on device."
       info_ave_time: "Info on avg time."
+      info_session_time: >-
+        Info on year, month, week, day graphs
   -
     id: sideBar
     publisher: section

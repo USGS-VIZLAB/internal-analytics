@@ -7,6 +7,7 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
   viz.data <- readDepends(viz)[["source_counts"]]
   height = viz[["height"]]
   width = viz[["width"]]
+  bar_line_col = viz[["bar_line_col"]]
   
   x <- data.frame(id = character(),
                   loc = character(),
@@ -44,7 +45,7 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
     port_source <-   ggplot(data = source_sum) +
-      geom_col(aes(x = reorder(source, Freq), y=Freq), fill = "steelblue") +
+      geom_col(aes(x = reorder(source, Freq), y=Freq), fill = bar_line_col) +
       coord_flip() +
       theme_minimal() +
       ylab("Total Sessions") +

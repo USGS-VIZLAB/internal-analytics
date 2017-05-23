@@ -7,6 +7,7 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
   
   height = viz[["height"]]
   width = viz[["width"]]
+  bar_line_col = viz[["bar_line_col"]]
   
   viz.data <- viz.data %>%
     filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = "-1 months")[2])
@@ -24,7 +25,7 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
     location <- paste0("cache/visualize/",i,"_session_pie.png")
     
     port_source <- ggplot(data = x) +
-      geom_col(aes(x = reorder(users, sessions), y=sessions), fill = "steelblue") +
+      geom_col(aes(x = reorder(users, sessions), y=sessions), fill = bar_line_col) +
       coord_flip() +
       theme_minimal() +
       ylab("Sessions") +
@@ -32,7 +33,8 @@ visualize.viz_month_sessions <- function(viz = as.viz("viz_month_sessions")){
             panel.grid.major = element_blank(),
             panel.grid.minor = element_blank(),
             axis.text = element_text(size = 14),
-            panel.border = element_blank()) +
+            panel.border = element_blank(),
+            plot.margin=unit(c(0.1,1,0.1,0.1),"cm")) +
       scale_y_continuous(labels = comma)
     
     ggsave(port_source, filename = location, 

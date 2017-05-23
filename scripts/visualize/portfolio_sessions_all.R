@@ -9,6 +9,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   
   height = viz[["height"]]
   width = viz[["width"]]
+  bar_line_col = viz[["bar_line_col"]]
+  text_col = viz[["text_col"]]
   
   viz.data <- deps[["sessions_and_new_users"]]
   
@@ -100,11 +102,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                        aes(x = longName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,color = NA) +
-    geom_point() +
-    geom_segment(aes(xend = longName), yend=0, size = 0.1) +
-    geom_segment(aes(xend = longName, y = scaled_newUser), yend=0, col="black", size=1.5) + 
+    geom_point(color = bar_line_col) +
+    geom_segment(aes(xend = longName), yend=0, size = 0.1, color = bar_line_col) +
+    geom_segment(aes(xend = longName, y = scaled_newUser), yend=0, col=bar_line_col, size=1.5) + 
     geom_text(aes(label = session_text, y = text_placement), 
-              size = 3, hjust = .75) + 
+              size = 3, hjust = .75, color = text_col) + 
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
@@ -165,14 +167,14 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
               color = "black", fill = "white") +
     geom_text(data = fake_legend,
               aes(x = longName, y = yend, label = label), 
-              hjust = "right") +
+              hjust = "right", col = "black") +
     geom_segment(data = fake_legend[2,],
                  aes(x = longName,
                      xend = longName,
-                     y = ystart, yend=ymid), col="black", size=1.5) +
-    geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid), size=0.1) + 
-    geom_point(data = fake_legend[1,], aes(x = longName, y=ymid)) 
-    
+                     y = ystart, yend=ymid), col=bar_line_col, size=1.5) +
+    geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid), size=0.1, col=bar_line_col) + 
+    geom_point(data = fake_legend[1,], aes(x = longName, y=ymid), col=bar_line_col) 
+
   ggsave(port_graph, file = viz[["location"]], height = height, width = width)
   
 }

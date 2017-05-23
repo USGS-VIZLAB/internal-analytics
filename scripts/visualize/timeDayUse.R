@@ -9,6 +9,7 @@ visualize.timeDayUse_all <- function(viz=as.viz("timeDayUse_port")) {
   hourSum <- group_by(viz.data, hour) %>% summarise(n = n()) #need to set to numeric?
   height = viz[["height"]]
   width = viz[["width"]]
+  bar_line_col = viz[["bar_line_col"]]
   
   hourSum$hour <- as.numeric(hourSum$hour)
   
@@ -41,6 +42,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
   width = viz[["width"]]
   plot_type <- viz[["plottype"]]
   range_text <- viz[["rangetext"]]
+  bar_line_col = viz[["bar_line_col"]]
   
   x <- data.frame(id = character(),
                   loc = character(),
@@ -60,7 +62,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app")) {
     hourSum$hour <- as.numeric(hourSum$hour)
     
     port_device <-   ggplot(data = hourSum) +
-      geom_col(aes(x = hour, y=n), fill = "steelblue") +
+      geom_col(aes(x = hour, y=n), fill = bar_line_col) +
       theme_minimal() +
       ylab("Sessions") +
       xlab("Hour of the Day") +
