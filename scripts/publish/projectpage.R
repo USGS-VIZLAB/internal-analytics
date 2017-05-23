@@ -11,10 +11,10 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     year_line_sessions = deps[['viz_y_sessions']],
     month_line_sessions = deps[['viz_m_sessions']],
     week_line_sessions = deps[['viz_w_sessions']],
-    device_type = deps[['viz_device_type']],
-    source_counts = deps[['viz_source']],
-    viz_geo_apps = deps[["viz_geo_apps"]],
-    timeDayUse_app = deps[["timeDayUse_app"]]
+    viz_device_type_year = deps[['viz_device_type_year']],
+    viz_source_year = deps[['viz_source_year']],
+    viz_geo_apps_year = deps[["viz_geo_apps_year"]],
+    timeDayUse_app_year = deps[["timeDayUse_app_year"]]
   )
   
   table.files <- deps[["app_time"]]
@@ -62,10 +62,10 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           year_line_sessions = proj.imgs[['year_line_sessions']],
           month_line_sessions = proj.imgs[['month_line_sessions']],
           week_line_sessions = proj.imgs[['week_line_sessions']],
-          device_type = proj.imgs[['device_type']],
-          source_counts = proj.imgs[['source_counts']],
-          viz_geo_apps = proj.imgs[["viz_geo_apps"]],
-          timeDayUse_app = proj.imgs[["timeDayUse_app"]],
+          viz_device_type_year = proj.imgs[['viz_device_type_year']],
+          viz_source_year = proj.imgs[['viz_source_year']],
+          viz_geo_apps_year = proj.imgs[["viz_geo_apps_year"]],
+          timeDayUse_app_year = proj.imgs[["timeDayUse_app_year"]],
           app_time = table.html
       ))
     )

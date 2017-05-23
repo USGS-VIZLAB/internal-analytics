@@ -3,16 +3,12 @@ visualize.viz_new_vs_returning <- function(viz = as.viz("viz_month_sessions")){
   library(ggplot2)
   library(scales)
   
-  viz.data <- readDepends(viz)[["sessions_and_new_users"]]
+  viz.data <- readDepends(viz)[["viz_data"]]
   
   height = viz[["height"]]
   width = viz[["width"]]
   bar_line_col = viz[["bar_line_col"]]
-  rangetext <- viz[["rangetext"]]
-  
-  viz.data <- viz.data %>%
-    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = rangetext)[2])
-  
+
   for(i in unique(viz.data$viewID)){
     sub_data <- filter(viz.data, viewID == i)
     
@@ -40,15 +36,11 @@ visualize.viz_new_vs_returning_portfolio <- function(viz = as.viz("portfolio_new
   library(ggplot2)
   library(scales)
   
-  viz.data <- readDepends(viz)[["sessions_and_new_users"]]
+  viz.data <- readDepends(viz)[["viz_data"]]
   
   height = viz[["height"]]
   width = viz[["width"]]
   bar_line_col = viz[["bar_line_col"]]
-  rangetext <- viz[["rangetext"]]
-  
-  viz.data <- viz.data %>%
-    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = rangetext)[2])
 
   port_source <- new_return_plot(viz.data, bar_line_col)
   

@@ -20,7 +20,7 @@ gsMap_fx <- function(sf.points){
   
 }
 
-visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
+visualize.viz_geo_portfolio <- function(viz){
   library(dplyr)
   library(maptools)
   library(maps)
@@ -28,13 +28,12 @@ visualize.viz_geo_portfolio <- function(viz=as.viz("viz_geo_portfolio")){
   library(scales)
   library(ggplot2)
   
-  viz.data <- readDepends(viz)[["geo_apps"]]
+  viz.data <- readDepends(viz)[["viz_data"]]
   height = viz[["height"]]
   width = viz[["width"]]
-  rangetext <- viz[["rangetext"]]
   
   viz.data <- viz.data %>%
-    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = rangetext)[2])
+    select(-date)
   
   states.out <- get_map_stuff()
 
@@ -69,13 +68,12 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
   library(ggplot2)
   library(scales)
   
-  viz.data <- readDepends(viz)[["geo_apps"]]
+  viz.data <- readDepends(viz)[["viz_data"]]
   height = viz[["height"]]
   width = viz[["width"]]
-  rangetext <- viz[["rangetext"]]
   
-  viz.data <- viz.data %>%
-    filter(date >= seq(max(viz.data$date, na.rm = TRUE), length = 2, by = rangetext)[2])
+  viz.data<- viz.data %>%
+    select(-date)
   
   x <- data.frame(id = character(),
                   loc = character(),

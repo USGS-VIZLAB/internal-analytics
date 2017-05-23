@@ -12,7 +12,9 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   bar_line_col = viz[["bar_line_col"]]
   text_col = viz[["text_col"]]
   
-  viz.data <- deps[["sessions_and_new_users"]]
+  viz.data <- deps[["viz_data"]]
+  
+  viz.data <- select(viz.data, date,viewID,sessions,newUsers)
   
   ga_table <- deps[['project_table']]
   ga_table$viewID <- as.character(ga_table$viewID)

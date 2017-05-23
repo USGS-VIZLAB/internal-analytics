@@ -4,13 +4,12 @@ visualize.portfolio_timeline <- function(viz){
   
   height = viz[["height"]]
   width = viz[["width"]]
+  range_text <- viz[["range_text"]]
   
-  viz.data <- readDepends(viz)[["sessions_and_new_users"]]
+  viz.data <- readDepends(viz)[["viz_data"]]
 
-  range_text <- viz[["rangetext"]]
   plot_type <- viz[["plottype"]]
   
-
   png(viz[["location"]], height = height, width = width, res = 150)
   
   plot_timeline(viz.data, range_text)
@@ -25,22 +24,19 @@ visualize.viz_y_sessions <- function(viz){
   
   height = viz[["height"]]
   width = viz[["width"]]
+  range_text = viz[["range_text"]]
   
-  viz.data <- readDepends(viz)[["sessions_and_new_users"]]
+  viz.data <- readDepends(viz)[["viz_data"]]
+  
   x <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
                   stringsAsFactors = FALSE)
-  
-  range_text <- viz[["rangetext"]]
+
   plot_type <- viz[["plottype"]]
   
   for(i in unique(viz.data$viewID)){
     sub_data <- filter(viz.data, viewID == i)
-    
-    if(nrow(sub_data) <= 0){
-      
-    }
     
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
@@ -62,13 +58,11 @@ visualize.viz_y_sessions <- function(viz){
 plot_timeline <- function(viz.data, range_text){
   
   max_date <- max(viz.data$date, na.rm = TRUE)
-  year_days = seq(max_date, length = 2, by = range_text)
+  year_days = seq(max_date, length = 2, by = range_text) 
   full_dates <- seq(max_date, length = -as.numeric(diff(year_days))+1, by=-1)
   empty_df <- data.frame(date = full_dates)
   
   sub_data <- select(viz.data, date, sessions) %>%
-    filter(date >= year_days[2],
-           date <= year_days[1]) %>%
     group_by(date) %>%
     summarize(sessions = sum(sessions, na.rm = TRUE)) %>%
     data.frame() %>%
@@ -76,6 +70,8 @@ plot_timeline <- function(viz.data, range_text){
     arrange(desc(date))
   
   sub_data$sessions[is.na(sub_data$sessions)] <- 0
+  
+  #TODO: add check for nrows == 0
   
   par(oma=c(0,0,0,0),
       mar=c(1.5,2.5,1,1.5),
