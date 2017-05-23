@@ -113,7 +113,9 @@ process:
     id: aggregate_ga
     processor: aggregate_ga
     scripts: scripts/process/aggregate.R
-    depends: fetchGA
+    depends: 
+      fetchGA: fetchGA
+      project_table: project_table
     reader: rds
     location: cache/process/aggregate_ga.rds
   -
