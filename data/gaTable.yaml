@@ -1,3 +1,4 @@
+
 - longName: Publications Warehouse
   shortName: Pubs
   accountName: pubs.er.usgs.gov
@@ -10,7 +11,7 @@
   websiteUrl: http://pubs.er.usgs.gov
   botFilteringEnabled: 'TRUE'
   description: I am example of project description
-  
+
 - longName: Water Quality Portal
   shortName: WQP
   accountName: WQP
@@ -23,7 +24,7 @@
   websiteUrl: http://www.waterqualitydata.us
   botFilteringEnabled: 'TRUE'
   description: ''
-  
+
 - longName: National Ground Water Monitoring Network Data Portal
   shortName: NGWMN
   accountName: NGWMN Data Portal
@@ -36,7 +37,7 @@
   websiteUrl: http://cida.usgs.gov/ngwmn
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Geo Data Portal
   shortName: GDP
   accountName: Geo Data Portal
@@ -49,7 +50,7 @@
   websiteUrl: http://cida.usgs.gov/gdp/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: NAWQA SPARROW Decision Support System
   shortName: SPARROWDSS
   accountName: Sparrow DSS
@@ -62,7 +63,7 @@
   websiteUrl: http://cida.usgs.gov/sparrow
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Great Lakes Restoration Initiative Phragmites
   shortName: GLRIPhragmites
   accountName: USGS GLRI Phragmites
@@ -75,7 +76,7 @@
   websiteUrl: http://cida.usgs.gov/glri/phragmites/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Coastal Change Hazards Portal
   shortName: CCH
   accountName: CIDA CCH
@@ -88,7 +89,7 @@
   websiteUrl: http://cida.usgs.gov/coastalchangehazardsportal/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Biodata
   shortName: BiodataIn
   accountName: BioData
@@ -101,7 +102,7 @@
   websiteUrl: https://internal.aquatic.biodata.usgs.gov
   botFilteringEnabled: 'FALSE'
   description: I am example of project description
-  
+
 - longName: Biodata Retrieval
   shortName: BiodataRet
   accountName: BioData
@@ -114,7 +115,7 @@
   websiteUrl: https://aquatic.biodata.usgs.gov
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: NWIS Reporting Application
   shortName: NWIS-RA
   accountName: NWIS-RA
@@ -127,7 +128,7 @@
   websiteUrl: https://nwisdata.usgs.gov
   botFilteringEnabled: 'FALSE'
   description: ''
-  
+
 - longName: CIDA Website
   shortName: CIDA
   accountName: CIDA_Website
@@ -140,7 +141,7 @@
   websiteUrl: http://cida.usgs.gov/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Great Lakes Restoration Initiative
   shortName: GLRI
   accountName: USGS GLRI
@@ -153,7 +154,7 @@
   websiteUrl: http://cida.usgs.gov/glri/
   botFilteringEnabled: 'FALSE'
   description: ''
-  
+
 - longName: WAUSP National Water Census
   shortName: NWC
   accountName: National Water Census
@@ -166,7 +167,7 @@
   websiteUrl: http://cida.usgs.gov/nwc
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: NAWQA Watershed Regressions on Pesticides
   shortName: WARP
   accountName: WARP Map Public
@@ -179,7 +180,7 @@
   websiteUrl: http://cida.usgs.gov/WARP
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: USGS-R Resources
   shortName: USGS-R
   accountName: USGS-R
@@ -192,7 +193,7 @@
   websiteUrl: http://owi.usgs.gov/R
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: 'VizLab: California Drought'
   shortName: VizLabCADrought
   accountName: CIDA drought app
@@ -205,7 +206,7 @@
   websiteUrl: http://cida.usgs.gov/ca_drought
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: NAWQA Water Quality Mapper
   shortName: NAR
   accountName: NAWQA Annual Reports
@@ -218,7 +219,7 @@
   websiteUrl: http://cida.usgs.gov/quality/rivers/sites
   botFilteringEnabled: 'TRUE'
   description: ''
-  
+
 - longName: National Soil Moisture Network
   shortName: NSMN
   accountName: National Soil Moisture Network
@@ -231,7 +232,7 @@
   websiteUrl: http://cida.usgs.gov/nsmn_pilot/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: 'VizLab: Colorado River Drought'
   shortName: VizLabCRBDrought
   accountName: OWDI Drought Vizzy
@@ -244,7 +245,7 @@
   websiteUrl: https://cida-test.er.usgs.gov/bluedragon/dev/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: OWI Website
   shortName: OWI
   accountName: OWI Website
@@ -257,7 +258,7 @@
   websiteUrl: http://owi.usgs.gov
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: VizLab Landing Page
   shortName: VizLab
   accountName: Vizlab
@@ -270,7 +271,7 @@
   websiteUrl: http://owi.usgs.gov/vizlab
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: 'VizLab: Climate Change and Fisheries'
   shortName: VizLabClimateFish
   accountName: Vizlab
@@ -283,7 +284,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/climate-change-walleye-bass/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: 'VizLab: Microplastics in Our Waterways'
   shortName: VizLabMicroplastics
   accountName: Vizlab
@@ -296,7 +297,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/microplastics/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: 'VizLab: Hurricane Matthew''s Water Footprint'
   shortName: VizLabMatthew
   accountName: Vizlab
@@ -309,7 +310,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-matthew
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: 'VizLab: Water Use'
   shortName: VizLabWaterUse
   accountName: Vizlab
@@ -322,7 +323,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/water-use
   botFilteringEnabled: 'TRUE'
   description: ''
-  
+
 - longName: Environmental Data Discovery and Transformation
   shortName: EnDDaT
   accountName: EnDDaT
@@ -335,7 +336,7 @@
   websiteUrl: http://cida-test.er.usgs.gov/enddat/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Grand Canyon Monitoring Research Center Website
   shortName: GCMRC
   accountName: CIDA GCMRC Analytics
@@ -348,7 +349,7 @@
   websiteUrl: https://www.gcmrc.gov/discharge_qw_sediment/
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: National Environmental Methods Index
   shortName: NEMI
   accountName: nemi_usgs
@@ -361,7 +362,7 @@
   websiteUrl: https://www.nemi.gov
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: NWISWeb Mobile
   shortName: NWISWebMobile
   accountName: USGS Mobile Water Data & Water Services
@@ -374,7 +375,7 @@
   websiteUrl: http://m.waterdata.usgs.gov
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: NWISWeb Desktop
   shortName: NWISWebDesktop
   accountName: USGS Water Data for the Nation
@@ -387,7 +388,7 @@
   websiteUrl: http://waterdata.usgs.gov
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Health Based Screening Levels
   shortName: HBSL
   accountName: NAWQA Data Warehouse
@@ -400,7 +401,7 @@
   websiteUrl: http://water.usgs.gov/nawqa/HBSL
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: Groundwater Watch
   shortName: GroundwaterWatch
   accountName: ''
@@ -413,7 +414,7 @@
   websiteUrl: http://groundwaterwatch.usgs.gov
   botFilteringEnabled: ''
   description: ''
-  
+
 - longName: USGS WaterWatch
   shortName: WaterWatch
   accountName: ''
@@ -426,9 +427,9 @@
   websiteUrl: waterwatch.usgs.gov
   botFilteringEnabled: ''
   description: ''
-  
-- longName: 'Water Science School'
-  shortName: 'WaterSciSchool'
+
+- longName: Water Science School
+  shortName: WaterSciSchool
   accountName: .na.character
   viewID: '83658557'
   accountId: '22425935'
@@ -439,9 +440,9 @@
   websiteUrl: http://water.usgs.gov
   botFilteringEnabled: .na.character
   description: .na.character
-  
-- longName: 'water.usgs.gov'
-  shortName: 'water.usgs.gov'
+
+- longName: water.usgs.gov
+  shortName: water.usgs.gov
   accountName: .na.character
   viewID: '83660223'
   accountId: '22425935'
@@ -450,5 +451,161 @@
   viewName: 2-Not W.S. School
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: "Streamer - TX WSC"
+  shortName: 'Streamer'
+  accountName: txwscwebgroup
+  viewID: '73029212'
+  accountId: '37706584'
+  webPropertyId: UA-37706584-3
+  internalWebPropertyId: '70826807'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: http://www.nationalmap.gov/streamer/
+  botFilteringEnabled: 'TRUE'
+  description: .na.character
+
+- longName: 'USGS StreamStats'
+  shortName: 'StreamStats'
+  accountName: WIM USGS
+  viewID: '116153556'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-6
+  internalWebPropertyId: '111309349'
+  viewName: All Web Site Data
+  timezone: America/New_York
+  websiteUrl: http://streamstatsags.cr.usgs.gov/streamstats/
+  botFilteringEnabled: 'FALSE'
+  description: .na.character
+
+- longName: "Sparrow Tennessee"
+  shortName: "SparrowTN"
+  accountName: WIM USGS
+  viewID: '141180663'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-21
+  internalWebPropertyId: '136938859'
+  viewName: All Web Site Data
+  timezone: America/Los_Angeles
+  websiteUrl: http://example.com
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: 'National Water Information System Mapper - Water Alert'
+  shortName: 'NWISMapper-WaterAlert'
+  accountName: WIM USGS
+  viewID: '120793561'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-9
+  internalWebPropertyId: '115535057'
+  viewName: All Web Site Data
+  timezone: America/New_York
+  websiteUrl: http://water.usgs.gov/wateralert/
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
+  shortName: "NaWQASWTrends"
+  accountName: WIM USGS
+  viewID: '139280803'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-19
+  internalWebPropertyId: '135107854'
+  viewName: All Web Site Data
+  timezone: America/New_York
+  websiteUrl: http://test.wim.usgs.gov/swtrends/
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: 'National Water-Quality Assessment - Decadal Trends Mapper'
+  shortName: 'NaWQADecadalTrendsMapper'
+  accountName: WIM USGS
+  viewID: '116129201'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-5
+  internalWebPropertyId: '111279201'
+  viewName: All Web Site Data
+  timezone: America/Los_Angeles
+  websiteUrl: http://nawqatrends.wim.usgs.gov/Decadal/
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: 'NPS Mercury Mapper'
+  shortName: 'NPSMercuryMapper'
+  accountName: WIM USGS
+  viewID: '142693416'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-22
+  internalWebPropertyId: '138296596'
+  viewName: All Web Site Data
+  timezone: America/New_York
+  websiteUrl: http://wim.usgs.gov/MercuryMapper/MercuryMapper.html
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: 'Mississippi River Basin Flood of 2015/2016'
+  shortName: 'MARB'
+  accountName: WIM USGS
+  viewID: '116067724'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-4
+  internalWebPropertyId: '111224823'
+  viewName: All Web Site Data
+  timezone: America/Los_Angeles
+  websiteUrl: http://commons.wim.usgs.gov/MARBFlood2015/
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: 'Western Lake Erie Restoration Assessment Web App'
+  shortName: 'GLCWRA-WLERA'
+  accountName: WIM USGS
+  viewID: '136538015'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-15
+  internalWebPropertyId: '132521075'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://glcwra.wim.usgs.gov/wlera/
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: 'Saginaw Bay Restoration Assessment Web App'
+  shortName: 'GLCWRA-SBRA'
+  accountName: WIM USGS
+  viewID: '137369161'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-17
+  internalWebPropertyId: '133340950'
+  viewName: All Web Site Data
+  timezone: America/New_York
+  websiteUrl: https://glcwra.wim.usgs.gov/sbra/
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: 'Connection River Systems Restoration Assessment Web App'
+  shortName: 'GLCWRA-CRSRA'
+  accountName: WIM USGS
+  viewID: '137355369'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-16
+  internalWebPropertyId: '133326665'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://glcwra.wim.usgs.gov/crsra/
+  botFilteringEnabled: .na.character
+  description: .na.character
+
+- longName: "Flood Inundation Mapper"
+  shortName: "FIM"
+  accountName: WIM USGS
+  viewID: '147316934'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-23
+  internalWebPropertyId: '142720692'
+  viewName: All Web Site Data
+  timezone: America/Los_Angeles
+  websiteUrl: http://example.com
   botFilteringEnabled: .na.character
   description: .na.character
