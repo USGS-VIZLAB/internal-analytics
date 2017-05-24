@@ -34,6 +34,39 @@
   margin:0 10px 15px 10px;
 }
 
+#toggleButtons{
+  background:#fff;
+  width:100%;
+  margin:0 auto;
+  height:40px;
+  text-align:center;
+  padding: 20px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index:8000;
+}
+
+.active{
+  background:rgb(0,51,102) !important;
+  color:#fff;
+}
+
+#toggleButtons button{
+    width: 80px;
+    height: 30px;
+    font-size: 1em;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 3px;
+    outline: none;
+}
+
+#toggleButtons button:hover{
+  background:rgb(0,51,102);
+  color:#fff;
+}
+
 @media screen and (min-width:1050px){
   #pieChart img{
     width:40%;
