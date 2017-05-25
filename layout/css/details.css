@@ -67,6 +67,10 @@
   color:#fff;
 }
 
+.year, .month, .week {
+  display:none;
+}
+
 @media screen and (min-width:1050px){
   #pieChart img{
     width:40%;
