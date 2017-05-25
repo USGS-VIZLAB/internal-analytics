@@ -1,15 +1,31 @@
 $(document).ready(function(){
-  var list = $('#projects');
-  var disclaimer = $('.disclaimerText');
-  $('#projectList').on('click', function(){
-    toggleRotate(list, this);
+  
+  var button = $('#toggleButtons button');
+  var chart = $('.figure');
+  var yearChart = $('.year');
+  var monthChart = $('.month');
+  var weekChart = $('.week');
+  
+  var toggle = function(){
+    if($('#yearButton.active').length > 0){
+      yearChart.show();
+    }
+    if($('#monthButton.active').length > 0){
+      monthChart.show();
+    }
+    if($('#weekButton.active').length > 0){
+      weekChart.show();
+    }
+  };
+  
+  button.on('click', function(){
+    button.removeClass('active');
+    chart.hide();
+    $(this).addClass('active');
+    toggle();
   });
-  $('.disclaimer').on('click', function(){
-    toggleRotate(disclaimer, this);
-  });
-  function toggleRotate(target, rotate){
-    $(target).toggle('slow');
-    $(rotate).find('.arrow svg').toggleClass('rotate');
-  }
+  
+  toggle();
+  
 });
 
