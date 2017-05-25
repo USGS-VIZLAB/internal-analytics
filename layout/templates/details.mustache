@@ -10,7 +10,7 @@
 		  </a>
 		</h2>
 		<p class="projectDescription">{{project_description}}</p>
-		<section class="full">
+		<section id="lineAssessments" class="full">
 			<div class="header">
 				<h3>Project Timeline Summaries</h3>
 				<div class="information">
@@ -24,37 +24,11 @@
 			  <h3>Year</h3>
 				{{{year_line_sessions}}}
 			</div>
-			<div class="chartArea">
-			  <h3>Month</h3>
-				{{{month_line_sessions}}}
-			</div>
-			<div class="chartArea">
-			  <h3>Week</h3>
-				{{{week_line_sessions}}}
-			</div>
-			<div class="chartArea">
-			  <h3>Day</h3>
-				{{{day_line_sessions}}}
-			</div>
 		</section>
 		<section class="half flexContainer">
 			<div class="flex1 flexBorder">
-				<div class="header">
-					<h3>Time-of-Day Activity</h3>
-					<div class="information">
-					{{{informationImg}}}
-					<div class="informationContent">
-					  {{{info_time_of_day}}}
-					</div>
-				  </div>
-				</div>
-				<div class="chartArea">
-					{{{timeDayUse_app}}}
-				</div>
-			</div>
-			<div class="flex1">
-				<div class="header">
-					<h3>Geographic Locations: Previous Month</h3>
+							<div class="header">
+					<h3>Geographic Locations</h3>
 					<div class="information">
 					  {{{informationImg}}}
 					  <div class="informationContent">
@@ -63,12 +37,10 @@
 					</div>
 				</div>
 				<div class="chartArea">
-					{{{viz_geo_apps}}}
+					{{{viz_geo_apps_year}}}
 				</div>
 			</div>
-		</section>
-		<section class="half flexContainer">
-			<div class="flex1 flexBorder">
+			<div class="flex1">
 			  <div class="header">
 					<h3>Traffic Sources</h3>
 					<div class="information">
@@ -79,12 +51,28 @@
 					</div>
 				</div>
 				<div class="chartArea">
-					{{{source_counts}}}
+					{{{viz_source_year}}}
+				</div>
+			</div>
+		</section>
+		<section class="half flexContainer">
+			<div class="flex1 flexBorder">
+								<div class="header">
+					<h3>Device Type</h3>
+					<div class="information">
+					{{{informationImg}}}
+					<div class="informationContent">
+					  {{{info_device}}}
+					</div>
+				  </div>
+				</div>
+				<div class="chartArea">
+					{{{viz_device_type_year}}}
 				</div>
 			</div>
 			<div class="flex1">
 			  <div class="header">
-					<h3>Average Time on Page</h3>
+					<h3>User Time on Page</h3>
 					<div class="information">
 					{{{informationImg}}}
 					<div class="informationContent">
@@ -109,21 +97,21 @@
 					</div>
 				</div>
 				<div class="chartArea">
-					{{{monthly_users_chart}}}
+					{{{new_vs_returning_year}}}
 				</div>
 			</div>
 			<div class="flex1">
 				<div class="header">
-					<h3>Device Type</h3>
+					<h3>Time-of-Day Activity</h3>
 					<div class="information">
 					{{{informationImg}}}
 					<div class="informationContent">
-					  {{{info_device}}}
+					  {{{info_time_of_day}}}
 					</div>
 				  </div>
 				</div>
 				<div class="chartArea">
-					{{{device_type}}}
+					{{{timeDayUse_app_year}}}
 				</div>
 			</div>
 		</section>

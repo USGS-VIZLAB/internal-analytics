@@ -4,7 +4,7 @@ publish.portfolio_time <- function(viz = as.viz("portfolio_time")){
   
   deps <- readDepends(viz)
 
-  viz.data <- deps[["aggregate_ga"]]
+  viz.data <- deps[["viz_data"]]
   
   ave_time_on_page <- mean(viz.data$avgSessionDuration, na.rm = TRUE)
   
@@ -27,7 +27,6 @@ publish.portfolio_time <- function(viz = as.viz("portfolio_time")){
   x$Days <- format(as.numeric(x$Days),big.mark=",",scientific=FALSE)
   
   return(htmlTable(x, 
-            caption="Average Time",
             rnames = row.names(x),  
             col.rgroup = c("none", "#F7F7F7"), 
             css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
@@ -88,7 +87,7 @@ visualize.app_time <- function(viz = as.viz("app_time")){
   
   plot_type <- viz[["plottype"]]
   
-  viz.data <- deps[["aggregate_ga"]]
+  viz.data <- deps[["viz_data"]]
   range_text <- c("-1 year","-1 month","-1 week")
   
   latest_day = max(viz.data$date, na.rm = TRUE)
@@ -122,7 +121,6 @@ visualize.app_time <- function(viz = as.viz("app_time")){
     
     sink(location)
       cat(htmlTable(df, 
-           caption="Average Time",
            rnames=row.names(df), 
            col.rgroup = c("none", "#F7F7F7"), 
            css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
