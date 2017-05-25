@@ -470,6 +470,7 @@ publish:
       detailsCSS: detailsCSS
       footerCSS : footerCSS
       jquery: jquery-js
+      app-js: app-js
       openSans: openSans
       project_table: project_table
       new_vs_returning_year: new_vs_returning_year
@@ -499,7 +500,7 @@ publish:
       info_new_return: "Info on new vs returning pie chart"
       info_session_time: >-
         Info on year, month, week, day graphs
-      resources: ["jquery", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
     publisher: projectlist

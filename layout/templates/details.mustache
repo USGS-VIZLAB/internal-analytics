@@ -10,6 +10,11 @@
 		  </a>
 		</h2>
 		<p class="projectDescription">{{project_description}}</p>
+		<div id="toggleButtons">
+  		  <button id="yearButton" class="active">Year</button>
+  			<button id="monthButton">Month</button>
+  			<button id="weekButton">Week</button>
+		</div>
 		<section id="lineAssessments" class="full">
 			<div class="header">
 				<h3>Project Timeline Summaries</h3>
@@ -21,8 +26,18 @@
 				</div>
 			</div>
 			<div class="chartArea">
-			  <h3>Year</h3>
-				{{{year_line_sessions}}}
+			  <span class="year figure">
+			    <h3>Year</h3>
+				  {{{year_line_sessions}}}
+				</span>
+				<span class="month figure">
+			    <h3>Month</h3>
+				  {{{month_line_sessions}}}
+				</span>
+				<span class="week figure">
+			    <h3>Week</h3>
+				  {{{week_line_sessions}}}
+				</span>
 			</div>
 		</section>
 		<section class="half flexContainer">
