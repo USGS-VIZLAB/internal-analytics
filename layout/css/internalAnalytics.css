@@ -36,8 +36,6 @@ h6{
   min-width:250px;
 	max-width:300px;
 	border-right:2px solid rgb(220,220,220);
-	position:relative;
-	z-index:9000;
 }
 
 .sideBar h4{
