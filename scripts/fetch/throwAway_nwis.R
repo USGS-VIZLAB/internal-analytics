@@ -12,22 +12,22 @@ use_credentials(profile = "default")
 currentDF <- s3readRDS(object = "internal-analytics/data/current.rds", 
                        bucket = "vizlab-data")
 
-begin <- "2016" #Jan 1st
-thru <- "2017" #dec 31st
+begin <- "2011" #Jan 1st
+thru <- "2015" #dec 31st
 
 starts <- seq(ymd(paste0(begin,'-01-01')), ymd(paste0(thru, "-01-01")), by = "years")
 ends <- seq(ymd(paste0(begin, '-12-31')), ymd(paste0(thru,'-12-31')), by = "years")
-ends <- replace(ends, length(ends), Sys.Date() - 1)
+#ends <- replace(ends, length(ends), Sys.Date() - 1)
 
 gar_auth_service('~/.vizlab/VIZLAB-a48f4107248c.json')
-new_GA_DF <- data.frame()
+
 
 #df of new accounts
-accSub
-
-for(v in accSub$viewId){
+accSub <- before2016
+new_GA_DF <- data.frame()
+for(v in accSub$id){
   view <- v
-  print(filter(accSub, viewId == view))
+  #print(filter(accSub, viewId == view))
   for(i in 1:length(starts)) {
     dateRange = c(starts[i], ends[i])
     idDF <- google_analytics_4(viewId =view, date_range = dateRange, 

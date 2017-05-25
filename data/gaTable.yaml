@@ -427,10 +427,10 @@
   websiteUrl: waterwatch.usgs.gov
   botFilteringEnabled: ''
   description: ''
-
-- longName: Water Science School
-  shortName: WaterSciSchool
-  accountName: .na.character
+  
+- longName: 'Water Science School'
+  shortName: 'WaterSciSchool'
+  accountName: ""
   viewID: '83658557'
   accountId: '22425935'
   webPropertyId: UA-22425935-1
@@ -438,12 +438,12 @@
   viewName: 1-Water Science School
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
-  botFilteringEnabled: .na.character
-  description: .na.character
-
-- longName: water.usgs.gov
-  shortName: water.usgs.gov
-  accountName: .na.character
+  botFilteringEnabled: ""
+  description: ""
+  
+- longName: 'water.usgs.gov'
+  shortName: 'water.usgs.gov'
+  accountName: ""
   viewID: '83660223'
   accountId: '22425935'
   webPropertyId: UA-22425935-1
@@ -609,3 +609,26 @@
   websiteUrl: http://example.com
   botFilteringEnabled: .na.character
   description: .na.character
+  
+- longName: "USGS Flood Event Viewer"
+  shortName: "FEV"
+  viewID: '131080146'
+  accountId: 61219868
+  webPropertyId: UA-61219868-14
+  viewName: All Web Site Data
+  timezone: "America/New_York"
+  websiteUrl: http://stn.wim.usgs.gov/fev/
+  botFilteringEnabled: "NA"
+  description: "NA"
+  
+- longName: "National Water Information System Mapper"
+  shortName: "NWISMapper"
+  viewID: "120202187"
+  accountId: 61219868
+  webPropertyId: "UA-61219868-8"
+  viewName: 'All Web Site Data'
+  timezone: "America/New_York"
+  websiteUrl: 'http://maps.waterdata.usgs.gov'
+  botFilteringEnabled: 'NA'
+  description: 'NA'
+  
