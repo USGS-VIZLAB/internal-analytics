@@ -4,12 +4,13 @@ process.aggregate_ga <- function(viz) {
   library(data.table)
   library(lubridate)
   library(assertthat)
-  allDataDF <- readDepends(viz)[['fetchGA']] #list of all depends
-
-  #drop data before longer than a year ago
+  deps <- readDepends(viz)
+  allDataDF <- deps[['fetchGA']] #list of all depends
+  table <- deps[['project_table']]
+  #drop data before longer than a year ago, and not in the table yaml
   allDataDF <- allDataDF %>%
     mutate(date = as.Date(date)) %>%
-    filter(date > (max(date) - duration(1, "year"))) 
+    filter(date > (max(date) - duration(1, "year")), viewID %in% table$viewID) 
   
   #make sure none of today's data snuck in on one-off GA pull
   assert_that(max(allDataDF$date) <= (Sys.Date() - 1))
