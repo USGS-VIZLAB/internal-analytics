@@ -59,6 +59,7 @@ plot_timeline <- function(viz.data, range_text){
   
   max_date <- max(viz.data$date, na.rm = TRUE)
   year_days = seq(max_date, length = 2, by = range_text) 
+  year_days[1] <- year_days[1] - 1
   full_dates <- seq(max_date, length = -as.numeric(diff(year_days))+1, by=-1)
   empty_df <- data.frame(date = full_dates)
   
