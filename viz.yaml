@@ -272,6 +272,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: 
       viz_data: year_filter
+      project_table: project_table
     plottype: app_hist
     height: 4
     width: 7
@@ -286,6 +287,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends: 
       viz_data: year_filter
+      project_table: project_table
     plottype: app_hist
     rangetext: "-1 year"
     height: 4
