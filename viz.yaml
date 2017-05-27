@@ -28,9 +28,6 @@ info:
     data.table:
       repo: CRAN
       version: 1.10.4
-    sbtools:
-      repo: CRAN
-      version: 1.1.6
     assertthat:
       repo: CRAN
       version: 0.2.0
@@ -79,6 +76,12 @@ info:
     stringr:
       repo: CRAN
       version: 1.2.0
+    aws.s3:
+      repo: CRAN
+      version: 0.3.1
+    aws.signature:
+      repo: CRAN
+      version: 0.2.9
 fetch:
   -
     id: fetchGA
@@ -86,8 +89,9 @@ fetch:
     scripts: scripts/fetch/fetchGA.R
     location: cache/fetch/current.rds
     reader: rds
-    remoteFilename: 'current.rds'
-    remoteItemId: '58e56f3ce4b09da679997f7f' #'hybrid' fetcher, will check SB first
+    s3Profile: 'default'
+    s3Path: 'internal-analytics/data/current.rds'
+    bucket: 'vizlab-data'
     update: TRUE #check for newer data from GA, and upload to sciencebase if there is
     useLocal: FALSE #Don't even download sciencebase file - overrides update
     depends: 
@@ -109,7 +113,9 @@ process:
     id: aggregate_ga
     processor: aggregate_ga
     scripts: scripts/process/aggregate.R
-    depends: fetchGA
+    depends: 
+      fetchGA: fetchGA
+      project_table: project_table
     reader: rds
     location: cache/process/aggregate_ga.rds
   -

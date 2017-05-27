@@ -3,21 +3,25 @@ library(googleAnalyticsR)
 library(googleAuthR)
 library(dplyr)
 library(data.table)
-library(sbtools)
 library(assertthat)
+library(aws.s3)
+library(aws.signature)
+
 fetch.GAviews <- function(viz) {
   #first get SB data - does it have data through yesterday? if no, and
   #update is true, run the fetcher for intervening time, and append, upload
 
   if(!viz[['useLocal']]) {
-
+    print(sessionInfo())
     #get file from sb with fetcher
-    viz[['fetcher']] <- 'sciencebase'
-    viz[['remoteFilename']] <- basename(viz[['location']])
-    message("Downloading SB file...")
-    fetch(as.fetcher(viz))
-    message('Downloaded SB file')
-
+    message("Downloading from S3")
+    use_credentials(profile = viz[['s3Profile']])
+    save_object(object = viz[['s3Path']], bucket = viz[['bucket']],
+                file = viz[['location']])
+    message('Downloaded S3 file')
+    fileDF <- readRDS(viz[['location']])
+    
+    
     if(viz[['update']]) {
       masterTable <- readDepends(viz)[['project_table']]
       #check if it is up to date (has yesterday's data) for each ID
@@ -34,7 +38,7 @@ fetch.GAviews <- function(viz) {
       needToUpdate <- bind_rows(needToUpdate, newIDs)
 
       if(nrow(needToUpdate) > 0) {
-        message("Sciencebase file is out of date, updating from GA")
+        message("S3 file is out of date, updating from GA")
         new_GA_DF <- data.frame()
         gar_auth_service(file.path(Sys.getenv("HOME"), ".vizlab/VIZLAB-a48f4107248c.json"))
         for(i in seq_len(nrow(needToUpdate))) {
@@ -59,17 +63,18 @@ fetch.GAviews <- function(viz) {
         assert_that(max(allDF$date) == (Sys.Date() - 1)) #note: is allDF$date char or date?
 
         saveRDS(allDF, file = viz[['location']])
-        message("Updating Sciencebase...")
-        item_replace_files(viz[['remoteItemId']], viz[['location']])
-        
+        message("Updating S3...")
+        put_object(file = viz[['location']], object = viz[['s3Path']],
+                   bucket = viz[['bucket']])
+        message("Done uploading")
       } else {
-        message("Sciencebase file is up to date, using that")
+        message("S3 file is up to date, using that")
       }
-    } else {message("update set to false in viz.yaml, using Sciencebase file")}
+    } else {message("update set to false in viz.yaml, using S3 file")}
   } else {message("useLocal = TRUE, not downloading anything")
       if(!file.exists(viz[['location']])) {
         stop("You don't have any local data!  Set useLocal = FALSE to download
-             from Sciencebase")
+             from S3")
       }
     }
 }
