@@ -261,11 +261,22 @@ visualize:
     scripts: scripts/visualize/viz_geo_portfolio.R
     depends: 
       viz_data: year_filter
-    plottype: geo_month
+    plottype: geo_year
     height: 4
     width: 7
     mimetype: text/csv
     location: cache/visualize/viz_geo_apps_year.csv
+  -
+    id: viz_geo_apps_month
+    visualizer: viz_geo_apps 
+    scripts: scripts/visualize/viz_geo_portfolio.R
+    depends: 
+      viz_data: month_filter
+    plottype: geo_month
+    height: 4
+    width: 7
+    mimetype: text/csv
+    location: cache/visualize/viz_geo_apps_month.csv
   -
     id: portfolio_timeDayUse_year
     visualizer: portfolio_timeDayUse 
