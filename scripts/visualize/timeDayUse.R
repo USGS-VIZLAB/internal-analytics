@@ -29,6 +29,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app_year")) {
   library(ggplot2)
   library(scales)
   
+  dep_data <- readDepends(viz)
   viz.data <- dep_data[["viz_data"]] 
   project.data <- dep_data[["project_table"]]
   

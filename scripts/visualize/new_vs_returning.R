@@ -1,4 +1,4 @@
-visualize.viz_new_vs_returning <- function(viz = as.viz("viz_month_sessions")){
+visualize.viz_new_vs_returning <- function(viz){
   library(dplyr)
   library(ggplot2)
   library(scales)
@@ -14,7 +14,7 @@ visualize.viz_new_vs_returning <- function(viz = as.viz("viz_month_sessions")){
     
     port_source <- new_return_plot(sub_data, bar_line_col)
     
-    location <- paste0("cache/visualize/",i,"_session_pie.png")
+    location <- paste0("cache/visualize/",i,viz[["id"]],".png")
     
     ggsave(port_source, filename = location, 
            height = height, width = width)

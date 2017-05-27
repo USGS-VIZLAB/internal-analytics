@@ -15,7 +15,12 @@
 				{{{portfolio_sessions_all}}}
 			</div>
     </section>
-<section id="lineAssessments" class="full">
+    <div id="toggleButtons">
+  		  <button id="yearButton" class="active">Year</button>
+  			<button id="monthButton">Month</button>
+  			<button id="weekButton">Week</button>
+		</div>
+  <section id="lineAssessments" class="full">
 			<div class="header">
 				<h3>Timeline Summaries</h3>
 				<div class="information">
@@ -26,8 +31,18 @@
 				</div>
 			</div>
 			<div class="chartArea">
-			  <h3>Year</h3>
-				{{{portfolio_timeline_year}}}
+				<span class="year figure">
+			    <h3>Year</h3>
+				  {{{portfolio_timeline_year}}}
+				</span>
+				<span class="month figure">
+			    <h3>Month</h3>
+				  {{{portfolio_timeline_month}}}
+				</span>
+				<span class="week figure">
+			    <h3>Week</h3>
+				  {{{portfolio_timeline_week}}}
+				</span>
 			</div>
 		</section>
 		<section class="half flexContainer">
@@ -116,7 +131,18 @@
 				  </div>
 				</div>
 				<div class="chartArea">
-					{{{portfolio_timeDayUse_year}}}
+  				<span class="year figure">
+  			    <h3>Year</h3>
+  				  {{{portfolio_timeDayUse_year}}}
+  				</span>
+  				<span class="month figure">
+  			    <h3>Month</h3>
+  				  {{{portfolio_timeDayUse_month}}}
+  				</span>
+  				<span class="week figure">
+  			    <h3>Week</h3>
+  				  {{{portfolio_timeDayUse_week}}}
+  				</span>
 				</div>
 			</div>
 		</section>

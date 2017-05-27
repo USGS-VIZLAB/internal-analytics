@@ -1,4 +1,4 @@
-process.aggregate_ga <- function(viz) {
+process.year_filter <- function(viz) {
   #not really aggregating anymore - just drops > year old data, adds dateTime
   library(dplyr)
   library(data.table)
