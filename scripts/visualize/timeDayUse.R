@@ -45,7 +45,7 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app_year")) {
   
   for(i in unique(viz.data$viewID)) {
     
-    location <- paste0("cache/visualize/timeDayUse_", i, ".png")
+    location <- paste0("cache/visualize/", i,plot_type, ".png")
     
     sub.data <- filter(viz.data, viewID == i) 
 
