@@ -149,6 +149,16 @@ process:
     reader: rds
     publisher: none
     location: cache/process/project_links.rds
+  -
+    id: sessions_all
+    processor: sessions_all 
+    breaks: [10000, 100000, 1000000]
+    scripts: scripts/process/sessions_all.R
+    depends: 
+      viz_data: year_filter
+      project_table: project_table
+    reader: rds
+    location: cache/process/sessions_all.rds
 
 visualize:
   -
@@ -512,8 +522,7 @@ visualize:
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends: 
-      viz_data: year_filter
-      project_table: project_table
+      sessions_all: sessions_all
     mimetype: image/png
     alttext: "Latest year sessions"
     title: "Latest year sessions"
