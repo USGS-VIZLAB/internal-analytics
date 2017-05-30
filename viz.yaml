@@ -168,6 +168,7 @@ visualize:
     depends: 
       viz_data: year_filter
     mimetype: text/csv
+    plottype: year_new
     height: 4
     width: 7
     bar_line_col: "#4f9a97"
@@ -179,6 +180,7 @@ visualize:
     depends: 
       viz_data: month_filter
     mimetype: text/csv
+    plottype: month_new
     height: 4
     width: 7
     bar_line_col: "#4f9a97"
@@ -190,6 +192,7 @@ visualize:
     depends: 
       viz_data: week_filter
     mimetype: text/csv
+    plottype: week_new
     height: 4
     width: 7
     bar_line_col: "#4f9a97"
