@@ -1,4 +1,4 @@
-visualize.viz_new_vs_returning <- function(viz = as.viz("viz_month_sessions")){
+visualize.viz_new_vs_returning <- function(viz){
   library(dplyr)
   library(ggplot2)
   library(scales)
@@ -8,25 +8,31 @@ visualize.viz_new_vs_returning <- function(viz = as.viz("viz_month_sessions")){
   height = viz[["height"]]
   width = viz[["width"]]
   bar_line_col = viz[["bar_line_col"]]
-
+  plottype <- viz[["plottype"]]
+  
+  x <- data.frame(id = character(),
+                  loc = character(),
+                  type = character(),
+                  stringsAsFactors = FALSE)
+  
   for(i in unique(viz.data$viewID)){
     sub_data <- filter(viz.data, viewID == i)
     
     port_source <- new_return_plot(sub_data, bar_line_col)
     
-    location <- paste0("cache/visualize/",i,"_session_pie.png")
+    location <- paste0("cache/visualize/",i,plottype,".png")
     
     ggsave(port_source, filename = location, 
            height = height, width = width)
     
+    x <- bind_rows(x, data.frame(id = i,
+                                 loc = location,
+                                 type = plottype,
+                                 stringsAsFactors = FALSE))      
+    
   }
   
-  x <- data.frame(id = unique(viz.data$viewID),
-                  loc = paste0("cache/visualize/",
-                               unique(viz.data$viewID),
-                               "_session_pie.png"),
-                  type = "session_pie",
-                  stringsAsFactors = FALSE)
+
   write.csv(x, file=viz[["location"]], row.names = FALSE)
   
 }

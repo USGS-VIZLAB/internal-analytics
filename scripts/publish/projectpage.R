@@ -8,13 +8,23 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
   
   img.files <- list(
     new_vs_returning_year = deps[['new_vs_returning_year']],
+    new_vs_returning_month = deps[['new_vs_returning_month']],
+    new_vs_returning_week = deps[['new_vs_returning_week']],
     year_line_sessions = deps[['viz_y_sessions']],
     month_line_sessions = deps[['viz_m_sessions']],
     week_line_sessions = deps[['viz_w_sessions']],
     viz_device_type_year = deps[['viz_device_type_year']],
+    viz_device_type_month = deps[['viz_device_type_month']],
+    viz_device_type_week = deps[['viz_device_type_week']],
     viz_source_year = deps[['viz_source_year']],
+    viz_source_month = deps[['viz_source_month']],
+    viz_source_week = deps[['viz_source_week']],
     viz_geo_apps_year = deps[["viz_geo_apps_year"]],
-    timeDayUse_app_year = deps[["timeDayUse_app_year"]]
+    viz_geo_apps_month = deps[["viz_geo_apps_month"]],
+    viz_geo_apps_week = deps[["viz_geo_apps_week"]],
+    timeDayUse_app_year = deps[["timeDayUse_app_year"]],
+    timeDayUse_app_month = deps[["timeDayUse_app_month"]],
+    timeDayUse_app_week = deps[["timeDayUse_app_week"]]
   )
   
   table.files <- deps[["app_time"]]
@@ -59,13 +69,23 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           project_description = proj$description,
           project_URL = proj$websiteUrl,
           new_vs_returning_year = proj.imgs[['new_vs_returning_year']],
+          new_vs_returning_month = proj.imgs[['new_vs_returning_month']],
+          new_vs_returning_week = proj.imgs[['new_vs_returning_week']],
           year_line_sessions = proj.imgs[['year_line_sessions']],
           month_line_sessions = proj.imgs[['month_line_sessions']],
           week_line_sessions = proj.imgs[['week_line_sessions']],
           viz_device_type_year = proj.imgs[['viz_device_type_year']],
+          viz_device_type_month = proj.imgs[['viz_device_type_month']],
+          viz_device_type_week = proj.imgs[['viz_device_type_week']],
           viz_source_year = proj.imgs[['viz_source_year']],
+          viz_source_month = proj.imgs[['viz_source_month']],
+          viz_source_week = proj.imgs[['viz_source_week']],
           viz_geo_apps_year = proj.imgs[["viz_geo_apps_year"]],
+          viz_geo_apps_month = proj.imgs[["viz_geo_apps_month"]],
+          viz_geo_apps_week = proj.imgs[["viz_geo_apps_week"]],
           timeDayUse_app_year = proj.imgs[["timeDayUse_app_year"]],
+          timeDayUse_app_month = proj.imgs[["timeDayUse_app_month"]],
+          timeDayUse_app_week = proj.imgs[["timeDayUse_app_week"]],
           app_time = table.html
       ))
     )

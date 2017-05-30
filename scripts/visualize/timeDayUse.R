@@ -5,16 +5,17 @@ library(scales)
 
 visualize.portfolio_timeDayUse <- function(viz=as.viz("portfolio_timeDayUse_year")) {
   
-  viz.data <- readDepends(viz)[["viz_data"]] 
+  dep_data <- readDepends(viz)
+  
+  viz.data <- dep_data[["viz_data"]] 
+  project.data <- dep_data[["project_table"]]
   
   height = viz[["height"]]
   width = viz[["width"]]
   plot_type <- viz[["plottype"]]
   bar_line_col = viz[["bar_line_col"]]
   
-  #TODO: add in timezone correction
-  
-  port_device <- plot_tod(viz.data, bar_line_col)
+  port_device <- plot_tod(viz.data, bar_line_col, project.data)
   
   ggsave(port_device, filename = viz[["location"]], 
          height = height, width = width)
@@ -28,7 +29,9 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app_year")) {
   library(ggplot2)
   library(scales)
   
-  viz.data <- readDepends(viz)[["viz_data"]]
+  dep_data <- readDepends(viz)
+  viz.data <- dep_data[["viz_data"]] 
+  project.data <- dep_data[["project_table"]]
   
   height = viz[["height"]]
   width = viz[["width"]]
@@ -42,11 +45,11 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app_year")) {
   
   for(i in unique(viz.data$viewID)) {
     
-    location <- paste0("cache/visualize/timeDayUse_", i, ".png")
+    location <- paste0("cache/visualize/", i,plot_type, ".png")
     
     sub.data <- filter(viz.data, viewID == i) 
 
-    port_device <- plot_tod(sub.data,bar_line_col)
+    port_device <- plot_tod(sub.data,bar_line_col, project.data)
     
     ggsave(port_device, filename = location, 
            height = height, width = width)
@@ -59,7 +62,12 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app_year")) {
   write.csv(x, file=viz[["location"]], row.names = FALSE)
 }
 
-plot_tod <- function(viz.data, bar_line_col){
+plot_tod <- function(viz.data, bar_line_col, project.data){
+  
+  central_sites <- project.data$viewID[project.data$timezone == "America/Chicago"]
+  
+  viz.data$hour[viz.data$viewID %in% central_sites] <- as.character(as.numeric(viz.data$hour[viz.data$viewID %in% central_sites]) + 1)
+  
   
   hourSum <- viz.data %>% 
     group_by(hour) %>% 

@@ -1,4 +1,4 @@
-visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
+visualize.portfolio_source <- function(viz){
   library(dplyr)
   library(ggplot2)
   library(scales)
@@ -11,9 +11,6 @@ visualize.portfolio_source <- function(viz = as.viz("portfolio_source")){
   
   viz.data <- readDepends(viz)[["viz_data"]]
 
-  viz.data <- viz.data %>%
-    select(-date)
-  
   port_source <- plot_sources(viz.data, bar_line_col)
 
   ggsave(port_source, filename = viz[["location"]], 
@@ -32,10 +29,7 @@ visualize.viz_source <- function(viz = as.viz("viz_source")){
   bar_line_col = viz[["bar_line_col"]]
   
   viz.data <- readDepends(viz)[["viz_data"]]
-  
-  viz.data <-  viz.data %>%
-    select(-date)
-  
+
   x <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
