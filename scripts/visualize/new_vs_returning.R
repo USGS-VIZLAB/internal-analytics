@@ -27,7 +27,7 @@ visualize.viz_new_vs_returning <- function(viz){
     
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
-                                 type = plot_type,
+                                 type = plottype,
                                  stringsAsFactors = FALSE))      
     
   }
