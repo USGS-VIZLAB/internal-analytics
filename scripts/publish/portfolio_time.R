@@ -106,13 +106,13 @@ visualize.app_time <- function(viz = as.viz("app_time")){
     
     ave_time_on_page <- mean(sub_data_range$avgSessionDuration, na.rm = TRUE)
     
-    total_time_year <- sum(sub_data_range$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
+    total_time_year <- sum(sub_data_range$avgSessionDuration[sub_data_range$date >= range_days[2]], na.rm = TRUE) 
     
-    range_days = seq(latest_day, length = 2, by = range_text[2])
-    total_time_month <- sum(sub_data_range$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
+    range_month = seq(latest_day, length = 2, by = range_text[2])
+    total_time_month <- sum(sub_data_range$avgSessionDuration[sub_data_range$date >= range_month[2]], na.rm = TRUE) 
     
-    range_days = seq(latest_day, length = 2, by = range_text[3])
-    total_time_week <- sum(sub_data_range$avgSessionDuration[viz.data$date >= range_days[2]], na.rm = TRUE) 
+    range_week = seq(latest_day, length = 2, by = range_text[3])
+    total_time_week <- sum(sub_data_range$avgSessionDuration[sub_data_range$date >= range_week[2]], na.rm = TRUE) 
     
     df <- pretty_time(c(ave_time_on_page, total_time_week, total_time_month, total_time_year))
     row.names(df) <- c("Average", "Total Week","Total Month","Total Year")
