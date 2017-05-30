@@ -41,6 +41,7 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
   }
   
   summary_data <- summary_data %>% 
+    filter(!is.na(longName)) %>%
     arrange(desc(sessions)) %>%
     mutate(session_text = sapply(sessions, function(x) pretty_num(x)),
            type = factor(type, levels = level_text))
