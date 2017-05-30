@@ -153,14 +153,13 @@ process:
     id: sessions_all
     processor: sessions_all 
     breaks: [10000, 100000, 1000000]
-   max_char: 50
+    max_char: 50
     scripts: scripts/process/sessions_all.R
     depends: 
       viz_data: year_filter
       project_table: project_table
     reader: rds
     location: cache/process/sessions_all.rds
-
 visualize:
   -
     id: new_vs_returning_year
