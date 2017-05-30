@@ -30,7 +30,7 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
       summarize(sessions = sum(sessions, na.rm = TRUE), 
                 newUsers = sum(newUsers, na.rm = TRUE)) %>%
       arrange(sessions) %>%
-      left_join(select(ga_table, viewID, longName), by="viewID") %>%
+      left_join(select(ga_table, viewID, longName, shortName), by="viewID") %>%
       mutate(type = paste(j,"\n",paste0(range(range_days), collapse = " to "))) %>%
       select(-viewID)
     
@@ -41,7 +41,6 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
   }
   
   summary_data <- summary_data %>% 
-    filter(!is.na(longName)) %>% 
     arrange(desc(sessions)) %>%
     mutate(session_text = sapply(sessions, function(x) pretty_num(x)),
            type = factor(type, levels = level_text))
@@ -53,6 +52,9 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
                      breaks = c(-Inf, viz[['breaks']], Inf),
                      labels = c("Low", "Moderate", "High", "Very High") )) %>% 
     arrange(desc(sessions))
+  
+  max_char <- viz[["max_char"]]
+  summary_data$longName[nchar(summary_data$longName) > max_char] <- summary_data$shortName[nchar(summary_data$longName) > max_char]
   
   summary_data_full <- left_join(summary_data, 
                                  select(break_data, bin, longName), by="longName")%>%
