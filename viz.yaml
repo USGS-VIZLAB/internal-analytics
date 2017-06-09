@@ -208,7 +208,7 @@ visualize:
     bar_line_col: "#4f9a97"
     plottype: year_line
     mimetype: image/png
-    alttext: "Latest year new vs returning"
+    alttext: "New and returning users over past year"
     title: "Latest year new vs returning"
     location: figures/portfolio_new_return_year.png
   -
@@ -222,7 +222,7 @@ visualize:
     bar_line_col: "#4f9a97"
     plottype: month_line
     mimetype: image/png
-    alttext: "Latest month new vs returning"
+    alttext: "New and returning users over past month"
     title: "Latest month new vs returning"
     location: figures/portfolio_new_return_month.png
   -
@@ -236,7 +236,7 @@ visualize:
     bar_line_col: "#4f9a97"
     plottype: week_line
     mimetype: image/png
-    alttext: "Latest week new vs returning"
+    alttext: "New and returning users over past week"
     title: "Latest week new vs returning"
     location: figures/portfolio_new_return_week.png
   -
@@ -274,7 +274,7 @@ visualize:
     plottype: year_line
     mimetype: image/png
     range_text: "-1 year"
-    alttext: "Latest year timeline"
+    alttext: "Timeseries of sessions over past year"
     title: "Latest year timeline"
     location: figures/portfolio_timeline_year.png
   -
@@ -288,7 +288,7 @@ visualize:
     plottype: month_line
     range_text: "-1 month"
     mimetype: image/png
-    alttext: "Latest month timeline"
+    alttext: "Timeseries of sessions over past month"
     title: "Latest month timeline"
     location: figures/portfolio_timeline_month.png
   -
@@ -302,7 +302,7 @@ visualize:
     plottype: week_line
     range_text: "-1 week"
     mimetype: image/png
-    alttext: "Latest week timeline"
+    alttext: "Timeseries of sessions over past week"
     title: "Latest week timeline"
     location: figures/portfolio_timeline_week.png
   -
@@ -368,7 +368,7 @@ visualize:
     width: 7
     bar_line_col: "#4f9a97"
     mimetype: image/png
-    alttext: "Latest year time of day"
+    alttext: "Daily traffic patterns over past year"
     title: "Latest year time of day"
     location: figures/portfolio_timeDayUse_year.png
   -
@@ -383,7 +383,7 @@ visualize:
     width: 7
     bar_line_col: "#4f9a97"
     mimetype: image/png
-    alttext: "Latest month time of day"
+    alttext: "Daily traffic patterns over past month"
     title: "Latest month time of day"
     location: figures/portfolio_timeDayUse_month.png
   -
@@ -398,7 +398,7 @@ visualize:
     width: 7
     bar_line_col: "#4f9a97"
     mimetype: image/png
-    alttext: "Latest week time of day"
+    alttext: "Daily traffic patterns over past week"
     title: "Latest week time of day"
     location: figures/portfolio_timeDayUse_week.png
   -
@@ -527,7 +527,7 @@ visualize:
     depends: 
       sessions_all: sessions_all
     mimetype: image/png
-    alttext: "Latest year sessions"
+    alttext: "Annual timeseries of sessions"
     title: "Latest year sessions"
     location: figures/portfolio_sessions_all.png
   -
@@ -540,7 +540,7 @@ visualize:
     depends: 
       viz_data: year_filter
     mimetype: image/png
-    alttext: "portfolio_device_type year"
+    alttext: "Annual traffic by device type"
     title: "portfolio_device_type year"
     location: figures/portfolio_device_type_year.png
   -
@@ -553,7 +553,7 @@ visualize:
     depends: 
       viz_data: month_filter
     mimetype: image/png
-    alttext: "portfolio_device_type month"
+    alttext: "Monthly traffic by device type"
     title: "portfolio_device_type month"
     location: figures/portfolio_device_type_month.png
   -
@@ -566,7 +566,7 @@ visualize:
     depends: 
       viz_data: week_filter
     mimetype: image/png
-    alttext: "portfolio_device_type week"
+    alttext: "Weekly traffic by device type"
     title: "portfolio_device_type week"
     location: figures/portfolio_device_type_week.png
   -
@@ -579,7 +579,7 @@ visualize:
     depends: 
       viz_data: year_filter
     mimetype: image/png
-    alttext: "portfolio_source year"
+    alttext: "Annual traffic by referral source"
     title: "portfolio_source year "
     location: figures/portfolio_source_year.png
   -
@@ -592,7 +592,7 @@ visualize:
     depends: 
       viz_data: month_filter
     mimetype: image/png
-    alttext: "portfolio_source month"
+    alttext: "Montly traffic by referral source"
     title: "portfolio_source month"
     location: figures/portfolio_source_month.png
   -
@@ -605,7 +605,7 @@ visualize:
     depends: 
       viz_data: week_filter
     mimetype: image/png
-    alttext: "portfolio_source week"
+    alttext: "Weekly traffic by referral source"
     title: "portfolio_source week"
     location: figures/portfolio_source_week.png
   -
@@ -618,7 +618,7 @@ visualize:
     width: 7
     high_col: "#3182bd"
     low_col: "white"
-    alttext: "Map of essions over the last year"
+    alttext: "Geographic location of traffic over past year"
     title: "Map of sessions over the last year"
     mimetype: image/png
     location: figures/viz_geo_portfolio_year.png
@@ -632,7 +632,7 @@ visualize:
     width: 7
     high_col: "#3182bd"
     low_col: "white"
-    alttext: "Map of essions over the last month"
+    alttext: "Geographic location of traffic over past month"
     title: "Map of sessions over the last month"
     mimetype: image/png
     location: figures/viz_geo_portfolio_month.png
@@ -646,7 +646,7 @@ visualize:
     width: 7
     high_col: "#3182bd"
     low_col: "white"
-    alttext: "Map of essions over the last week"
+    alttext: "Geographic location of traffic over past week"
     title: "Map of sessions over the last week"
     mimetype: image/png
     location: figures/viz_geo_portfolio_week.png
@@ -668,7 +668,7 @@ publish:
     depends: 
       viz_data: year_filter
     mimetype: text/html
-    alttext: "portfolio_time"
+    alttext: "Estimated average and total time on page"
     title: "portfolio_time"
   -
     id: openSans
@@ -775,15 +775,32 @@ publish:
       header: header
       footer: footer
       informationImg: informationImg
-      info_source: "This is the text on traffic source for the app"
-      info_geo: >-
-        This is really long information about the map for each app.
-      info_device: "Info on device."
-      info_ave_time: "Info on avg time table."
-      info_time_of_day: "Info on time of day graph"
-      info_new_return: "Info on new vs returning pie chart"
-      info_session_time: >-
-        Info on year, month, week, day graphs
+   info_source: >-
+	  This plot shows the top ten referral sources for the application(s) over the selected time period.
+   info_time_of_day: >-
+	  This plot shows daily usage pattern for application(s) over the selected time period. Users should interpret this figure with caution,
+	  as the time zone is set by individual account administrators, and varies by application. 
+   info_new_return: >-
+	  This figure shows the relative number of new versus returning users for the application(s) over the selected time period. 
+   info_geo: >-
+     The map below displays the geographic location of traffic to the application(s) over the selected time period.
+   info_sessions: >-
+	  In this plot, web applications are ranked in descending order based on the number of sessions, or unique user interactions, per year. 
+	  New users are indicated by the bolded portion of each line and returning users are indicated by the unbolded portion. 
+	  Applications are grouped by Very High Traffic (>1 million sessions per year), High Traffic (100k - 1 million sessions per year), 
+	  Moderate Traffic (10k - 100k sessions per year), and Low Traffic (<10k sessions per year). "
+   info_device: >-
+	  This plot displays the number of session originating from desktop, mobile, and tablet devices for the selected tiem period.
+   info_ave_time: >-
+	  This table shows average time spent on application(s), as measured by Google Analtyics. Caution in the interpretation of this value should be used, as
+	  this number can be biased by users who exit a website without navigating to another page or otherwise interacting with the application. Total Week,
+	  Month, and Year time is an estimate of the total time spent with the application(s), calculated by multiplying Average Time on Page by the 
+	  number of session over a given period of time. Any bias in Average Time will propagate to Total Time estimates; caution in the interpretation 
+	  of these values is needed.
+
+   info_session_time: >-
+     In this plot, a time series of sessions (traffic) is shown for application(s) over the selected
+	time period.
       resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
   -
     id: project_list
