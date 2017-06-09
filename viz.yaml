@@ -851,16 +851,32 @@ publish:
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
       informationImg: informationImg
-      info_source: "This is the text on source"
-      info_time_of_day: "Time of day graph"
-      info_new_return: "Info on new vs returning pie chart"
+      info_source: >-
+		  This plot shows the top ten referral sources for the application(s) over the selected time period.
+      info_time_of_day: >-
+		  This plot shows daily usage pattern for application(s) over the selected time period. Users should interpret this figure with caution,
+		  as the time zone is set by individual account administrators, and varies by application. 
+      info_new_return: >-
+		  This figure shows the relative number of new versus returning users for the application(s) over the selected time period. 
       info_geo: >-
-        This is really long information about the map.
-      info_sessions: "Information on big session graph"
-      info_device: "Info on device."
-      info_ave_time: "Info on avg time."
+        The map below displays the geographic location of traffic to the application(s) over the selected time period.
+      info_sessions: >-
+		  In this plot, web applications are ranked in descending order based on the number of sessions, or unique user interactions, per year. 
+		  New users are indicated by the bolded portion of each line and returning users are indicated by the unbolded portion. 
+		  Applications are grouped by Very High Traffic (>1 million sessions per year), High Traffic (100k - 1 million sessions per year), 
+		  Moderate Traffic (10k - 100k sessions per year), and Low Traffic (<10k sessions per year). "
+      info_device: >-
+		  This plot displays the number of session originating from desktop, mobile, and tablet devices for the selected tiem period.
+      info_ave_time: >-
+		  This table shows average time spent on application(s), as measured by Google Analtyics. Caution in the interpretation of this value should be used, as
+		  this number can be biased by users who exit a website without navigating to another page or otherwise interacting with the application. Total Week,
+		  Month, and Year time is an estimate of the total time spent with the application(s), calculated by multiplying Average Time on Page by the 
+		  number of session over a given period of time. Any bias in Average Time will propagate to Total Time estimates; caution in the interpretation 
+		  of these values is needed.
+	
       info_session_time: >-
-        Info on year, month, week, day graphs
+        In this plot, a time series of sessions (traffic) is shown for application(s) over the selected
+		time period.
   -
     id: sideBar
     publisher: section
