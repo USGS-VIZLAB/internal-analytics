@@ -584,7 +584,7 @@
   botFilteringEnabled: .na.character
   description: .na.character
 
-- longName: 'Connection River Systems Restoration Assessment Web App'
+- longName: 'Connecting River Systems Restoration Assessment Web App'
   shortName: 'GLCWRA-CRSRA'
   accountName: WIM USGS
   viewID: '137355369'
