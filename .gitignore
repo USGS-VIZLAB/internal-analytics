@@ -3,5 +3,6 @@ target/
 user/
 figures/
 vizlab/
-makefile
+[Mm]akefile
 .Rproj.user
+.Rhistory
