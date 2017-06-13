@@ -603,7 +603,10 @@
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    The USGS Water Mission Area home page. Water's mission is to collect and disseminate
+    reliable, impartial, and timely information that is needed to understand the Nation's
+    water resources.
 
 - longName: "Streamer - TX WSC"
   shortName: 'Streamer'
@@ -629,7 +632,10 @@
   timezone: America/New_York
   websiteUrl: http://streamstatsags.cr.usgs.gov/streamstats/
   botFilteringEnabled: 'FALSE'
-  description: .na.character
+  description: >-
+    StreamStats is a Web-based Geographic Information Systems (GIS) application that provides
+    users with access to an assortment of analytical tools that are useful for a variety of
+    water-resources planning and management purposes, and for engineering and design purposes.
 
 - longName: "Sparrow Tennessee"
   shortName: "SparrowTN"
@@ -655,7 +661,10 @@
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov/wateralert/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    Web-based map that links to USGS gage data and allows users to subscribe to site notifications
+    through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
+    parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
 
 - longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
   shortName: "NaWQASWTrends"
@@ -668,7 +677,13 @@
   timezone: America/New_York
   websiteUrl: http://test.wim.usgs.gov/swtrends/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This mapper provides results from the largest-ever assessment of water-quality changes in the
+    Nation's streams and rivers. More than 185 million water-quality records from over 600 Federal,
+    State, Tribal, and local organizations were screened as part of this assessment. The mapper
+    shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity)
+    and aquatic ecology (fish, invertebrates, and algae) for four time periods: 1972-2012, 1982-2012,
+    1992-2012, and 2002-2012.
 
 - longName: 'National Water-Quality Assessment - Decadal Trends Mapper'
   shortName: 'NaWQADecadalTrendsMapper'
@@ -681,7 +696,11 @@
   timezone: America/Los_Angeles
   websiteUrl: http://nawqatrends.wim.usgs.gov/Decadal/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This mapper shows how concentrations of pesticides, nutrients, metals, and organic contaminants
+    in groundwater are changing during decadal periods across the Nation. Tracking changes in
+    groundwater quality and investigating the reasons for these changes is crucial for informing
+    management decisions to protect and sustain our valuable groundwater resources.
 
 - longName: 'NPS Mercury Mapper'
   shortName: 'NPSMercuryMapper'
@@ -694,7 +713,12 @@
   timezone: America/New_York
   websiteUrl: http://wim.usgs.gov/MercuryMapper/MercuryMapper.html
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This mapper is intended to assist park managers in understanding the relative potential for
+    mercury issues in their park unit. The data in this mapper do not represent measured
+    methylmercury concentrations, but rather a predicted methylmercury concentration based on
+    measured water quality and landscape variables believed to influence methylation in natural
+    systems. Data are modeled to 8-digit hydrologic units.
 
 - longName: 'Mississippi River Basin Flood of 2015/2016'
   shortName: 'MARB'
@@ -707,7 +731,9 @@
   timezone: America/Los_Angeles
   websiteUrl: http://commons.wim.usgs.gov/MARBFlood2015/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This map shows the location of USGS continuous water-quality monitoring stations throughout
+    the Mississippi River basin that provides information on the impact of flooding on water quality.
 
 - longName: 'Western Lake Erie Restoration Assessment Web App'
   shortName: 'GLCWRA-WLERA'
@@ -720,7 +746,10 @@
   timezone: America/Chicago
   websiteUrl: https://glcwra.wim.usgs.gov/wlera/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This is the web mapping application for interfacing with the Western Lake Erie Restoration
+    Assessment (WLERA) model. The WLERA is a geodesign framework for measuring the potential to
+    restore coastal wetlands in the Great Lakes basin.
 
 - longName: 'Saginaw Bay Restoration Assessment Web App'
   shortName: 'GLCWRA-SBRA'
@@ -733,7 +762,10 @@
   timezone: America/New_York
   websiteUrl: https://glcwra.wim.usgs.gov/sbra/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This is the web mapping application for interfacing with the Saginaw Bay Restoration Assessment
+    (SBRA) model, which is an extension of the Western Lake Erie Restoration Assessment (WLERA) model.
+    The SBRA extends along the shore of Lake Huron from the St. Clair River through Saginaw Bay.
 
 - longName: 'Connecting River Systems Restoration Assessment Web App'
   shortName: 'GLCWRA-CRSRA'
@@ -746,7 +778,11 @@
   timezone: America/Chicago
   websiteUrl: https://glcwra.wim.usgs.gov/crsra/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This is the web mapping application for interfacing with the Connecting River Systems Restoration
+    Assessment (CRSRA) model, which is an extension of the Western Lake Erie Restoration Assessment
+    (WLERA) model. The CRSRA is focused on the connecting channels area that includes the Detroit River,
+    Lake St. Clair, and the St. Clair River.
 
 - longName: "Flood Inundation Mapper"
   shortName: "FIM"
@@ -770,7 +806,11 @@
   timezone: "America/New_York"
   websiteUrl: http://stn.wim.usgs.gov/fev/
   botFilteringEnabled: "NA"
-  description: "NA"
+  description: >-
+    The USGS Flood Event Viewer (FEV) is the public data discovery component of the
+    Short-Term Network (STN) database. Data viewable and downloadable from this page
+    are from the STN database. This application integrates with the USGS National Water
+    Information System (NWIS) database  for display of time-series water data.
 
 - longName: "National Water Information System Mapper"
   shortName: "NWISMapper"
@@ -781,5 +821,6 @@
   timezone: "America/New_York"
   websiteUrl: 'http://maps.waterdata.usgs.gov'
   botFilteringEnabled: 'NA'
-  description: 'NA'
+  description: >-
+    This is the web mapping application for interfacing with NWIS data.
 
