@@ -66,21 +66,38 @@ new_return_plot <- function(viz.data, bar_line_col){
     gather(new.or.returning, value) %>%
     group_by(new.or.returning) %>%
     summarize(Sessions = sum(value)) %>%
-    mutate(percent = Sessions/sum(Sessions, na.rm = TRUE),
-           new.or.returning = factor(new.or.returning))
+    mutate(pos = Sessions/2)
 
-  port_source <- ggplot(data = x, aes(x = new.or.returning)) +
-    geom_col(aes(y = Sessions), fill = bar_line_col) +
-    geom_text(aes(y = Sessions/2, label = comma(Sessions)), size = 3, color = "grey30") +
+  port_source <- ggplot() +
+    geom_col(data = x, aes(x = new.or.returning, y = Sessions), fill = bar_line_col) +
     coord_flip() +
     theme_minimal() +
     theme(axis.title.y=element_blank(),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
+          axis.text.y = element_text(size = 14),
           axis.text.x = element_blank(),
+          axis.title.x = element_text(size=14, color = "grey30"),
           panel.border = element_blank(),
-          plot.margin=unit(c(0.1,1,0.1,0.1),"cm")) +
-    scale_y_continuous(labels = comma)
+          plot.margin=unit(c(0.1,1,0.1,0.1),"cm"))
+
+  if(min(x$Sessions) < 0.35*max(x$Sessions)){
+    offcenter_index <- which.min(x$Sessions)
+    centered <- x[-offcenter_index,]
+    offcenter <- x[offcenter_index,]
+    offcenter$pos <- offcenter$Sessions
+
+    port_source <- port_source +
+      geom_text(data = centered, aes(x = new.or.returning, y = pos, label = comma(Sessions)),
+                size = 5, color = "white") +
+      geom_text(data = offcenter, aes(x = new.or.returning, y = pos, label = comma(Sessions)),
+                size = 5, color = "grey30", hjust = 0,
+                nudge_y = 0.05*offcenter$pos)
+  } else {
+    port_source <- port_source +
+      geom_text(data = x, aes(x = new.or.returning, y = pos, label = comma(Sessions)),
+                size = 5, color = "white")
+  }
 
   return(port_source)
 }
