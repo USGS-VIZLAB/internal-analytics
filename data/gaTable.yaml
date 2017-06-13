@@ -649,9 +649,13 @@
   internalWebPropertyId: '136938859'
   viewName: All Web Site Data
   timezone: America/Los_Angeles
-  websiteUrl: http://example.com
+  websiteUrl: http://wim.usgs.gov/sparrowtennessee/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    Spatially-Referenced Regresson On Watershed Attributes (SPARROW) is designed for predicting
+    long-term average values of concentrations and amounts of selected constituents delivered to
+    downstream receiving waters. This particular application is designed to display U.S.
+    Geological Survey SPARROW data in Tennessee.
 
 - longName: 'National Water Information System Mapper - Water Alert'
   shortName: 'NWISMapper-WaterAlert'
