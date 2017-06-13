@@ -617,9 +617,12 @@
   internalWebPropertyId: '70826807'
   viewName: All Web Site Data
   timezone: America/Chicago
-  websiteUrl: http://www.nationalmap.gov/streamer/
+  websiteUrl: https://txpub.usgs.gov/DSS/streamer/web/
   botFilteringEnabled: 'TRUE'
-  description: .na.character
+  description: >-
+    Web-based mapper that visualizes water flow across America. Streamer allows users to explore our
+    Nation's major streams by tracing upstream to their source or downstream to where they empty. It
+    also creates reports about your stream traces and the places they pass through.
 
 - longName: 'USGS StreamStats'
   shortName: 'StreamStats'
