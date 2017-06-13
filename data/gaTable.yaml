@@ -793,9 +793,14 @@
   internalWebPropertyId: '142720692'
   viewName: All Web Site Data
   timezone: America/Los_Angeles
-  websiteUrl: http://example.com
+  websiteUrl: http://wimcloud.usgs.gov/apps/FIM/FloodInundationMapper.html
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+     The FIM Mapper allows users to explore the full set of inundation maps that shows where
+     flooding would occur given a selected stream condition. Users can also access historical
+     flood information and potential loss estimates based on the severity of the flood. The
+     FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
+     resources that may be at risk, and enhance their local response effort during a flooding event.
 
 - longName: "USGS Flood Event Viewer"
   shortName: "FEV"
