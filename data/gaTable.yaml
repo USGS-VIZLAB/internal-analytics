@@ -108,7 +108,10 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/glri/phragmites/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The GLRI Phragmites Decision Support Tool (DST) Mapper is intended to provide resource
+    managers with information to strategically develop effective Phragmites control and
+    invasion prevention programs in the Great Lakes coastal zone (10 km inland from the shoreline).
 
 - longName: Coastal Change Hazards Portal
   shortName: CCH
@@ -160,7 +163,11 @@
   timezone: America/Chicago
   websiteUrl: https://aquatic.biodata.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The BioData Retrieval system provides access to aquatic bioassessment data (biological
+    community and physical habitat data) collected by USGS scientists from stream ecosystems
+    across the nation. BioData Retrieval is a public system and disseminates data from over
+    15,000 fish, aquatic macroinvertebrate, and algae community samples.
 
 - longName: NWIS Reporting Application
   shortName: NWIS-RA
@@ -173,7 +180,12 @@
   timezone: America/Chicago
   websiteUrl: https://nwisdata.usgs.gov
   botFilteringEnabled: 'FALSE'
-  description: ''
+  description: >-
+    This application provides USGS staff with retrieval and reporting capabilities for
+    internal-only and public data in the National Water Information System (NWIS). Users
+    can access site information, surface water, groundwater, water quality, and water use
+    records. Discrete (non-continuous) data as well as time-series (continuous) data are
+    available from active and inactive sites.
 
 - longName: CIDA Website
   shortName: CIDA
@@ -186,7 +198,10 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    CIDA employs Agile software development to create useful web applications and
+    transactional information systems in support of the earth sciences. CIDA is now
+    known as OWI (Office of Water Information).
 
 - longName: Great Lakes Restoration Initiative
   shortName: GLRI
@@ -199,7 +214,14 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/glri/
   botFilteringEnabled: 'FALSE'
-  description: ''
+  description: >-
+    The Great Lakes Restoration Initiative (GLRI) is a program that was launched in 2010
+    to accelerate efforts to protect and restore the largest system of fresh surface water
+    in the world. The program targets the most significant problems in the region, including
+    invasive aquatic species, non-point source pollution, and contaminated sediment. This
+    initiative uses outcome-oriented performance goals and measures to target the most
+    significant problems and track progress toward protecting, maintaining, and restoring
+    the chemical, biological, and physical integrity of the Great Lakes.
 
 - longName: WAUSP National Water Census
   shortName: NWC
@@ -247,7 +269,10 @@
   timezone: America/Chicago
   websiteUrl: http://owi.usgs.gov/R
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    USGS-R is a community of support for users of the R scientific programming language. USGS-R
+    resources include R training materials, R tools for the retrieval and analysis of USGS data,
+    and support for a growing group of USGS-R developers.
 
 - longName: 'VizLab: California Drought'
   shortName: VizLabCADrought
@@ -260,7 +285,9 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/ca_drought
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This website graphically visualizes water data from State, Federal, and Tribal agencies
+    to help understand the effect of drought on rivers, streams, lakes, and reservoirs in CA.
 
 - longName: NAWQA Water Quality Mapper
   shortName: NAR
@@ -273,7 +300,10 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/quality/rivers/sites
   botFilteringEnabled: 'TRUE'
-  description: ''
+  description: >-
+    The USGS National Water-Quality Assessment (NAWQA) Project is characterizing the status and
+    trends of the Nation’s surface-water quality through a National Water Quality Network. This
+    website provides data on national ambient water-quality conditions for rivers and streams.
 
 - longName: National Soil Moisture Network
   shortName: NSMN
@@ -301,7 +331,13 @@
   timezone: America/Chicago
   websiteUrl: https://cida-test.er.usgs.gov/bluedragon/dev/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This application was developed by the U.S. Geological Survey and the Bureau of
+    Reclamation in support of the Department of the Interior’s Open Water Data Initiative
+    (OWDI). This visualization is part of a multi-agency effort to showcase the usefulness
+    of open data (i.e., data provided in a discoverable, sharable, and machine-readable
+    format) by exploring the current 16-year drought and its effects on the Colorado River
+    Basin.
 
 - longName: OWI Website
   shortName: OWI
@@ -314,7 +350,11 @@
   timezone: America/Chicago
   websiteUrl: http://owi.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    OWI is committed to advancing USGS science by integrating data across scales and domains,
+    improving access to data and research, and developing tools for analysis and visualization,
+    fostering collaboration with the international community. This website highlights the people,
+    partners, products, and efforts of OWI.
 
 - longName: VizLab Landing Page
   shortName: VizLab
@@ -462,7 +502,10 @@
   timezone: ''
   websiteUrl: http://m.waterdata.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This site is designed for mobile users. It highlights USGS current conditions water data.
+    For example, you can use it to monitor conditions at a favorite river or stream. Any USGS
+    current conditions water data is available.
 
 - longName: NWISWeb Desktop
   shortName: NWISWebDesktop
@@ -475,7 +518,11 @@
   timezone: ''
   websiteUrl: http://waterdata.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This site is the public web interface to the USGS National Water Information System. These
+    pages provide access to water-resources data collected at approximately 1.5 million sites
+    in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
+    Samoa and the Commonwealth of the Northern Mariana Islands.
 
 - longName: Health Based Screening Levels
   shortName: HBSL
@@ -524,7 +571,11 @@
 #  timezone: ''
 #  websiteUrl: waterwatch.usgs.gov
 #  botFilteringEnabled: ''
-#  description: ''
+#  description: >-
+#    WaterWatch displays maps, graphs, and tables describing real-time, recent, and past
+#    streamflow conditions for the United States. WaterWatch summarizes streamflow conditions
+#    in a region (state or hydrologic unit) in terms of the long-term typical condition at
+#    streamgages in the region.
 
 - longName: 'Water Science School'
   shortName: 'WaterSciSchool'
@@ -537,7 +588,9 @@
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
   botFilteringEnabled: ""
-  description: ""
+  description: >-
+    This website offers information on many aspects of water, along with pictures, data,
+    maps, and an interactive center where you can give opinions and test your water knowledge.
 
 - longName: 'water.usgs.gov'
   shortName: 'water.usgs.gov'
