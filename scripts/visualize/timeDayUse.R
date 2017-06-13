@@ -68,26 +68,29 @@ plot_tod <- function(viz.data, bar_line_col, project.data){
 
   viz.data$hour[viz.data$viewID %in% central_sites] <- as.character(as.numeric(viz.data$hour[viz.data$viewID %in% central_sites]) + 1)
 
-
   hourSum <- viz.data %>%
     mutate(hour = as.numeric(hour)) %>%
     group_by(hour) %>%
-    summarise(Sessions = n()) %>%
-    mutate(hour = factor(hour))
+    summarise(Sessions = n())
 
-  levels(hourSum$hour) <- as.character(0:24)
+  # Because of central time conversions, there were 25's in there:
+  hourSum$hour[hourSum$hour > 24] <- hourSum$hour[hourSum$hour > 24] - 24
+
+  hourSum$hour <- factor(hourSum$hour, levels = as.character(0:24))
 
   hourSum <- rename(hourSum, `Hour of the Day` = hour)
 
   port_device <-   ggplot(data = hourSum) +
-    geom_col(aes(x = `Hour of the Day`, y=Sessions), fill = bar_line_col) +
+    geom_col(aes(x = `Hour of the Day`, y=Sessions),
+             fill = bar_line_col) +
     theme_minimal() +
     theme(axis.title.y = element_blank(),
           axis.title.x = element_text(size=14, color = "grey30"),
           axis.text = element_text(size = 14),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    scale_y_continuous(labels = comma)
+    scale_y_continuous(labels = comma) +
+    scale_x_discrete(drop=FALSE)
 
   return(port_device)
 }
