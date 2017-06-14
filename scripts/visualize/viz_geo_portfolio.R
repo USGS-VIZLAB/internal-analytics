@@ -1,4 +1,4 @@
-gsMap_fx <- function(sf.points){
+gsMap_fx <- function(sf.points, high_col, low_col){
   gsMap <- ggplot(sf.points,aes(x=long, y=lat, fill=Sessions)) + 
     coord_equal() +
     geom_polygon(colour="grey75", size=0.1,
@@ -15,7 +15,7 @@ gsMap_fx <- function(sf.points){
           legend.key.width = unit(0.4, "cm"),
           legend.key.height = unit(0.4, "cm")) +
     scale_fill_gradient(na.value = 'transparent',labels = comma,
-                        low = "white", high = "#3182bd")
+                        low = low_col, high = high_col)
   return(gsMap)
   
 }
@@ -31,10 +31,9 @@ visualize.viz_geo_portfolio <- function(viz){
   viz.data <- readDepends(viz)[["viz_data"]]
   height = viz[["height"]]
   width = viz[["width"]]
-  
-  viz.data <- viz.data %>%
-    select(-date)
-  
+  high_col = viz[["high_col"]]
+  low_col = viz[["low_col"]]
+
   states.out <- get_map_stuff()
 
   region_summary <- data.frame(table(viz.data$region), stringsAsFactors = FALSE)  %>%
@@ -54,7 +53,7 @@ visualize.viz_geo_portfolio <- function(viz){
   sf.points <- left_join(sf.points, region_summary, by=c("id"="region")) %>%
     rename(Sessions = Freq)
   
-  gsMap <- gsMap_fx(sf.points)
+  gsMap <- gsMap_fx(sf.points, high_col, low_col)
   
   ggsave(gsMap, filename = viz[["location"]], height = height, width = width)
   
@@ -71,9 +70,8 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
   viz.data <- readDepends(viz)[["viz_data"]]
   height = viz[["height"]]
   width = viz[["width"]]
-  
-  viz.data<- viz.data %>%
-    select(-date)
+  high_col = viz[["high_col"]]
+  low_col = viz[["low_col"]]
   
   x <- data.frame(id = character(),
                   loc = character(),
@@ -95,7 +93,6 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
     
     sf.points <- fortify(states.out, region="region")
     
-    
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
     
     if(nrow(region_summary) <= 0){
@@ -107,7 +104,7 @@ visualize.viz_geo_apps <- function(viz=as.viz("viz_geo_apps")){
     sf.points <- left_join(sf.points, region_summary, by=c("id"="region"))%>%
       rename(Sessions = Freq)
     
-    gsMap <- gsMap_fx(sf.points)
+    gsMap <- gsMap_fx(sf.points, high_col, low_col)
     
     ggsave(gsMap, filename = location, height = height, width = width)
     

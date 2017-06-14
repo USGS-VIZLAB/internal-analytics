@@ -10,7 +10,14 @@
   timezone: America/Chicago
   websiteUrl: http://pubs.er.usgs.gov
   botFilteringEnabled: 'TRUE'
-  description: I am example of project description
+  description: >-
+    Pubs Warehouse provides access to all publications written by
+    USGS scientists back to the founding of the bureau and is the public face of
+    all new USGS Series reports released since Summer 2015. The app forms the
+    core of the publications access part of the USGS OSTP Open Access memo response,
+    providing access to USGS funded publications and linking to underlying datasets,
+    and is the authoritative source of publication metadata for other USGS systems
+    (WRET, Sciencebase, others).
 
 - longName: Water Quality Portal
   shortName: WQP
@@ -23,7 +30,13 @@
   timezone: America/Chicago
   websiteUrl: http://www.waterqualitydata.us
   botFilteringEnabled: 'TRUE'
-  description: ''
+  description: >-
+    The Water Quality Portal(WQP) is a collaborative project between
+    the USGS and the EPA to provide a single point of access for discrete water quality
+    data. The WQP makes it possible to access hundreds of millions of individual water
+    quality results without having to engage in much of the onerous data clean-up
+    otherwise required. The WQP is focused on discrete, ambient water quality data from
+    both surface and groundwater.
 
 - longName: National Ground Water Monitoring Network Data Portal
   shortName: NGWMN
@@ -36,7 +49,12 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/ngwmn
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The NGWMN data portal provides on-demand access to groundwater data
+    from distributed systems through a map-based portal in a single, aggregated output.
+    The NGWMN portal displays status of water levels for NGWMN geographically in portal
+    using statistics suite. This project continues to support data providers, develops
+    and maintains connections between provider data systems and NGWMN.
 
 - longName: Geo Data Portal
   shortName: GDP
@@ -49,7 +67,14 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/gdp/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The Geo Data Portal and its data archives offer a multi-dataset processing
+    service for environmental modelers to gain access to downscaled climate projections. The
+    Geo Data Portal is a processing service for watershed and other modelers to use to
+    access downscaled climate projections. The Geo Data Portal project has an associated
+    archive of climate projections and other gridded time series dataset with web services.
+    Increasingly, this project relies on the Unidata programming office for help maintaining
+    software associated with the project.
 
 - longName: NAWQA SPARROW Decision Support System
   shortName: SPARROWDSS
@@ -62,7 +87,15 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/sparrow
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The SPARROW Decision Support System (SPARROW DSS) provides access to
+    national, regional, and basin-wide SPARROW models (Spatially Referenced Regressions
+    On Watershed attributes) for water managers, researchers, and the general public. Models
+    are available for a variety of water-quality constituents and time periods. For each
+    model, users can map predictions of long-term average water-quality conditions (loads,
+    yields, concentrations) and source contributions by stream reach and catchment and track
+    transport to downstream receiving waters, such as reservoirs and estuaries. This project
+    is being transitioned to the Web Informatics Mapping group in 2017.
 
 - longName: Great Lakes Restoration Initiative Phragmites
   shortName: GLRIPhragmites
@@ -75,7 +108,10 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/glri/phragmites/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The GLRI Phragmites Decision Support Tool (DST) Mapper is intended to provide resource
+    managers with information to strategically develop effective Phragmites control and
+    invasion prevention programs in the Great Lakes coastal zone (10 km inland from the shoreline).
 
 - longName: Coastal Change Hazards Portal
   shortName: CCH
@@ -88,7 +124,13 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/coastalchangehazardsportal/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The Coastal Change Hazards Portal provides interactive access to coastal
+    change science and data for our Nation's coasts. Provide tools to researchers to
+    manage their coastal datasets' appearance in the Portal. Support real-time storm
+    forecast data sharing and updates throughout events, such as hurricanes. This app
+    allows users to create simple, sharable mash-ups of different coastal datasets and
+    provides historical data aiding the understanding and prediction of storm impacts.
 
 - longName: Biodata
   shortName: BiodataIn
@@ -101,7 +143,14 @@
   timezone: America/Chicago
   websiteUrl: https://internal.aquatic.biodata.usgs.gov
   botFilteringEnabled: 'FALSE'
-  description: I am example of project description
+  description: >-
+    BioData is an authoritative source of high-quality data that satisfies
+    FSP policies for data documentation,  preservation, and dissemination of fish,
+    macroinvertebrate, and algae community data. Biodata is a coordinated data management
+    system for the capture, quality-assurance, maintenance, discovery, and distribution
+    of aquatic bioassessment data collected by USGS. The application will be included in
+    NWIS Modernization efforts to better align the system with  OWI current development
+    practices, system operations, and to address significant technical debt.
 
 - longName: Biodata Retrieval
   shortName: BiodataRet
@@ -114,7 +163,11 @@
   timezone: America/Chicago
   websiteUrl: https://aquatic.biodata.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The BioData Retrieval system provides access to aquatic bioassessment data (biological
+    community and physical habitat data) collected by USGS scientists from stream ecosystems
+    across the nation. BioData Retrieval is a public system and disseminates data from over
+    15,000 fish, aquatic macroinvertebrate, and algae community samples.
 
 - longName: NWIS Reporting Application
   shortName: NWIS-RA
@@ -127,7 +180,12 @@
   timezone: America/Chicago
   websiteUrl: https://nwisdata.usgs.gov
   botFilteringEnabled: 'FALSE'
-  description: ''
+  description: >-
+    This application provides USGS staff with retrieval and reporting capabilities for
+    internal-only and public data in the National Water Information System (NWIS). Users
+    can access site information, surface water, groundwater, water quality, and water use
+    records. Discrete (non-continuous) data as well as time-series (continuous) data are
+    available from active and inactive sites.
 
 - longName: CIDA Website
   shortName: CIDA
@@ -140,7 +198,10 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    CIDA employs Agile software development to create useful web applications and
+    transactional information systems in support of the earth sciences. CIDA is now
+    known as OWI (Office of Water Information).
 
 - longName: Great Lakes Restoration Initiative
   shortName: GLRI
@@ -153,7 +214,14 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/glri/
   botFilteringEnabled: 'FALSE'
-  description: ''
+  description: >-
+    The Great Lakes Restoration Initiative (GLRI) is a program that was launched in 2010
+    to accelerate efforts to protect and restore the largest system of fresh surface water
+    in the world. The program targets the most significant problems in the region, including
+    invasive aquatic species, non-point source pollution, and contaminated sediment. This
+    initiative uses outcome-oriented performance goals and measures to target the most
+    significant problems and track progress toward protecting, maintaining, and restoring
+    the chemical, biological, and physical integrity of the Great Lakes.
 
 - longName: WAUSP National Water Census
   shortName: NWC
@@ -166,7 +234,13 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/nwc
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The National Water Census will provide a baseline data resource for
+    water planning and management. The NWC curates research tools and outcomes of the
+    National Water Census initiative, integrates water use compilation data into water
+    budget data resources, is developing a framework for archiving and visualization
+    of National hydrologic modeling, and provides value-added tools for evaluation of
+    ecological water needs.
 
 - longName: NAWQA Watershed Regressions on Pesticides
   shortName: WARP
@@ -179,7 +253,10 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/WARP
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The Watershed Regressions on Pesticides Mapper makes accessible a series
+    of statistical models, based on monitoring data and watershed characteristics, to
+    enable estimation of pesticide concentrations for streams that have not been monitored.
 
 - longName: USGS-R Resources
   shortName: USGS-R
@@ -192,7 +269,10 @@
   timezone: America/Chicago
   websiteUrl: http://owi.usgs.gov/R
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    USGS-R is a community of support for users of the R scientific programming language. USGS-R
+    resources include R training materials, R tools for the retrieval and analysis of USGS data,
+    and support for a growing group of USGS-R developers.
 
 - longName: 'VizLab: California Drought'
   shortName: VizLabCADrought
@@ -205,7 +285,9 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/ca_drought
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This website graphically visualizes water data from State, Federal, and Tribal agencies
+    to help understand the effect of drought on rivers, streams, lakes, and reservoirs in CA.
 
 - longName: NAWQA Water Quality Mapper
   shortName: NAR
@@ -218,7 +300,10 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/quality/rivers/sites
   botFilteringEnabled: 'TRUE'
-  description: ''
+  description: >-
+    The USGS National Water-Quality Assessment (NAWQA) Project is characterizing the status and
+    trends of the Nation’s surface-water quality through a National Water Quality Network. This
+    website provides data on national ambient water-quality conditions for rivers and streams.
 
 - longName: National Soil Moisture Network
   shortName: NSMN
@@ -231,7 +316,9 @@
   timezone: America/Chicago
   websiteUrl: http://cida.usgs.gov/nsmn_pilot/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The National Soil Moisture Pilot provides web map based access near real
+    time soil moisture data from a collection of observing locations and networks.
 
 - longName: 'VizLab: Colorado River Drought'
   shortName: VizLabCRBDrought
@@ -244,7 +331,13 @@
   timezone: America/Chicago
   websiteUrl: https://cida-test.er.usgs.gov/bluedragon/dev/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This application was developed by the U.S. Geological Survey and the Bureau of
+    Reclamation in support of the Department of the Interior’s Open Water Data Initiative
+    (OWDI). This visualization is part of a multi-agency effort to showcase the usefulness
+    of open data (i.e., data provided in a discoverable, sharable, and machine-readable
+    format) by exploring the current 16-year drought and its effects on the Colorado River
+    Basin.
 
 - longName: OWI Website
   shortName: OWI
@@ -257,7 +350,11 @@
   timezone: America/Chicago
   websiteUrl: http://owi.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    OWI is committed to advancing USGS science by integrating data across scales and domains,
+    improving access to data and research, and developing tools for analysis and visualization,
+    fostering collaboration with the international community. This website highlights the people,
+    partners, products, and efforts of OWI.
 
 - longName: VizLab Landing Page
   shortName: VizLab
@@ -270,7 +367,11 @@
   timezone: America/Chicago
   websiteUrl: http://owi.usgs.gov/vizlab
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The VizLab function rapidly develops and deploys visualizations on current
+    water issues and/or USGS Water publications or datasets. The VizLab team works with USGS
+    WMA scientists and external partners to highlight timely science in accessible and
+    appealing visual stories.
 
 - longName: 'VizLab: Climate Change and Fisheries'
   shortName: VizLabClimateFish
@@ -283,7 +384,10 @@
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/climate-change-walleye-bass/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    Shifts in Wisconsin fish habitat due to climate change. Warming lakes are changing fish
+    communities in Wisconsin: walleye populations are declining, while large mouth bass
+    populations are increasing.
 
 - longName: 'VizLab: Microplastics in Our Waterways'
   shortName: VizLabMicroplastics
@@ -296,7 +400,11 @@
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/microplastics/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    Microplastics, plastic particles less than 5 millimeters in diameter, are a contaminant
+    of emerging concern in aquatic environments. Microplastics come from a wide range of
+    potential sources (see Microplastics Sources sidebar), and are commonly grouped by size,
+    as well as by particle types including fibers/lines, pellets/beads, foams, films, and fragments.
 
 - longName: 'VizLab: Hurricane Matthew''s Water Footprint'
   shortName: VizLabMatthew
@@ -309,7 +417,9 @@
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-matthew
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    Hurricane Matthew approached the southeastern U.S. coast on October 7, 2016. This
+    visualization shows the hurricane's impact on precipitation and streamflow.
 
 - longName: 'VizLab: Water Use'
   shortName: VizLabWaterUse
@@ -322,7 +432,12 @@
   timezone: America/Chicago
   websiteUrl: https://owi.usgs.gov/vizlab/water-use
   botFilteringEnabled: 'TRUE'
-  description: ''
+  description: >-
+    Water use data has been collected and compiled by the USGS since 1950. This data has
+    changed over time in terms of how it was categorized and at what spatial scale it was
+    summarized to. This visualization shows that change over time as this dataset has
+    become more powerful, and attempts to illustrate where the data can go in the future
+    to be a more useful dataset going forward.
 
 - longName: Environmental Data Discovery and Transformation
   shortName: EnDDaT
@@ -335,7 +450,12 @@
   timezone: America/Chicago
   websiteUrl: http://cida-test.er.usgs.gov/enddat/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The Environmental Data Discovery and Transformation (EnDDaT) service can be used to discover
+    data from our natural environment. This tool accesses data from a variety of data sources,
+    compiles and processes the data, and performs common transformations. The result is that
+    environmental data from multiple sources is sorted into a single table that aids model
+    development and similar tasks.
 
 - longName: Grand Canyon Monitoring Research Center Website
   shortName: GCMRC
@@ -348,7 +468,13 @@
   timezone: America/Chicago
   websiteUrl: https://www.gcmrc.gov/discharge_qw_sediment/
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The Grand Canyon Monitoring Research Center application provides resource managers and
+    decision makers access to continuous, aggregated data of interest in support of the Glen
+    Canyon Dam Adaptive Management Program (GCDAMP) and numerous other water projects in the
+    western US. The GCMRC dcision-support tools provide accurate, near-real-time data and
+    user-friendly interactive visualizations   by continuous aggregation of datasets and
+    continual recomputed derived values based on latest available data.
 
 - longName: National Environmental Methods Index
   shortName: NEMI
@@ -361,7 +487,9 @@
   timezone: ''
   websiteUrl: https://www.nemi.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    Publicly-accessible searchable interface for monitoring methods and their associated
+    analytes of interest.
 
 - longName: NWISWeb Mobile
   shortName: NWISWebMobile
@@ -374,7 +502,10 @@
   timezone: ''
   websiteUrl: http://m.waterdata.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This site is designed for mobile users. It highlights USGS current conditions water data.
+    For example, you can use it to monitor conditions at a favorite river or stream. Any USGS
+    current conditions water data is available.
 
 - longName: NWISWeb Desktop
   shortName: NWISWebDesktop
@@ -387,7 +518,11 @@
   timezone: ''
   websiteUrl: http://waterdata.usgs.gov
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    This site is the public web interface to the USGS National Water Information System. These
+    pages provide access to water-resources data collected at approximately 1.5 million sites
+    in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
+    Samoa and the Commonwealth of the Northern Mariana Islands.
 
 - longName: Health Based Screening Levels
   shortName: HBSL
@@ -400,34 +535,48 @@
   timezone: America/Chicago
   websiteUrl: http://water.usgs.gov/nawqa/HBSL
   botFilteringEnabled: ''
-  description: ''
+  description: >-
+    The Health-Based Screening Levels (HBSLs) application communicates the potential
+    relevance of water-quality findings from the USGS National Water-Quality Assessment
+    (NAWQA) Program in a human-health context. Federal drinking-water standards or
+    guidelines are not available for many of the hundreds of contaminants analyzed by
+    USGS in sources of drinking water.
 
-- longName: Groundwater Watch
-  shortName: GroundwaterWatch
-  accountName: ''
-  viewID: '77121234'
-  accountId: ''
-  webPropertyId: ''
-  internalWebPropertyId: ''
-  viewName: ''
-  timezone: ''
-  websiteUrl: http://groundwaterwatch.usgs.gov
-  botFilteringEnabled: ''
-  description: ''
+#- longName: Groundwater Watch
+#  shortName: GroundwaterWatch
+#  accountName: ''
+#  viewID: '77121234'
+#  accountId: ''
+#  webPropertyId: ''
+#  internalWebPropertyId: ''
+#  viewName: ''
+#  timezone: ''
+#  websiteUrl: http://groundwaterwatch.usgs.gov
+#  botFilteringEnabled: ''
+#  description: >-
+#    This project aims to migrate existing GroundWaterWatch infrastructure from Reston
+#    infrastructure to Water Shared Infrastructure at EROS data center in order to
+#    capitalize on the operations and security processes in place; and replace fragile,
+#    aging components of the application to reduce risk of outages, specifically the dynamic
+#    maps which lost their support.
 
-- longName: USGS WaterWatch
-  shortName: WaterWatch
-  accountName: ''
-  viewID: '18857756'
-  accountId: ''
-  webPropertyId: ''
-  internalWebPropertyId: ''
-  viewName: ''
-  timezone: ''
-  websiteUrl: waterwatch.usgs.gov
-  botFilteringEnabled: ''
-  description: ''
-  
+#- longName: USGS WaterWatch
+#  shortName: WaterWatch
+#  accountName: ''
+#  viewID: '18857756'
+#  accountId: ''
+#  webPropertyId: ''
+#  internalWebPropertyId: ''
+#  viewName: ''
+#  timezone: ''
+#  websiteUrl: waterwatch.usgs.gov
+#  botFilteringEnabled: ''
+#  description: >-
+#    WaterWatch displays maps, graphs, and tables describing real-time, recent, and past
+#    streamflow conditions for the United States. WaterWatch summarizes streamflow conditions
+#    in a region (state or hydrologic unit) in terms of the long-term typical condition at
+#    streamgages in the region.
+
 - longName: 'Water Science School'
   shortName: 'WaterSciSchool'
   accountName: ""
@@ -439,8 +588,10 @@
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
   botFilteringEnabled: ""
-  description: ""
-  
+  description: >-
+    This website offers information on many aspects of water, along with pictures, data,
+    maps, and an interactive center where you can give opinions and test your water knowledge.
+
 - longName: 'water.usgs.gov'
   shortName: 'water.usgs.gov'
   accountName: ""
@@ -452,7 +603,10 @@
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    The USGS Water Mission Area home page. Water's mission is to collect and disseminate
+    reliable, impartial, and timely information that is needed to understand the Nation's
+    water resources.
 
 - longName: "Streamer - TX WSC"
   shortName: 'Streamer'
@@ -463,9 +617,12 @@
   internalWebPropertyId: '70826807'
   viewName: All Web Site Data
   timezone: America/Chicago
-  websiteUrl: http://www.nationalmap.gov/streamer/
+  websiteUrl: https://txpub.usgs.gov/DSS/streamer/web/
   botFilteringEnabled: 'TRUE'
-  description: .na.character
+  description: >-
+    Web-based mapper that visualizes water flow across America. Streamer allows users to explore our
+    Nation's major streams by tracing upstream to their source or downstream to where they empty. It
+    also creates reports about your stream traces and the places they pass through.
 
 - longName: 'USGS StreamStats'
   shortName: 'StreamStats'
@@ -478,7 +635,10 @@
   timezone: America/New_York
   websiteUrl: http://streamstatsags.cr.usgs.gov/streamstats/
   botFilteringEnabled: 'FALSE'
-  description: .na.character
+  description: >-
+    StreamStats is a Web-based Geographic Information Systems (GIS) application that provides
+    users with access to an assortment of analytical tools that are useful for a variety of
+    water-resources planning and management purposes, and for engineering and design purposes.
 
 - longName: "Sparrow Tennessee"
   shortName: "SparrowTN"
@@ -489,9 +649,13 @@
   internalWebPropertyId: '136938859'
   viewName: All Web Site Data
   timezone: America/Los_Angeles
-  websiteUrl: http://example.com
+  websiteUrl: http://wim.usgs.gov/sparrowtennessee/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    Spatially-Referenced Regresson On Watershed Attributes (SPARROW) is designed for predicting
+    long-term average values of concentrations and amounts of selected constituents delivered to
+    downstream receiving waters. This particular application is designed to display U.S.
+    Geological Survey SPARROW data in Tennessee.
 
 - longName: 'National Water Information System Mapper - Water Alert'
   shortName: 'NWISMapper-WaterAlert'
@@ -504,7 +668,10 @@
   timezone: America/New_York
   websiteUrl: http://water.usgs.gov/wateralert/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    Web-based map that links to USGS gage data and allows users to subscribe to site notifications
+    through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
+    parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
 
 - longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
   shortName: "NaWQASWTrends"
@@ -517,7 +684,13 @@
   timezone: America/New_York
   websiteUrl: http://test.wim.usgs.gov/swtrends/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This mapper provides results from the largest-ever assessment of water-quality changes in the
+    Nation's streams and rivers. More than 185 million water-quality records from over 600 Federal,
+    State, Tribal, and local organizations were screened as part of this assessment. The mapper
+    shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity)
+    and aquatic ecology (fish, invertebrates, and algae) for four time periods: 1972-2012, 1982-2012,
+    1992-2012, and 2002-2012.
 
 - longName: 'National Water-Quality Assessment - Decadal Trends Mapper'
   shortName: 'NaWQADecadalTrendsMapper'
@@ -530,7 +703,11 @@
   timezone: America/Los_Angeles
   websiteUrl: http://nawqatrends.wim.usgs.gov/Decadal/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This mapper shows how concentrations of pesticides, nutrients, metals, and organic contaminants
+    in groundwater are changing during decadal periods across the Nation. Tracking changes in
+    groundwater quality and investigating the reasons for these changes is crucial for informing
+    management decisions to protect and sustain our valuable groundwater resources.
 
 - longName: 'NPS Mercury Mapper'
   shortName: 'NPSMercuryMapper'
@@ -543,7 +720,12 @@
   timezone: America/New_York
   websiteUrl: http://wim.usgs.gov/MercuryMapper/MercuryMapper.html
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This mapper is intended to assist park managers in understanding the relative potential for
+    mercury issues in their park unit. The data in this mapper do not represent measured
+    methylmercury concentrations, but rather a predicted methylmercury concentration based on
+    measured water quality and landscape variables believed to influence methylation in natural
+    systems. Data are modeled to 8-digit hydrologic units.
 
 - longName: 'Mississippi River Basin Flood of 2015/2016'
   shortName: 'MARB'
@@ -556,7 +738,9 @@
   timezone: America/Los_Angeles
   websiteUrl: http://commons.wim.usgs.gov/MARBFlood2015/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This map shows the location of USGS continuous water-quality monitoring stations throughout
+    the Mississippi River basin that provides information on the impact of flooding on water quality.
 
 - longName: 'Western Lake Erie Restoration Assessment Web App'
   shortName: 'GLCWRA-WLERA'
@@ -569,7 +753,10 @@
   timezone: America/Chicago
   websiteUrl: https://glcwra.wim.usgs.gov/wlera/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This is the web mapping application for interfacing with the Western Lake Erie Restoration
+    Assessment (WLERA) model. The WLERA is a geodesign framework for measuring the potential to
+    restore coastal wetlands in the Great Lakes basin.
 
 - longName: 'Saginaw Bay Restoration Assessment Web App'
   shortName: 'GLCWRA-SBRA'
@@ -582,9 +769,12 @@
   timezone: America/New_York
   websiteUrl: https://glcwra.wim.usgs.gov/sbra/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This is the web mapping application for interfacing with the Saginaw Bay Restoration Assessment
+    (SBRA) model, which is an extension of the Western Lake Erie Restoration Assessment (WLERA) model.
+    The SBRA extends along the shore of Lake Huron from the St. Clair River through Saginaw Bay.
 
-- longName: 'Connection River Systems Restoration Assessment Web App'
+- longName: 'Connecting River Systems Restoration Assessment Web App'
   shortName: 'GLCWRA-CRSRA'
   accountName: WIM USGS
   viewID: '137355369'
@@ -595,7 +785,11 @@
   timezone: America/Chicago
   websiteUrl: https://glcwra.wim.usgs.gov/crsra/
   botFilteringEnabled: .na.character
-  description: .na.character
+  description: >-
+    This is the web mapping application for interfacing with the Connecting River Systems Restoration
+    Assessment (CRSRA) model, which is an extension of the Western Lake Erie Restoration Assessment
+    (WLERA) model. The CRSRA is focused on the connecting channels area that includes the Detroit River,
+    Lake St. Clair, and the St. Clair River.
 
 - longName: "Flood Inundation Mapper"
   shortName: "FIM"
@@ -606,10 +800,15 @@
   internalWebPropertyId: '142720692'
   viewName: All Web Site Data
   timezone: America/Los_Angeles
-  websiteUrl: http://example.com
+  websiteUrl: http://wimcloud.usgs.gov/apps/FIM/FloodInundationMapper.html
   botFilteringEnabled: .na.character
-  description: .na.character
-  
+  description: >-
+     The FIM Mapper allows users to explore the full set of inundation maps that shows where
+     flooding would occur given a selected stream condition. Users can also access historical
+     flood information and potential loss estimates based on the severity of the flood. The
+     FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
+     resources that may be at risk, and enhance their local response effort during a flooding event.
+
 - longName: "USGS Flood Event Viewer"
   shortName: "FEV"
   viewID: '131080146'
@@ -619,8 +818,12 @@
   timezone: "America/New_York"
   websiteUrl: http://stn.wim.usgs.gov/fev/
   botFilteringEnabled: "NA"
-  description: "NA"
-  
+  description: >-
+    The USGS Flood Event Viewer (FEV) is the public data discovery component of the
+    Short-Term Network (STN) database. Data viewable and downloadable from this page
+    are from the STN database. This application integrates with the USGS National Water
+    Information System (NWIS) database  for display of time-series water data.
+
 - longName: "National Water Information System Mapper"
   shortName: "NWISMapper"
   viewID: "120202187"
@@ -630,5 +833,6 @@
   timezone: "America/New_York"
   websiteUrl: 'http://maps.waterdata.usgs.gov'
   botFilteringEnabled: 'NA'
-  description: 'NA'
-  
+  description: >-
+    This is the web mapping application for interfacing with NWIS data.
+
