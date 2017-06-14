@@ -480,11 +480,11 @@
   shortName: NEMI
   accountName: nemi_usgs
   viewID: '71090861'
-  accountId: ''
-  webPropertyId: UA-39958467-1
-  internalWebPropertyId: ''
+  accountId: '39958467'
+  webPropertyId: 'UA-39958467-1'
+  internalWebPropertyId: '69003499'
   viewName: All Web Site Data
-  timezone: ''
+  timezone: 'America/Chicago'
   websiteUrl: https://www.nemi.gov
   botFilteringEnabled: ''
   description: >-
@@ -499,7 +499,7 @@
   webPropertyId: UA-42005086-1
   internalWebPropertyId: '71636360'
   viewName: ''
-  timezone: ''
+  timezone: 'America/New_York'
   websiteUrl: http://m.waterdata.usgs.gov
   botFilteringEnabled: ''
   description: >-
@@ -515,7 +515,7 @@
   webPropertyId: UA-25350863-1
   internalWebPropertyId: '49291662'
   viewName: ''
-  timezone: ''
+  timezone: 'America/Denver'
   websiteUrl: http://waterdata.usgs.gov
   botFilteringEnabled: ''
   description: >-
