@@ -2,6 +2,7 @@
 library(dplyr)
 library(ggplot2)
 library(scales)
+library(data.table)
 
 visualize.portfolio_timeDayUse <- function(viz=as.viz("portfolio_timeDayUse_year")) {
 
@@ -64,9 +65,15 @@ visualize.timeDayUse_app <- function(viz=as.viz("timeDayUse_app_year")) {
 
 plot_tod <- function(viz.data, bar_line_col, project.data){
 
-  central_sites <- project.data$viewID[project.data$timezone == "America/Chicago"]
+  projTZ <- select(project.data, viewID, timezone)
 
-  viz.data$hour[viz.data$viewID %in% central_sites] <- as.character(as.numeric(viz.data$hour[viz.data$viewID %in% central_sites]) + 1)
+  viz.data <- left_join(viz.data, projTZ, by = 'viewID')
+
+  viz.data <- mutate(viz.data, hour = as.character(recode(timezone,
+                                                          `America/New_York` = as.numeric(hour),
+                                                          `America/Chicago` = as.numeric(hour + 1),
+                                                          `America/Denver` = as.numeric(hour + 2),
+                                                          `America/Los_Angeles` = as.numeric(hour + 3))))
 
   hourSum <- viz.data %>%
     mutate(hour = as.numeric(hour)) %>%
