@@ -71,9 +71,9 @@ plot_tod <- function(viz.data, bar_line_col, project.data){
 
   viz.data <- mutate(viz.data, hour = as.character(recode(timezone,
                                                           `America/New_York` = as.numeric(hour),
-                                                          `America/Chicago` = as.numeric(hour + 1),
-                                                          `America/Denver` = as.numeric(hour + 2),
-                                                          `America/Los_Angeles` = as.numeric(hour + 3))))
+                                                          `America/Chicago` = as.numeric(hour) + 1,
+                                                          `America/Denver` = as.numeric(hour) + 2,
+                                                          `America/Los_Angeles` = as.numeric(hour) + 3)))
 
   hourSum <- viz.data %>%
     mutate(hour = as.numeric(hour)) %>%
