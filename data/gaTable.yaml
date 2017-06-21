@@ -42,7 +42,7 @@
     otherwise required. The WQP is focused on discrete, ambient water quality data from
     both surface and groundwater.
   projectContact: 'Jim Kreft'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jkreft@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -64,7 +64,7 @@
     using statistics suite. This project continues to support data providers, develops
     and maintains connections between provider data systems and NGWMN.
   projectContact: 'Jessica Lucido'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jlucido@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -88,7 +88,7 @@
     Increasingly, this project relies on the Unidata programming office for help maintaining
     software associated with the project.
   projectContact: 'Jordan Read'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jread@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -113,7 +113,7 @@
     transport to downstream receiving waters, such as reservoirs and estuaries. This project
     is being transitioned to the Web Informatics Mapping group in 2017.
   projectContact: 'Emily Read'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'eread@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -133,7 +133,7 @@
     managers with information to strategically develop effective Phragmites control and
     invasion prevention programs in the Great Lakes coastal zone (10 km inland from the shoreline).
   projectContact: 'Jessica Lucido'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jlucido@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -156,7 +156,7 @@
     allows users to create simple, sharable mash-ups of different coastal datasets and
     provides historical data aiding the understanding and prediction of storm impacts.
   projectContact: 'Megan Hines'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'mhines@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -180,7 +180,7 @@
     NWIS Modernization efforts to better align the system with  OWI current development
     practices, system operations, and to address significant technical debt.
   projectContact: 'Meredith Pavlick'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'mpavlick@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -201,7 +201,7 @@
     across the nation. BioData Retrieval is a public system and disseminates data from over
     15,000 fish, aquatic macroinvertebrate, and algae community samples.
   projectContact: 'Meredith Pavlick'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'mpavlick@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -222,8 +222,8 @@
     can access site information, surface water, groundwater, water quality, and water use
     records. Discrete (non-continuous) data as well as time-series (continuous) data are
     available from active and inactive sites.
-  projectContact: 'Meredith Pavlick, Laura Flight'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContact: ['Meredith Pavlick, Laura Flight']
+  projectContactEmail: ['mpavlick@usgs.gov', 'lflight@usgs.gov']
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -290,7 +290,7 @@
     of National hydrologic modeling, and provides value-added tools for evaluation of
     ecological water needs.
   projectContact: 'Dave Blodgett'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'dblodgett@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -349,7 +349,7 @@
     This website graphically visualizes water data from State, Federal, and Tribal agencies
     to help understand the effect of drought on rivers, streams, lakes, and reservoirs in CA.
   projectContact: 'Emily Read'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'eread@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -369,7 +369,7 @@
     trends of the Nation’s surface-water quality through a National Water Quality Network. This
     website provides data on national ambient water-quality conditions for rivers and streams.
   projectContact: 'Jim Kreft'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jkreft@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -388,7 +388,7 @@
     The National Soil Moisture Pilot provides web map based access near real
     time soil moisture data from a collection of observing locations and networks.
   projectContact: 'Jessica Lucido'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jlucido@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -411,7 +411,7 @@
     format) by exploring the current 16-year drought and its effects on the Colorado River
     Basin.
   projectContact: 'Emily Read'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'eread@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -453,7 +453,7 @@
     WMA scientists and external partners to highlight timely science in accessible and
     appealing visual stories.
   projectContact: 'Jordan Walker'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jiwalker@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -473,7 +473,7 @@
     communities in Wisconsin: walleye populations are declining, while large mouth bass
     populations are increasing.
   projectContact: 'Jordan Read'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jread@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -513,7 +513,7 @@
     Hurricane Matthew approached the southeastern U.S. coast on October 7, 2016. This
     visualization shows the hurricane's impact on precipitation and streamflow.
   projectContact: 'Jordan Walker'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jiwalker@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -557,7 +557,7 @@
     environmental data from multiple sources is sorted into a single table that aids model
     development and similar tasks.
   projectContact: 'Jessica Lucido'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jlucido@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -580,7 +580,7 @@
     user-friendly interactive visualizations   by continuous aggregation of datasets and
     continual recomputed derived values based on latest available data.
   projectContact: 'Megan Hines'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'mhines@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -599,7 +599,7 @@
     Publicly-accessible searchable interface for monitoring methods and their associated
     analytes of interest.
   projectContact: 'Jim Kreft'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'jkreft@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -619,7 +619,7 @@
     For example, you can use it to monitor conditions at a favorite river or stream. Any USGS
     current conditions water data is available.
   projectContact: 'Brad Garner'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'bdgarner@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -640,7 +640,7 @@
     in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
     Samoa and the Commonwealth of the Northern Mariana Islands.
   projectContact: 'Brad Garner'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'bdgarner@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -662,7 +662,7 @@
     guidelines are not available for many of the hundreds of contaminants analyzed by
     USGS in sources of drinking water.
   projectContact: 'Alice McCarthy'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'ajmccart@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -684,7 +684,7 @@
 #    aging components of the application to reduce risk of outages, specifically the dynamic
 #    maps which lost their support.
 #  projectContact: 'Brad Garner'
-#  projectContactEmail: 'placeholder@usgs.gov'
+#  projectContactEmail: 'bdgarner@usgs.gov'
 #  analyticsContact: 'PLACEHOLDER'
 #  analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -825,7 +825,7 @@
     through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
   projectContact: 'Joseph Kalfsbeek'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'kalfsbek@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
@@ -1028,6 +1028,6 @@
   description: >-
     This is the web mapping application for interfacing with NWIS data.
   projectContact: 'Joseph Kalfsbeek'
-  projectContactEmail: 'placeholder@usgs.gov'
+  projectContactEmail: 'kalfsbek@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
