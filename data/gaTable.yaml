@@ -18,8 +18,10 @@
     providing access to USGS funded publications and linking to underlying datasets,
     and is the authoritative source of publication metadata for other USGS systems
     (WRET, Sciencebase, others).
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'jkreft@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Water Quality Portal
   shortName: WQP
