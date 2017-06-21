@@ -480,11 +480,11 @@
   shortName: NEMI
   accountName: nemi_usgs
   viewID: '71090861'
-  accountId: ''
-  webPropertyId: UA-39958467-1
-  internalWebPropertyId: ''
+  accountId: '39958467'
+  webPropertyId: 'UA-39958467-1'
+  internalWebPropertyId: '69003499'
   viewName: All Web Site Data
-  timezone: ''
+  timezone: 'America/Chicago'
   websiteUrl: https://www.nemi.gov
   botFilteringEnabled: ''
   description: >-
@@ -499,7 +499,7 @@
   webPropertyId: UA-42005086-1
   internalWebPropertyId: '71636360'
   viewName: ''
-  timezone: ''
+  timezone: 'America/New_York'
   websiteUrl: http://m.waterdata.usgs.gov
   botFilteringEnabled: ''
   description: >-
@@ -515,7 +515,7 @@
   webPropertyId: UA-25350863-1
   internalWebPropertyId: '49291662'
   viewName: ''
-  timezone: ''
+  timezone: 'America/Denver'
   websiteUrl: http://waterdata.usgs.gov
   botFilteringEnabled: ''
   description: >-
@@ -542,40 +542,40 @@
     guidelines are not available for many of the hundreds of contaminants analyzed by
     USGS in sources of drinking water.
 
-#- longName: Groundwater Watch
-#  shortName: GroundwaterWatch
-#  accountName: ''
-#  viewID: '77121234'
-#  accountId: ''
-#  webPropertyId: ''
-#  internalWebPropertyId: ''
-#  viewName: ''
-#  timezone: ''
-#  websiteUrl: http://groundwaterwatch.usgs.gov
-#  botFilteringEnabled: ''
-#  description: >-
-#    This project aims to migrate existing GroundWaterWatch infrastructure from Reston
-#    infrastructure to Water Shared Infrastructure at EROS data center in order to
-#    capitalize on the operations and security processes in place; and replace fragile,
-#    aging components of the application to reduce risk of outages, specifically the dynamic
-#    maps which lost their support.
+- longName: Groundwater Watch
+  shortName: GroundwaterWatch
+  accountName: 'Groundwater Watch'
+  viewID: '77121234'
+  accountId: '44392125'
+  webPropertyId: 'UA-44392125-1'
+  internalWebPropertyId: '74703043'
+  viewName: ''
+  timezone: 'America/New_York'
+  websiteUrl: http://groundwaterwatch.usgs.gov
+  botFilteringEnabled: ''
+  description: >-
+    This project aims to migrate existing GroundWaterWatch infrastructure from Reston
+    infrastructure to Water Shared Infrastructure at EROS data center in order to
+    capitalize on the operations and security processes in place; and replace fragile,
+    aging components of the application to reduce risk of outages, specifically the dynamic
+    maps which lost their support.
 
-#- longName: USGS WaterWatch
-#  shortName: WaterWatch
-#  accountName: ''
-#  viewID: '18857756'
-#  accountId: ''
-#  webPropertyId: ''
-#  internalWebPropertyId: ''
-#  viewName: ''
-#  timezone: ''
-#  websiteUrl: waterwatch.usgs.gov
-#  botFilteringEnabled: ''
-#  description: >-
-#    WaterWatch displays maps, graphs, and tables describing real-time, recent, and past
-#    streamflow conditions for the United States. WaterWatch summarizes streamflow conditions
-#    in a region (state or hydrologic unit) in terms of the long-term typical condition at
-#    streamgages in the region.
+- longName: USGS WaterWatch
+  shortName: WaterWatch
+  accountName: ''
+  viewID: '18857756'
+  accountId: '9370142'
+  webPropertyId: 'UA-9370142-1'
+  internalWebPropertyId: '20799689'
+  viewName: ''
+  timezone: 'America/New_York'
+  websiteUrl: waterwatch.usgs.gov
+  botFilteringEnabled: ''
+  description: >-
+    WaterWatch displays maps, graphs, and tables describing real-time, recent, and past
+    streamflow conditions for the United States. WaterWatch summarizes streamflow conditions
+    in a region (state or hydrologic unit) in terms of the long-term typical condition at
+    streamgages in the region.
 
 - longName: 'Water Science School'
   shortName: 'WaterSciSchool'
