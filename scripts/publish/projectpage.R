@@ -69,7 +69,6 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           project_description = proj$description,
           project_URL = proj$websiteUrl,
           project_contact = proj$projectContact,
-          project_contact_email = proj$projectContactEmail,
           analytics_contact = proj$analyticsContact,
           analytics_contact_email = proj$analyticsContactEmail,
           new_vs_returning_year = proj.imgs[['new_vs_returning_year']],
