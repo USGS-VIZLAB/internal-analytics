@@ -41,8 +41,10 @@
     quality results without having to engage in much of the onerous data clean-up
     otherwise required. The WQP is focused on discrete, ambient water quality data from
     both surface and groundwater.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: National Ground Water Monitoring Network Data Portal
   shortName: NGWMN
@@ -61,8 +63,10 @@
     The NGWMN portal displays status of water levels for NGWMN geographically in portal
     using statistics suite. This project continues to support data providers, develops
     and maintains connections between provider data systems and NGWMN.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jessica Lucido'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Geo Data Portal
   shortName: GDP
@@ -83,8 +87,10 @@
     archive of climate projections and other gridded time series dataset with web services.
     Increasingly, this project relies on the Unidata programming office for help maintaining
     software associated with the project.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jordan Read'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: NAWQA SPARROW Decision Support System
   shortName: SPARROWDSS
@@ -106,8 +112,10 @@
     yields, concentrations) and source contributions by stream reach and catchment and track
     transport to downstream receiving waters, such as reservoirs and estuaries. This project
     is being transitioned to the Web Informatics Mapping group in 2017.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Emily Read'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Great Lakes Restoration Initiative Phragmites
   shortName: GLRIPhragmites
@@ -124,8 +132,10 @@
     The GLRI Phragmites Decision Support Tool (DST) Mapper is intended to provide resource
     managers with information to strategically develop effective Phragmites control and
     invasion prevention programs in the Great Lakes coastal zone (10 km inland from the shoreline).
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jessica Lucido'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Coastal Change Hazards Portal
   shortName: CCH
@@ -145,8 +155,10 @@
     forecast data sharing and updates throughout events, such as hurricanes. This app
     allows users to create simple, sharable mash-ups of different coastal datasets and
     provides historical data aiding the understanding and prediction of storm impacts.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Megan Hines'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Biodata
   shortName: BiodataIn
@@ -167,8 +179,10 @@
     of aquatic bioassessment data collected by USGS. The application will be included in
     NWIS Modernization efforts to better align the system with  OWI current development
     practices, system operations, and to address significant technical debt.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Meredith Pavlick'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Biodata Retrieval
   shortName: BiodataRet
@@ -186,8 +200,10 @@
     community and physical habitat data) collected by USGS scientists from stream ecosystems
     across the nation. BioData Retrieval is a public system and disseminates data from over
     15,000 fish, aquatic macroinvertebrate, and algae community samples.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Meredith Pavlick'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: NWIS Reporting Application
   shortName: NWIS-RA
@@ -206,8 +222,10 @@
     can access site information, surface water, groundwater, water quality, and water use
     records. Discrete (non-continuous) data as well as time-series (continuous) data are
     available from active and inactive sites.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Meredith Pavlick, Laura Flight'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: CIDA Website
   shortName: CIDA
@@ -224,8 +242,10 @@
     CIDA employs Agile software development to create useful web applications and
     transactional information systems in support of the earth sciences. CIDA is now
     known as OWI (Office of Water Information).
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Great Lakes Restoration Initiative
   shortName: GLRI
@@ -246,8 +266,10 @@
     initiative uses outcome-oriented performance goals and measures to target the most
     significant problems and track progress toward protecting, maintaining, and restoring
     the chemical, biological, and physical integrity of the Great Lakes.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: WAUSP National Water Census
   shortName: NWC
@@ -267,8 +289,10 @@
     budget data resources, is developing a framework for archiving and visualization
     of National hydrologic modeling, and provides value-added tools for evaluation of
     ecological water needs.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Dave Blodgett'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: NAWQA Watershed Regressions on Pesticides
   shortName: WARP
@@ -285,8 +309,10 @@
     The Watershed Regressions on Pesticides Mapper makes accessible a series
     of statistical models, based on monitoring data and watershed characteristics, to
     enable estimation of pesticide concentrations for streams that have not been monitored.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: USGS-R Resources
   shortName: USGS-R
@@ -303,8 +329,10 @@
     USGS-R is a community of support for users of the R scientific programming language. USGS-R
     resources include R training materials, R tools for the retrieval and analysis of USGS data,
     and support for a growing group of USGS-R developers.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'VizLab: California Drought'
   shortName: VizLabCADrought
@@ -320,8 +348,10 @@
   description: >-
     This website graphically visualizes water data from State, Federal, and Tribal agencies
     to help understand the effect of drought on rivers, streams, lakes, and reservoirs in CA.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Emily Read'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: NAWQA Water Quality Mapper
   shortName: NAR
@@ -338,8 +368,10 @@
     The USGS National Water-Quality Assessment (NAWQA) Project is characterizing the status and
     trends of the Nation’s surface-water quality through a National Water Quality Network. This
     website provides data on national ambient water-quality conditions for rivers and streams.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: National Soil Moisture Network
   shortName: NSMN
@@ -355,8 +387,10 @@
   description: >-
     The National Soil Moisture Pilot provides web map based access near real
     time soil moisture data from a collection of observing locations and networks.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jessica Lucido'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'VizLab: Colorado River Drought'
   shortName: VizLabCRBDrought
@@ -376,8 +410,10 @@
     of open data (i.e., data provided in a discoverable, sharable, and machine-readable
     format) by exploring the current 16-year drought and its effects on the Colorado River
     Basin.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Emily Read'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: OWI Website
   shortName: OWI
@@ -395,8 +431,10 @@
     improving access to data and research, and developing tools for analysis and visualization,
     fostering collaboration with the international community. This website highlights the people,
     partners, products, and efforts of OWI.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: VizLab Landing Page
   shortName: VizLab
@@ -414,8 +452,10 @@
     water issues and/or USGS Water publications or datasets. The VizLab team works with USGS
     WMA scientists and external partners to highlight timely science in accessible and
     appealing visual stories.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jordan Walker'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'VizLab: Climate Change and Fisheries'
   shortName: VizLabClimateFish
@@ -432,8 +472,10 @@
     Shifts in Wisconsin fish habitat due to climate change. Warming lakes are changing fish
     communities in Wisconsin: walleye populations are declining, while large mouth bass
     populations are increasing.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jordan Read'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'VizLab: Microplastics in Our Waterways'
   shortName: VizLabMicroplastics
@@ -451,10 +493,12 @@
     of emerging concern in aquatic environments. Microplastics come from a wide range of
     potential sources (see Microplastics Sources sidebar), and are commonly grouped by size,
     as well as by particle types including fibers/lines, pellets/beads, foams, films, and fragments.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
-- longName: 'VizLab: Hurricane Matthew''s Water Footprint'
+- longName: "VizLab: Hurricane Matthew's Water Footprint"
   shortName: VizLabMatthew
   accountName: Vizlab
   viewID: '131371952'
@@ -468,8 +512,10 @@
   description: >-
     Hurricane Matthew approached the southeastern U.S. coast on October 7, 2016. This
     visualization shows the hurricane's impact on precipitation and streamflow.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jordan Walker'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'VizLab: Water Use'
   shortName: VizLabWaterUse
@@ -488,8 +534,10 @@
     summarized to. This visualization shows that change over time as this dataset has
     become more powerful, and attempts to illustrate where the data can go in the future
     to be a more useful dataset going forward.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Environmental Data Discovery and Transformation
   shortName: EnDDaT
@@ -508,8 +556,10 @@
     compiles and processes the data, and performs common transformations. The result is that
     environmental data from multiple sources is sorted into a single table that aids model
     development and similar tasks.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jessica Lucido'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Grand Canyon Monitoring Research Center Website
   shortName: GCMRC
@@ -529,8 +579,10 @@
     western US. The GCMRC dcision-support tools provide accurate, near-real-time data and
     user-friendly interactive visualizations   by continuous aggregation of datasets and
     continual recomputed derived values based on latest available data.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Megan Hines'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: National Environmental Methods Index
   shortName: NEMI
@@ -546,8 +598,10 @@
   description: >-
     Publicly-accessible searchable interface for monitoring methods and their associated
     analytes of interest.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: NWISWeb Mobile
   shortName: NWISWebMobile
@@ -564,8 +618,10 @@
     This site is designed for mobile users. It highlights USGS current conditions water data.
     For example, you can use it to monitor conditions at a favorite river or stream. Any USGS
     current conditions water data is available.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Brad Garner'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: NWISWeb Desktop
   shortName: NWISWebDesktop
@@ -583,8 +639,10 @@
     pages provide access to water-resources data collected at approximately 1.5 million sites
     in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
     Samoa and the Commonwealth of the Northern Mariana Islands.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Brad Garner'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: Health Based Screening Levels
   shortName: HBSL
@@ -603,8 +661,10 @@
     (NAWQA) Program in a human-health context. Federal drinking-water standards or
     guidelines are not available for many of the hundreds of contaminants analyzed by
     USGS in sources of drinking water.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Alice McCarthy'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 #- longName: Groundwater Watch
 #  shortName: GroundwaterWatch
@@ -623,8 +683,10 @@
 #    capitalize on the operations and security processes in place; and replace fragile,
 #    aging components of the application to reduce risk of outages, specifically the dynamic
 #    maps which lost their support.
-#  Project Contact: 'PLACEHOLDER'
-#  Analytics Contact: 'PLACEHOLDER'
+#  projectContact: 'Brad Garner'
+#  projectContactEmail: 'placeholder@usgs.gov'
+#  analyticsContact: 'PLACEHOLDER'
+#  analyticsContactEmail: 'placeholder@usgs.gov'
 
 #- longName: USGS WaterWatch
 #  shortName: WaterWatch
@@ -642,8 +704,10 @@
 #    streamflow conditions for the United States. WaterWatch summarizes streamflow conditions
 #    in a region (state or hydrologic unit) in terms of the long-term typical condition at
 #    streamgages in the region.
-#  Project Contact: 'PLACEHOLDER'
-#  Analytics Contact: 'PLACEHOLDER'
+#  projectContact: 'PLACEHOLDER'
+#  projectContactEmail: 'placeholder@usgs.gov'
+#  analyticsContact: 'PLACEHOLDER'
+#  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'Water Science School'
   shortName: 'WaterSciSchool'
@@ -659,8 +723,10 @@
   description: >-
     This website offers information on many aspects of water, along with pictures, data,
     maps, and an interactive center where you can give opinions and test your water knowledge.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'water.usgs.gov'
   shortName: 'water.usgs.gov'
@@ -677,8 +743,10 @@
     The USGS Water Mission Area home page. Water's mission is to collect and disseminate
     reliable, impartial, and timely information that is needed to understand the Nation's
     water resources.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: "Streamer - TX WSC"
   shortName: 'Streamer'
@@ -695,8 +763,10 @@
     Web-based mapper that visualizes water flow across America. Streamer allows users to explore our
     Nation's major streams by tracing upstream to their source or downstream to where they empty. It
     also creates reports about your stream traces and the places they pass through.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'USGS StreamStats'
   shortName: 'StreamStats'
@@ -713,8 +783,10 @@
     StreamStats is a Web-based Geographic Information Systems (GIS) application that provides
     users with access to an assortment of analytical tools that are useful for a variety of
     water-resources planning and management purposes, and for engineering and design purposes.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: "Sparrow Tennessee"
   shortName: "SparrowTN"
@@ -732,8 +804,10 @@
     long-term average values of concentrations and amounts of selected constituents delivered to
     downstream receiving waters. This particular application is designed to display U.S.
     Geological Survey SPARROW data in Tennessee.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'National Water Information System Mapper - Water Alert'
   shortName: 'NWISMapper-WaterAlert'
@@ -750,8 +824,10 @@
     Web-based map that links to USGS gage data and allows users to subscribe to site notifications
     through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'Joseph Kalfsbeek'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
   shortName: "NaWQASWTrends"
@@ -771,8 +847,10 @@
     shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity)
     and aquatic ecology (fish, invertebrates, and algae) for four time periods: 1972-2012, 1982-2012,
     1992-2012, and 2002-2012.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'National Water-Quality Assessment - Decadal Trends Mapper'
   shortName: 'NaWQADecadalTrendsMapper'
@@ -790,8 +868,10 @@
     in groundwater are changing during decadal periods across the Nation. Tracking changes in
     groundwater quality and investigating the reasons for these changes is crucial for informing
     management decisions to protect and sustain our valuable groundwater resources.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'NPS Mercury Mapper'
   shortName: 'NPSMercuryMapper'
@@ -810,8 +890,10 @@
     methylmercury concentrations, but rather a predicted methylmercury concentration based on
     measured water quality and landscape variables believed to influence methylation in natural
     systems. Data are modeled to 8-digit hydrologic units.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'Mississippi River Basin Flood of 2015/2016'
   shortName: 'MARB'
@@ -827,8 +909,10 @@
   description: >-
     This map shows the location of USGS continuous water-quality monitoring stations throughout
     the Mississippi River basin that provides information on the impact of flooding on water quality.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'Western Lake Erie Restoration Assessment Web App'
   shortName: 'GLCWRA-WLERA'
@@ -845,8 +929,10 @@
     This is the web mapping application for interfacing with the Western Lake Erie Restoration
     Assessment (WLERA) model. The WLERA is a geodesign framework for measuring the potential to
     restore coastal wetlands in the Great Lakes basin.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'Saginaw Bay Restoration Assessment Web App'
   shortName: 'GLCWRA-SBRA'
@@ -863,8 +949,10 @@
     This is the web mapping application for interfacing with the Saginaw Bay Restoration Assessment
     (SBRA) model, which is an extension of the Western Lake Erie Restoration Assessment (WLERA) model.
     The SBRA extends along the shore of Lake Huron from the St. Clair River through Saginaw Bay.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: 'Connecting River Systems Restoration Assessment Web App'
   shortName: 'GLCWRA-CRSRA'
@@ -882,8 +970,10 @@
     Assessment (CRSRA) model, which is an extension of the Western Lake Erie Restoration Assessment
     (WLERA) model. The CRSRA is focused on the connecting channels area that includes the Detroit River,
     Lake St. Clair, and the St. Clair River.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: "Flood Inundation Mapper"
   shortName: "FIM"
@@ -902,8 +992,10 @@
      flood information and potential loss estimates based on the severity of the flood. The
      FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
      resources that may be at risk, and enhance their local response effort during a flooding event.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: "USGS Flood Event Viewer"
   shortName: "FEV"
@@ -919,8 +1011,10 @@
     Short-Term Network (STN) database. Data viewable and downloadable from this page
     are from the STN database. This application integrates with the USGS National Water
     Information System (NWIS) database  for display of time-series water data.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
+  projectContact: 'PLACEHOLDER'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
 
 - longName: "National Water Information System Mapper"
   shortName: "NWISMapper"
@@ -933,6 +1027,7 @@
   botFilteringEnabled: 'NA'
   description: >-
     This is the web mapping application for interfacing with NWIS data.
-  Project Contact: 'PLACEHOLDER'
-  Analytics Contact: 'PLACEHOLDER'
-
+  projectContact: 'Joseph Kalfsbeek'
+  projectContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'PLACEHOLDER'
+  analyticsContactEmail: 'placeholder@usgs.gov'
