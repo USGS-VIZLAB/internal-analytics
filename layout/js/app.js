@@ -1,11 +1,11 @@
 $(document).ready(function(){
-  
-  var button = $('#toggleButtons button');
+
+  var button = $('.timeToggle a');
   var chart = $('.figure');
   var yearChart = $('.year');
   var monthChart = $('.month');
   var weekChart = $('.week');
-  
+
   var toggle = function(){
     if($('#yearButton.active').length > 0){
       yearChart.show();
@@ -17,15 +17,15 @@ $(document).ready(function(){
       weekChart.show();
     }
   };
-  
+
   button.on('click', function(){
     button.removeClass('active');
     chart.hide();
     $(this).addClass('active');
     toggle();
   });
-  
+
   toggle();
-  
+
 });
 
