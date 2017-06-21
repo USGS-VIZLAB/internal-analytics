@@ -222,13 +222,8 @@
     can access site information, surface water, groundwater, water quality, and water use
     records. Discrete (non-continuous) data as well as time-series (continuous) data are
     available from active and inactive sites.
-  projectContact:
-    -
-      name: 'Meredith Pavlick'
-      email: 'mpavlick@usgs.gov'
-    -
-      name: 'Laura Flight'
-      email: 'lflight'
+  projectContact: 'Meredith Pavlick'
+  projectContactEmail: 'mpavlick@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
 
