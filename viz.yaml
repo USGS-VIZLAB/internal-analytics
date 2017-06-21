@@ -719,6 +719,7 @@ publish:
       header: header
       footer: footer
       frontPage: frontPage
+      favicon: lib-vizlab-favicon
       internalAnalyticsCSS: internalAnalyticsCSS
       detailsCSS: detailsCSS
       headerCSS: lib-header-css
@@ -729,7 +730,7 @@ publish:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS","favicon"]
   -
     id: projectPages
     publisher: projectpage
@@ -738,6 +739,7 @@ publish:
     depends:
       header: header
       footer: footer
+      favicon: lib-vizlab-favicon
       siteText: siteText
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
@@ -800,7 +802,7 @@ publish:
       info_session_time: >-
         In this plot, a time series of sessions (traffic) is shown for application(s) over the selected
         time period.
-      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS"]
+      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS","favicon"]
   -
     id: project_list
     publisher: projectlist
