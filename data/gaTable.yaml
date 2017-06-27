@@ -743,10 +743,10 @@
     The USGS Water Mission Area home page. Water's mission is to collect and disseminate
     reliable, impartial, and timely information that is needed to understand the Nation's
     water resources.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
   analyticsContact: 'PLACEHOLDER'
   analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Howard Perlman'
+  projectContactEmail: 'hperlman@usgs.gov'
 
 - longName: "Streamer - TX WSC"
   shortName: 'Streamer'
