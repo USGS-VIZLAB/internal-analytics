@@ -620,8 +620,8 @@
     current conditions water data is available.
   projectContact: 'Brad Garner'
   projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Brad Garner'
+  analyticsContactEmail: 'bdgarner@usgs.gov'
 
 - longName: NWISWeb Desktop
   shortName: NWISWebDesktop
@@ -641,8 +641,8 @@
     Samoa and the Commonwealth of the Northern Mariana Islands.
   projectContact: 'Brad Garner'
   projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Brad Garner'
+  analyticsContactEmail: 'bdgarner@usgs.gov'
 
 - longName: Health Based Screening Levels
   shortName: HBSL
@@ -685,8 +685,8 @@
     maps which lost their support.
   projectContact: 'Brad Garner'
   projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Steven Brady'
+  analyticsContactEmail: 'sbrady@usgs.gov'
 
 - longName: USGS WaterWatch
   shortName: WaterWatch
@@ -706,8 +706,8 @@
     streamgages in the region.
   projectContact: 'WaterWatch Team'
   projectContactEmail: 'gs-w_waterwatch@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Steven Brady'
+  analyticsContactEmail: 'sbrady@usgs.gov'
 
 - longName: 'Water Science School'
   shortName: 'WaterSciSchool'
@@ -725,8 +725,8 @@
     maps, and an interactive center where you can give opinions and test your water knowledge.
   projectContact: 'Howard Perlman'
   projectContactEmail: 'hperlman@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Howard Perlman'
+  analyticsContactEmail: 'hperlman@usgs.gov'
 
 - longName: 'water.usgs.gov'
   shortName: 'water.usgs.gov'
@@ -743,10 +743,10 @@
     The USGS Water Mission Area home page. Water's mission is to collect and disseminate
     reliable, impartial, and timely information that is needed to understand the Nation's
     water resources.
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
   projectContact: 'Howard Perlman'
   projectContactEmail: 'hperlman@usgs.gov'
+  analyticsContact: 'Howard Perlman'
+  analyticsContactEmail: 'hperlman@usgs.gov'
 
 - longName: "Streamer - TX WSC"
   shortName: 'Streamer'
@@ -765,8 +765,8 @@
     also creates reports about your stream traces and the places they pass through.
   projectContact: 'Streamer Team'
   projectContactEmail: 'streamer@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Ramona Neafie'
+  analyticsContactEmail: 'rjneafie@usgs.gov'
 
 - longName: 'USGS StreamStats'
   shortName: 'StreamStats'
