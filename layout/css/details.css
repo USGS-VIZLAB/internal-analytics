@@ -18,6 +18,20 @@
   margin:0 10px 15px 10px;
 }
 
+.contactNames{
+  font-size:.9em;
+  max-width:600px;
+  margin:0 10px 15px 10px;
+  color:rgb(0,51,102);
+}
+
+.contactEmails{
+  font-size:.9em;
+  max-width:600px;
+  margin:0 10px 15px 10px;
+  color:rgb(0,51,102);
+}
+
 .projectNavigationContainer{
   background:#fff;
   width:100%;
