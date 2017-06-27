@@ -785,8 +785,8 @@
     water-resources planning and management purposes, and for engineering and design purposes.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "Sparrow Tennessee"
   shortName: "SparrowTN"
@@ -806,8 +806,8 @@
     Geological Survey SPARROW data in Tennessee.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'National Water Information System Mapper - Water Alert'
   shortName: 'NWISMapper-WaterAlert'
@@ -849,8 +849,8 @@
     1992-2012, and 2002-2012.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'National Water-Quality Assessment - Decadal Trends Mapper'
   shortName: 'NaWQADecadalTrendsMapper'
@@ -870,8 +870,8 @@
     management decisions to protect and sustain our valuable groundwater resources.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'NPS Mercury Mapper'
   shortName: 'NPSMercuryMapper'
@@ -892,8 +892,8 @@
     systems. Data are modeled to 8-digit hydrologic units.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Mississippi River Basin Flood of 2015/2016'
   shortName: 'MARB'
@@ -911,8 +911,8 @@
     the Mississippi River basin that provides information on the impact of flooding on water quality.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Western Lake Erie Restoration Assessment Web App'
   shortName: 'GLCWRA-WLERA'
@@ -931,8 +931,8 @@
     restore coastal wetlands in the Great Lakes basin.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Saginaw Bay Restoration Assessment Web App'
   shortName: 'GLCWRA-SBRA'
@@ -951,8 +951,8 @@
     The SBRA extends along the shore of Lake Huron from the St. Clair River through Saginaw Bay.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Connecting River Systems Restoration Assessment Web App'
   shortName: 'GLCWRA-CRSRA'
@@ -972,8 +972,8 @@
     Lake St. Clair, and the St. Clair River.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "Flood Inundation Mapper"
   shortName: "FIM"
@@ -994,8 +994,8 @@
      resources that may be at risk, and enhance their local response effort during a flooding event.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "USGS Flood Event Viewer"
   shortName: "FEV"
@@ -1013,8 +1013,8 @@
     Information System (NWIS) database  for display of time-series water data.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "National Water Information System Mapper"
   shortName: "NWISMapper"
