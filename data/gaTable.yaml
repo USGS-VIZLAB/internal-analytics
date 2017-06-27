@@ -826,8 +826,8 @@
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
   projectContact: 'Joseph Kalfsbeek'
   projectContactEmail: 'kalfsbek@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
   shortName: "NaWQASWTrends"
@@ -1018,6 +1018,7 @@
 
 - longName: "National Water Information System Mapper"
   shortName: "NWISMapper"
+  accountName: WIM USGS
   viewID: "120202187"
   accountId: '61219868'
   webPropertyId: "UA-61219868-8"
@@ -1029,5 +1030,5 @@
     This is the web mapping application for interfacing with NWIS data.
   projectContact: 'Joseph Kalfsbeek'
   projectContactEmail: 'kalfsbek@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
