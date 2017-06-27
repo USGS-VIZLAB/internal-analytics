@@ -768,6 +768,7 @@ publish:
       timeDayUse_app_month: timeDayUse_app_month
       timeDayUse_app_week: timeDayUse_app_week
       sideBar: sideBar
+      project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
       app_time: app_time
       informationImg: informationImg
