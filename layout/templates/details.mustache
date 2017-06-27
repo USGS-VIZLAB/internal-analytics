@@ -1,9 +1,6 @@
 <div class="container flexContainer">
 	{{{sideBar}}}
 	<div class="content flex5">
-		<a href="index.html">
-			<button class="return">Return to Summary</button>
-		</a>
 		<h2 class="projectName">
 		  <a  class="projectURL" href="{{project_URL}}" target="_blank">
 			{{project_name}}
@@ -23,10 +20,31 @@
 		    {{analytics_contact_email}}
 		  </a>
 		</p>
-		<div id="toggleButtons">
-  		  <button id="yearButton" class="active">Year</button>
-  			<button id="monthButton">Month</button>
-  			<button id="weekButton">Week</button>
+		<div class="projectNavigationContainer">
+		  <div class="projectNavigationContent">
+        <div id="returnHome">
+          <a href="index.html">
+  			    Return to Summary
+  		    </a>
+        </div>
+        <div class="timeToggle">
+          <a id="yearButton" class="active">Year</a>
+      		<a id="monthButton">Month</a>
+      		<a id="weekButton">Week</a>
+        </div>
+        <div id="projectToggle">
+          {{#previous_link}}
+    		    <a href="{{{previous_link}}}">
+      		    Previous Application
+    		    </a>
+    		  {{/previous_link}}
+    		  {{#next_link}}
+    		    <a href="{{{next_link}}}">
+    		      Next Application
+    		    </a>
+    		  {{/next_link}}
+        </div>
+    	</div>
 		</div>
 		<section id="lineAssessments" class="full">
 			<div class="header">
@@ -143,7 +161,7 @@
 				</div>
 				<div class="chartArea">
 					{{{app_time}}}
-				</div>	
+				</div>
 			</div>
 		</section>
 		<section class="half flexContainer">
@@ -206,4 +224,3 @@
 		</section>
 	</div><!--content-->
 </div>
-  

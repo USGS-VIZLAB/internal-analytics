@@ -1,11 +1,12 @@
 #' Creates templated html for each project
 library(dplyr)
 publish.projectpage <- function(viz = as.viz("projectPages")) {
-  
+
   deps <- readDepends(viz)
-  
+
   projects <- deps[['project_table']] # get projects from deps
-  
+  links <- deps[['project_links']] # ordered urls for projects
+
   img.files <- list(
     new_vs_returning_year = deps[['new_vs_returning_year']],
     new_vs_returning_month = deps[['new_vs_returning_month']],
@@ -26,20 +27,22 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     timeDayUse_app_month = deps[["timeDayUse_app_month"]],
     timeDayUse_app_week = deps[["timeDayUse_app_week"]]
   )
-  
+
   table.files <- deps[["app_time"]]
-  
+
   for (i in 1:nrow(projects)) {
     proj <- projects[i,]
+
+
     viewID <- proj$viewID
     # get relative paths for images
-    
+
     table.data <- filter(table.files, id == viewID)
     table.html <- readChar(table.data$loc, file.info(table.data$loc)$size)
-    
+
     proj.imgs <- sapply(img.files, function(x){
       img <- "missingImg"
-      
+
       row <- filter(x, id == viewID)
       if (nrow(row) > 0) {
         img <- list(
@@ -55,7 +58,23 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
 
       return(img.out)
     })
-    
+
+    j <- 1
+    while (j <= length(links)) {
+      if (links[[j]][["longName"]] == proj[["longName"]]) {
+        break
+      }
+      j <- j + 1
+    }
+    prevLink <- NULL
+    if (j>1) {
+      prevLink <- links[[j-1]][['url']]
+    }
+    nextLink <- NULL
+    if (j<nrow(projects)) {
+      nextLink <- links[[j+1]][['url']]
+    }
+
     sectionId <- paste0(viewID, "-section")
     contents <- list(
       id = sectionId,
@@ -90,15 +109,17 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           timeDayUse_app_year = proj.imgs[["timeDayUse_app_year"]],
           timeDayUse_app_month = proj.imgs[["timeDayUse_app_month"]],
           timeDayUse_app_week = proj.imgs[["timeDayUse_app_week"]],
-          app_time = table.html
+          app_time = table.html,
+          previous_link = prevLink,
+          next_link = nextLink
       ))
     )
     contents <- as.viz(contents)
     contents <- as.publisher(contents)
-    
+
     depends <- viz[['depends']]
     depends[[sectionId]] <- contents
-    
+
     pub <- list(
       id = paste0(viewID, "-page"),
       name = proj$shortName,
@@ -112,7 +133,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
         sections = sectionId
       )
     )
-    
+
     pub <- as.viz(pub)
     pub <- as.publisher(pub)
     publish(pub)
@@ -122,9 +143,9 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
 publish.projectlist <- function(viz = as.viz("project_list")) {
   required <- c("template")
   checkRequired(viz, required)
-  
+
   deps <- readDepends(viz)
-  
+
   template <- template(viz[['template']])
   context <- list(projects = deps[['project_links']])
   viz[['output']] <- render(template, context)
