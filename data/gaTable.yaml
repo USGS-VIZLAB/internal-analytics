@@ -309,10 +309,10 @@
     The Watershed Regressions on Pesticides Mapper makes accessible a series
     of statistical models, based on monitoring data and watershed characteristics, to
     enable estimation of pesticide concentrations for streams that have not been monitored.
-  projectContact: 'WARP Team'
-  projectContactEmail: 'warp@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Alice McCarthy'
+  projectContactEmail: 'ajmccart@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: USGS-R Resources
   shortName: USGS-R
