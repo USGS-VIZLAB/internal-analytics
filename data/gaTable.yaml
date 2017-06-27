@@ -20,8 +20,8 @@
     (WRET, Sciencebase, others).
   projectContact: 'Jim Kreft'
   projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Water Quality Portal
   shortName: WQP
@@ -43,8 +43,8 @@
     both surface and groundwater.
   projectContact: 'Jim Kreft'
   projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: National Ground Water Monitoring Network Data Portal
   shortName: NGWMN
@@ -65,8 +65,8 @@
     and maintains connections between provider data systems and NGWMN.
   projectContact: 'Jessica Lucido'
   projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Geo Data Portal
   shortName: GDP
@@ -89,8 +89,8 @@
     software associated with the project.
   projectContact: 'Jordan Read'
   projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: NAWQA SPARROW Decision Support System
   shortName: SPARROWDSS
@@ -114,8 +114,8 @@
     is being transitioned to the Web Informatics Mapping group in 2017.
   projectContact: 'Emily Read'
   projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Great Lakes Restoration Initiative Phragmites
   shortName: GLRIPhragmites
@@ -134,8 +134,8 @@
     invasion prevention programs in the Great Lakes coastal zone (10 km inland from the shoreline).
   projectContact: 'Jessica Lucido'
   projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Coastal Change Hazards Portal
   shortName: CCH
@@ -157,8 +157,8 @@
     provides historical data aiding the understanding and prediction of storm impacts.
   projectContact: 'Megan Hines'
   projectContactEmail: 'mhines@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Biodata
   shortName: BiodataIn
@@ -181,8 +181,8 @@
     practices, system operations, and to address significant technical debt.
   projectContact: 'Meredith Pavlick'
   projectContactEmail: 'mpavlick@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Biodata Retrieval
   shortName: BiodataRet
@@ -202,8 +202,8 @@
     15,000 fish, aquatic macroinvertebrate, and algae community samples.
   projectContact: 'Meredith Pavlick'
   projectContactEmail: 'mpavlick@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: NWIS Reporting Application
   shortName: NWIS-RA
@@ -224,8 +224,8 @@
     available from active and inactive sites.
   projectContact: 'Meredith Pavlick'
   projectContactEmail: 'mpavlick@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: CIDA Website
   shortName: CIDA
@@ -244,8 +244,8 @@
     known as OWI (Office of Water Information).
   projectContact: 'Emily Read'
   projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Great Lakes Restoration Initiative
   shortName: GLRI
@@ -268,8 +268,8 @@
     the chemical, biological, and physical integrity of the Great Lakes.
   projectContact: 'GLRI Help Team'
   projectContactEmail: 'glri-database@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: WAUSP National Water Census
   shortName: NWC
@@ -291,8 +291,8 @@
     ecological water needs.
   projectContact: 'Dave Blodgett'
   projectContactEmail: 'dblodgett@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: NAWQA Watershed Regressions on Pesticides
   shortName: WARP
@@ -309,10 +309,10 @@
     The Watershed Regressions on Pesticides Mapper makes accessible a series
     of statistical models, based on monitoring data and watershed characteristics, to
     enable estimation of pesticide concentrations for streams that have not been monitored.
-  projectContact: 'WARP Team'
-  projectContactEmail: 'warp@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Alice McCarthy'
+  projectContactEmail: 'ajmccart@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: USGS-R Resources
   shortName: USGS-R
@@ -331,8 +331,8 @@
     and support for a growing group of USGS-R developers.
   projectContact: 'USGS-R Admin Team'
   projectContactEmail: 'gs-w_r_admin@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: 'VizLab: California Drought'
   shortName: VizLabCADrought
@@ -350,8 +350,8 @@
     to help understand the effect of drought on rivers, streams, lakes, and reservoirs in CA.
   projectContact: 'Emily Read'
   projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: NAWQA Water Quality Mapper
   shortName: NAR
@@ -370,8 +370,8 @@
     website provides data on national ambient water-quality conditions for rivers and streams.
   projectContact: 'Jim Kreft'
   projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: National Soil Moisture Network
   shortName: NSMN
@@ -389,8 +389,8 @@
     time soil moisture data from a collection of observing locations and networks.
   projectContact: 'Jessica Lucido'
   projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: 'VizLab: Colorado River Drought'
   shortName: VizLabCRBDrought
@@ -412,8 +412,8 @@
     Basin.
   projectContact: 'Emily Read'
   projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: OWI Website
   shortName: OWI
@@ -433,8 +433,8 @@
     partners, products, and efforts of OWI.
   projectContact: 'Emily Read'
   projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: VizLab Landing Page
   shortName: VizLab
@@ -454,8 +454,8 @@
     appealing visual stories.
   projectContact: 'Jordan Walker'
   projectContactEmail: 'jiwalker@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: 'VizLab: Climate Change and Fisheries'
   shortName: VizLabClimateFish
@@ -474,8 +474,8 @@
     populations are increasing.
   projectContact: 'Jordan Read'
   projectContactEmail: 'jread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: 'VizLab: Microplastics in Our Waterways'
   shortName: VizLabMicroplastics
@@ -495,8 +495,8 @@
     as well as by particle types including fibers/lines, pellets/beads, foams, films, and fragments.
   projectContact: 'Austin Baldwin'
   projectContactEmail: 'akbaldwi@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: "VizLab: Hurricane Matthew's Water Footprint"
   shortName: VizLabMatthew
@@ -514,8 +514,8 @@
     visualization shows the hurricane's impact on precipitation and streamflow.
   projectContact: 'Jordan Walker'
   projectContactEmail: 'jiwalker@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: 'VizLab: Water Use'
   shortName: VizLabWaterUse
@@ -536,8 +536,8 @@
     to be a more useful dataset going forward.
   projectContact: 'Sonya Jones'
   projectContactEmail: 'sajones@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Environmental Data Discovery and Transformation
   shortName: EnDDaT
@@ -558,8 +558,8 @@
     development and similar tasks.
   projectContact: 'Jessica Lucido'
   projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Grand Canyon Monitoring Research Center Website
   shortName: GCMRC
@@ -581,8 +581,8 @@
     continual recomputed derived values based on latest available data.
   projectContact: 'Megan Hines'
   projectContactEmail: 'mhines@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: National Environmental Methods Index
   shortName: NEMI
@@ -600,8 +600,8 @@
     analytes of interest.
   projectContact: 'Jim Kreft'
   projectContactEmail: 'jkreft@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: NWISWeb Mobile
   shortName: NWISWebMobile
@@ -620,8 +620,8 @@
     current conditions water data is available.
   projectContact: 'Brad Garner'
   projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Brad Garner'
+  analyticsContactEmail: 'bdgarner@usgs.gov'
 
 - longName: NWISWeb Desktop
   shortName: NWISWebDesktop
@@ -641,8 +641,8 @@
     Samoa and the Commonwealth of the Northern Mariana Islands.
   projectContact: 'Brad Garner'
   projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Brad Garner'
+  analyticsContactEmail: 'bdgarner@usgs.gov'
 
 - longName: Health Based Screening Levels
   shortName: HBSL
@@ -663,8 +663,8 @@
     USGS in sources of drinking water.
   projectContact: 'Alice McCarthy'
   projectContactEmail: 'ajmccart@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: Groundwater Watch
   shortName: GroundwaterWatch
@@ -685,8 +685,8 @@
     maps which lost their support.
   projectContact: 'Brad Garner'
   projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Steven Brady'
+  analyticsContactEmail: 'sbrady@usgs.gov'
 
 - longName: USGS WaterWatch
   shortName: WaterWatch
@@ -706,8 +706,8 @@
     streamgages in the region.
   projectContact: 'WaterWatch Team'
   projectContactEmail: 'gs-w_waterwatch@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Steven Brady'
+  analyticsContactEmail: 'sbrady@usgs.gov'
 
 - longName: 'Water Science School'
   shortName: 'WaterSciSchool'
@@ -725,8 +725,8 @@
     maps, and an interactive center where you can give opinions and test your water knowledge.
   projectContact: 'Howard Perlman'
   projectContactEmail: 'hperlman@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Howard Perlman'
+  analyticsContactEmail: 'hperlman@usgs.gov'
 
 - longName: 'water.usgs.gov'
   shortName: 'water.usgs.gov'
@@ -743,10 +743,10 @@
     The USGS Water Mission Area home page. Water's mission is to collect and disseminate
     reliable, impartial, and timely information that is needed to understand the Nation's
     water resources.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Howard Perlman'
+  projectContactEmail: 'hperlman@usgs.gov'
+  analyticsContact: 'Howard Perlman'
+  analyticsContactEmail: 'hperlman@usgs.gov'
 
 - longName: "Streamer - TX WSC"
   shortName: 'Streamer'
@@ -765,8 +765,8 @@
     also creates reports about your stream traces and the places they pass through.
   projectContact: 'Streamer Team'
   projectContactEmail: 'streamer@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Ramona Neafie'
+  analyticsContactEmail: 'rjneafie@usgs.gov'
 
 - longName: 'USGS StreamStats'
   shortName: 'StreamStats'
@@ -783,10 +783,10 @@
     StreamStats is a Web-based Geographic Information Systems (GIS) application that provides
     users with access to an assortment of analytical tools that are useful for a variety of
     water-resources planning and management purposes, and for engineering and design purposes.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "Sparrow Tennessee"
   shortName: "SparrowTN"
@@ -804,10 +804,10 @@
     long-term average values of concentrations and amounts of selected constituents delivered to
     downstream receiving waters. This particular application is designed to display U.S.
     Geological Survey SPARROW data in Tennessee.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'National Water Information System Mapper - Water Alert'
   shortName: 'NWISMapper-WaterAlert'
@@ -826,8 +826,8 @@
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
   projectContact: 'Joseph Kalfsbeek'
   projectContactEmail: 'kalfsbek@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
   shortName: "NaWQASWTrends"
@@ -847,10 +847,10 @@
     shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity)
     and aquatic ecology (fish, invertebrates, and algae) for four time periods: 1972-2012, 1982-2012,
     1992-2012, and 2002-2012.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'National Water-Quality Assessment - Decadal Trends Mapper'
   shortName: 'NaWQADecadalTrendsMapper'
@@ -868,10 +868,10 @@
     in groundwater are changing during decadal periods across the Nation. Tracking changes in
     groundwater quality and investigating the reasons for these changes is crucial for informing
     management decisions to protect and sustain our valuable groundwater resources.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'NPS Mercury Mapper'
   shortName: 'NPSMercuryMapper'
@@ -890,10 +890,10 @@
     methylmercury concentrations, but rather a predicted methylmercury concentration based on
     measured water quality and landscape variables believed to influence methylation in natural
     systems. Data are modeled to 8-digit hydrologic units.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Mississippi River Basin Flood of 2015/2016'
   shortName: 'MARB'
@@ -909,10 +909,10 @@
   description: >-
     This map shows the location of USGS continuous water-quality monitoring stations throughout
     the Mississippi River basin that provides information on the impact of flooding on water quality.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Western Lake Erie Restoration Assessment Web App'
   shortName: 'GLCWRA-WLERA'
@@ -929,10 +929,10 @@
     This is the web mapping application for interfacing with the Western Lake Erie Restoration
     Assessment (WLERA) model. The WLERA is a geodesign framework for measuring the potential to
     restore coastal wetlands in the Great Lakes basin.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Saginaw Bay Restoration Assessment Web App'
   shortName: 'GLCWRA-SBRA'
@@ -949,10 +949,10 @@
     This is the web mapping application for interfacing with the Saginaw Bay Restoration Assessment
     (SBRA) model, which is an extension of the Western Lake Erie Restoration Assessment (WLERA) model.
     The SBRA extends along the shore of Lake Huron from the St. Clair River through Saginaw Bay.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: 'Connecting River Systems Restoration Assessment Web App'
   shortName: 'GLCWRA-CRSRA'
@@ -970,10 +970,10 @@
     Assessment (CRSRA) model, which is an extension of the Western Lake Erie Restoration Assessment
     (WLERA) model. The CRSRA is focused on the connecting channels area that includes the Detroit River,
     Lake St. Clair, and the St. Clair River.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "Flood Inundation Mapper"
   shortName: "FIM"
@@ -992,10 +992,10 @@
      flood information and potential loss estimates based on the severity of the flood. The
      FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
      resources that may be at risk, and enhance their local response effort during a flooding event.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "USGS Flood Event Viewer"
   shortName: "FEV"
@@ -1011,13 +1011,14 @@
     Short-Term Network (STN) database. Data viewable and downloadable from this page
     are from the STN database. This application integrates with the USGS National Water
     Information System (NWIS) database  for display of time-series water data.
-  projectContact: 'Gary Latzke'
-  projectContactEmail: 'gdlatzke@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
 
 - longName: "National Water Information System Mapper"
   shortName: "NWISMapper"
+  accountName: WIM USGS
   viewID: "120202187"
   accountId: '61219868'
   webPropertyId: "UA-61219868-8"
@@ -1029,5 +1030,5 @@
     This is the web mapping application for interfacing with NWIS data.
   projectContact: 'Joseph Kalfsbeek'
   projectContactEmail: 'kalfsbek@usgs.gov'
-  analyticsContact: 'PLACEHOLDER'
-  analyticsContactEmail: 'placeholder@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
