@@ -86,7 +86,7 @@ plot_device <- function(viz.data, bar_line_col){
           plot.margin=unit(c(0.1,1,0.1,0.1),"cm"))
 
 
-  offcenter_index <- which(sub_data_range$Sessions < 0.35*sub_data_range$Sessions[sub_data_range$deviceCategory == "desktop"])
+  offcenter_index <- which(sub_data_range$Sessions < 0.35*max(sub_data_range$Sessions,na.rm = TRUE))
 
   if(length(offcenter_index) > 0){
     centered <- sub_data_range[-offcenter_index,]
