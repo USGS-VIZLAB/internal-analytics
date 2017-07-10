@@ -11,9 +11,9 @@
   websiteUrl: http://pubs.er.usgs.gov
   botFilteringEnabled: 'TRUE'
   description: >-
-    Pubs Warehouse provides access to all publications written by
+    The Publications Warehouse (Pubs) provides access to all publications written by
     USGS scientists back to the founding of the bureau and is the public face of
-    all new USGS Series reports released since Summer 2015. The app forms the
+    all new USGS Series reports released since summer 2015. The app forms the
     core of the publications access part of the USGS OSTP Open Access memo response,
     providing access to USGS funded publications and linking to underlying datasets,
     and is the authoritative source of publication metadata for other USGS systems
@@ -35,7 +35,7 @@
   websiteUrl: http://www.waterqualitydata.us
   botFilteringEnabled: 'TRUE'
   description: >-
-    The Water Quality Portal(WQP) is a collaborative project between
+    The Water Quality Portal (WQP) is a collaborative project between
     the USGS and the EPA to provide a single point of access for discrete water quality
     data. The WQP makes it possible to access hundreds of millions of individual water
     quality results without having to engage in much of the onerous data clean-up
@@ -58,10 +58,11 @@
   websiteUrl: http://cida.usgs.gov/ngwmn
   botFilteringEnabled: ''
   description: >-
-    The NGWMN data portal provides on-demand access to groundwater data
+    The National Ground Water Monitoring Network Data Portal (NGWMN) data portal provides 
+	on-demand access to groundwater data
     from distributed systems through a map-based portal in a single, aggregated output.
-    The NGWMN portal displays status of water levels for NGWMN geographically in portal
-    using statistics suite. This project continues to support data providers, develops
+    The NGWMN portal displays status of water levels for NGWMN sites geographically in portal
+    using a statistics suite. This project continues to support data providers and develops
     and maintains connections between provider data systems and NGWMN.
   projectContact: 'Jessica Lucido'
   projectContactEmail: 'jlucido@usgs.gov'
@@ -80,10 +81,10 @@
   websiteUrl: http://cida.usgs.gov/gdp/
   botFilteringEnabled: ''
   description: >-
-    The Geo Data Portal and its data archives offer a multi-dataset processing
+    The Geo Data Portal (GDP) and its data archives offer a multi-dataset processing
     service for environmental modelers to gain access to downscaled climate projections. The
-    Geo Data Portal is a processing service for watershed and other modelers to use to
-    access downscaled climate projections. The Geo Data Portal project has an associated
+    GDP is a processing service for watershed and other modelers to use to
+    access downscaled climate projections. The GDP project has an associated
     archive of climate projections and other gridded time series dataset with web services.
     Increasingly, this project relies on the Unidata programming office for help maintaining
     software associated with the project.
@@ -129,7 +130,7 @@
   websiteUrl: http://cida.usgs.gov/glri/phragmites/
   botFilteringEnabled: ''
   description: >-
-    The GLRI Phragmites Decision Support Tool (DST) Mapper is intended to provide resource
+    The GLRI Phragmites Decision Support Tool is intended to provide resource
     managers with information to strategically develop effective Phragmites control and
     invasion prevention programs in the Great Lakes coastal zone (10 km inland from the shoreline).
   projectContact: 'Jessica Lucido'
@@ -149,7 +150,7 @@
   websiteUrl: http://cida.usgs.gov/coastalchangehazardsportal/
   botFilteringEnabled: ''
   description: >-
-    The Coastal Change Hazards Portal provides interactive access to coastal
+    The Coastal Change Hazards (CCH) Portal provides interactive access to coastal
     change science and data for our Nation's coasts. Provide tools to researchers to
     manage their coastal datasets' appearance in the Portal. Support real-time storm
     forecast data sharing and updates throughout events, such as hurricanes. This app
@@ -196,7 +197,7 @@
   websiteUrl: https://aquatic.biodata.usgs.gov
   botFilteringEnabled: ''
   description: >-
-    The BioData Retrieval system provides access to aquatic bioassessment data (biological
+    The BioData Retrieval (BiodataRet) system provides access to aquatic bioassessment data (biological
     community and physical habitat data) collected by USGS scientists from stream ecosystems
     across the nation. BioData Retrieval is a public system and disseminates data from over
     15,000 fish, aquatic macroinvertebrate, and algae community samples.
@@ -217,7 +218,7 @@
   websiteUrl: https://nwisdata.usgs.gov
   botFilteringEnabled: 'FALSE'
   description: >-
-    This application provides USGS staff with retrieval and reporting capabilities for
+    The NWIS Reporting Application (NWIS-RA) provides USGS staff with retrieval and reporting capabilities for
     internal-only and public data in the National Water Information System (NWIS). Users
     can access site information, surface water, groundwater, water quality, and water use
     records. Discrete (non-continuous) data as well as time-series (continuous) data are
@@ -239,7 +240,7 @@
   websiteUrl: http://cida.usgs.gov/
   botFilteringEnabled: ''
   description: >-
-    CIDA employs Agile software development to create useful web applications and
+    The Center for Integrated Data Analytics (CIDA) employs Agile software development to create useful web applications and
     transactional information systems in support of the earth sciences. CIDA is now
     known as OWI (Office of Water Information).
   projectContact: 'Emily Read'
@@ -283,11 +284,11 @@
   websiteUrl: http://cida.usgs.gov/nwc
   botFilteringEnabled: ''
   description: >-
-    The National Water Census will provide a baseline data resource for
+    The Water Availablity and Use Science Program National Water Census (NWC) will provide a baseline data resource for
     water planning and management. The NWC curates research tools and outcomes of the
     National Water Census initiative, integrates water use compilation data into water
     budget data resources, is developing a framework for archiving and visualization
-    of National hydrologic modeling, and provides value-added tools for evaluation of
+    of national-scale hydrologic modeling, and provides value-added tools for evaluation of
     ecological water needs.
   projectContact: 'Dave Blodgett'
   projectContactEmail: 'dblodgett@usgs.gov'
@@ -306,7 +307,7 @@
   websiteUrl: http://cida.usgs.gov/WARP
   botFilteringEnabled: ''
   description: >-
-    The Watershed Regressions on Pesticides Mapper makes accessible a series
+    The Watershed Regressions on Pesticides (WARP) mapper makes accessible a series
     of statistical models, based on monitoring data and watershed characteristics, to
     enable estimation of pesticide concentrations for streams that have not been monitored.
   projectContact: 'Alice McCarthy'
@@ -346,8 +347,8 @@
   websiteUrl: http://cida.usgs.gov/ca_drought
   botFilteringEnabled: ''
   description: >-
-    This website graphically visualizes water data from State, Federal, and Tribal agencies
-    to help understand the effect of drought on rivers, streams, lakes, and reservoirs in CA.
+    The Vizlab California Drought (VizLabCADrought) website graphically visualizes water data from State, Federal, and Tribal agencies
+    to help understand the effect of drought on rivers, streams, lakes, and reservoirs in the State of California.
   projectContact: 'Emily Read'
   projectContactEmail: 'eread@usgs.gov'
   analyticsContact: 'David Watkins'
@@ -365,9 +366,9 @@
   websiteUrl: http://cida.usgs.gov/quality/rivers/sites
   botFilteringEnabled: 'TRUE'
   description: >-
-    The USGS National Water-Quality Assessment (NAWQA) Project is characterizing the status and
+    The USGS National Water-Quality Assessment (NAWQA) Water Quality Mapper (NAR) characterizes the status and
     trends of the Nation’s surface-water quality through a National Water Quality Network. This
-    website provides data on national ambient water-quality conditions for rivers and streams.
+    website provides data on national ambient water-quality conditions for rivers and streams from the NAWQA project.
   projectContact: 'Jim Kreft'
   projectContactEmail: 'jkreft@usgs.gov'
   analyticsContact: 'David Watkins'
@@ -385,7 +386,7 @@
   websiteUrl: http://cida.usgs.gov/nsmn_pilot/
   botFilteringEnabled: ''
   description: >-
-    The National Soil Moisture Pilot provides web map based access near real
+    The National Soil Moisture Network (NSMN) pilot provides web map based access near real
     time soil moisture data from a collection of observing locations and networks.
   projectContact: 'Jessica Lucido'
   projectContactEmail: 'jlucido@usgs.gov'
@@ -404,7 +405,7 @@
   websiteUrl: https://cida-test.er.usgs.gov/bluedragon/dev/
   botFilteringEnabled: ''
   description: >-
-    This application was developed by the U.S. Geological Survey and the Bureau of
+    The VizLab Colorado River Drought application (VizLabCRBDrought) was developed by the USGS and the Bureau of
     Reclamation in support of the Department of the Interior’s Open Water Data Initiative
     (OWDI). This visualization is part of a multi-agency effort to showcase the usefulness
     of open data (i.e., data provided in a discoverable, sharable, and machine-readable
@@ -427,7 +428,7 @@
   websiteUrl: http://owi.usgs.gov
   botFilteringEnabled: ''
   description: >-
-    OWI is committed to advancing USGS science by integrating data across scales and domains,
+    The Office of Water Information (OWI) is committed to advancing USGS science by integrating data across scales and domains,
     improving access to data and research, and developing tools for analysis and visualization,
     fostering collaboration with the international community. This website highlights the people,
     partners, products, and efforts of OWI.
@@ -448,8 +449,9 @@
   websiteUrl: http://owi.usgs.gov/vizlab
   botFilteringEnabled: ''
   description: >-
-    The VizLab function rapidly develops and deploys visualizations on current
-    water issues and/or USGS Water publications or datasets. The VizLab team works with USGS
+    The Office of Water Information VizLab function rapidly develops and deploys visualizations on current
+    water issues and/or USGS Water publications or datasets. The Vizlab website is a landing page that
+	features a catalog of VizLab products. The VizLab team works with USGS
     WMA scientists and external partners to highlight timely science in accessible and
     appealing visual stories.
   projectContact: 'Jordan Walker'
@@ -469,8 +471,9 @@
   websiteUrl: https://owi.usgs.gov/vizlab/climate-change-walleye-bass/
   botFilteringEnabled: ''
   description: >-
-    Shifts in Wisconsin fish habitat due to climate change. Warming lakes are changing fish
-    communities in Wisconsin: walleye populations are declining, while large mouth bass
+    The VizLab Climate Change and Fisheries website (VizLabClimateFish) explains to a general audience the source 
+	of shifts in Wisconsin fish habitat due to climate change. Warming lakes are changing fish
+    communities in Wisconsin, walleye populations are declining, and large mouth bass
     populations are increasing.
   projectContact: 'Jordan Read'
   projectContactEmail: 'jread@usgs.gov'
@@ -489,7 +492,8 @@
   websiteUrl: https://owi.usgs.gov/vizlab/microplastics/
   botFilteringEnabled: ''
   description: >-
-    Microplastics, plastic particles less than 5 millimeters in diameter, are a contaminant
+    The VizLab Microplastics in Our Waterways (ViaLabMicroplastics) website describes the importance of 
+	microplastics, plastic particles less than 5 millimeters in diameter, which are a contaminant
     of emerging concern in aquatic environments. Microplastics come from a wide range of
     potential sources (see Microplastics Sources sidebar), and are commonly grouped by size,
     as well as by particle types including fibers/lines, pellets/beads, foams, films, and fragments.
@@ -510,7 +514,8 @@
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-matthew
   botFilteringEnabled: ''
   description: >-
-    Hurricane Matthew approached the southeastern U.S. coast on October 7, 2016. This
+    The VizLab Hurrican Matthew Water Footprint (VizLabMatthew) application demonstrates
+	Hurricane Matthew's approach to the southeastern U.S. coast on October 7, 2016. This
     visualization shows the hurricane's impact on precipitation and streamflow.
   projectContact: 'Jordan Walker'
   projectContactEmail: 'jiwalker@usgs.gov'
@@ -529,7 +534,8 @@
   websiteUrl: https://owi.usgs.gov/vizlab/water-use
   botFilteringEnabled: 'TRUE'
   description: >-
-    Water use data has been collected and compiled by the USGS since 1950. This data has
+    The VizLab Water Use (VizLabWaterUse) application features water use data has been collected and compiled 
+	by the USGS since 1950. This data has
     changed over time in terms of how it was categorized and at what spatial scale it was
     summarized to. This visualization shows that change over time as this dataset has
     become more powerful, and attempts to illustrate where the data can go in the future
@@ -573,12 +579,13 @@
   websiteUrl: https://www.gcmrc.gov/discharge_qw_sediment/
   botFilteringEnabled: ''
   description: >-
+	The Grand Canyon Monitoring Research Center (GCMRC) decision-support tools provide accurate,
+	near-real-time data and user-friendly interactive visualizations by continuous aggregation 
+	of datasets and continual recomputed derived values based on latest available data.
     The Grand Canyon Monitoring Research Center application provides resource managers and
     decision makers access to continuous, aggregated data of interest in support of the Glen
     Canyon Dam Adaptive Management Program (GCDAMP) and numerous other water projects in the
-    western US. The GCMRC dcision-support tools provide accurate, near-real-time data and
-    user-friendly interactive visualizations   by continuous aggregation of datasets and
-    continual recomputed derived values based on latest available data.
+    western US. 
   projectContact: 'Megan Hines'
   projectContactEmail: 'mhines@usgs.gov'
   analyticsContact: 'David Watkins'
@@ -596,7 +603,8 @@
   websiteUrl: https://www.nemi.gov
   botFilteringEnabled: ''
   description: >-
-    Publicly-accessible searchable interface for monitoring methods and their associated
+    The National Environmental Methods Index (NEMI) is a publicly-accessible searchable
+	 interface for monitoring methods and their associated
     analytes of interest.
   projectContact: 'Jim Kreft'
   projectContactEmail: 'jkreft@usgs.gov'
@@ -615,9 +623,10 @@
   websiteUrl: http://m.waterdata.usgs.gov
   botFilteringEnabled: ''
   description: >-
-    This site is designed for mobile users. It highlights USGS current conditions water data.
-    For example, you can use it to monitor conditions at a favorite river or stream. Any USGS
-    current conditions water data is available.
+    This site is an instance of the National Water Information System Website designed for mobile users (NWISWebMobile).
+	 It highlights USGS current conditions water data.
+    For example, you can use it to monitor conditions at a favorite river or stream. All USGS
+    current conditions water data are available.
   projectContact: 'Brad Garner'
   projectContactEmail: 'bdgarner@usgs.gov'
   analyticsContact: 'Brad Garner'
@@ -635,7 +644,8 @@
   websiteUrl: http://waterdata.usgs.gov
   botFilteringEnabled: ''
   description: >-
-    This site is the public web interface to the USGS National Water Information System. These
+    This site is the public web interface to the USGS National Water Information System optimized
+	for desktop users (NWISWebDesktop). These
     pages provide access to water-resources data collected at approximately 1.5 million sites
     in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
     Samoa and the Commonwealth of the Northern Mariana Islands.
@@ -656,7 +666,7 @@
   websiteUrl: http://water.usgs.gov/nawqa/HBSL
   botFilteringEnabled: ''
   description: >-
-    The Health-Based Screening Levels (HBSLs) application communicates the potential
+    The Health-Based Screening Levels (HBSL) application communicates the potential
     relevance of water-quality findings from the USGS National Water-Quality Assessment
     (NAWQA) Program in a human-health context. Federal drinking-water standards or
     guidelines are not available for many of the hundreds of contaminants analyzed by
@@ -678,17 +688,14 @@
   websiteUrl: http://groundwaterwatch.usgs.gov
   botFilteringEnabled: ''
   description: >-
-    This project aims to migrate existing GroundWaterWatch infrastructure from Reston
-    infrastructure to Water Shared Infrastructure at EROS data center in order to
-    capitalize on the operations and security processes in place; and replace fragile,
-    aging components of the application to reduce risk of outages, specifically the dynamic
-    maps which lost their support.
-  projectContact: 'Brad Garner'
-  projectContactEmail: 'bdgarner@usgs.gov'
+    The Groundwater Watch (GroundwaterWatch) application provides easy access to geospatial 
+	summaries of current and historical USGS groundwater data.
+  projectContact: 'Steven Brady'
+  projectContactEmail: 'sbrady@usgs.gov'
   analyticsContact: 'Steven Brady'
   analyticsContactEmail: 'sbrady@usgs.gov'
 
-- longName: USGS WaterWatch
+- longName: WaterWatch
   shortName: WaterWatch
   accountName: ''
   viewID: '18857756'
@@ -721,7 +728,7 @@
   websiteUrl: http://water.usgs.gov
   botFilteringEnabled: ""
   description: >-
-    This website offers information on many aspects of water, along with pictures, data,
+    The Water Science School (WaterSciSchool) website offers information on many aspects of water, along with pictures, data,
     maps, and an interactive center where you can give opinions and test your water knowledge.
   projectContact: 'Howard Perlman'
   projectContactEmail: 'hperlman@usgs.gov'
@@ -740,11 +747,12 @@
   websiteUrl: http://water.usgs.gov
   botFilteringEnabled: .na.character
   description: >-
-    The USGS Water Mission Area home page. Water's mission is to collect and disseminate
+    The Water Mission Area website (water.usgs.gov) is the landing page of USGS Water, whose
+	 mission is to collect and disseminate
     reliable, impartial, and timely information that is needed to understand the Nation's
     water resources.
-  projectContact: 'Howard Perlman'
-  projectContactEmail: 'hperlman@usgs.gov'
+  projectContact: 'Emily Read'
+  projectContactEmail: 'eread@usgs.gov'
   analyticsContact: 'Howard Perlman'
   analyticsContactEmail: 'hperlman@usgs.gov'
 
@@ -760,7 +768,7 @@
   websiteUrl: https://txpub.usgs.gov/DSS/streamer/web/
   botFilteringEnabled: 'TRUE'
   description: >-
-    Web-based mapper that visualizes water flow across America. Streamer allows users to explore our
+    Streamer - TX WSC (Streamer) is a web-based mapper that visualizes water flow across America. Streamer allows users to explore our
     Nation's major streams by tracing upstream to their source or downstream to where they empty. It
     also creates reports about your stream traces and the places they pass through.
   projectContact: 'Streamer Team'
@@ -768,7 +776,7 @@
   analyticsContact: 'Ramona Neafie'
   analyticsContactEmail: 'rjneafie@usgs.gov'
 
-- longName: 'USGS StreamStats'
+- longName: 'StreamStats'
   shortName: 'StreamStats'
   accountName: WIM USGS
   viewID: '116153556'
@@ -802,7 +810,7 @@
   description: >-
     Spatially-Referenced Regresson On Watershed Attributes (SPARROW) is designed for predicting
     long-term average values of concentrations and amounts of selected constituents delivered to
-    downstream receiving waters. This particular application is designed to display U.S.
+    downstream receiving waters. The SPARROW TN mapper (SparrowTN) displays U.S.
     Geological Survey SPARROW data in Tennessee.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
@@ -821,7 +829,8 @@
   websiteUrl: http://water.usgs.gov/wateralert/
   botFilteringEnabled: .na.character
   description: >-
-    Web-based map that links to USGS gage data and allows users to subscribe to site notifications
+    The National Water Information System Mapper - Water Alert (NWISMapper-WaterAlert) is a web-based map that links to 
+	USGS gage data and allows users to subscribe to site notifications
     through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
   projectContact: 'Joseph Kalfsbeek'
@@ -841,11 +850,12 @@
   websiteUrl: http://test.wim.usgs.gov/swtrends/
   botFilteringEnabled: .na.character
   description: >-
-    This mapper provides results from the largest-ever assessment of water-quality changes in the
+    The National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers 
+	mapper (NaWQASWTrends) provides web-based results from the largest-ever assessment of water-quality changes in the
     Nation's streams and rivers. More than 185 million water-quality records from over 600 Federal,
     State, Tribal, and local organizations were screened as part of this assessment. The mapper
-    shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity)
-    and aquatic ecology (fish, invertebrates, and algae) for four time periods: 1972-2012, 1982-2012,
+    shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity) 
+	and aquatic ecology (fish, invertebrates, and algae) for four time periods, 1972-2012, 1982-2012,
     1992-2012, and 2002-2012.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
@@ -864,7 +874,8 @@
   websiteUrl: http://nawqatrends.wim.usgs.gov/Decadal/
   botFilteringEnabled: .na.character
   description: >-
-    This mapper shows how concentrations of pesticides, nutrients, metals, and organic contaminants
+    The National Water-Quality Assessment - Decadal Trends Mapper (NaWQADecadalTrendsMapper) 
+	shows how concentrations of pesticides, nutrients, metals, and organic contaminants
     in groundwater are changing during decadal periods across the Nation. Tracking changes in
     groundwater quality and investigating the reasons for these changes is crucial for informing
     management decisions to protect and sustain our valuable groundwater resources.
@@ -885,7 +896,7 @@
   websiteUrl: http://wim.usgs.gov/MercuryMapper/MercuryMapper.html
   botFilteringEnabled: .na.character
   description: >-
-    This mapper is intended to assist park managers in understanding the relative potential for
+    The NPS Mercury Mapper (NPSMercuryMapper) assists park managers in understanding the relative potential for
     mercury issues in their park unit. The data in this mapper do not represent measured
     methylmercury concentrations, but rather a predicted methylmercury concentration based on
     measured water quality and landscape variables believed to influence methylation in natural
@@ -907,7 +918,7 @@
   websiteUrl: http://commons.wim.usgs.gov/MARBFlood2015/
   botFilteringEnabled: .na.character
   description: >-
-    This map shows the location of USGS continuous water-quality monitoring stations throughout
+    The Mississippi River Basin Flood of 2015/2016 (MARB) map shows the location of USGS continuous water-quality monitoring stations throughout
     the Mississippi River basin that provides information on the impact of flooding on water quality.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
@@ -926,7 +937,8 @@
   websiteUrl: https://glcwra.wim.usgs.gov/wlera/
   botFilteringEnabled: .na.character
   description: >-
-    This is the web mapping application for interfacing with the Western Lake Erie Restoration
+    The Western Lake Erie Restoration Assessment Web App (GLCWRA-WLERA) is the web mapping 
+	application for interfacing with the Western Lake Erie Restoration
     Assessment (WLERA) model. The WLERA is a geodesign framework for measuring the potential to
     restore coastal wetlands in the Great Lakes basin.
   projectContact: 'Hans Vraga'
@@ -946,7 +958,7 @@
   websiteUrl: https://glcwra.wim.usgs.gov/sbra/
   botFilteringEnabled: .na.character
   description: >-
-    This is the web mapping application for interfacing with the Saginaw Bay Restoration Assessment
+    The Saginaw Bay Restoration Assessment Web App (GLCWRA-SBRA) is the web mapping application for interfacing with the Saginaw Bay Restoration Assessment
     (SBRA) model, which is an extension of the Western Lake Erie Restoration Assessment (WLERA) model.
     The SBRA extends along the shore of Lake Huron from the St. Clair River through Saginaw Bay.
   projectContact: 'Hans Vraga'
@@ -966,7 +978,8 @@
   websiteUrl: https://glcwra.wim.usgs.gov/crsra/
   botFilteringEnabled: .na.character
   description: >-
-    This is the web mapping application for interfacing with the Connecting River Systems Restoration
+    The Connecting River Systems Restoration Assessment Web App (GLCWRA-CRSRA) is the web mapping 
+	application for interfacing with the Connecting River Systems Restoration
     Assessment (CRSRA) model, which is an extension of the Western Lake Erie Restoration Assessment
     (WLERA) model. The CRSRA is focused on the connecting channels area that includes the Detroit River,
     Lake St. Clair, and the St. Clair River.
@@ -987,7 +1000,7 @@
   websiteUrl: http://wimcloud.usgs.gov/apps/FIM/FloodInundationMapper.html
   botFilteringEnabled: .na.character
   description: >-
-     The FIM Mapper allows users to explore the full set of inundation maps that shows where
+     The Flood Inundation Mapper (FIM) allows users to explore the full set of inundation maps that shows where
      flooding would occur given a selected stream condition. Users can also access historical
      flood information and potential loss estimates based on the severity of the flood. The
      FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
@@ -1027,7 +1040,7 @@
   websiteUrl: 'http://maps.waterdata.usgs.gov'
   botFilteringEnabled: 'NA'
   description: >-
-    This is the web mapping application for interfacing with NWIS data.
+    The National Water Information System Mapper (NWISMapper) is a web mapping application for interfacing with NWIS data.
   projectContact: 'Joseph Kalfsbeek'
   projectContactEmail: 'kalfsbek@usgs.gov'
   analyticsContact: 'Hans Vraga'
