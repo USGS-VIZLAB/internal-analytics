@@ -147,6 +147,29 @@ process:
     reader: rds
     location: cache/process/lastest_week.rds
   -
+    id: fill_missing_year
+    processor: fill_missing_year
+    scripts: scripts/process/time_filters.R
+    depends: year_filter
+    reader: rds
+    location: cache/process/lastest_year_filled.rds
+  -
+    id: fill_missing_week
+    processor: fill_missing
+    range_text: "-1 week"
+    scripts: scripts/process/time_filters.R
+    depends: fill_missing_year
+    reader: rds
+    location: cache/process/lastest_week_filled.rds
+  -
+    id: fill_missing_month
+    processor: fill_missing
+    range_text: "-1 month"
+    scripts: scripts/process/time_filters.R
+    depends: fill_missing_year
+    reader: rds
+    location: cache/process/lastest_month_filled.rds
+  -
     id: project_links
     processor: projectlinks
     scripts: ["scripts/process/projectlinks.R", "scripts/publish/utils.R"]
@@ -259,9 +282,8 @@ visualize:
     visualizer: viz_y_sessions
     scripts: scripts/visualize/portfolio_timeline.R
     depends:
-      viz_data: year_filter
+      viz_data: fill_missing_year
     plottype: year_line
-    range_text: "-1 year"
     height: 300
     width: 1000
     mimetype: text/csv
@@ -271,11 +293,10 @@ visualize:
     visualizer: viz_y_sessions
     scripts: scripts/visualize/portfolio_timeline.R
     depends:
-      viz_data: month_filter
+      viz_data: fill_missing_month
     height: 300
     width: 1000
     plottype: month_line
-    range_text: "-1 month"
     mimetype: text/csv
     location: cache/visualize/viz_m_sessions.csv
   -
@@ -283,12 +304,11 @@ visualize:
     visualizer: portfolio_timeline
     scripts: scripts/visualize/portfolio_timeline.R
     depends:
-      viz_data: year_filter
+      viz_data: fill_missing_year
     height: 300
     width: 1000
     plottype: year_line
     mimetype: image/png
-    range_text: "-1 year"
     alttext: "Timeseries of sessions over past year"
     title: "Timeseries of sessions over past year"
     location: figures/portfolio_timeline_year.png
@@ -297,11 +317,10 @@ visualize:
     visualizer: portfolio_timeline
     scripts: scripts/visualize/portfolio_timeline.R
     depends:
-      viz_data: month_filter
+      viz_data: fill_missing_month
     height: 300
     width: 1000
     plottype: month_line
-    range_text: "-1 month"
     mimetype: image/png
     alttext: "Timeseries of sessions over past month"
     title: "Timeseries of sessions over past month"
@@ -311,11 +330,10 @@ visualize:
     visualizer: portfolio_timeline
     scripts: scripts/visualize/portfolio_timeline.R
     depends:
-      viz_data: week_filter
+      viz_data: fill_missing_week
     height: 300
     width: 1000
     plottype: week_line
-    range_text: "-1 week"
     mimetype: image/png
     alttext: "Timeseries of sessions over past week"
     title: "Timeseries of sessions over past week"
@@ -325,10 +343,9 @@ visualize:
     visualizer: viz_y_sessions
     scripts: [scripts/visualize/portfolio_timeline.R]
     depends:
-      viz_data: week_filter
+      viz_data: fill_missing_week
     height: 300
     width: 1000
-    range_text: "-1 week"
     plottype: week_line
     mimetype: text/csv
     location: cache/visualize/viz_w_sessions.csv
