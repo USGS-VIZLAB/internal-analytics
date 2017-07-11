@@ -109,7 +109,9 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           timeDayUse_app_year = proj.imgs[["timeDayUse_app_year"]],
           timeDayUse_app_month = proj.imgs[["timeDayUse_app_month"]],
           timeDayUse_app_week = proj.imgs[["timeDayUse_app_week"]],
-          app_time = table.html,
+          app_time_year = table.html,
+          app_time_month = table.html,
+          app_time_week = table.html,
           previous_link = prevLink,
           next_link = nextLink
       ))
