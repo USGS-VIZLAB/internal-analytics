@@ -116,9 +116,9 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
               aes(x = longName, y = yend, label = label),
               hjust = "right", col = "black") +
     geom_text(data = fake_legend[3:4,],
-              aes(x = longName, y = 0,
+              aes(x = longName, y = ystart,
                   label = trend_text),
-              hjust =0, fill = "black") +
+              hjust = 0, fill = "black") +
     geom_segment(data = fake_legend[2,],
                  aes(x = longName,
                      xend = longName,
