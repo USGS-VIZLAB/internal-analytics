@@ -32,10 +32,10 @@ process.fill_missing_year <- function(viz = as.viz("fill_missing_year")){
               newUsers = sum(newUsers, na.rm = TRUE)) %>%
     ungroup() %>%
     bind_rows(data_frame(viewID=NA, date=full_dates)) %>%
-    unite(old_new, sessions,newUsers) %>%
-    spread(date, old_new, fill="0_0") %>%
-    gather(date, old_new, -viewID) %>%
-    separate(old_new, into = c("sessions", "newUsers")) %>%
+    unite(all_new, sessions,newUsers) %>%
+    spread(date, all_new, fill="0_0") %>%
+    gather(date, all_new, -viewID) %>%
+    separate(all_new, into = c("sessions", "newUsers")) %>%
     filter(!is.na(viewID)) %>% # remove the dummy rows that were just to ensure every date got included
     mutate(date = as.Date(date),
            sessions = as.integer(sessions),
