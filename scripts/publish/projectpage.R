@@ -28,7 +28,9 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     timeDayUse_app_week = deps[["timeDayUse_app_week"]]
   )
 
-  table.files <- deps[["app_time"]]
+  table.files <- rbind(deps[["app_time_year"]],
+                       deps[["app_time_month"]],
+                       deps[["app_time_week"]])
 
   for (i in 1:nrow(projects)) {
     proj <- projects[i,]
@@ -38,7 +40,13 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     # get relative paths for images
 
     table.data <- filter(table.files, id == viewID)
-    table.html <- readChar(table.data$loc, file.info(table.data$loc)$size)
+    table.html <- list()
+    table.html["year"] <- readChar(table.data$loc[table.data$type == "mean_time_year"],
+                                   file.info(table.data$loc[table.data$type == "mean_time_year"])$size)
+    table.html["month"] <- readChar(table.data$loc[table.data$type == "mean_time_month"],
+                                   file.info(table.data$loc[table.data$type == "mean_time_month"])$size)
+    table.html["week"] <- readChar(table.data$loc[table.data$type == "mean_time_week"],
+                                   file.info(table.data$loc[table.data$type == "mean_time_week"])$size)
 
     proj.imgs <- sapply(img.files, function(x){
       img <- "missingImg"
@@ -109,9 +117,9 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           timeDayUse_app_year = proj.imgs[["timeDayUse_app_year"]],
           timeDayUse_app_month = proj.imgs[["timeDayUse_app_month"]],
           timeDayUse_app_week = proj.imgs[["timeDayUse_app_week"]],
-          app_time_year = table.html,
-          app_time_month = table.html,
-          app_time_week = table.html,
+          app_time_year = table.html["year"],
+          app_time_month = table.html["month"],
+          app_time_week = table.html["week"],
           previous_link = prevLink,
           next_link = nextLink
       ))
