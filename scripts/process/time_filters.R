@@ -37,9 +37,9 @@ process.fill_missing_year <- function(viz = as.viz("fill_missing_year")){
     gather(date, all_new, -viewID) %>%
     separate(all_new, into = c("sessions", "newUsers")) %>%
     filter(!is.na(viewID)) %>% # remove the dummy rows that were just to ensure every date got included
-    mutate(date = as.Date(date),
+    mutate(date = as.Date(date), # restore date and integer formats that got lost when spreading & gathering
            sessions = as.integer(sessions),
-           newUsers = as.integer(newUsers)) %>% # restore date format that got lost when %>%
+           newUsers = as.integer(newUsers)) %>%
     filter(date >= min(full_dates))
 
   saveRDS(sub_data, file=viz[["location"]], compress = FALSE)
