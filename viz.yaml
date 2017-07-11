@@ -132,14 +132,16 @@ process:
     reader: md # need a better plain text reader
   -
     id: month_filter
-    processor: month_filter
+    processor: time_filter
+    range_text: "-1 month"
     scripts: scripts/process/time_filters.R
     depends: year_filter
     reader: rds
     location: cache/process/lastest_month.rds
   -
     id: week_filter
-    processor: week_filter
+    processor: time_filter
+    range_text: "-1 week"
     scripts: scripts/process/time_filters.R
     depends: year_filter
     reader: rds
