@@ -64,7 +64,7 @@ zeroPad <- function(x,padTo){
   return(x)
 }
 
-visualize.app_time <- function(viz = as.viz("app_time")){
+visualize.app_time <- function(viz = as.viz("app_time_year")){
   library(dplyr)
   library(htmlTable)
 
@@ -87,9 +87,9 @@ visualize.app_time <- function(viz = as.viz("app_time")){
 
     sub_data <- filter(viz.data, viewID == i)
 
-    ave_time_on_page <- mean(sub_data_range$avgSessionDuration, na.rm = TRUE)
+    ave_time_on_page <- mean(sub_data$avgSessionDuration, na.rm = TRUE)
 
-    total_time <- sum(sub_data_range$avgSessionDuration, na.rm = TRUE)
+    total_time <- sum(sub_data$avgSessionDuration, na.rm = TRUE)
 
     df <- pretty_time(c(ave_time_on_page, total_time))
     row.names(df) <- c("Average", "Total")
