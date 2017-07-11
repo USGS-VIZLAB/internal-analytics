@@ -651,14 +651,32 @@ visualize:
     mimetype: image/png
     location: figures/viz_geo_portfolio_week.png
   -
-    id: app_time
+    id: app_time_year
     visualizer: app_time
-    plottype: mean_time
+    plottype: mean_time_year
     scripts: scripts/publish/portfolio_time.R
     depends:
       viz_data: year_filter
     mimetype: text/csv
-    location: cache/publish/viz_time.csv
+    location: cache/publish/viz_time_year.csv
+  -
+    id: app_time_month
+    visualizer: app_time
+    plottype: mean_time_month
+    scripts: scripts/publish/portfolio_time.R
+    depends:
+      viz_data: month_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_month.csv
+  -
+    id: app_time_week
+    visualizer: app_time
+    plottype: mean_time_week
+    scripts: scripts/publish/portfolio_time.R
+    depends:
+      viz_data: week_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_week.csv
 
 publish:
   -
@@ -791,7 +809,9 @@ publish:
       sideBar: sideBar
       project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
-      app_time: app_time
+      app_time_year: app_time_year
+      app_time_month: app_time_month
+      app_time_week: app_time_week
       informationImg: informationImg
     context:
       sideBar: sideBar
@@ -822,8 +842,7 @@ publish:
         number of session over a given period of time. Any bias in Average Time will propagate to Total Time estimates; caution in the interpretation
         of these values is needed.
       info_session_time: >-
-        In this plot, a time series of sessions (traffic) is shown for application(s) over the selected
-        time period.
+        In this plot, a time series of sessions (traffic) is shown for application(s) over the selected time period.
       resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS","favicon"]
   -
     id: project_list
@@ -835,8 +854,8 @@ publish:
     id: header
     publisher: section
     template: header-template
-    context:
-      title: Water Analytics - Portfolio Daily Summary
+    context: 
+      title: Portfolio Daily Summary
   -
     id: frontPage
     template: layout/templates/frontPage.mustache
