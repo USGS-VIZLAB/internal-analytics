@@ -4,6 +4,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   library(ggplot2)
   library(RColorBrewer)
   library(grid)
+  library(Cairo)
 
   deps <- readDepends(viz)
 
