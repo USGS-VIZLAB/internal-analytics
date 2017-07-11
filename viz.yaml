@@ -49,6 +49,9 @@ info:
     rgdal:
       repo: CRAN
       version: 1.2-5
+    rkt:
+      repo: CRAN
+      version: 1.5
     tidyr:
       repo: CRAN
       version: 0.6.1
