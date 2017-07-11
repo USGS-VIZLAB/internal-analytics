@@ -6,8 +6,6 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
 
   viz.data <- deps[["viz_data"]]
 
-  viz.data <- select(viz.data, date,viewID,sessions,newUsers)
-
   ga_table <- deps[['project_table']]
   ga_table$viewID <- as.character(ga_table$viewID)
 
@@ -31,8 +29,7 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
                 newUsers = sum(newUsers, na.rm = TRUE)) %>%
       arrange(sessions) %>%
       left_join(select(ga_table, viewID, longName, shortName), by="viewID") %>%
-      mutate(type = paste(j,"\n",paste0(range(range_days), collapse = " to "))) %>%
-      select(-viewID)
+      mutate(type = paste(j,"\n",paste0(range(range_days), collapse = " to ")))
 
     level_text <- c(level_text, paste(j,"\n",paste0(range(range_days), collapse = " to ")))
 
