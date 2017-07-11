@@ -49,6 +49,9 @@ info:
     rgdal:
       repo: CRAN
       version: 1.2-5
+    rkt:
+      repo: CRAN
+      version: 1.5
     tidyr:
       repo: CRAN
       version: 0.6.1
@@ -160,6 +163,16 @@ process:
       project_table: project_table
     reader: rds
     location: cache/process/sessions_all.rds
+  -
+    id: trends_all
+    processor: trends_all
+    scripts: scripts/process/trends_all.R
+    depends:
+      sessions_all: sessions_all
+      year_filter: year_filter
+      project_table: project_table
+    reader: rds
+    location: cache/process/trends_all.rds
 visualize:
   -
     id: new_vs_returning_year
