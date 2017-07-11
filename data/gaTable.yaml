@@ -58,7 +58,7 @@
   websiteUrl: http://cida.usgs.gov/ngwmn
   botFilteringEnabled: ''
   description: >-
-    The National Ground Water Monitoring Network Data Portal (NGWMN) data portal provides 
+    The National Ground Water Monitoring Network Data Portal (NGWMN) data portal provides
     on-demand access to groundwater data
     from distributed systems through a map-based portal in a single, aggregated output.
     The NGWMN portal displays status of water levels for NGWMN sites geographically in portal
@@ -450,7 +450,7 @@
   botFilteringEnabled: ''
   description: >-
     The Office of Water Information VizLab function rapidly develops and deploys visualizations on current
-    water issues and/or USGS Water publications or datasets. The Vizlab website is a landing page that 
+    water issues and/or USGS Water publications or datasets. The Vizlab website is a landing page that
     features a catalog of VizLab products. The VizLab team works with USGS
     WMA scientists and external partners to highlight timely science in accessible and
     appealing visual stories.
@@ -471,7 +471,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/climate-change-walleye-bass/
   botFilteringEnabled: ''
   description: >-
-    The VizLab Climate Change and Fisheries website (VizLabClimateFish) explains to a general audience the source 
+    The VizLab Climate Change and Fisheries website (VizLabClimateFish) explains to a general audience the source
     of shifts in Wisconsin fish habitat due to climate change. Warming lakes are changing fish
     communities in Wisconsin, walleye populations are declining, and large mouth bass
     populations are increasing.
@@ -492,7 +492,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/microplastics/
   botFilteringEnabled: ''
   description: >-
-    The VizLab Microplastics in Our Waterways (ViaLabMicroplastics) website describes the importance of 
+    The VizLab Microplastics in Our Waterways (ViaLabMicroplastics) website describes the importance of
     microplastics, plastic particles less than 5 millimeters in diameter, which are a contaminant
     of emerging concern in aquatic environments. Microplastics come from a wide range of
     potential sources (see Microplastics Sources sidebar), and are commonly grouped by size,
@@ -514,7 +514,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-matthew
   botFilteringEnabled: ''
   description: >-
-    The VizLab Hurrican Matthew Water Footprint (VizLabMatthew) application demonstrates 
+    The VizLab Hurrican Matthew Water Footprint (VizLabMatthew) application demonstrates
     Hurricane Matthew's approach to the southeastern U.S. coast on October 7, 2016. This
     visualization shows the hurricane's impact on precipitation and streamflow.
   projectContact: 'Jordan Walker'
@@ -534,7 +534,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/water-use
   botFilteringEnabled: 'TRUE'
   description: >-
-    The VizLab Water Use (VizLabWaterUse) application features water use data has been collected and compiled 
+    The VizLab Water Use (VizLabWaterUse) application features water use data has been collected and compiled
     by the USGS since 1950. This data has
     changed over time in terms of how it was categorized and at what spatial scale it was
     summarized to. This visualization shows that change over time as this dataset has
@@ -580,12 +580,12 @@
   botFilteringEnabled: ''
   description: >-
     The Grand Canyon Monitoring Research Center (GCMRC) decision-support tools provide accurate,
-    near-real-time data and user-friendly interactive visualizations by continuous aggregation 
+    near-real-time data and user-friendly interactive visualizations by continuous aggregation
     of datasets and continual recomputed derived values based on latest available data.
     The Grand Canyon Monitoring Research Center application provides resource managers and
     decision makers access to continuous, aggregated data of interest in support of the Glen
     Canyon Dam Adaptive Management Program (GCDAMP) and numerous other water projects in the
-    western US. 
+    western US.
   projectContact: 'Megan Hines'
   projectContactEmail: 'mhines@usgs.gov'
   analyticsContact: 'David Watkins'
@@ -623,7 +623,7 @@
   websiteUrl: http://m.waterdata.usgs.gov
   botFilteringEnabled: ''
   description: >-
-    This site is an instance of the National Water Information System Website designed for mobile users (NWISWebMobile). 
+    This site is an instance of the National Water Information System Website designed for mobile users (NWISWebMobile).
     It highlights USGS current conditions water data.
     For example, you can use it to monitor conditions at a favorite river or stream. All USGS
     current conditions water data are available.
@@ -688,7 +688,7 @@
   websiteUrl: http://groundwaterwatch.usgs.gov
   botFilteringEnabled: ''
   description: >-
-    The Groundwater Watch (GroundwaterWatch) application provides easy access to geospatial 
+    The Groundwater Watch (GroundwaterWatch) application provides easy access to geospatial
     summaries of current and historical USGS groundwater data.
   projectContact: 'Steven Brady'
   projectContactEmail: 'sbrady@usgs.gov'
@@ -829,7 +829,7 @@
   websiteUrl: http://water.usgs.gov/wateralert/
   botFilteringEnabled: .na.character
   description: >-
-    The National Water Information System Mapper - Water Alert (NWISMapper-WaterAlert) is a web-based map that links to 
+    The National Water Information System Mapper - Water Alert (NWISMapper-WaterAlert) is a web-based map that links to
     USGS gage data and allows users to subscribe to site notifications
     through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
     parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
@@ -850,12 +850,12 @@
   websiteUrl: http://test.wim.usgs.gov/swtrends/
   botFilteringEnabled: .na.character
   description: >-
-    The National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers 
+    The National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers
     mapper (NaWQASWTrends) provides web-based results from the largest-ever assessment of water-quality changes in the
     Nation's streams and rivers. More than 185 million water-quality records from over 600 Federal,
     State, Tribal, and local organizations were screened as part of this assessment. The mapper
-    shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity) 
-	and aquatic ecology (fish, invertebrates, and algae) for four time periods, 1972-2012, 1982-2012,
+    shows stream trends in water chemistry (nutrients, pesticides, sediment, carbon, and salinity)
+    and aquatic ecology (fish, invertebrates, and algae) for four time periods, 1972-2012, 1982-2012,
     1992-2012, and 2002-2012.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
@@ -874,7 +874,7 @@
   websiteUrl: http://nawqatrends.wim.usgs.gov/Decadal/
   botFilteringEnabled: .na.character
   description: >-
-    The National Water-Quality Assessment - Decadal Trends Mapper (NaWQADecadalTrendsMapper) 
+    The National Water-Quality Assessment - Decadal Trends Mapper (NaWQADecadalTrendsMapper)
     shows how concentrations of pesticides, nutrients, metals, and organic contaminants
     in groundwater are changing during decadal periods across the Nation. Tracking changes in
     groundwater quality and investigating the reasons for these changes is crucial for informing
@@ -937,7 +937,7 @@
   websiteUrl: https://glcwra.wim.usgs.gov/wlera/
   botFilteringEnabled: .na.character
   description: >-
-    The Western Lake Erie Restoration Assessment Web App (GLCWRA-WLERA) is the web mapping 
+    The Western Lake Erie Restoration Assessment Web App (GLCWRA-WLERA) is the web mapping
     application for interfacing with the Western Lake Erie Restoration
     Assessment (WLERA) model. The WLERA is a geodesign framework for measuring the potential to
     restore coastal wetlands in the Great Lakes basin.
@@ -978,7 +978,7 @@
   websiteUrl: https://glcwra.wim.usgs.gov/crsra/
   botFilteringEnabled: .na.character
   description: >-
-    The Connecting River Systems Restoration Assessment Web App (GLCWRA-CRSRA) is the web mapping 
+    The Connecting River Systems Restoration Assessment Web App (GLCWRA-CRSRA) is the web mapping
     application for interfacing with the Connecting River Systems Restoration
     Assessment (CRSRA) model, which is an extension of the Western Lake Erie Restoration Assessment
     (WLERA) model. The CRSRA is focused on the connecting channels area that includes the Detroit River,
