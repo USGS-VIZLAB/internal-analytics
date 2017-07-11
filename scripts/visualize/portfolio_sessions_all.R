@@ -66,7 +66,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   info_graph <- ggplot_build(port_graph)
   layout_stuff <- info_graph$layout
 
-  if(packageVersion("ggplot2") >= "2.2"){
+  if(packageVersion("ggplot2") >= "2.2.1.9000"){
     lower_ranges <- layout_stuff$panel_scales_y[[3]]$range$range
     high_ranges <- layout_stuff$panel_scales_y[[1]]$range$range
   } else {
