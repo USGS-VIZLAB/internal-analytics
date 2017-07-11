@@ -191,8 +191,10 @@ process:
   -
     id: trends_all
     processor: trends_all
-    up: "\u25B2"
-    down: "\u25BC"
+    trend_image:
+      up: "\u25B2"
+      down: "\u25BC"
+      none: ""
     scripts: scripts/process/trends_all.R
     depends:
       sessions_all: sessions_all
