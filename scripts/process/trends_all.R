@@ -6,36 +6,12 @@ process.trends_all <- function(viz=as.viz("trends_all")){
 
   # load data
   deps <- readDepends(viz)
+
   sessions_all <- deps[["sessions_all"]]
-  year_filter <- deps[["year_filter"]]
-  project_table <- deps[['project_table']]
 
-  # summarize the year's session records into daily session counts for each viewID
-  counts_df <- year_filter %>%
-    group_by(viewID, date) %>%
-    summarize(sessions=sum(sessions, na.rm=TRUE)) %>%
-    ungroup()
+  year_data <- deps[["year_data"]]
 
-  # declare the time windows we want to analyze
-  range_text <- c("-1 year","-1 month","-1 week")
-  names(range_text) <- c("Year","Month","Week")
-  latest_day <- max(counts_df$date, na.rm = TRUE)
-
-  # pad counts with 0's on days when no sessions are reported
-  year_range <- seq(latest_day, length = 2, by = range_text["Year"])
-  seq_days <- seq(year_range[2], year_range[1], by=as.difftime(1, units="days"))
-  counts_df_pad <- counts_df %>%
-    bind_rows(data_frame(viewID=NA, date=seq_days)) %>%
-    spread(date, sessions, fill=0) %>%
-    gather(date, sessions, -viewID) %>%
-    filter(!is.na(viewID)) %>% # remove the dummy rows that were just to ensure every date got included
-    mutate(date = as.Date(date)) # restore date format that got lost when
-
-  # augment counts with columns that will help us compute trends
-  if(any(is.na(counts_df_pad$sessions))) {
-    stop("oops, Alison thought we'd never see NAs. better add some na.rms in process.trends_all()")
-  }
-  counts_df_aug <- counts_df_pad %>%
+  counts_df_aug <- year_data %>%
     group_by(viewID) %>%
     mutate(
       sessions_mean = mean(sessions),
@@ -45,14 +21,21 @@ process.trends_all <- function(viz=as.viz("trends_all")){
     ) %>%
     ungroup()
 
+  range_text <- c("-1 year","-1 month","-1 week")
+  names(range_text) <- c("Year","Month","Week")
+  latest_day <- max(counts_df_aug$date, na.rm = TRUE)
+
   # create 1-year, 1-month, and 1-week subsets
   counts <- list()
+  levels_text <- list()
+
   for(i in seq_len(length(range_text))){
     range_days <- seq(latest_day, length = 2, by = range_text[i])
     j <- names(range_text)[i]
+    levels_text[[j]] <- paste(j,"\n",paste0(range(range_days), collapse = " to "))
     counts[[j]] <- counts_df_aug %>%
       filter(date >= range_days[2]) %>%
-      mutate(type = paste(j,"\n",paste0(range(range_days), collapse = " to ")))
+      mutate(type = levels_text[[i]])
   }
 
   # calculate trends at all 3 temporal scales, using different methods for each
@@ -84,16 +67,22 @@ process.trends_all <- function(viz=as.viz("trends_all")){
       mutate(viewID = vid)
   }))
 
+  trends$scale[trends$scale == "Year"] <- levels_text$Year
+  trends$scale[trends$scale == "Month"] <- levels_text$Month
+  trends$scale[trends$scale == "Week"] <- levels_text$Week
+  trends$type <- factor(trends$scale, levels = levels(sessions_all$type))
+
   # augment trends with single columng for shape: is the trend up, down, or
   # non-significant?
   trends_aug <- trends %>%
-    mutate(trend = ifelse(pvalue <= 0.05, ifelse(slope > 0, "up", "down"), "none"))
+    mutate(trend = ifelse(pvalue <= 0.05, ifelse(slope > 0, viz[["trend_image"]]$up,
+                                                 viz[["trend_image"]]$down),
+                          viz[["trend_image"]]$none))
 
-  # exploratory plot
-  # ggplot(trends, aes(x=viewID, y=slope, shape=slope > 0, color=-abs(slope), alpha=pvalue < 0.05)) +
-  #   geom_hline(yintercept=0) + geom_point() +
-  #   facet_grid(scale ~ ., scales='free_y') +
-  #   theme_classic()
+  sessions_total <- left_join(sessions_all, trends_aug,
+                              by=c("viewID","type"))
+  sessions_total$session_text <- paste0(sessions_total$session_text,
+                                       sessions_total$trend)
 
-  saveRDS(trends_aug, file = viz[["location"]])
+  saveRDS(sessions_total, file = viz[["location"]])
 }
