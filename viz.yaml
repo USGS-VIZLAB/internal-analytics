@@ -92,8 +92,8 @@ fetch:
     s3Profile: 'default'
     s3Path: 'internal-analytics/data/current.rds'
     bucket: 'vizlab-data'
-    update: TRUE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: FALSE #Don't even download sciencebase file - overrides update
+    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
+    useLocal: TRUE #Don't even download sciencebase file - overrides update
     depends:
       project_table: project_table
   -
@@ -662,14 +662,35 @@ visualize:
 
 publish:
   -
-    id: portfolio_time
+    id: portfolio_time_year
     publisher: portfolio_time
     scripts: scripts/publish/portfolio_time.R
     depends:
       viz_data: year_filter
+    plottype: year_time
     mimetype: text/html
-    alttext: "Estimated average and total time on page"
-    title: "Estimated average and total time on page"
+    alttext: "Estimated average and total time for the year"
+    title: "Estimated average and total time for the year"
+  -
+    id: portfolio_time_month
+    publisher: portfolio_time
+    scripts: scripts/publish/portfolio_time.R
+    depends:
+      viz_data: month_filter
+    plottype: month_time
+    mimetype: text/html
+    alttext: "Estimated average and total time for the month"
+    title: "Estimated average and total time for the month"
+  -
+    id: portfolio_time_week
+    publisher: portfolio_time
+    scripts: scripts/publish/portfolio_time.R
+    depends:
+      viz_data: week_filter
+    plottype: week_time
+    mimetype: text/html
+    alttext: "Estimated average and total time for the week"
+    title: "Estimated average and total time for the week"
   -
     id: openSans
     publisher: googlefont
@@ -833,7 +854,9 @@ publish:
       viz_geo_portfolio_year: viz_geo_portfolio_year
       viz_geo_portfolio_month: viz_geo_portfolio_month
       viz_geo_portfolio_week: viz_geo_portfolio_week
-      portfolio_time: portfolio_time
+      portfolio_time_year: portfolio_time_year
+      portfolio_time_month: portfolio_time_month
+      portfolio_time_week: portfolio_time_week
       portfolio_timeDayUse_year: portfolio_timeDayUse_year
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
@@ -865,7 +888,9 @@ publish:
       viz_geo_portfolio_year: viz_geo_portfolio_year
       viz_geo_portfolio_month: viz_geo_portfolio_month
       viz_geo_portfolio_week: viz_geo_portfolio_week
-      portfolio_time: portfolio_time
+      portfolio_time_year: portfolio_time_year
+      portfolio_time_month: portfolio_time_month
+      portfolio_time_week: portfolio_time_week
       portfolio_timeDayUse_year: portfolio_timeDayUse_year
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
