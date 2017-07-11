@@ -396,8 +396,8 @@ visualize:
     width: 7
     bar_line_col: "#4f9a97"
     mimetype: image/png
-    alttext: "Daily traffic patterns over past year"
-    title: "Daily traffic patterns over past year"
+    alttext: "Daily traffic patterns over past month"
+    title: "Daily traffic patterns over past month"
     location: figures/portfolio_timeDayUse_month.png
   -
     id: portfolio_timeDayUse_week
@@ -540,8 +540,8 @@ visualize:
     depends:
       sessions_all: sessions_all
     mimetype: image/png
-    alttext: "Annual timeseries of sessions"
-    title: "Annual timeseries of sessions"
+    alttext: "Year, month, and week summary of sessions (new and returning users) for all applications"
+    title: "Year, month, and week summary of sessions (new and returning users) for all applications"
     location: figures/portfolio_sessions_all.png
   -
     id: portfolio_device_type_year
@@ -806,9 +806,9 @@ publish:
         Applications are grouped by Very High Traffic (>1 million sessions per year), High Traffic (100k - 1 million sessions per year),
         Moderate Traffic (10k - 100k sessions per year), and Low Traffic (<10k sessions per year).
       info_device: >-
-        This plot displays the number of session originating from desktop, mobile, and tablet devices for the selected tiem period.
+        This plot displays the number of session occuring on desktop, mobile, and tablet devices for the selected time period.
       info_ave_time: >-
-        This table shows average time spent on application(s), as measured by Google Analtyics. Caution in the interpretation of this value should be used, as
+        This table shows average time spent on application(s), as measured by Google Analytics. Caution in the interpretation of this value should be used, as
         this number can be biased by users who exit a website without navigating to another page or otherwise interacting with the application. Total Week,
         Month, and Year time is an estimate of the total time spent with the application(s), calculated by multiplying Average Time on Page by the
         number of session over a given period of time. Any bias in Average Time will propagate to Total Time estimates; caution in the interpretation
@@ -898,9 +898,9 @@ publish:
         Applications are grouped by Very High Traffic (>1 million sessions per year), High Traffic (100k - 1 million sessions per year),
         Moderate Traffic (10k - 100k sessions per year), and Low Traffic (<10k sessions per year).
       info_device: >-
-        This plot displays the number of session originating from desktop, mobile, and tablet devices for the selected tiem period.
+        This plot displays the number of session occuring on desktop, mobile, and tablet devices for the selected time period.
       info_ave_time: >-
-        This table shows average time spent on application(s), as measured by Google Analtyics. Caution in the interpretation of this value should be used, as
+        This table shows average time spent on application(s), as measured by Google Analytics. Caution in the interpretation of this value should be used, as
         this number can be biased by users who exit a website without navigating to another page or otherwise interacting with the application. Total Week,
         Month, and Year time is an estimate of the total time spent with the application(s), calculated by multiplying Average Time on Page by the
         number of session over a given period of time. Any bias in Average Time will propagate to Total Time estimates; caution in the interpretation
