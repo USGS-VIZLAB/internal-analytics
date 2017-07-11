@@ -1,11 +1,11 @@
 aboutThisReport: |
-  This report summarizes web traffic across a subset of USGS Water data delivery applications using Google Analytics. A summary across all applications
+  This report summarizes web traffic across USGS Water Mission Area web applications using Google Analytics data. A summary across all applications
   and information on individual applications are available. Data are updated on a daily basis. 
 
 disclaimerTitle: "Disclaimer"
 
 disclaimer1: |
-  GA algorithms are subject to change without notice and these changes may impact apparent trends in usage. 
+  Google analytics (GA) algorithms are subject to change without notice and these changes may impact apparent trends in usage. 
   
   GA cannot record visitors using certain ad blockers or other browser plugins.
   
@@ -17,7 +17,7 @@ disclaimer1: |
 
 disclaimer2: |  
   [Bot Filtering](https://support.google.com/analytics/answer/1010249?hl=en) is a function that removes traffic attributed 
-  to automated crawlers (not real users) from web traffic tracking and reporting. Until recently bot filtering was used 
+  to automated crawlers (non-human users) from web traffic tracking and reporting. Until recently bot filtering was used 
   inconsistently across projects included in this report. Bots and spiders may artificially inflate the reported traffic 
   for a website, and decrease time on page; reported data from low traffic websites without bot filtering enabled should 
   be used with caution.  
@@ -60,7 +60,7 @@ traffic: |
   
 device: |
   [Device category](https://support.google.com/analytics/answer/3123672?hl=en): 
-  Indicates the device categories used to engage your content: desktop, tablet, or mobile. 
+  Indicates the device categories used to engage with web content: desktop, tablet, or mobile. 
 
 
 
