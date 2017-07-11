@@ -90,15 +90,16 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         y = bin_mid,
                         stringsAsFactors = FALSE)
 
-  fake_legend <- data.frame(label = c("Total Users","New Users"),
+  fake_legend <- data.frame(label = c("Total Users","New Users","Trending Up","Trending Down"),
                             type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
                             bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
-                            longName = rev(levels(summary_data_full$longName)[1:2]),
+                            longName = rev(levels(summary_data_full$longName)[1:4]),
                             ymin = ymin,
                             ystart = ystart,
                             ymid = ymid,
                             yend = yend,
                             ymax = ymax,
+                            trend_text = c(NA, NA, viz[["trend_image"]]$up,viz[["trend_image"]]$down),
                             stringsAsFactors = FALSE)
 
   port_graph <- port_graph +
@@ -109,11 +110,15 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
               ymin = fake_legend$ymin[1],
               ymax = fake_legend$ymax[1],
               xmin = .4,
-              xmax = 2.6,
+              xmax = 4.6,
               color = "black", fill = "white") +
     geom_text(data = fake_legend,
               aes(x = longName, y = yend, label = label),
               hjust = "right", col = "black") +
+    geom_text(data = fake_legend[3:4,],
+              aes(x = longName, y = 0,
+                  label = trend_text),
+              hjust =0, fill = "black") +
     geom_segment(data = fake_legend[2,],
                  aes(x = longName,
                      xend = longName,

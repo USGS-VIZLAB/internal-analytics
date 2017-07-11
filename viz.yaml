@@ -557,6 +557,10 @@ visualize:
     width: 12
     text_col: "black"
     bar_line_col: "black"
+    trend_image:
+      up: "\u25B2"
+      down: "\u25BC"
+      none: ""
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends:
