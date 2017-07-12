@@ -151,8 +151,8 @@
   botFilteringEnabled: ''
   description: >-
     The Coastal Change Hazards (CCH) Portal provides interactive access to coastal
-    change science and data for our Nation's coasts. Provide tools to researchers to
-    manage their coastal datasets' appearance in the Portal. Support real-time storm
+    change science and data for our Nation's coasts. It provides tools to researchers to
+    manage their coastal datasets' appearance in the Portal including real-time storm
     forecast data sharing and updates throughout events, such as hurricanes. This app
     allows users to create simple, sharable mash-ups of different coastal datasets and
     provides historical data aiding the understanding and prediction of storm impacts.
@@ -567,7 +567,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: Grand Canyon Monitoring Research Center Website
+- longName: Grand Canyon Monitoring and Research Center''s Discharge, Sediment, and Water Quality Monitoring App
   shortName: GCMRC
   accountName: CIDA GCMRC Analytics
   viewID: '80089136'
@@ -579,13 +579,12 @@
   websiteUrl: https://www.gcmrc.gov/discharge_qw_sediment/
   botFilteringEnabled: ''
   description: >-
-    The Grand Canyon Monitoring Research Center (GCMRC) decision-support tools provide accurate,
+    The Grand Canyon Monitoring and Research Center's (GCMRC) decision-support tools provide accurate,
     near-real-time data and user-friendly interactive visualizations by continuous aggregation
     of datasets and continual recomputed derived values based on latest available data.
-    The Grand Canyon Monitoring Research Center application provides resource managers and
-    decision makers access to continuous, aggregated data of interest in support of the Glen
+    The GCMRC Web app provides resource managers and decision makers access to continuous, aggregated data of interest in support of the Glen
     Canyon Dam Adaptive Management Program (GCDAMP) and numerous other water projects in the
-    western US.
+    western US to plan and implement controlled floods for rebuilding sandbars, and evaluate effects of hydropower and local flods on sand and sediment resources.
   projectContact: 'Megan Hines'
   projectContactEmail: 'mhines@usgs.gov'
   analyticsContact: 'David Watkins'
