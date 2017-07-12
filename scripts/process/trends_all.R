@@ -69,7 +69,7 @@ process.trends_all <- function(viz=as.viz("trends_all")){
   }))
 
   # for consistency with other files, make year/month/week label into factor
-  trends$type <- factor(trends$type)
+  trends$type <- factor(trends$type, levels=unname(levels_text))
 
   # augment trends with single columng for shape: is the trend up, down, or
   # non-significant?
