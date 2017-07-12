@@ -49,6 +49,8 @@ process.fill_missing_year <- function(viz = as.viz("fill_missing_year")){
         viewID = .$viewID[1])
       right_join(., pad_df, by=names(pad_df))
     }) %>%
+    mutate(n_possible = as.numeric(diff(year_bounds), units='days') + 1,
+           n_actual = as.numeric(diff(range(date)), units='days') + 1) %>%
     ungroup() %>%
     replace_na(list(sessions=0, newUsers=0))
 

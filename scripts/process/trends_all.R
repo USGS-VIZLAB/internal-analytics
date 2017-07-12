@@ -6,11 +6,10 @@ process.trends_all <- function(viz=as.viz("trends_all")){
 
   # load data
   deps <- readDepends(viz)
-
   sessions_all <- deps[["sessions_all"]]
-
   year_data <- deps[["year_data"]]
 
+  # augment year_data with columns useful for trend detection & quantification
   counts_df_aug <- year_data %>%
     group_by(viewID) %>%
     mutate(
@@ -30,12 +29,12 @@ process.trends_all <- function(viz=as.viz("trends_all")){
   levels_text <- list()
 
   for(i in seq_len(length(range_text))){
-    range_days <- seq(latest_day, length = 2, by = range_text[i])
+    range_days <- rev(seq(latest_day, length = 2, by = range_text[i]))
     j <- names(range_text)[i]
     levels_text[[j]] <- paste(j,"\n",paste0(range(range_days), collapse = " to "))
     counts[[j]] <- counts_df_aug %>%
-      filter(date >= range_days[2]) %>%
-      mutate(type = levels_text[[i]])
+      filter(date >= range_days[1]) %>%
+      mutate(type = levels_text[[j]])
   }
 
   # calculate trends at all 3 temporal scales, using different methods for each
@@ -60,24 +59,25 @@ process.trends_all <- function(viz=as.viz("trends_all")){
         vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm)
       }
       data_frame(
-        scale = cscale,
+        type = cdf[[1,'type']], # or could use scale = cscale,
         slope = vtrend$B, # change per year as a fraction of the annual mean for this viewID
-        pvalue = vtrend$sl) # two-sided p-value for significance of trend
+        pvalue = vtrend$sl, # two-sided p-value for significance of trend
+        n_possible = cdf$n_possible[1],
+        n_actual = cdf$n_actual[1])
     })) %>%
       mutate(viewID = vid)
   }))
 
-  trends$scale[trends$scale == "Year"] <- levels_text$Year
-  trends$scale[trends$scale == "Month"] <- levels_text$Month
-  trends$scale[trends$scale == "Week"] <- levels_text$Week
-  trends$type <- factor(trends$scale, levels = levels(sessions_all$type))
+  # for consistency with other files, make year/month/week label into factor
+  trends$type <- factor(trends$type)
 
   # augment trends with single columng for shape: is the trend up, down, or
   # non-significant?
   trends_aug <- trends %>%
     mutate(trend = ifelse(pvalue <= 0.05, ifelse(slope > 0, viz[["trend_text"]]$up,
                                                  viz[["trend_text"]]$down),
-                          viz[["trend_text"]]$none))
+                          viz[["trend_text"]]$none),
+           complete = (n_actual / n_possible) >= 0.9) # set threshold for whether a year/month/week counts as complete interval
 
   sessions_total <- left_join(sessions_all, trends_aug,
                               by=c("viewID","type"))
