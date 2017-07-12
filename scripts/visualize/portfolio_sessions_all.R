@@ -48,7 +48,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_text(aes(label = session_text, y = text_placement, color = trend),
               size = 3, hjust = 0,
               data = summary_data_full[summary_data_full$scaled_value == 0,]) +
-    geom_point(color = bar_line_col,#aes(shape = trend, fill = trend,color = trend),
+    geom_point(color = bar_line_col,
                data = summary_data_full[summary_data_full$scaled_value != 0,]) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
