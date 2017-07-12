@@ -567,7 +567,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: Grand Canyon Monitoring and Research Center''s Discharge, Sediment, and Water Quality Monitoring App
+- longName: Grand Canyon Monitoring and Research Center's Discharge, Sediment, and Water Quality Monitoring App
   shortName: GCMRC
   accountName: CIDA GCMRC Analytics
   viewID: '80089136'
@@ -584,7 +584,7 @@
     of datasets and continual recomputed derived values based on latest available data.
     The GCMRC Web app provides resource managers and decision makers access to continuous, aggregated data of interest in support of the Glen
     Canyon Dam Adaptive Management Program (GCDAMP) and numerous other water projects in the
-    western US to plan and implement controlled floods for rebuilding sandbars, and evaluate effects of hydropower and local flods on sand and sediment resources.
+    Western US to plan and implement controlled floods for rebuilding sandbars, and evaluate effects of hydropower and local floods on sand and sediment resources.
   projectContact: 'Megan Hines'
   projectContactEmail: 'mhines@usgs.gov'
   analyticsContact: 'David Watkins'
