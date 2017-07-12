@@ -81,8 +81,6 @@ process.trends_all <- function(viz=as.viz("trends_all")){
 
   sessions_total <- left_join(sessions_all, trends_aug,
                               by=c("viewID","type"))
-  sessions_total$session_text <- paste0(sessions_total$session_text,
-                                       sessions_total$trend)
 
   saveRDS(sessions_total, file = viz[["location"]])
 }
