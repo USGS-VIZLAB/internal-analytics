@@ -20,15 +20,26 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     group_by(bin) %>%
     slice(which.min(sessions))
 
+  # decide where to place text
   max_vals <- summary_data_full %>%
     group_by(type) %>%
     summarize(max_val = max(scaled_value, na.rm = TRUE))
 
   summary_data_full <- summary_data_full %>%
     left_join(max_vals, by = "type") %>%
-    mutate(text_placement = scaled_value + 0.15*max_val)
+    mutate(text_placement = scaled_value + 0.06*max_val)
 
   summary_data_full$text_placement[summary_data_full$sessions == 0] <- 0
+
+  # prepare dimensions for each pane that won't truncate the text values
+  dummy_for_ylims <- summary_data_full %>%
+    select(bin, type, longName, scaled_value, max_val) %>%
+    group_by(bin, type) %>%
+    arrange(desc(scaled_value)) %>%
+    slice(1) %>%
+    ungroup() %>%
+    as.data.frame() %>%
+    mutate(scaled_value = max_val*1.15)
 
   summary_data_full <- summary_data_full %>%
     mutate(trend_complete = paste(trend, complete))
@@ -55,13 +66,14 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_segment(aes(xend = longName, y = scaled_newUser),
                  yend=0, col=bar_line_col, size=1.15) +
     geom_text(aes(label = session_text, y = text_placement, color = trend),
-              size = 3, hjust = .75,
+              size = 3, hjust = 0,
               data = summary_data_full[summary_data_full$scaled_value != 0,]) +
     geom_text(aes(label = session_text, y = text_placement, color = trend),
               size = 3, hjust = 0,
               data = summary_data_full[summary_data_full$scaled_value == 0,]) +
     geom_point(aes(shape=trend, fill = trend_complete, color=trend),
                data = summary_data_full[summary_data_full$scaled_value != 0,]) +
+    geom_blank(data=dummy_for_ylims) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
