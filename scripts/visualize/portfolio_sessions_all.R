@@ -30,22 +30,27 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
 
   summary_data_full$text_placement[summary_data_full$sessions == 0] <- 0
 
-  colfunc <- colorRampPalette(c("grey75","grey95"))
-  cols <- colfunc(4)
+  summary_data_full <- summary_data_full %>%
+    mutate(trend_complete = paste(trend, complete))
 
-  names(cols) <- levels(summary_data_full$bin)
-
-  cols <- c(cols, "none" = viz[["trend_color"]]$none,
+  # define scales for shape, color, and fill
+  shps <- c("none"=21,
+            "up"=24,
+            "down"=25)
+  cols <- c("none" = viz[["trend_color"]]$none,
             "up" = viz[["trend_color"]]$up,
             "down" = viz[["trend_color"]]$down)
+  colfunc <- colorRampPalette(c("grey75","grey95"))
+  fills <- colfunc(4)
+  names(fills) <- levels(summary_data_full$bin)
+  fills <- c(fills,
+             setNames(cols, paste(names(cols), 'TRUE')),
+             setNames(rep('white', 3), paste(names(cols), 'FALSE')))
 
-  port_graph <- ggplot(data = summary_data_full,
+  graph_body <- ggplot(data = summary_data_full,
                        aes(x = longName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,color = NA) +
-    scale_color_manual(values = c("none" = viz[["trend_color"]]$none,
-                                  "up" = viz[["trend_color"]]$up,
-                                  "down" = viz[["trend_color"]]$down)) +
     geom_segment(aes(xend = longName), yend=0, size = 0.65, color = bar_line_col) +
     geom_segment(aes(xend = longName, y = scaled_newUser),
                  yend=0, col=bar_line_col, size=1.15) +
@@ -55,15 +60,14 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_text(aes(label = session_text, y = text_placement, color = trend),
               size = 3, hjust = 0,
               data = summary_data_full[summary_data_full$scaled_value == 0,]) +
-    geom_point(aes(shape=trend, fill = trend), color = "black",
+    geom_point(aes(shape=trend, fill = trend_complete, color=trend),
                data = summary_data_full[summary_data_full$scaled_value != 0,]) +
-    scale_shape_manual(values = c("none"=21,
-                                  "up"=24,
-                                  "down"=25)) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
-    scale_fill_manual(values = cols) +
+    scale_color_manual(values = cols) +
+    scale_fill_manual(values = fills) +
+    scale_shape_manual(values = shps) +
     theme_bw() +
     theme(axis.title = element_blank(),
           axis.text.x =  element_blank(),
@@ -76,7 +80,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
           legend.position = "none"
     )
 
-  info_graph <- ggplot_build(port_graph)
+  info_graph <- ggplot_build(graph_body)
   layout_stuff <- info_graph$layout
 
   if(packageVersion("ggplot2") >= "2.2.1.9000"){
@@ -103,40 +107,41 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         y = bin_mid,
                         stringsAsFactors = FALSE)
 
-  fake_legend <- data.frame(label = c("Total Users","New Users","Trending Up","Trending Down"),
+  fake_legend <- data.frame(label = c("Total Users","New Users","Trending Up","Trending Down","Missing >10%"),
                             type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
                             bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
-                            longName = rev(levels(summary_data_full$longName)[1:4]),
+                            longName = rev(levels(summary_data_full$longName)[1:5]),
                             ymin = ymin,
                             ystart = ystart,
                             ymid = ymid,
                             yend = yend,
                             ymax = ymax,
-                            trend = c(NA, NA, "up", "down"),
+                            trend = c(NA, NA, "up", "down", "none"),
+                            trend_complete = c(NA, NA, "up TRUE", "down TRUE", "none FALSE"),
                             stringsAsFactors = FALSE)
 
-  fake_legend$mid_mid <- fake_legend$ymid - fake_legend$ystart
+  fake_legend$mid_mid <- fake_legend$ystart + (fake_legend$ymid - fake_legend$ystart)/2
 
-  port_graph <- port_graph +
+  port_graph <- graph_body +
     geom_label(data = text_df,
-               aes(x = longName, y = y, label = label),
-               size = 3.5,hjust = "right",label.r = unit(0, "lines")) +
-    geom_rect(data = fake_legend[1,], aes(y = 0),
+               aes(x = longName, y = y, label = label), fill=NA, color=NA,
+               size = 3.5, hjust = "right", label.r = unit(0, "lines")) +
+    geom_rect(data = fake_legend[1,], inherit.aes=FALSE, # aes(y = 0),
               ymin = fake_legend$ymin[1],
               ymax = fake_legend$ymax[1],
               xmin = .4,
-              xmax = 4.6,
+              xmax = 5.6,
               color = "black", fill = "white") +
     geom_text(data = fake_legend,
               aes(x = longName, y = yend, label = label),
-              hjust = "right", col = "black") +
+              size = 3.5, hjust = "right", col = "black") +
     geom_segment(data = fake_legend[2,],
                  aes(x = longName,
                      xend = longName,
                      y = ystart, yend=ymid), col=bar_line_col, size=1.15) +
     geom_segment(data = fake_legend[1,], aes(xend = longName, y=ystart, yend=ymid), size=0.65, col=bar_line_col) +
-    geom_point(data = fake_legend[1,], aes(x = longName, y=ymid), col=bar_line_col) +
-    geom_point(data = fake_legend[3:4,], color = "black", aes(x = longName, y=mid_mid, shape=trend, fill = trend))
+    geom_point(data = fake_legend[1,], aes(x = longName, y=ymid), color=bar_line_col) +
+    geom_point(data = fake_legend[3:5,], aes(x = longName, y=mid_mid, shape=trend, color=trend, fill=trend_complete))
 
   ggsave(port_graph, file = viz[["location"]], height = height, width = width)
 
