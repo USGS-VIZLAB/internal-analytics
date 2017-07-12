@@ -7,59 +7,75 @@ process.trends_all <- function(viz=as.viz("trends_all")){
   # load data
   deps <- readDepends(viz)
   sessions_all <- deps[["sessions_all"]]
-  year_data <- deps[["year_data"]]
+  counts <- deps[c("year_data","month_data","week_data")]
 
   # augment year_data with columns useful for trend detection & quantification
-  counts_df_aug <- year_data %>%
-    group_by(viewID) %>%
-    mutate(
-      sessions_mean = mean(sessions),
-      sessions_norm = sessions / mean(sessions),
-      dec_date = lubridate::decimal_date(date),
-      day_of_week = lubridate::wday(date)
-    ) %>%
-    ungroup()
+  counts_aug <- lapply(counts, function(cdf) {
+    cdf %>%
+      group_by(viewID) %>%
+      mutate(
+        sessions_mean = mean(sessions),
+        sessions_norm = sessions / mean(sessions),
+        dec_date = lubridate::decimal_date(date),
+        day_of_week = lubridate::wday(date)
+      ) %>%
+      ungroup()
+  })
 
-  range_text <- c("-1 year","-1 month","-1 week")
-  names(range_text) <- c("Year","Month","Week")
-  latest_day <- max(counts_df_aug$date, na.rm = TRUE)
+  # create vector of interval types with names we can retrieve later
+  types <- names(counts) %>%
+    sapply(function(type) {
+      # match this type to teh sessions_all factor by the first four characters (year/mont/week)
+      levels(sessions_all$type)[grep(tolower(substring(type, 1, 4)), tolower(levels(sessions_all$type)))]
+    }) %>%
+    # add names according to the number of rows in the input dataset so we can
+    # retrieve it later
+    setNames(as.character(sapply(counts_aug, nrow)))
 
-  # create 1-year, 1-month, and 1-week subsets
-  counts <- list()
-  levels_text <- list()
-
-  for(i in seq_len(length(range_text))){
-    range_days <- rev(seq(latest_day, length = 2, by = range_text[i]))
-    j <- names(range_text)[i]
-    levels_text[[j]] <- paste(j,"\n",paste0(range(range_days), collapse = " to "))
-    counts[[j]] <- counts_df_aug %>%
-      filter(date >= range_days[1]) %>%
-      mutate(type = levels_text[[j]])
-  }
+  # range_text <- c("-1 year","-1 month","-1 week")
+  # names(range_text) <- c("Year","Month","Week")
+  # latest_day <- max(counts_df_aug$date, na.rm = TRUE)
+  #
+  # # create 1-year, 1-month, and 1-week subsets
+  # counts <- list()
+  # levels_text <- list()
+  #
+  # for(i in seq_len(length(range_text))){
+  #   range_days <- rev(seq(latest_day, length = 2, by = range_text[i]))
+  #   j <- names(range_text)[i]
+  #   levels_text[[j]] <- paste(j,"\n",paste0(range(range_days), collapse = " to "))
+  #   counts[[j]] <- counts_df_aug %>%
+  #     filter(date >= range_days[1]) %>%
+  #     mutate(type = levels_text[[j]])
+  # }
 
   # calculate trends at all 3 temporal scales, using different methods for each
-  trends <- bind_rows(lapply(unique(counts_df_aug$viewID), function(vid) {
-    # subset each of the counts data.frames for just this ID
-    vcounts <- lapply(counts, function(cdf) { filter(cdf, viewID==vid) })
-
-    # count the number of observations for each day of the week. if there are
-    # fewer than 4 blocks (days of week) with >= 4 points, we'll use
-    # Mann-Kendall (no blocking) rather than seasonal Kendall (with blocking on
-    # day of week, never season)
-    num_blocks <- lapply(vcounts, function(cdf) length(which(table(cdf$day_of_week) >= 4)) )
-
-    # run trend tests, using seasonal Kendall if there are enough data and
+  viewIDs <- unique(counts_aug[["year_data"]]$viewID) # if it's in 1-year, it's in 1-month and 1-week
+  trends <- bind_rows(lapply(viewIDs, function(vid) {
+    # run trend tests for all three scales (types) for this viewID. Use seasonal
+    # Kendall (blocking by day of week) if there are enough data and
     # Mann-Kendall otherwise. it's possible, but challenging, for 7 days to
     # produce a signifcant trend with a Mann-Kendall test
-    vtrends <- bind_rows(lapply(names(vcounts), function(cscale) {
-      cdf <- vcounts[[cscale]]
-      if(num_blocks[[cscale]] >= 4) {
+    bind_rows(lapply(counts_aug, function(cdf_all) {
+      # subset each of the counts data.frames for just this type and viewID
+      cdf <- cdf_all %>% filter(viewID==vid)
+
+      # count the number of observations for each day of the week. if there are
+      # fewer than 4 blocks (days of week) with >= 4 points, we'll use
+      # Mann-Kendall (no blocking) rather than seasonal Kendall
+      num_blocks <- length(which(table(cdf$day_of_week) >= 4))
+
+      # run the trend test, rkt, which is SK if block is specificied and MK
+      # otherwise
+      if(num_blocks >= 4) {
         vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm, block=cdf$day_of_week)
       } else {
         vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm)
       }
+
+      # create a 1-row summary of the trend results for this type & viewID
       data_frame(
-        type = cdf[[1,'type']], # or could use scale = cscale,
+        type = types[[as.character(nrow(cdf_all))]], # figure out which type this is based on the dims of cdf_all
         slope = vtrend$B, # change per year as a fraction of the annual mean for this viewID
         pvalue = vtrend$sl, # two-sided p-value for significance of trend
         n_possible = cdf$n_possible[1],
@@ -69,7 +85,7 @@ process.trends_all <- function(viz=as.viz("trends_all")){
   }))
 
   # for consistency with other files, make year/month/week label into factor
-  trends$type <- factor(trends$type, levels=unname(levels_text))
+  trends$type <- factor(trends$type, levels=levels(sessions_all$type))
 
   # augment trends with single columng for shape: is the trend up, down, or
   # non-significant?
