@@ -75,9 +75,9 @@ process.trends_all <- function(viz=as.viz("trends_all")){
   # augment trends with single columng for shape: is the trend up, down, or
   # non-significant?
   trends_aug <- trends %>%
-    mutate(trend = ifelse(pvalue <= 0.05, ifelse(slope > 0, viz[["trend_image"]]$up,
-                                                 viz[["trend_image"]]$down),
-                          viz[["trend_image"]]$none))
+    mutate(trend = ifelse(pvalue <= 0.05, ifelse(slope > 0, viz[["trend_text"]]$up,
+                                                 viz[["trend_text"]]$down),
+                          viz[["trend_text"]]$none))
 
   sessions_total <- left_join(sessions_all, trends_aug,
                               by=c("viewID","type"))

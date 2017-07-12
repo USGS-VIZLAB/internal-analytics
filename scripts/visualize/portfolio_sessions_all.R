@@ -38,9 +38,9 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                        aes(x = longName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,color = NA) +
-    scale_color_manual(values = c(viz[["trend_color"]]$none,
-                                  viz[["trend_color"]]$up,
-                                  viz[["trend_color"]]$down)) +
+    scale_color_manual(values = c("none" = viz[["trend_color"]]$none,
+                                  "up" = viz[["trend_color"]]$up,
+                                  "down" = viz[["trend_color"]]$down)) +
     geom_segment(aes(xend = longName), yend=0, size = 0.65, color = bar_line_col) +
     geom_segment(aes(xend = longName, y = scaled_newUser),
                  yend=0, col=bar_line_col, size=1.15) +
