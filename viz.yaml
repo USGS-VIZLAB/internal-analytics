@@ -560,10 +560,10 @@ visualize:
     width: 12
     text_col: "black"
     bar_line_col: "black"
-    trend_image:
-      up: "\u25B2"
-      down: "\u25BC"
-      none: ""
+    trend_color:
+      up: "#0571b0"
+      down: "#ca0020"
+      none: "black"
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends:
