@@ -561,8 +561,8 @@ visualize:
     text_col: "black"
     bar_line_col: "black"
     trend_color:
-      up: "#0571b0"
-      down: "#ca0020"
+      up: "forestgreen"
+      down: "firebrick2"
       none: "black"
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
