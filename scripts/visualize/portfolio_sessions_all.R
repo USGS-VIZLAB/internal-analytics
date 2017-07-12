@@ -1,4 +1,5 @@
 visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all")){
+
   library(dplyr)
   library(tidyr)
   library(ggplot2)
@@ -37,17 +38,20 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                        aes(x = longName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,color = NA) +
-    geom_point(color = bar_line_col,
-               data = summary_data_full[summary_data_full$scaled_value != 0,]) +
+    scale_color_manual(values = c("none" = viz[["trend_color"]]$none,
+                                  "up" = viz[["trend_color"]]$up,
+                                  "down" = viz[["trend_color"]]$down)) +
     geom_segment(aes(xend = longName), yend=0, size = 0.65, color = bar_line_col) +
     geom_segment(aes(xend = longName, y = scaled_newUser),
                  yend=0, col=bar_line_col, size=1.15) +
-    geom_text(aes(label = session_text, y = text_placement),
-              size = 3, hjust = .75, color = text_col,
+    geom_text(aes(label = session_text, y = text_placement, color = trend),
+              size = 3, hjust = .75,
               data = summary_data_full[summary_data_full$scaled_value != 0,]) +
-    geom_text(aes(label = session_text, y = text_placement),
-              size = 3, hjust = 0, color = text_col,
+    geom_text(aes(label = session_text, y = text_placement, color = trend),
+              size = 3, hjust = 0,
               data = summary_data_full[summary_data_full$scaled_value == 0,]) +
+    geom_point(color = bar_line_col,
+               data = summary_data_full[summary_data_full$scaled_value != 0,]) +
     facet_grid(bin ~ type, scales = "free",
                space = "free_y", drop = TRUE) +
     coord_flip() +
@@ -91,16 +95,16 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         y = bin_mid,
                         stringsAsFactors = FALSE)
 
-  fake_legend <- data.frame(label = c("Total Users","New Users","Trending Up","Trending Down"),
+  fake_legend <- data.frame(label = c("Total Users","New Users"),
                             type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
                             bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
-                            longName = rev(levels(summary_data_full$longName)[1:4]),
+                            longName = rev(levels(summary_data_full$longName)[1:2]),
                             ymin = ymin,
                             ystart = ystart,
                             ymid = ymid,
                             yend = yend,
                             ymax = ymax,
-                            trend_text = c(NA, NA, viz[["trend_image"]]$up,viz[["trend_image"]]$down),
+                            trend_text = c(NA, NA),
                             stringsAsFactors = FALSE)
 
   port_graph <- port_graph +
@@ -111,15 +115,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
               ymin = fake_legend$ymin[1],
               ymax = fake_legend$ymax[1],
               xmin = .4,
-              xmax = 4.6,
+              xmax = 2.75,
               color = "black", fill = "white") +
     geom_text(data = fake_legend,
               aes(x = longName, y = yend, label = label),
               hjust = "right", col = "black") +
-    geom_text(data = fake_legend[3:4,],
-              aes(x = longName, y = ystart,
-                  label = trend_text),
-              hjust = 0, fill = "black") +
     geom_segment(data = fake_legend[2,],
                  aes(x = longName,
                      xend = longName,
