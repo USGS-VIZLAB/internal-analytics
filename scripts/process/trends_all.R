@@ -32,25 +32,9 @@ process.trends_all <- function(viz=as.viz("trends_all")){
     # retrieve it later
     setNames(as.character(sapply(counts_aug, nrow)))
 
-  # range_text <- c("-1 year","-1 month","-1 week")
-  # names(range_text) <- c("Year","Month","Week")
-  # latest_day <- max(counts_df_aug$date, na.rm = TRUE)
-  #
-  # # create 1-year, 1-month, and 1-week subsets
-  # counts <- list()
-  # levels_text <- list()
-  #
-  # for(i in seq_len(length(range_text))){
-  #   range_days <- rev(seq(latest_day, length = 2, by = range_text[i]))
-  #   j <- names(range_text)[i]
-  #   levels_text[[j]] <- paste(j,"\n",paste0(range(range_days), collapse = " to "))
-  #   counts[[j]] <- counts_df_aug %>%
-  #     filter(date >= range_days[1]) %>%
-  #     mutate(type = levels_text[[j]])
-  # }
-
   # calculate trends at all 3 temporal scales, using different methods for each
   viewIDs <- unique(counts_aug[["year_data"]]$viewID) # if it's in 1-year, it's in 1-month and 1-week
+
   trends <- bind_rows(lapply(viewIDs, function(vid) {
     # run trend tests for all three scales (types) for this viewID. Use seasonal
     # Kendall (blocking by day of week) if there are enough data and
@@ -63,12 +47,15 @@ process.trends_all <- function(viz=as.viz("trends_all")){
       # count the number of observations for each day of the week. if there are
       # fewer than 4 blocks (days of week) with >= 4 points, we'll use
       # Mann-Kendall (no blocking) rather than seasonal Kendall
+
       num_blocks <- length(which(table(cdf$day_of_week) >= 4))
 
       # run the trend test, rkt, which is SK if block is specificied and MK
       # otherwise
       if(num_blocks >= 4) {
         vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm, block=cdf$day_of_week)
+      } else if (num_blocks == 0){
+        vtrend <- data.frame(B = NA, sl = NA)
       } else {
         vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm)
       }
@@ -94,6 +81,8 @@ process.trends_all <- function(viz=as.viz("trends_all")){
                                                  viz[["trend_text"]]$down),
                           viz[["trend_text"]]$none),
            complete = (n_actual / n_possible) >= 0.9) # set threshold for whether a year/month/week counts as complete interval
+
+  trends_aug$trend[is.na(trends_aug$trend)] <- "none"
 
   sessions_total <- left_join(sessions_all, trends_aug,
                               by=c("viewID","type"))
