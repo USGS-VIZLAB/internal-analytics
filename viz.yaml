@@ -199,6 +199,8 @@ process:
     depends:
       sessions_all: sessions_all
       year_data: fill_missing_year
+      month_data: fill_missing_month
+      week_data: fill_missing_week
     reader: rds
     location: cache/process/trends_all.rds
 visualize:

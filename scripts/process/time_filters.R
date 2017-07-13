@@ -64,10 +64,12 @@ process.fill_missing <- function(viz = as.viz("fill_missing_month")){
   viz.data <- readDepends(viz)[["fill_missing_year"]]
   range_text <- viz[["range_text"]]
 
-  range_days <- seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text)
+  range_days <- rev(seq(max(viz.data$date, na.rm = TRUE), length = 2, by = range_text))
 
   month_data <- viz.data %>%
-    filter(date >= range_days[2])
+    filter(date >= range_days[1]) %>%
+    mutate(n_possible = as.numeric(diff(range_days), units='days') + 1,
+           n_actual = as.numeric(diff(range(date)), units='days') + 1)
 
   saveRDS(month_data, file=viz[["location"]], compress = FALSE)
 }
