@@ -29,8 +29,6 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     left_join(max_vals, by = "type") %>%
     mutate(text_placement = scaled_value + 0.06*max_val)
 
-  summary_data_full$text_placement[summary_data_full$sessions == 0] <- 0
-
   # prepare dimensions for each pane that won't truncate the text values
   dummy_for_ylims <- summary_data_full %>%
     select(bin, type, longName, scaled_value, max_val) %>%
