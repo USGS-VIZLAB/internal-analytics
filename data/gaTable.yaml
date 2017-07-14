@@ -724,7 +724,7 @@
   internalWebPropertyId: '44153450'
   viewName: 1-Water Science School
   timezone: America/New_York
-  websiteUrl: http://water.usgs.gov
+  websiteUrl: https://water.usgs.gov/edu/
   botFilteringEnabled: ""
   description: >-
     The Water Science School (WaterSciSchool) website offers information on many aspects of water, along with pictures, data,
