@@ -1044,3 +1044,46 @@
   projectContactEmail: 'kalfsbek@usgs.gov'
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
+
+- longName: "WMA Internal Wiki"
+  shortName: "WMAInternal"
+  accountName: 'WMA internal'
+  viewID: "154908135"
+  accountId: '102387089'
+  webPropertyId: "UA-102387089-1"
+  viewName: 'All Web Site Data'
+  timezone: "America/New_York"
+  websiteUrl: 'https://sites.google.com/a/usgs.gov/wma-wiki/'
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    This internal website offers partners and Water Mission Area (WMA) staff key information about the WMA, including the all-essential WMA
+    science strategy.  The latest WMA news categorized by sections is available; it also is summarized on this home page.  The menu bar at the top
+    of each page offers access to even more content.
+
+    The WMA works with partners to monitor, assess, and conduct targeted research on the wide range of water resources and conditions,
+    including streamflow, groundwater, water quality, and water use and availability.
+  projectContact: 'Emily Read'
+  projectContactEmail: 'eread@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
+
+- longName: "USGS Sediment Data Portal"
+  shortName: "SedimentPortal"
+  accountName: 'Sediment Portal'
+  viewID: "81127834"
+  accountId: '46483138'
+  webPropertyId: "UA-46483138-2"
+  viewName: 'All Web Site Data'
+  timezone: "America/Chicago"
+  websiteUrl: 'https://cida.usgs.gov/sediment/'
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    The USGS Sediment Data Portal displays the location of sites in
+    which discrete and (or) daily suspended sediment data have been
+    collected in the United States. The U.S. Geological Survey National
+    Water Information System (NWIS) is the original source for all
+    suspended-sediment data provided in the portal.
+  projectContact: 'Meredith Pavlick'
+  projectContactEmail: 'mpavlick@usgs.gov'
+  analyticsContact: 'Meredith Pavlick'
+  analyticsContactEmail: 'mpavlick@usgs.gov'
