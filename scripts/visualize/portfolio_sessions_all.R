@@ -111,7 +111,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   text_df <- data.frame(label = c("Very High Traffic","High Traffic","Moderate Traffic","Low Traffic"),
                         type = factor(levels(summary_data_full$type)[1], levels = levels(summary_data_full$type)),
                         bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
-                        longName = 1.25,
+                        longName = 1.75,
                         y = bin_mid,
                         stringsAsFactors = FALSE)
 
@@ -142,7 +142,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
 
   port_graph <- graph_body +
     geom_label(data = text_df,
-               aes(x = longName, y = y, label = label), fill=NA, color=NA,
+               aes(x = longName, y = y, label = label), fill="white", color="black",
                size = 3.5, hjust = "right", label.r = unit(0, "lines")) +
     geom_rect(data = fake_legend[1,], inherit.aes=FALSE, # aes(y = 0),
               ymin = fake_legend$ymin[1],
