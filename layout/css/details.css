@@ -41,76 +41,75 @@
   position: sticky;
   top: 0;
   z-index:8000;
-  border-bottom:2px solid rgb(220,220,220);
   border-top:2px solid rgb(220,220,220);
+  border-bottom:2px solid rgb(220,220,220);
 }
 
-.projectNavigationContent{
-  width:100%;
-  display:flex;
-  flex-wrap: wrap;
-}
-
-.projectNavigationContent a{
+.projectNavigationContainer a{
   text-decoration:none;
   cursor: pointer;
   color:rgb(0,51,102);
   font-size:.8em;
 }
 
-.projectNavigationContent a.active{
+.projectNavigationContainer a.active{
   background:rgb(0,51,102) !important;
   color:#fff;
 }
 
-.projectNavigationContent a:hover{
-  background:rgb(0,51,102);
+.projectNavigationContainer a:hover{
+  background:rgb(0,51,102) !important;
   color:#fff;
 }
 
-#returnHome,
-.timeToggle,
-#projectToggle{
+.line{
+  height:2px;
+  background:rgb(220,220,220);
+}
+
+.topShelf{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+#siteTraversal,
+.timeToggle{
   height:40px;
 }
 
-#returnHome,
-#projectToggle{
-  border-bottom:2px solid rgb(220,220,220);
-}
-
-
-#returnHome{
+#siteTraversal{
   flex:1;
-  border-right:2px solid rgb(220,220,220);
-}
-
-#projectToggle{
-  flex:1.5;
-  order:2;
   display:flex;
 }
 
 .timeToggle{
   width:100%;
-  order:3;
   display:flex;
 }
 
-#returnHome a,
-#projectToggle a,
+#siteTraversal a,
 .timeToggle a{
   height:30px;
   padding:10px 0 0 0;
 }
 
-#returnHome a{
+#siteTraversal a{
   display:inline-block;
   width:100%;
-
 }
 
-#projectToggle a,
+a.returnHome{
+  border-right:2px solid rgb(220,220,220);
+  background:rgb(0,51,102);
+  color:#fff;
+}
+
+a.returnHome:hover{
+  background:rgb(225,225,225) !important;
+  color:rgb(0,51,102);
+}
+
+#siteTraversal a,
 .timeToggle a{
   flex:1;
 }
@@ -120,24 +119,9 @@
 }
 
 @media screen and (min-width:1061px){
-  .projectNavigationContent{
-    max-width:1000px;
+  .shelf{
+    max-width:900px;
     margin:0 auto;
-  }
-
-  #returnHome,
-  #projectToggle{
-    border-bottom:none;
-  }
-
-  #projectToggle{
-    order:3;
-    border-left:2px solid rgb(220,220,220);
-  }
-
-  .timeToggle{
-    flex:2;
-    order:2;
   }
 
   #pieChart img{
