@@ -21,19 +21,12 @@
 		  </a>
 		</p>
 		<div class="projectNavigationContainer">
-		  <div class="projectNavigationContent">
-        <div id="returnHome">
-          <a href="index.html">
-  			    Return to Summary
+		  <div class="topShelf shelf">
+		    <div id="siteTraversal">
+          <a class="returnHome" href="index.html">
+  			   Return to Summary
   		    </a>
-        </div>
-        <div class="timeToggle">
-          <a id="yearButton" class="active">Year</a>
-      		<a id="monthButton">Month</a>
-      		<a id="weekButton">Week</a>
-        </div>
-        <div id="projectToggle">
-          {{#previous_link}}
+  		    {{#previous_link}}
     		    <a href="{{{previous_link}}}">
       		    Previous Application
     		    </a>
@@ -44,7 +37,15 @@
     		    </a>
     		  {{/next_link}}
         </div>
-    	</div>
+		  </div>
+		  <div class="line"></div>
+		  <div class="bottomShelf shelf">
+		    <div class="timeToggle">
+          <a id="yearButton" class="active">Year</a>
+      	  <a id="monthButton">Month</a>
+      	  <a id="weekButton">Week</a>
+        </div>
+		  </div>
 		</div>
 		<section id="lineAssessments" class="full">
 			<div class="header">
