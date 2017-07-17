@@ -47,9 +47,12 @@ visualize.portfolio_total_time <- function(viz = as.viz("portfolio_total_time_ye
 
   x <- pretty_time(total_time)
   txt_return <- paste0(x[1,c("Hours","Minutes","Seconds")],collapse = ":")
+
+  add_days <- as.numeric(x$Days[1]) > 0
+
   x$Days <- format(as.numeric(x$Days),big.mark=",",scientific=FALSE)
 
-  if(as.numeric(x$Days[1]) > 0){
+  if(add_days){
     txt_return <- paste(x$Days[1], "Days,", txt_return)
   }
 
@@ -150,10 +153,13 @@ visualize.app_total_time <- function(viz = as.viz("app_total_time_year")){
     df <- pretty_time(total_time)
     row.names(df) <- c("Total")
 
+    add_days <- as.numeric(df$Days[1]) > 0
+
     df$Days <- format(as.numeric(df$Days),big.mark=",",scientific=FALSE)
+
     txt_return <- paste0(df[1,c("Hours","Minutes","Seconds")],collapse = ":")
 
-    if(as.numeric(df$Days[1]) > 0){
+    if(add_days){
       txt_return <- paste(df$Days[1], "Days,", txt_return)
     }
 
