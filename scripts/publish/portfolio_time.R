@@ -1,30 +1,3 @@
-publish.portfolio_time <- function(viz = as.viz("portfolio_time_year")){
-  library(dplyr)
-  library(htmlTable)
-
-  deps <- readDepends(viz)
-
-  viz.data <- deps[["viz_data"]]
-  type <- viz[["plottype"]]
-
-  ave_time_on_page <- mean(viz.data$avgSessionDuration, na.rm = TRUE)
-  total_time <- sum(viz.data$avgSessionDuration, na.rm = TRUE)
-
-  x <- pretty_time(c(ave_time_on_page, total_time))
-  row.names(x) <- c("Average", "Total")
-
-
-  x$Days <- format(as.numeric(x$Days),big.mark=",",scientific=FALSE)
-
-  return(htmlTable(x,
-            rnames = row.names(x),
-            col.rgroup = c("none", "#F7F7F7"),
-            css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
-            css.cell="padding-bottom: 0.5em; padding-right: 0.5em; padding-top: 0.5em;"))
-
-
-}
-
 pretty_time <- function(time){
   days <- floor(time/60/60/24)
   hours <- floor(time/60/60) - 24*days
@@ -69,6 +42,7 @@ visualize.portfolio_total_time <- function(viz = as.viz("portfolio_total_time_ye
 
   viz.data <- deps[["viz_data"]]
   location <- viz[["location"]]
+
   total_time <- sum(viz.data$avgSessionDuration, na.rm = TRUE)
 
   x <- pretty_time(total_time)
@@ -104,9 +78,8 @@ zeroPad <- function(x,padTo){
   return(x)
 }
 
-visualize.app_time <- function(viz = as.viz("app_time_year")){
+visualize.app_ave_time <- function(viz = as.viz("app_ave_time_year")){
   library(dplyr)
-  library(htmlTable)
 
   deps <- readDepends(viz)
 
@@ -115,38 +88,75 @@ visualize.app_time <- function(viz = as.viz("app_time_year")){
                   type = character(),
                   stringsAsFactors = FALSE)
 
-  plot_type <- viz[["plottype"]]
-
   viz.data <- deps[["viz_data"]]
+  text_type <- viz[["text_type"]]
 
   dir.create(file.path("cache", "publish"), showWarnings = FALSE)
 
   for(i in unique(viz.data$viewID)){
 
-    location <- paste0("cache/publish/",i,"_",plot_type,".html")
+    location <- paste0("cache/publish/",i,"_",text_type,".txt")
 
     sub_data <- filter(viz.data, viewID == i)
 
     ave_time_on_page <- mean(sub_data$avgSessionDuration, na.rm = TRUE)
 
-    total_time <- sum(sub_data$avgSessionDuration, na.rm = TRUE)
-
-    df <- pretty_time(c(ave_time_on_page, total_time))
-    row.names(df) <- c("Average", "Total")
+    df <- pretty_time(ave_time_on_page)
+    row.names(df) <- c("Average")
 
     df$Days <- format(as.numeric(df$Days),big.mark=",",scientific=FALSE)
+    txt_return <- paste0(df[1,c("Hours","Minutes","Seconds")],collapse = ":")
 
     sink(location)
-      cat(htmlTable(df,
-           rnames=row.names(df),
-           col.rgroup = c("none", "#F7F7F7"),
-           css.total = "border-top: 1px solid #BEBEBE; font-weight: 900; padding-right: 0.7em; padding-top: 0.7em; width=100%;",
-           css.cell="padding-bottom: 0.5em; padding-right: 0.5em; padding-top: 0.5em;"))
+      cat(txt_return)
     sink()
 
     x <- bind_rows(x, data.frame(id = i,
                                  loc = location,
-                                 type = plot_type,
+                                 type = text_type,
+                                 stringsAsFactors = FALSE))
+  }
+
+  write.csv(x, file=viz[["location"]], row.names = FALSE)
+
+}
+
+visualize.app_total_time <- function(viz = as.viz("app_total_time_year")){
+  library(dplyr)
+
+  deps <- readDepends(viz)
+
+  x <- data.frame(id = character(),
+                  loc = character(),
+                  type = character(),
+                  stringsAsFactors = FALSE)
+
+  viz.data <- deps[["viz_data"]]
+  text_type <- viz[["text_type"]]
+
+  dir.create(file.path("cache", "publish"), showWarnings = FALSE)
+
+  for(i in unique(viz.data$viewID)){
+
+    location <- paste0("cache/publish/",i,"_",text_type,".txt")
+
+    sub_data <- filter(viz.data, viewID == i)
+
+    total_time <- sum(sub_data$avgSessionDuration, na.rm = TRUE)
+
+    df <- pretty_time(total_time)
+    row.names(df) <- c("Total")
+
+    df$Days <- format(as.numeric(df$Days),big.mark=",",scientific=FALSE)
+    txt_return <- paste0(df[1,c("Hours","Minutes","Seconds")],collapse = ":")
+
+    sink(location)
+    cat(txt_return)
+    sink()
+
+    x <- bind_rows(x, data.frame(id = i,
+                                 loc = location,
+                                 type = text_type,
                                  stringsAsFactors = FALSE))
   }
 
