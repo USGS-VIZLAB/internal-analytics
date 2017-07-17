@@ -44,6 +44,46 @@ pretty_time <- function(time){
 
 }
 
+visualize.portfolio_ave_time <- function(viz = as.viz("portfolio_ave_time_year")){
+  library(dplyr)
+
+  deps <- readDepends(viz)
+
+  viz.data <- deps[["viz_data"]]
+  location <- viz[["location"]]
+  ave_time_on_page <- mean(viz.data$avgSessionDuration, na.rm = TRUE)
+
+  x <- pretty_time(ave_time_on_page)
+  txt_return <- paste0(x[1,c("Hours","Minutes","Seconds")],collapse = ":")
+
+  sink(location)
+  cat(txt_return)
+  sink()
+  return(txt_return)
+}
+
+visualize.portfolio_total_time <- function(viz = as.viz("portfolio_total_time_year")){
+  library(dplyr)
+
+  deps <- readDepends(viz)
+
+  viz.data <- deps[["viz_data"]]
+  location <- viz[["location"]]
+  total_time <- sum(viz.data$avgSessionDuration, na.rm = TRUE)
+
+  x <- pretty_time(total_time)
+  txt_return <- paste0(x[1,c("Hours","Minutes","Seconds")],collapse = ":")
+  x$Days <- format(as.numeric(x$Days),big.mark=",",scientific=FALSE)
+
+  txt_return <- paste(x$Days[1], "Days.", txt_return)
+
+  sink(location)
+  cat(txt_return)
+  sink()
+
+  return(txt_return)
+}
+
 zeroPad <- function(x,padTo){
   if(padTo <= 1) return(x)
 

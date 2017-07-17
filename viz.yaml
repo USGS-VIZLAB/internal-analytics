@@ -718,38 +718,61 @@ visualize:
       viz_data: week_filter
     mimetype: text/csv
     location: cache/publish/viz_time_week.csv
-
-publish:
   -
-    id: portfolio_time_year
-    publisher: portfolio_time
+    id: portfolio_ave_time_year
+    visualizer: portfolio_ave_time
     scripts: scripts/publish/portfolio_time.R
     depends:
       viz_data: year_filter
-    plottype: year_time
-    mimetype: text/html
-    alttext: "Estimated average and total time for the year"
-    title: "Estimated average and total time for the year"
+    reader: txt
+    mimetype: text
+    location: cache/publish/portfolio_ave_time_year.txt
   -
-    id: portfolio_time_month
-    publisher: portfolio_time
+    id: portfolio_total_time_year
+    visualizer: portfolio_total_time
+    scripts: scripts/publish/portfolio_time.R
+    depends:
+      viz_data: year_filter
+    reader: txt
+    mimetype: text
+    location: cache/publish/portfolio_total_time_year.txt
+  -
+    id: portfolio_ave_time_month
+    visualizer: portfolio_ave_time
     scripts: scripts/publish/portfolio_time.R
     depends:
       viz_data: month_filter
-    plottype: month_time
-    mimetype: text/html
-    alttext: "Estimated average and total time for the month"
-    title: "Estimated average and total time for the month"
+    reader: txt
+    mimetype: text
+    location: cache/publish/portfolio_ave_time_month.txt
   -
-    id: portfolio_time_week
-    publisher: portfolio_time
+    id: portfolio_total_time_month
+    visualizer: portfolio_total_time
+    scripts: scripts/publish/portfolio_time.R
+    depends:
+      viz_data: month_filter
+    reader: txt
+    mimetype: text
+    location: cache/publish/portfolio_total_time_month.txt
+  -
+    id: portfolio_ave_time_week
+    visualizer: portfolio_ave_time
     scripts: scripts/publish/portfolio_time.R
     depends:
       viz_data: week_filter
-    plottype: week_time
-    mimetype: text/html
-    alttext: "Estimated average and total time for the week"
-    title: "Estimated average and total time for the week"
+    reader: txt
+    mimetype: text
+    location: cache/publish/portfolio_ave_time_week.txt
+  -
+    id: portfolio_total_time_week
+    visualizer: portfolio_total_time
+    scripts: scripts/publish/portfolio_time.R
+    depends:
+      viz_data: week_filter
+    reader: txt
+    mimetype: text
+    location: cache/publish/portfolio_total_time_week.txt
+publish:
   -
     id: openSans
     publisher: googlefont
@@ -914,9 +937,6 @@ publish:
       viz_geo_portfolio_year: viz_geo_portfolio_year
       viz_geo_portfolio_month: viz_geo_portfolio_month
       viz_geo_portfolio_week: viz_geo_portfolio_week
-      portfolio_time_year: portfolio_time_year
-      portfolio_time_month: portfolio_time_month
-      portfolio_time_week: portfolio_time_week
       portfolio_timeDayUse_year: portfolio_timeDayUse_year
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
@@ -926,6 +946,12 @@ publish:
       portfolio_new_return_year: portfolio_new_return_year
       portfolio_new_return_month: portfolio_new_return_month
       portfolio_new_return_week: portfolio_new_return_week
+      portfolio_total_time_year: portfolio_total_time_year
+      portfolio_ave_time_year: portfolio_ave_time_year
+      portfolio_total_time_month: portfolio_total_time_month
+      portfolio_ave_time_month: portfolio_ave_time_month
+      portfolio_total_time_week: portfolio_total_time_week
+      portfolio_ave_time_week: portfolio_ave_time_week
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       informationImg: informationImg
@@ -948,9 +974,12 @@ publish:
       viz_geo_portfolio_year: viz_geo_portfolio_year
       viz_geo_portfolio_month: viz_geo_portfolio_month
       viz_geo_portfolio_week: viz_geo_portfolio_week
-      portfolio_time_year: portfolio_time_year
-      portfolio_time_month: portfolio_time_month
-      portfolio_time_week: portfolio_time_week
+      portfolio_total_time_year: portfolio_total_time_year
+      portfolio_ave_time_year: portfolio_ave_time_year
+      portfolio_total_time_month: portfolio_total_time_month
+      portfolio_ave_time_month: portfolio_ave_time_month
+      portfolio_total_time_week: portfolio_total_time_week
+      portfolio_ave_time_week: portfolio_ave_time_week
       portfolio_timeDayUse_year: portfolio_timeDayUse_year
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
