@@ -1,5 +1,24 @@
 <div class="container flexContainer">
-	{{{sideBar}}}
+  <div class="navigationSidebar">
+    <div class="navigationContent">
+      <a class="returnHome" href="index.html">
+        Return to Summary
+      </a>
+      <div class="projectToggle">
+        {{#previous_link}}
+        <a href="{{{previous_link}}}">
+          Previous Application
+        </a>
+        {{/previous_link}}
+        {{#next_link}}
+          <a href="{{{next_link}}}">
+            Next Application
+          </a>
+        {{/next_link}}
+      </div>
+    </div>
+    {{{sideBar}}}
+  </div>
 	<div class="content flex5">
 		<h2 class="projectName">
 		  <a  class="projectURL" href="{{project_URL}}" target="_blank">
@@ -21,31 +40,11 @@
 		  </a>
 		</p>
 		<div class="projectNavigationContainer">
-		  <div class="topShelf shelf">
-		    <div id="siteTraversal">
-          <a class="returnHome" href="index.html">
-  			   Return to Summary
-  		    </a>
-  		    {{#previous_link}}
-    		    <a href="{{{previous_link}}}">
-      		    Previous Application
-    		    </a>
-    		  {{/previous_link}}
-    		  {{#next_link}}
-    		    <a href="{{{next_link}}}">
-    		      Next Application
-    		    </a>
-    		  {{/next_link}}
-        </div>
-		  </div>
-		  <div class="line"></div>
-		  <div class="bottomShelf shelf">
-		    <div class="timeToggle">
-          <a id="yearButton" class="active">Year</a>
-      	  <a id="monthButton">Month</a>
-      	  <a id="weekButton">Week</a>
-        </div>
-		  </div>
+		  <div class="timeToggle">
+        <a id="yearButton" class="active">Year</a>
+      	<a id="monthButton">Month</a>
+      	<a id="weekButton">Week</a>
+      </div>
 		</div>
 		<section id="lineAssessments" class="full">
 			<div class="header">
