@@ -402,7 +402,7 @@
   internalWebPropertyId: '102550529'
   viewName: All Web Site Data
   timezone: America/Chicago
-  websiteUrl: https://cida-test.er.usgs.gov/bluedragon/dev/
+  websiteUrl: https://www.doi.gov/water/owdi.cr.drought/en/
   botFilteringEnabled: ''
   description: >-
     The VizLab Colorado River Drought application (VizLabCRBDrought) was developed by the USGS and the Bureau of
@@ -846,7 +846,7 @@
   internalWebPropertyId: '135107854'
   viewName: All Web Site Data
   timezone: America/New_York
-  websiteUrl: http://test.wim.usgs.gov/swtrends/
+  websiteUrl: https://nawqatrends.wim.usgs.gov/swtrends/
   botFilteringEnabled: .na.character
   description: >-
     The National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers
