@@ -200,6 +200,57 @@ process:
       week_data: fill_missing_week
     reader: rds
     location: cache/process/trends_all.rds
+  -
+    id: portfolio_time_year
+    processor: portfolio_time
+    scripts: scripts/process/portfolio_time.R
+    depends:
+      viz_data: year_filter
+    reader: rds
+    location: cache/process/portfolio_time_year.rds
+  -
+    id: portfolio_time_month
+    processor: portfolio_time
+    scripts: scripts/process/portfolio_time.R
+    depends:
+      viz_data: month_filter
+    reader: rds
+    location: cache/process/portfolio_time_month.rds
+  -
+    id: portfolio_time_week
+    processor: portfolio_time
+    scripts: scripts/process/portfolio_time.R
+    depends:
+      viz_data: week_filter
+    reader: rds
+    location: cache/process/portfolio_time_week.rds
+  -
+    id: app_time_year
+    processor: app_time
+    scripts: scripts/process/portfolio_time.R
+    text_type: time_year
+    depends:
+      viz_data: year_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_year.csv
+  -
+    id: app_time_month
+    processor: app_time
+    scripts: scripts/process/portfolio_time.R
+    text_type: time_month
+    depends:
+      viz_data: month_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_month.csv
+  -
+    id: app_time_week
+    processor: app_time
+    scripts: scripts/process/portfolio_time.R
+    text_type: time_week
+    depends:
+      viz_data: week_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_week.csv
 visualize:
   -
     id: new_vs_returning_year
