@@ -78,7 +78,7 @@ process.app_time <- function(viz = as.viz("app_time_year")){
 
   for(i in unique(viz.data$viewID)){
 
-    location <- paste0("cache/publish/",i,"_",text_type,".rds")
+    location <- paste0("cache/process/",i,"_",text_type,".rds")
 
     sub_data <- filter(viz.data, viewID == i)
 
