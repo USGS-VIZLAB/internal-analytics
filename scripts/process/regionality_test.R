@@ -71,13 +71,18 @@ metric_results <- sapply(unique(traffic$app_name), function(nm, traffic) {
   return(result)
 }, traffic)
 
+# re-order metrics based on app total traffic
+traffic_app_totals_ordered <- arrange(traffic_app_totals, traffic_total)
+metric_results <- metric_results[match(traffic_app_totals_ordered$app_name, names(metric_results))]
+
 # plot the results
-par(mar = c(4, 10, 1, 3))
-ymidpt <- barplot(metric_results, xlab = "", horiz=TRUE, las=1, axes=FALSE, xlim=c(0,1))
+par(mar = c(4, 12, 1, 3))
+ymidpt <- barplot(metric_results, xlab = "", cex.names=0.8, horiz=TRUE, las=1, axes=FALSE, xlim=c(0,1))
 axis(side = 1, at = seq(0,1,0.2))
 box()
 mtext("<-- regional", side=1, line=2, font=4, adj=0)
 mtext("national -->", side=1, line=2, font=4, adj=1)
+mtext("total traffic -->", side=2, line=11, font=4, padj=1)
 # text that is close to the right edge should be positioned to the left of the coordinate
 close2edge <- metric_results > par('usr')[2] - 0.20*diff(par('usr')[1:2])
 text(x = metric_results[close2edge], y = ymidpt[close2edge], cex=0.7, pos=2,
