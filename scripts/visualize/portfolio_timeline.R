@@ -39,7 +39,7 @@ visualize.viz_y_sessions <- function(viz){
     location <- paste0("cache/visualize/",i,"_",plot_type,".png")
 
     png(location, height = height, width = width, res = 150)
-    plot_timeline(sub_data, plot_type)
+      plot_timeline(sub_data, plot_type)
     dev.off()
 
     x <- bind_rows(x, data.frame(id = i,
@@ -61,7 +61,7 @@ plot_timeline <- function(viz.data, type){
   format_style <- c("%b","%b %d","%b %d")
   names(format_style) <- c("year_line","month_line","week_line")
 
-  day_breaks <- c("1 mon","1 week","1 day")
+  day_breaks <- c("2 mon","1 week","2 day")
   names(day_breaks) <- c("year_line","month_line","week_line")
 
 
@@ -88,7 +88,6 @@ plot_timeline <- function(viz.data, type){
 
   axis.Date(1, at=seq(from = range_days[1], to = range_days[2], by=day_breaks[type]),
             format=format_style[type])
-
   axis(1, at=c(par()$usr[1],par()$usr[2]),
        labels = c("",""), lwd.tick=0)
   axis(2, at=c(-last.tick, 0, last.tick, last.tick*2),
