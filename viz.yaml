@@ -873,7 +873,7 @@ publish:
         In this plot, web applications are ranked in descending order based on the number of sessions, or unique user interactions, per year.
         New users are indicated by the bolded portion of each line and returning users are indicated by the unbolded portion.
         Applications are grouped by Very High Traffic (>1 million sessions per year), High Traffic (100k - 1 million sessions per year),
-        Moderate Traffic (10k - 100k sessions per year), and Low Traffic (<10k sessions per year).
+        Moderate Traffic (10k - 100k sessions per year), and Low Traffic (<10k sessions per year). Trends in sessions per day were detected using or Seasonal Kendall Tests or Mann-Kendall Tests. The Seasonal Kendall Test with blocking on day of the week was preferred and used whenever there were at least four days of the week for which there were at least four observations, i.e., for most 1-year and 1-month time series. A trend is reported whenever the p-value was <= 0.05, and the trend direction (up or down) indicates the sign of the slope (Thiel-Sen's slope for Mann-Kendall Tests, Seasonal Kendall slope estimator for Seasonal Kendall Tests).
       info_device: >-
         This plot displays the number of session occuring on desktop, mobile, and tablet devices for the selected time period.
       info_ave_time: >-
