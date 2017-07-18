@@ -54,7 +54,7 @@ most_deviated_states <- mutate(traffic, deviation = traffic_pct - pop_pct) %>%
                  integer(0)))) %>%
   mutate(string = ifelse(is.na(deviation),
                          paste0(" (", deviation, ")"),
-                         paste0(region, " (", round(deviation, 2), ")"))) %>%
+                         paste0(region, " (", signif(deviation, 2), ")"))) %>%
   select(app_name, string) %>%
   arrange(app_name)
 
