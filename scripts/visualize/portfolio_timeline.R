@@ -86,7 +86,10 @@ plot_timeline <- function(viz.data, type){
 
   last.tick <- tail(pretty(c(0, max(viz.data$sessions, na.rm = TRUE))),2)[1]
 
-  axis.Date(1, at=seq(from = range_days[1], to = range_days[2], by=day_breaks[type]),
+  pretty_days <- pretty(range_days)
+  axis.Date(1, at=seq(from = pretty_days[1],
+                      to = pretty_days[length(pretty_days)],
+                      by=day_breaks[type]),
             format=format_style[type])
   axis(1, at=c(par()$usr[1],par()$usr[2]),
        labels = c("",""), lwd.tick=0)
