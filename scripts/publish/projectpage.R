@@ -28,34 +28,12 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     timeDayUse_app_week = deps[["timeDayUse_app_week"]]
   )
 
-  table.files <- rbind(deps[["app_ave_time_year"]],
-                       deps[["app_ave_time_month"]],
-                       deps[["app_ave_time_week"]],
-                       deps[["app_total_time_year"]],
-                       deps[["app_total_time_month"]],
-                       deps[["app_total_time_week"]])
-
   for (i in 1:nrow(projects)) {
     proj <- projects[i,]
 
 
     viewID <- proj$viewID
     # get relative paths for images
-
-    table.data <- filter(table.files, id == viewID)
-    table.html <- list()
-    table.html["ave_year"] <- readChar(table.data$loc[table.data$type == "ave_time_year"],
-                                   file.info(table.data$loc[table.data$type == "ave_time_year"])$size)
-    table.html["ave_month"] <- readChar(table.data$loc[table.data$type == "ave_time_month"],
-                                   file.info(table.data$loc[table.data$type == "ave_time_month"])$size)
-    table.html["ave_week"] <- readChar(table.data$loc[table.data$type == "ave_time_week"],
-                                   file.info(table.data$loc[table.data$type == "ave_time_week"])$size)
-    table.html["total_year"] <- readChar(table.data$loc[table.data$type == "total_time_year"],
-                                       file.info(table.data$loc[table.data$type == "total_time_year"])$size)
-    table.html["total_month"] <- readChar(table.data$loc[table.data$type == "total_time_month"],
-                                        file.info(table.data$loc[table.data$type == "total_time_month"])$size)
-    table.html["total_week"] <- readChar(table.data$loc[table.data$type == "total_time_week"],
-                                       file.info(table.data$loc[table.data$type == "total_time_week"])$size)
 
     proj.imgs <- sapply(img.files, function(x){
       img <- "missingImg"
@@ -126,12 +104,6 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           timeDayUse_app_year = proj.imgs[["timeDayUse_app_year"]],
           timeDayUse_app_month = proj.imgs[["timeDayUse_app_month"]],
           timeDayUse_app_week = proj.imgs[["timeDayUse_app_week"]],
-          app_ave_time_year = table.html["ave_year"],
-          app_ave_time_month = table.html["ave_month"],
-          app_ave_time_week = table.html["ave_week"],
-          app_total_time_year = table.html["total_year"],
-          app_total_time_month = table.html["total_month"],
-          app_total_time_week = table.html["total_week"],
           previous_link = prevLink,
           next_link = nextLink
       ))

@@ -688,114 +688,6 @@ visualize:
     title: "Geographic location of traffic over past week"
     mimetype: image/png
     location: figures/viz_geo_portfolio_week.png
-  -
-    id: app_ave_time_year
-    visualizer: app_ave_time
-    scripts: scripts/publish/portfolio_time.R
-    text_type: ave_time_year
-    depends:
-      viz_data: year_filter
-    mimetype: text/csv
-    location: cache/publish/viz_ave_time_year.csv
-  -
-    id: app_ave_time_month
-    visualizer: app_ave_time
-    scripts: scripts/publish/portfolio_time.R
-    text_type: ave_time_month
-    depends:
-      viz_data: month_filter
-    mimetype: text/csv
-    location: cache/publish/viz_ave_time_month.csv
-  -
-    id: app_ave_time_week
-    visualizer: app_ave_time
-    text_type: ave_time_week
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: week_filter
-    mimetype: text/csv
-    location: cache/publish/viz_ave_time_week.csv
-  -
-    id: app_total_time_year
-    visualizer: app_total_time
-    scripts: scripts/publish/portfolio_time.R
-    text_type: total_time_year
-    depends:
-      viz_data: year_filter
-    mimetype: text/csv
-    location: cache/publish/viz_total_time_year.csv
-  -
-    id: app_total_time_month
-    visualizer: app_total_time
-    scripts: scripts/publish/portfolio_time.R
-    text_type: total_time_month
-    depends:
-      viz_data: month_filter
-    mimetype: text/csv
-    location: cache/publish/viz_total_time_month.csv
-  -
-    id: app_total_time_week
-    visualizer: app_total_time
-    text_type: total_time_week
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: week_filter
-    mimetype: text/csv
-    location: cache/publish/viz_total_time_week.csv
-  -
-    id: portfolio_ave_time_year
-    visualizer: portfolio_ave_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: year_filter
-    reader: txt
-    mimetype: text
-    location: cache/publish/portfolio_ave_time_year.txt
-  -
-    id: portfolio_total_time_year
-    visualizer: portfolio_total_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: year_filter
-    reader: txt
-    mimetype: text
-    location: cache/publish/portfolio_total_time_year.txt
-  -
-    id: portfolio_ave_time_month
-    visualizer: portfolio_ave_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: month_filter
-    reader: txt
-    mimetype: text
-    location: cache/publish/portfolio_ave_time_month.txt
-  -
-    id: portfolio_total_time_month
-    visualizer: portfolio_total_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: month_filter
-    reader: txt
-    mimetype: text
-    location: cache/publish/portfolio_total_time_month.txt
-  -
-    id: portfolio_ave_time_week
-    visualizer: portfolio_ave_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: week_filter
-    reader: txt
-    mimetype: text
-    location: cache/publish/portfolio_ave_time_week.txt
-  -
-    id: portfolio_total_time_week
-    visualizer: portfolio_total_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: week_filter
-    reader: txt
-    mimetype: text
-    location: cache/publish/portfolio_total_time_week.txt
 publish:
   -
     id: openSans
@@ -897,12 +789,6 @@ publish:
       sideBar: sideBar
       project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
-      app_ave_time_year: app_ave_time_year
-      app_ave_time_month: app_ave_time_month
-      app_ave_time_week: app_ave_time_week
-      app_total_time_year: app_total_time_year
-      app_total_time_month: app_total_time_month
-      app_total_time_week: app_total_time_week
       informationImg: informationImg
     context:
       sideBar: sideBar
@@ -973,12 +859,6 @@ publish:
       portfolio_new_return_year: portfolio_new_return_year
       portfolio_new_return_month: portfolio_new_return_month
       portfolio_new_return_week: portfolio_new_return_week
-      portfolio_total_time_year: portfolio_total_time_year
-      portfolio_ave_time_year: portfolio_ave_time_year
-      portfolio_total_time_month: portfolio_total_time_month
-      portfolio_ave_time_month: portfolio_ave_time_month
-      portfolio_total_time_week: portfolio_total_time_week
-      portfolio_ave_time_week: portfolio_ave_time_week
       sideBar: sideBar
       disclaimerGlossaryText: disclaimerGlossaryText
       informationImg: informationImg
@@ -1001,12 +881,6 @@ publish:
       viz_geo_portfolio_year: viz_geo_portfolio_year
       viz_geo_portfolio_month: viz_geo_portfolio_month
       viz_geo_portfolio_week: viz_geo_portfolio_week
-      portfolio_total_time_year: portfolio_total_time_year
-      portfolio_ave_time_year: portfolio_ave_time_year
-      portfolio_total_time_month: portfolio_total_time_month
-      portfolio_ave_time_month: portfolio_ave_time_month
-      portfolio_total_time_week: portfolio_total_time_week
-      portfolio_ave_time_week: portfolio_ave_time_week
       portfolio_timeDayUse_year: portfolio_timeDayUse_year
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
