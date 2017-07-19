@@ -1,0 +1,39 @@
+<div class="flip-clock-wrapper totalTime">
+  <div class="clockContainer">
+	  <div class="clockLabel">
+		  <span>Years</span>
+		</div>
+		<div class="clockNumbersContainer">
+		  {{#flips}}
+	      {{> flipClockFlips}}
+      {{/flips}}
+		</div>
+	</div>
+	<span class="flip-clock-divider days">
+	  <span class="flip-clock-dot top"></span>
+		<span class="flip-clock-dot bottom"></span>
+	</span>
+	<div class="clockContainer">
+	  <div class="clockLabel">
+		  <span>Days</span>
+		</div>
+		<div class="clockNumbersContainer">
+		  {{#flips}}
+	      {{> flipClockFlips}}
+      {{/flips}}
+		</div>
+	</div>
+	<span class="flip-clock-divider hours">
+	  <span class="flip-clock-dot top"></span>
+		<span class="flip-clock-dot bottom"></span>
+	</span>
+	<div class="clockContainer">
+	  <div class="clockLabel">
+		  <span>Hours</span>
+		</div>
+		<div class="clockNumbersContainer">
+		  {{#flips}}
+	      {{> flipClockFlips}}
+      {{/flips}}
+		</div>
+	</div>
