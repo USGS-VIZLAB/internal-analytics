@@ -1,12 +1,12 @@
 <div class="flip-clock-wrapper totalTime">
   <div class="clockContainer">
 	  <div class="clockLabel">
-		  <span>Years</span>
+		  <span>{{timeLabel}}</span>
 		</div>
 		<div class="clockNumbersContainer">
-		  {{#flips}}
+		  {{#flipGroup1}}
 	      {{> flipClockFlips}}
-      {{/flips}}
+      {{/flipGroup1}}
 		</div>
 	</div>
 	<span class="flip-clock-divider days">
@@ -15,12 +15,12 @@
 	</span>
 	<div class="clockContainer">
 	  <div class="clockLabel">
-		  <span>Days</span>
+		  <span>{{timeLabel}}</span>
 		</div>
 		<div class="clockNumbersContainer">
-		  {{#flips}}
+		  {{#flipGroup2}}
 	      {{> flipClockFlips}}
-      {{/flips}}
+      {{/flipGroup2}}
 		</div>
 	</div>
 	<span class="flip-clock-divider hours">
@@ -29,11 +29,11 @@
 	</span>
 	<div class="clockContainer">
 	  <div class="clockLabel">
-		  <span>Hours</span>
+		  <span>{{timeLabel}}</span>
 		</div>
 		<div class="clockNumbersContainer">
-		  {{#flips}}
+		  {{#flipGroup3}}
 	      {{> flipClockFlips}}
-      {{/flips}}
+      {{/flipGroup3}}
 		</div>
 	</div>
