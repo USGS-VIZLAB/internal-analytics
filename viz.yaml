@@ -766,6 +766,16 @@ publish:
     mimetype: text/css
     publisher: resource
   -
+    id: flipClockCSS
+    location: layout/css/flipClock.css
+    mimetype: text/css
+    publisher: resource
+  -
+    id: flipClockCustomCSS
+    location: layout/css/flipClockCustom.css
+    mimetype: text/css
+    publisher: resource
+  -
     id: footerCSS
     location: layout/css/footer.css
     mimetype: text/css
@@ -802,6 +812,8 @@ publish:
       favicon: lib-vizlab-favicon
       internalAnalyticsCSS: internalAnalyticsCSS
       detailsCSS: detailsCSS
+      flipClockCSS: flipClockCSS
+      flipClockCustomCSS: flipClockCustomCSS
       headerCSS: lib-header-css
       footerCSS : footerCSS
       jquery: jquery-js
@@ -810,7 +822,7 @@ publish:
       header: header
       footer: footer
       sections: ["frontPage"]
-      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS","favicon"]
+      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS", "flipClockCSS", "flipClockCustomCSS", "favicon"]
   -
     id: projectPages
     publisher: projectpage
@@ -824,6 +836,8 @@ publish:
       internalAnalyticsCSS: internalAnalyticsCSS
       headerCSS: lib-header-css
       detailsCSS: detailsCSS
+      flipClockCSS: flipClockCSS
+      flipClockCustomCSS: flipClockCustomCSS
       footerCSS : footerCSS
       jquery: jquery-js
       app-js: app-js
@@ -848,6 +862,7 @@ publish:
       timeDayUse_app_month: timeDayUse_app_month
       timeDayUse_app_week: timeDayUse_app_week
       sideBar: sideBar
+      flipClock: flipClock
       project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
       app_time_year: app_time_year
@@ -856,6 +871,7 @@ publish:
       informationImg: informationImg
     context:
       sideBar: sideBar
+      flipClock: flipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       header: header
       footer: footer
@@ -884,7 +900,7 @@ publish:
         of these values is needed.
       info_session_time: >-
         In this plot, a time series of sessions (traffic) is shown for application(s) over the selected time period.
-      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS","favicon"]
+      resources: ["jquery", "app-js", "openSans", "headerCSS", "footerCSS", "internalAnalyticsCSS", "detailsCSS", "flipClockCSS", "flipClockCustomCSS", "favicon"]
   -
     id: project_list
     publisher: projectlist
@@ -927,10 +943,12 @@ publish:
       portfolio_new_return_month: portfolio_new_return_month
       portfolio_new_return_week: portfolio_new_return_week
       sideBar: sideBar
+      flipClock: flipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       informationImg: informationImg
     context:
       sideBar: sideBar
+      flipClock: flipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
       portfolio_timeline_year: portfolio_timeline_year
@@ -989,6 +1007,20 @@ publish:
       projects: project_list
     context:
       projects: projects
+  -
+    id: flipClock
+    publisher: section
+    scripts: scripts/publish/
+    template: layout/templates/flipClock.mustache
+    depends:
+      flipClockFlips: flipClockFlips
+    context:
+      flipClockFlips: flipClockFlips
+  -
+    id: flipClockFlips
+    publisher: section
+    scripts: scripts/publish/
+    template: layout/templates/flipClockFlips.mustache
   -
     id: disclaimerGlossaryText
     publisher: section
