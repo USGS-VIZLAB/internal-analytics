@@ -138,6 +138,7 @@ process:
       year_filter: year_filter
       project_table: project_table
     reader: rds
+    mimetype: text/yaml
     location: cache/process/filtered_projects.rds
   -
     id: month_filter
