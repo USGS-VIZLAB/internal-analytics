@@ -66,7 +66,7 @@ process.app_time <- function(viz = as.viz("app_time_year")){
 
   deps <- readDepends(viz)
 
-  x <- data.frame(id = character(),
+  app.times <- data.frame(id = character(),
                   loc = character(),
                   type = character(),
                   stringsAsFactors = FALSE)
@@ -93,13 +93,13 @@ process.app_time <- function(viz = as.viz("app_time_year")){
 
     saveRDS(ret_list, file = location)
 
-    x <- bind_rows(x, data.frame(id = i,
+    app.times <- bind_rows(app.times, data.frame(id = i,
                                  loc = location,
                                  type = text_type,
                                  stringsAsFactors = FALSE))
   }
 
-  write.csv(x, file=viz[["location"]], row.names = FALSE)
+  write.csv(app.times, file=viz[["location"]], row.names = FALSE)
 
 }
 

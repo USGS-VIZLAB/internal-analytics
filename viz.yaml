@@ -851,6 +851,9 @@ publish:
       viz_geo_apps_year: viz_geo_apps_year
       viz_geo_apps_month: viz_geo_apps_month
       viz_geo_apps_week: viz_geo_apps_week
+      app_time_year: app_time_year
+      app_time_month: app_time_month
+      app_time_week: app_time_week
       timeDayUse_app_year: timeDayUse_app_year
       timeDayUse_app_month: timeDayUse_app_month
       timeDayUse_app_week: timeDayUse_app_week

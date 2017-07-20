@@ -54,6 +54,34 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       return(img.out)
     })
 
+    flip.clock.files <- list(
+      yearFlipClock = deps[['app_time_year']],
+      monthFlipClock = deps[['app_time_month']],
+      weekFlipClock = deps[['app_time_week']]
+    )
+
+    flip.clocks <- sapply(flip.clock.files, function(x){
+      row <- filter(x, id == viewID)
+      flip <- NULL
+      if (nrow(row) > 0) {
+        flip.data <- as.viz(list(
+          location = row[['loc']],
+          reader = "rds"
+        ))
+        flip <- list(
+          publisher = "flipClock",
+          depends = list(
+            times = flip.data
+          ),
+          template = "flipClockTemplate"
+        )
+        flip <- as.viz(flip)
+        flip <- as.publisher(flip)
+        flip <- publish(flip)
+      }
+      return(flip)
+    })
+
     j <- 1
     while (j <= length(links)) {
       if (links[[j]][["longName"]] == proj[["longName"]]) {
@@ -104,6 +132,9 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           timeDayUse_app_year = proj.imgs[["timeDayUse_app_year"]],
           timeDayUse_app_month = proj.imgs[["timeDayUse_app_month"]],
           timeDayUse_app_week = proj.imgs[["timeDayUse_app_week"]],
+          yearFlipClock = flip.clocks[["yearFlipClock"]],
+          monthFlipClock = flip.clocks[["monthFlipClock"]],
+          weekFlipClock = flip.clocks[["weekFlipClock"]],
           previous_link = prevLink,
           next_link = nextLink
       ))
