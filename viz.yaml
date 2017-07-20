@@ -43,6 +43,9 @@ info:
     sp:
       repo: CRAN
       version: 1.2-4
+    readr:
+      repo: CRAN
+      version: 1.1.1
     rgeos:
       repo: CRAN
       version: 0.3-22
@@ -92,7 +95,7 @@ fetch:
     s3Profile: 'default'
     s3Path: 'internal-analytics/data/current.rds'
     bucket: 'vizlab-data'
-    update: TRUE #check for newer data from GA, and upload to sciencebase if there is
+    update: FALSE #check for newer data from GA, and upload to sciencebase if there is
     useLocal: FALSE #Don't even download sciencebase file - overrides update
     depends:
       project_table: project_table
@@ -852,13 +855,11 @@ publish:
       timeDayUse_app_month: timeDayUse_app_month
       timeDayUse_app_week: timeDayUse_app_week
       sideBar: sideBar
-      flipClock: flipClock
       project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
       informationImg: informationImg
     context:
       sideBar: sideBar
-      flipClock: flipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       header: header
       footer: footer
@@ -927,12 +928,16 @@ publish:
       portfolio_new_return_month: portfolio_new_return_month
       portfolio_new_return_week: portfolio_new_return_week
       sideBar: sideBar
-      flipClock: flipClock
+      yearFlipClock: yearFlipClock
+      monthFlipClock: monthFlipClock
+      weekFlipClock: weekFlipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       informationImg: informationImg
     context:
       sideBar: sideBar
-      flipClock: flipClock
+      yearFlipClock: yearFlipClock
+      monthFlipClock: monthFlipClock
+      weekFlipClock: weekFlipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
       portfolio_timeline_year: portfolio_timeline_year
@@ -989,19 +994,34 @@ publish:
     context:
       projects: projects
   -
-    id: flipClock
-    publisher: section
-    scripts: scripts/publish/
-    template: layout/templates/flipClock.mustache
-    depends:
-      flipClockFlips: flipClockFlips
+    id: flipClockTemplate
+    publisher: template
+    location: layout/templates/flipClock.mustache
+    mimetype: text/mustache
+    partials:
+      flipClockFlips: layout/templates/flipClockFlips.mustache
     context:
-      flipClockFlips: flipClockFlips
   -
-    id: flipClockFlips
-    publisher: section
+    id: yearFlipClock
+    publisher: flipClock
     scripts: scripts/publish/
-    template: layout/templates/flipClockFlips.mustache
+    template: flipClockTemplate
+    depends:
+      times: portfolio_time_year
+  -
+    id: monthFlipClock
+    publisher: flipClock
+    scripts: scripts/publish/
+    template: flipClockTemplate
+    depends:
+      times: portfolio_time_month
+  -
+    id: weekFlipClock
+    publisher: flipClock
+    scripts: scripts/publish/
+    template: flipClockTemplate
+    depends:
+      times: portfolio_time_week
   -
     id: disclaimerGlossaryText
     publisher: section
