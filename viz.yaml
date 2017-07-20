@@ -131,6 +131,16 @@ process:
     mimetype: text/yaml
     reader: md # need a better plain text reader
   -
+    id: filter_projects
+    processor: filter_projects
+    scripts: scripts/process/filter_projects.R
+    depends:
+      year_filter: year_filter
+      project_table: project_table
+    reader: rds
+    mimetype: text/yaml
+    location: cache/process/filtered_projects.rds
+  -
     id: month_filter
     processor: time_filter
     range_text: "-1 month"
@@ -173,7 +183,8 @@ process:
     id: project_links
     processor: projectlinks
     scripts: ["scripts/process/projectlinks.R", "scripts/publish/utils.R"]
-    depends: project_table
+    depends:
+      project_table: filter_projects
     reader: rds
     publisher: none
     location: cache/process/project_links.rds
@@ -399,7 +410,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: year_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: app_hist
     height: 4
     width: 7
@@ -414,7 +425,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: month_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: app_hist
     height: 4
     width: 7
@@ -429,7 +440,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: week_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: app_hist
     height: 4
     width: 7
@@ -444,7 +455,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: year_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: year_hist
     rangetext: "-1 year"
     height: 4
@@ -458,7 +469,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: month_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: month_hist
     rangetext: "-1 month"
     height: 4
@@ -472,7 +483,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: week_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: week_hist
     rangetext: "-1 week"
     height: 4
@@ -828,7 +839,7 @@ publish:
       jquery: jquery-js
       app-js: app-js
       openSans: openSans
-      project_table: project_table
+      project_table: filter_projects
       new_vs_returning_year: new_vs_returning_year
       new_vs_returning_month: new_vs_returning_month
       new_vs_returning_week: new_vs_returning_week

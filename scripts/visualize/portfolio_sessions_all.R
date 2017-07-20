@@ -119,11 +119,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                             type = factor(levels(summary_data_full$type)[2], levels = levels(summary_data_full$type)),
                             bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
                             longName = rev(levels(summary_data_full$longName)[1:6]),
-                            ymin = ymin,
-                            ystart = ystart,
-                            ymid = ymid,
-                            yend = yend,
-                            ymax = ymax,
+                            ymin = ymin, #box around legend
+                            ystart = ystart, # start of lines within legend
+                            ymid = ymid, # end of lines within legend
+                            yend = yend, # start of text
+                            ymax = ymax, # box around legend
                             trend = c(NA, NA, "up", "down", "none",NA),
                             trend_complete = c(NA, NA, "up TRUE", "down TRUE", "none TRUE", NA),
                             stringsAsFactors = FALSE)
