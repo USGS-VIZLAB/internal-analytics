@@ -92,10 +92,10 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   layout_stuff <- info_graph$layout
 
   if(packageVersion("ggplot2") >= "2.2.1.9000"){
-    lower_ranges <- layout_stuff$panel_scales_y[[3]]$range$range
+    lower_ranges <- layout_stuff$panel_scales_y[[2]]$range$range
     high_ranges <- layout_stuff$panel_scales_y[[1]]$range$range
   } else {
-    lower_ranges <- layout_stuff$panel_ranges[[12]]$x.range
+    lower_ranges <- layout_stuff$panel_ranges[[8]]$x.range
     high_ranges <- layout_stuff$panel_ranges[[4]]$x.range
   }
 
@@ -116,7 +116,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         stringsAsFactors = FALSE)
 
   fake_legend <- data.frame(label = c("Total Sessions","New Users","Trending Up","Trending Down","No Trend","Missing >10%"),
-                            type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
+                            type = factor(levels(summary_data_full$type)[2], levels = levels(summary_data_full$type)),
                             bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
                             longName = rev(levels(summary_data_full$longName)[1:6]),
                             ymin = ymin,
@@ -131,7 +131,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   fake_legend$mid_mid <- fake_legend$ystart + (fake_legend$ymid - fake_legend$ystart)/2
 
   filled_legend <- data.frame(
-    type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
+    type = factor(levels(summary_data_full$type)[2], levels = levels(summary_data_full$type)),
     bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
     longName = fake_legend$longName[6],
     y = c(ystart,fake_legend$mid_mid[1],ymid),
