@@ -117,6 +117,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
 
   #Check if any of the 5 bottom months are higher than ymin:
   while(any(low_df$text_placement > ymin)){
+    #TODO: if all the longName text placements are in the way of the legend, switch over to week.
+    # and if that doesn't work....move x limit of graph
     viral_index <- which(low_df$text_placement > ymin)
 
     low_df <- summary_data_full %>%
