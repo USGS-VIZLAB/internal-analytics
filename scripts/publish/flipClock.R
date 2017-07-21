@@ -4,7 +4,7 @@ publish.flipClock <- function(viz) {
   times <- readDepends(viz)[['times']]
   # start with total
   context <- list()
-  total <- times[['total']]
+  total <- times[['ave']]
   i <- 1
   while (i <= length(total) && as.numeric(total[i]) == 0) {
     i <- i + 1

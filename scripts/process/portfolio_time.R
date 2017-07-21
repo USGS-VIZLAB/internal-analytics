@@ -53,6 +53,11 @@ process.portfolio_time <- function(viz = as.viz("portfolio_time_year")){
 
   x <- pretty_time(c(ave_time_on_page, total_time))
 
+  if(as.numeric(x$Days[1]) > 0){
+    x$Hours[1] <- zeroPad(as.character(as.numeric(x$Hours[1]) +
+                                         60*as.numeric(x$Days[1])))
+  }
+
   ret_list <- list()
   ret_list[["total"]] <- x[2,]
   ret_list[["ave"]] <- x[1,]
@@ -86,6 +91,11 @@ process.app_time <- function(viz = as.viz("app_time_year")){
     total_time <- sum(sub_data$avgSessionDuration, na.rm = TRUE)
 
     x <- pretty_time(c(ave_time_on_page, total_time))
+
+    if(as.numeric(x$Days[1]) > 0){
+      x$Hours[1] <- zeroPad(as.character(as.numeric(x$Hours[1]) +
+                                           60*as.numeric(x$Days[1])))
+    }
 
     ret_list <- list()
     ret_list[["total"]] <- x[2,]
