@@ -914,7 +914,7 @@ publish:
     publisher: section
     template: header-template
     context:
-      title: Water Analytics -Portfolio Daily Summary
+      title: Water Mission Area Analytics Dashboard
   -
     id: frontPage
     template: layout/templates/frontPage.mustache
