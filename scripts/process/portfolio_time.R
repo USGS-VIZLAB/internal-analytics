@@ -55,7 +55,7 @@ process.portfolio_time <- function(viz = as.viz("portfolio_time_year")){
 
   if(as.numeric(x$Days[1]) > 0){
     x$Hours[1] <- zeroPad(as.character(as.numeric(x$Hours[1]) +
-                                         60*as.numeric(x$Days[1])))
+                                         24*as.numeric(x$Days[1])))
   }
 
   ret_list <- list()
@@ -94,7 +94,7 @@ process.app_time <- function(viz = as.viz("app_time_year")){
 
     if(as.numeric(x$Days[1]) > 0){
       x$Hours[1] <- zeroPad(as.character(as.numeric(x$Hours[1]) +
-                                           60*as.numeric(x$Days[1])))
+                                           24*as.numeric(x$Days[1])))
     }
 
     ret_list <- list()
