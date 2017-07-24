@@ -16,9 +16,9 @@ info:
   required-packages:
     vizlab:
       repo: github
-      version: 0.1.7
+      version: 0.1.8
       name: USGS-VIZLAB/vizlab
-      ref: v0.1.7
+      ref: v0.1.8
     dplyr:
       repo: CRAN
       version: 0.7.1
