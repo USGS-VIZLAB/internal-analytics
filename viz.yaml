@@ -16,9 +16,9 @@ info:
   required-packages:
     vizlab:
       repo: github
-      version: 0.1.7
+      version: 0.1.8
       name: USGS-VIZLAB/vizlab
-      ref: v0.1.7
+      ref: v0.1.8
     dplyr:
       repo: CRAN
       version: 0.7.1
@@ -43,6 +43,9 @@ info:
     sp:
       repo: CRAN
       version: 1.2-4
+    readr:
+      repo: CRAN
+      version: 1.1.1
     rgeos:
       repo: CRAN
       version: 0.3-22
@@ -70,9 +73,6 @@ info:
     RColorBrewer:
       repo: CRAN
       version: 1.1-2
-    htmlTable:
-      repo: CRAN
-      version: 1.9
     scales:
       repo: CRAN
       version: 0.4.1
@@ -131,6 +131,16 @@ process:
     mimetype: text/yaml
     reader: md # need a better plain text reader
   -
+    id: filter_projects
+    processor: filter_projects
+    scripts: scripts/process/filter_projects.R
+    depends:
+      year_filter: year_filter
+      project_table: project_table
+    reader: rds
+    mimetype: text/yaml
+    location: cache/process/filtered_projects.rds
+  -
     id: month_filter
     processor: time_filter
     range_text: "-1 month"
@@ -173,7 +183,8 @@ process:
     id: project_links
     processor: projectlinks
     scripts: ["scripts/process/projectlinks.R", "scripts/publish/utils.R"]
-    depends: project_table
+    depends:
+      project_table: filter_projects
     reader: rds
     publisher: none
     location: cache/process/project_links.rds
@@ -203,6 +214,57 @@ process:
       week_data: fill_missing_week
     reader: rds
     location: cache/process/trends_all.rds
+  -
+    id: portfolio_time_year
+    processor: portfolio_time
+    scripts: scripts/process/portfolio_time.R
+    depends:
+      viz_data: year_filter
+    reader: rds
+    location: cache/process/portfolio_time_year.rds
+  -
+    id: portfolio_time_month
+    processor: portfolio_time
+    scripts: scripts/process/portfolio_time.R
+    depends:
+      viz_data: month_filter
+    reader: rds
+    location: cache/process/portfolio_time_month.rds
+  -
+    id: portfolio_time_week
+    processor: portfolio_time
+    scripts: scripts/process/portfolio_time.R
+    depends:
+      viz_data: week_filter
+    reader: rds
+    location: cache/process/portfolio_time_week.rds
+  -
+    id: app_time_year
+    processor: app_time
+    scripts: scripts/process/portfolio_time.R
+    text_type: time_year
+    depends:
+      viz_data: year_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_year.csv
+  -
+    id: app_time_month
+    processor: app_time
+    scripts: scripts/process/portfolio_time.R
+    text_type: time_month
+    depends:
+      viz_data: month_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_month.csv
+  -
+    id: app_time_week
+    processor: app_time
+    scripts: scripts/process/portfolio_time.R
+    text_type: time_week
+    depends:
+      viz_data: week_filter
+    mimetype: text/csv
+    location: cache/publish/viz_time_week.csv
 visualize:
   -
     id: new_vs_returning_year
@@ -399,7 +461,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: year_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: app_hist
     height: 4
     width: 7
@@ -414,7 +476,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: month_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: app_hist
     height: 4
     width: 7
@@ -429,7 +491,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: week_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: app_hist
     height: 4
     width: 7
@@ -444,7 +506,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: year_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: year_hist
     rangetext: "-1 year"
     height: 4
@@ -458,7 +520,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: month_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: month_hist
     rangetext: "-1 month"
     height: 4
@@ -472,7 +534,7 @@ visualize:
     scripts: scripts/visualize/timeDayUse.R
     depends:
       viz_data: week_filter
-      project_table: project_table
+      project_table: filter_projects
     plottype: week_hist
     rangetext: "-1 week"
     height: 4
@@ -691,65 +753,7 @@ visualize:
     title: "Geographic location of traffic over past week"
     mimetype: image/png
     location: figures/viz_geo_portfolio_week.png
-  -
-    id: app_time_year
-    visualizer: app_time
-    plottype: mean_time_year
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: year_filter
-    mimetype: text/csv
-    location: cache/publish/viz_time_year.csv
-  -
-    id: app_time_month
-    visualizer: app_time
-    plottype: mean_time_month
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: month_filter
-    mimetype: text/csv
-    location: cache/publish/viz_time_month.csv
-  -
-    id: app_time_week
-    visualizer: app_time
-    plottype: mean_time_week
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: week_filter
-    mimetype: text/csv
-    location: cache/publish/viz_time_week.csv
-
 publish:
-  -
-    id: portfolio_time_year
-    publisher: portfolio_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: year_filter
-    plottype: year_time
-    mimetype: text/html
-    alttext: "Estimated average and total time for the year"
-    title: "Estimated average and total time for the year"
-  -
-    id: portfolio_time_month
-    publisher: portfolio_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: month_filter
-    plottype: month_time
-    mimetype: text/html
-    alttext: "Estimated average and total time for the month"
-    title: "Estimated average and total time for the month"
-  -
-    id: portfolio_time_week
-    publisher: portfolio_time
-    scripts: scripts/publish/portfolio_time.R
-    depends:
-      viz_data: week_filter
-    plottype: week_time
-    mimetype: text/html
-    alttext: "Estimated average and total time for the week"
-    title: "Estimated average and total time for the week"
   -
     id: openSans
     publisher: googlefont
@@ -842,7 +846,7 @@ publish:
       jquery: jquery-js
       app-js: app-js
       openSans: openSans
-      project_table: project_table
+      project_table: filter_projects
       new_vs_returning_year: new_vs_returning_year
       new_vs_returning_month: new_vs_returning_month
       new_vs_returning_week: new_vs_returning_week
@@ -858,20 +862,18 @@ publish:
       viz_geo_apps_year: viz_geo_apps_year
       viz_geo_apps_month: viz_geo_apps_month
       viz_geo_apps_week: viz_geo_apps_week
+      app_time_year: app_time_year
+      app_time_month: app_time_month
+      app_time_week: app_time_week
       timeDayUse_app_year: timeDayUse_app_year
       timeDayUse_app_month: timeDayUse_app_month
       timeDayUse_app_week: timeDayUse_app_week
       sideBar: sideBar
-      flipClock: flipClock
       project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
-      app_time_year: app_time_year
-      app_time_month: app_time_month
-      app_time_week: app_time_week
       informationImg: informationImg
     context:
       sideBar: sideBar
-      flipClock: flipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       header: header
       footer: footer
@@ -912,7 +914,7 @@ publish:
     publisher: section
     template: header-template
     context:
-      title: Water Analytics -Portfolio Daily Summary
+      title: Water Mission Area Analytics Dashboard
   -
     id: frontPage
     template: layout/templates/frontPage.mustache
@@ -930,9 +932,6 @@ publish:
       viz_geo_portfolio_year: viz_geo_portfolio_year
       viz_geo_portfolio_month: viz_geo_portfolio_month
       viz_geo_portfolio_week: viz_geo_portfolio_week
-      portfolio_time_year: portfolio_time_year
-      portfolio_time_month: portfolio_time_month
-      portfolio_time_week: portfolio_time_week
       portfolio_timeDayUse_year: portfolio_timeDayUse_year
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
@@ -943,12 +942,16 @@ publish:
       portfolio_new_return_month: portfolio_new_return_month
       portfolio_new_return_week: portfolio_new_return_week
       sideBar: sideBar
-      flipClock: flipClock
+      yearFlipClock: yearFlipClock
+      monthFlipClock: monthFlipClock
+      weekFlipClock: weekFlipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       informationImg: informationImg
     context:
       sideBar: sideBar
-      flipClock: flipClock
+      yearFlipClock: yearFlipClock
+      monthFlipClock: monthFlipClock
+      weekFlipClock: weekFlipClock
       disclaimerGlossaryText: disclaimerGlossaryText
       portfolio_sessions_all: portfolio_sessions_all
       portfolio_timeline_year: portfolio_timeline_year
@@ -966,9 +969,6 @@ publish:
       viz_geo_portfolio_year: viz_geo_portfolio_year
       viz_geo_portfolio_month: viz_geo_portfolio_month
       viz_geo_portfolio_week: viz_geo_portfolio_week
-      portfolio_time_year: portfolio_time_year
-      portfolio_time_month: portfolio_time_month
-      portfolio_time_week: portfolio_time_week
       portfolio_timeDayUse_year: portfolio_timeDayUse_year
       portfolio_timeDayUse_month: portfolio_timeDayUse_month
       portfolio_timeDayUse_week: portfolio_timeDayUse_week
@@ -1008,19 +1008,34 @@ publish:
     context:
       projects: projects
   -
-    id: flipClock
-    publisher: section
-    scripts: scripts/publish/
-    template: layout/templates/flipClock.mustache
-    depends:
-      flipClockFlips: flipClockFlips
+    id: flipClockTemplate
+    publisher: template
+    location: layout/templates/flipClock.mustache
+    mimetype: text/mustache
+    partials:
+      flipClockFlips: layout/templates/flipClockFlips.mustache
     context:
-      flipClockFlips: flipClockFlips
   -
-    id: flipClockFlips
-    publisher: section
+    id: yearFlipClock
+    publisher: flipClock
     scripts: scripts/publish/
-    template: layout/templates/flipClockFlips.mustache
+    template: flipClockTemplate
+    depends:
+      times: portfolio_time_year
+  -
+    id: monthFlipClock
+    publisher: flipClock
+    scripts: scripts/publish/
+    template: flipClockTemplate
+    depends:
+      times: portfolio_time_month
+  -
+    id: weekFlipClock
+    publisher: flipClock
+    scripts: scripts/publish/
+    template: flipClockTemplate
+    depends:
+      times: portfolio_time_week
   -
     id: disclaimerGlossaryText
     publisher: section
