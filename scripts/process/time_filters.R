@@ -68,8 +68,10 @@ process.fill_missing <- function(viz = as.viz("fill_missing_month")){
 
   month_data <- viz.data %>%
     filter(date >= range_days[1]) %>%
+    group_by(viewID) %>%
     mutate(n_possible = as.numeric(diff(range_days), units='days') + 1,
-           n_actual = as.numeric(diff(range(date)), units='days') + 1)
+           n_actual = as.numeric(diff(range(date)), units='days') + 1) %>%
+    ungroup()
 
   saveRDS(month_data, file=viz[["location"]], compress = FALSE)
 }
