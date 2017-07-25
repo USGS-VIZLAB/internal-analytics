@@ -1,5 +1,24 @@
 <div class="container flexContainer">
-	{{{sideBar}}}
+  <div class="navigationSidebar">
+    <div class="navigationContent">
+      <a class="returnHome" href="index.html">
+        Return to Summary
+      </a>
+      <div class="projectToggle">
+        {{#previous_link}}
+        <a href="{{{previous_link}}}">
+          Previous Application
+        </a>
+        {{/previous_link}}
+        {{#next_link}}
+          <a href="{{{next_link}}}">
+            Next Application
+          </a>
+        {{/next_link}}
+      </div>
+    </div>
+    {{{sideBar}}}
+  </div>
 	<div class="content flex5">
 		<h2 class="projectName">
 		  <a  class="projectURL" href="{{project_URL}}" target="_blank">
@@ -21,34 +40,15 @@
 		  </a>
 		</p>
 		<div class="projectNavigationContainer">
-		  <div class="projectNavigationContent">
-        <div id="returnHome">
-          <a href="index.html">
-  			    Return to Summary
-  		    </a>
-        </div>
-        <div class="timeToggle">
-          <a id="yearButton" class="active">Year</a>
-      		<a id="monthButton">Month</a>
-      		<a id="weekButton">Week</a>
-        </div>
-        <div id="projectToggle">
-          {{#previous_link}}
-    		    <a href="{{{previous_link}}}">
-      		    Previous Application
-    		    </a>
-    		  {{/previous_link}}
-    		  {{#next_link}}
-    		    <a href="{{{next_link}}}">
-    		      Next Application
-    		    </a>
-    		  {{/next_link}}
-        </div>
-    	</div>
+		  <div class="timeToggle">
+        <a id="yearButton" class="active">Year</a>
+      	<a id="monthButton">Month</a>
+      	<a id="weekButton">Week</a>
+      </div>
 		</div>
 		<section id="lineAssessments" class="full">
 			<div class="header">
-				<h3>Project Timeline Summaries</h3>
+				<h3>Sessions</h3>
 				<div class="information">
 					{{{informationImg}}}
 					<div class="informationContent">
@@ -151,7 +151,7 @@
 			</div>
 			<div class="flex1">
 			  <div class="header">
-					<h3>User Time on Page</h3>
+					<h3>Average User Time on Page</h3>
 					<div class="information">
 					{{{informationImg}}}
 					<div class="informationContent">
@@ -162,24 +162,23 @@
 				<div class="chartArea">
 				  <span class="year figure">
   			    <h3>Year</h3>
-  				  {{{app_time_year}}}
+  				  {{{yearFlipClock}}}
   				</span>
   				<span class="month figure">
   			    <h3>Month</h3>
-  				  {{{app_time_month}}}
+  				  {{{monthFlipClock}}}
   				</span>
   				<span class="week figure">
   			    <h3>Week</h3>
-  				  {{{app_time_week}}}
+  				  {{{weekFlipClock}}}
   				</span>
-
 				</div>
 			</div>
 		</section>
 		<section class="half flexContainer">
 			<div class="flex1 flexBorder">
 				<div class="header">
-					<h3>New vs Returning Users</h3>
+					<h3>New and Returning Users</h3>
 					<div class="information">
 						{{{informationImg}}}
 						<div class="informationContent">

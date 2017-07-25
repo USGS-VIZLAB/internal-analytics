@@ -92,10 +92,10 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   layout_stuff <- info_graph$layout
 
   if(packageVersion("ggplot2") >= "2.2.1.9000"){
-    lower_ranges <- layout_stuff$panel_scales_y[[3]]$range$range
+    lower_ranges <- layout_stuff$panel_scales_y[[2]]$range$range
     high_ranges <- layout_stuff$panel_scales_y[[1]]$range$range
   } else {
-    lower_ranges <- layout_stuff$panel_ranges[[12]]$x.range
+    lower_ranges <- layout_stuff$panel_ranges[[8]]$x.range
     high_ranges <- layout_stuff$panel_ranges[[4]]$x.range
   }
 
@@ -108,6 +108,30 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
 
   bin_mid <- 0.95*(diff(high_ranges))+high_ranges[1]
 
+
+  low_df <- summary_data_full %>%
+    filter(type == levels(summary_data_full$type)[2],
+           bin == levels(summary_data_full$bin)[4],
+           longName %in% rev(levels(summary_data_full$longName)[1:6]))%>%
+    arrange(longName)
+
+  #Check if any of the 5 bottom months are higher than ymin:
+  while(any(low_df$text_placement > ymin)){
+    #TODO: if all the longName text placements are in the way of the legend, switch over to week.
+    # and if that doesn't work....move x limit of graph
+    viral_index <- which(low_df$text_placement > ymin)
+
+    low_df <- summary_data_full %>%
+      filter(type == levels(summary_data_full$type)[2],
+             bin == levels(summary_data_full$bin)[4],
+             longName %in% rev(levels(summary_data_full$longName)[(viral_index+1):(viral_index + 6)])) %>%
+      arrange(longName)
+
+  }
+
+  low_df <- low_df %>%
+    arrange(desc(longName))
+
   text_df <- data.frame(label = c("Very High Traffic","High Traffic","Moderate Traffic","Low Traffic"),
                         type = factor(levels(summary_data_full$type)[1], levels = levels(summary_data_full$type)),
                         bin = factor(levels(summary_data_full$bin), levels = levels(summary_data_full$bin)),
@@ -116,14 +140,14 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         stringsAsFactors = FALSE)
 
   fake_legend <- data.frame(label = c("Total Sessions","New Users","Trending Up","Trending Down","No Trend","Missing >10%"),
-                            type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
-                            bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
-                            longName = rev(levels(summary_data_full$longName)[1:6]),
-                            ymin = ymin,
-                            ystart = ystart,
-                            ymid = ymid,
-                            yend = yend,
-                            ymax = ymax,
+                            type = low_df$type,
+                            bin = low_df$bin,
+                            longName = low_df$longName,
+                            ymin = ymin, #box around legend
+                            ystart = ystart, # start of lines within legend
+                            ymid = ymid, # end of lines within legend
+                            yend = yend, # start of text
+                            ymax = ymax, # box around legend
                             trend = c(NA, NA, "up", "down", "none",NA),
                             trend_complete = c(NA, NA, "up TRUE", "down TRUE", "none TRUE", NA),
                             stringsAsFactors = FALSE)
@@ -131,8 +155,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   fake_legend$mid_mid <- fake_legend$ystart + (fake_legend$ymid - fake_legend$ystart)/2
 
   filled_legend <- data.frame(
-    type = factor(levels(summary_data_full$type)[3], levels = levels(summary_data_full$type)),
-    bin = factor(levels(summary_data_full$bin)[4], levels = levels(summary_data_full$bin)),
+    type = low_df$type[1],
+    bin = low_df$bin[1],
     longName = fake_legend$longName[6],
     y = c(ystart,fake_legend$mid_mid[1],ymid),
     shapes = names(shps),
@@ -147,8 +171,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     geom_rect(data = fake_legend[1,], inherit.aes=FALSE, # aes(y = 0),
               ymin = fake_legend$ymin[1],
               ymax = fake_legend$ymax[1],
-              xmin = .4,
-              xmax = 6.6,
+              xmin = min(as.numeric(low_df$longName)) - 0.6,
+              xmax = max(as.numeric(low_df$longName)) + 0.6,
               color = "black", fill = "white") +
     geom_text(data = fake_legend,
               aes(x = longName, y = yend, label = label),

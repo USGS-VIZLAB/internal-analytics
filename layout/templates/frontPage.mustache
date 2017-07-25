@@ -1,9 +1,11 @@
 <div class="container flexContainer">
-  {{{sideBar}}}
+  <div class="navigationSidebar">
+    {{{sideBar}}}
+  </div>
   <div class="content flex5">
     <section class="full">
       <div class="header">
-				<h3>Sessions</h3>
+				<h3>Ranked Usage and Trends</h3>
 				<div class="information">
 				    {{{informationImg}}}
 				    <div class="informationContent">
@@ -16,7 +18,7 @@
 			</div>
     </section>
     <div class="projectNavigationContainer">
-      <div class="projectNavigationContent">
+      <div class="shelf">
         <div class="timeToggle">
     		  <a id="yearButton" class="active">Year</a>
     			<a id="monthButton">Month</a>
@@ -26,7 +28,7 @@
 		</div>
   <section id="lineAssessments" class="full">
 			<div class="header">
-				<h3>Timeline Summaries</h3>
+				<h3>Sessions</h3>
 				<div class="information">
 					{{{informationImg}}}
 					<div class="informationContent">
@@ -129,7 +131,7 @@
 			</div>
 			<div class="flex1">
 				<div class="header">
-					<h3>User Time</h3>
+					<h3>Average User Time</h3>
 					<div class="information">
 				    {{{informationImg}}}
 				    <div class="informationContent">
@@ -138,17 +140,19 @@
 				  </div>
 				</div>
 				<div class="chartArea">
+
+
 					<span class="year figure">
   			    <h3>Year</h3>
-  				  {{{portfolio_time_year}}}
+  				  {{{yearFlipClock}}}
   				</span>
   				<span class="month figure">
   			    <h3>Month</h3>
-  				  {{{portfolio_time_month}}}
+  				  {{{monthFlipClock}}}
   				</span>
   				<span class="week figure">
   			    <h3>Week</h3>
-  				  {{{portfolio_time_week}}}
+  				  {{{weekFlipClock}}}
   				</span>
 
 				</div>
@@ -157,7 +161,7 @@
 		<section class="half flexContainer">
 			<div class="flex1 flexBorder">
 			  <div class="header">
-					<h3>New vs Returning Users</h3>
+					<h3>New and Returning Users</h3>
 					<div class="information">
 						{{{informationImg}}}
 						<div class="informationContent">

@@ -1,0 +1,27 @@
+<div class="flip-clock-wrapper avgTime">
+  <div class="clockContainer">
+	  <div class="clockLabel">
+		  <span>{{timeLabel1}}</span>
+		</div>
+		<div class="clockNumbersContainer">
+		  {{#flipGroup1}}
+	      {{> flipClockFlips}}
+      {{/flipGroup1}}
+		</div>
+	</div>
+	<span class="flip-clock-divider days">
+	  <span class="flip-clock-dot top"></span>
+		<span class="flip-clock-dot bottom"></span>
+	</span>
+	<div class="clockContainer">
+	  <div class="clockLabel">
+		  <span>{{timeLabel2}}</span>
+		</div>
+		<div class="clockNumbersContainer">
+		  {{#flipGroup2}}
+	      {{> flipClockFlips}}
+      {{/flipGroup2}}
+		</div>
+	</div>
+</div>
+<p class="totalTime">Total user time: {{{totalTime}}}</p>
