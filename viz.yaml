@@ -265,6 +265,16 @@ process:
       viz_data: week_filter
     mimetype: text/csv
     location: cache/publish/viz_time_week.csv
+  -
+    id: regionality_metric
+    processor: regionality_metric
+    scripts: scripts/process/regionality_test.R
+    depends:
+      viz_data: year_filter
+      project_table: project_table
+      sessions_all: trends_all
+    reader: rds
+    location: cache/process/regionality_index.rds
 visualize:
   -
     id: new_vs_returning_year
@@ -753,6 +763,24 @@ visualize:
     title: "Geographic location of traffic over past week"
     mimetype: image/png
     location: figures/viz_geo_portfolio_week.png
+  -
+    id: app_regionality
+    visualizer: portfolio_sessions_regional
+    scripts: scripts/visualize/portfolio_sessions_regional.R
+    depends:
+      viz_data: regionality_metric
+    height: 8
+    width: 12
+    text_col: "black"
+    bar_line_col: "black"
+    trend_color:
+      up: "forestgreen"
+      down: "firebrick2"
+      none: "black"
+    alttext: ""
+    title: ""
+    mimetype: image/png
+    location: figures/portfolio_sessions_regional.png
 publish:
   -
     id: openSans
