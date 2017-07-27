@@ -2,7 +2,7 @@
 process.regionality_metric <- function(viz=as.viz("regionality_metric"),
                                        metric_type =
                                          c("r2", "slopes", "percapita",
-                                           "normpercapita", "shannon")){
+                                           "normpercapita", "shannon", "gini")){
 
   library(choroplethr)
   library(dplyr)
@@ -98,10 +98,10 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric"),
 
     if(metric_type == "normpercapita"){
       ## mean normalized per capita
-      per_capita <- app_traffic$traffic/app_traffic$pop
+      per_capita <- app_traffic$traffic_pct/app_traffic$pop_pct
       normalized_percapita <- per_capita/mean(per_capita)
       # result <- var(normalized_percapita) # weighted oppositely...NWISWeb was not national
-      result <- sd(normalized_percapita)
+      result <- log(sd(normalized_percapita))
     }
 
     if(metric_type == "shannon"){
@@ -112,18 +112,29 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric"),
       result <- shannon_index_pop
     }
 
-    ## Inter-rater reliability
+    if(metric_type == "gini"){
+      ## Gini coefficient
+      per_capita <- app_traffic$traffic_pct/app_traffic$pop_pct
+      result <- ineq::Gini(per_capita) # normalized per capita made no difference
+    }
 
     return(result)
   }, traffic, metric_type)
 
-  #create index from 1:10 (1 == regional, 10 == national)
-  new_scale <- c(1,10)
-  if(metric_type %in% c("normpercapita")){
+  # rescale so that index remains consistent through time (low == regional, high == national)
+   new_scale <- c(1,10)
+  if(metric_type %in% c("gini")){
+    # gini has theoretical scale of 0-1, so don't need to scale for consistency through time
+    # need to flip axis though
+    scaled_metric <- 1-metric_results
+  } else if(metric_type %in% c("normpercapita")){
     new_scale <- rev(new_scale)
+    scaled_metric <- (((metric_results - min(metric_results)) * diff(new_scale)) /
+                        diff(range(metric_results))) + new_scale[1]
+  } else {
+    scaled_metric <- (((metric_results - min(metric_results)) * diff(new_scale)) /
+                        diff(range(metric_results))) + new_scale[1]
   }
-  scaled_metric <- (((metric_results - min(metric_results)) * diff(new_scale)) /
-                      diff(range(metric_results))) + new_scale[1]
 
   # format metric results into a nice data frame
   regionality_data <- data.frame(app_name = names(metric_results),
@@ -142,7 +153,7 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric"),
   regionality_data <- regionality_data %>%
     mutate(trend = as.character(NA),
            trend_complete = as.character(NA),
-           type = factor("Regionality Index"),
+           type = factor("Geographic Reach"),
            session_text = as.character(NA),
            scaled_newUser = as.numeric(NA)) %>%
     rename(scaled_value = regional_index) %>%

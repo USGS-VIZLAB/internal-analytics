@@ -1,7 +1,7 @@
 visualize.portfolio_sessions_regional <- function(viz=as.viz("app_regionality"),
                                                   metric_type =
                                                     c("r2", "slopes", "percapita",
-                                                      "normpercapita", "shannon")){
+                                                      "normpercapita", "shannon", "gini")){
 
   library(dplyr)
   library(ggplot2)
@@ -15,6 +15,17 @@ visualize.portfolio_sessions_regional <- function(viz=as.viz("app_regionality"),
   text_col = viz[["text_col"]]
 
   summary_data <- deps[["viz_data"]]
+
+  # change color for lowest quarter
+  only_regionality <- filter(summary_data, type == "Geographic Reach")
+  lowest_qtr <- quantile(only_regionality$scaled_value, 0.25, na.rm = TRUE)
+  summary_data <- summary_data %>%
+    mutate(bar_color = bar_line_col) %>%
+    rowwise %>%
+    mutate(bar_color = ifelse(grepl("Geographic", type) &&
+                                scaled_value <= lowest_qtr,
+           yes = "blue", no = bar_color)) %>%
+    ungroup
 
   # decide where to place text
   max_vals <- summary_data %>%
@@ -54,9 +65,9 @@ visualize.portfolio_sessions_regional <- function(viz=as.viz("app_regionality"),
                        aes(x = longName, y = scaled_value)) +
     geom_rect(aes(fill = bin),xmin = -Inf,xmax = Inf,
               ymin = -Inf,ymax = Inf,color = NA) +
-    geom_segment(aes(xend = longName), yend=0, size = 0.65, color = bar_line_col) +
+    geom_segment(aes(xend = longName), yend=0, size = 0.65, col=bar_line_col) +
     geom_segment(aes(xend = longName, y = scaled_newUser),
-                 yend=0, col=bar_line_col, size=1.15) +
+                 yend=0, size=1.15, col=bar_line_col) +
     geom_text(aes(label = session_text, y = text_placement, color = trend),
               size = 3, hjust = 0,
               data = summary_data) +
@@ -79,10 +90,15 @@ visualize.portfolio_sessions_regional <- function(viz=as.viz("app_regionality"),
           strip.background = element_blank(),
           axis.ticks=element_blank(),
           legend.position = "none"
-    ) +
-    ggtitle(metric_type)
+    )
 
   info_graph <- ggplot_build(graph_body)
   print(info_graph)
+  # grid.newpage()
+  # g <- arrangeGrob(graph_body,
+  #                  bottom = textGrob(c("Regional", "National"),
+  #                                    x = 0, y = 0,
+  #                                    gp = gpar(fontsize = 2)))
+  # grid.draw(g)
   # ggsave(info_graph, file = viz[["location"]], height = height, width = width)
 }
