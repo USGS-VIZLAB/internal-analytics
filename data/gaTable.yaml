@@ -209,9 +209,9 @@
 - longName: NWIS Reporting Application
   shortName: NWIS-RA
   accountName: NWIS-RA
-  viewID: '85268102'
+  viewID: '150563516'
   accountId: '50379402'
-  webPropertyId: UA-50379402-1
+  webPropertyId: UA-50379402-5
   internalWebPropertyId: '82341003'
   viewName: All Web Site Data
   timezone: America/Chicago
