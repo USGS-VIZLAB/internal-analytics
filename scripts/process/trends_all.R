@@ -43,19 +43,17 @@ process.trends_all <- function(viz=as.viz("trends_all")){
     bind_rows(lapply(counts_aug, function(cdf_all) {
       # subset each of the counts data.frames for just this type and viewID
       cdf <- cdf_all %>% filter(viewID==vid)
-
       # count the number of observations for each day of the week. if there are
       # fewer than 4 blocks (days of week) with >= 4 points, we'll use
       # Mann-Kendall (no blocking) rather than seasonal Kendall
 
       num_blocks <- length(which(table(cdf$day_of_week) >= 4))
-
       # run the trend test, rkt, which is SK if block is specificied and MK
       # otherwise
-      if(num_blocks >= 4) {
-        vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm, block=cdf$day_of_week)
-      } else if (num_blocks == 0){
+      if (num_blocks == 0 || all(is.na(cdf$sessions_norm))){
         vtrend <- data.frame(B = NA, sl = NA)
+      }else if(num_blocks >= 4) {
+        vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm, block=cdf$day_of_week)
       } else {
         vtrend <- rkt::rkt(date=cdf$dec_date, y=cdf$sessions_norm)
       }
