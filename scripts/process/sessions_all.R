@@ -137,7 +137,7 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
   }
 
   summary_data_full <- summary_data_full %>%
-    select(-max_bin, -min_bin)
+    select(-max_bin)
 
   saveRDS(summary_data_full, file = viz[["location"]])
 }
