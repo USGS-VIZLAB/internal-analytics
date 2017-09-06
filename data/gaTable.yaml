@@ -514,7 +514,7 @@
   websiteUrl: https://owi.usgs.gov/vizlab/hurricane-matthew
   botFilteringEnabled: ''
   description: >-
-    The VizLab Hurrican Matthew Water Footprint (VizLabMatthew) application demonstrates
+    The VizLab Hurricane Matthew Water Footprint (VizLabMatthew) application demonstrates
     Hurricane Matthew's approach to the southeastern U.S. coast on October 7, 2016. This
     visualization shows the hurricane's impact on precipitation and streamflow.
   projectContact: 'Jordan Walker'
@@ -983,3 +983,23 @@
   projectContactEmail: 'mpavlick@usgs.gov'
   analyticsContact: 'Meredith Pavlick'
   analyticsContactEmail: 'mpavlick@usgs.gov'
+
+- longName: "VizLab: Hurricane Harvey's Water Footprint"
+  shortName: VizLabHarvey
+  accountName: Vizlab
+  viewID: '159018840'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-7
+  internalWebPropertyId: '157530047'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/hurricane-harvey
+  botFilteringEnabled: ''
+  description: >-
+    The VizLab Hurricane Harvey Water Footprint (VizLabHarvey) application demonstrates
+    Hurricane Harvey's approach to the U.S. Gulf coast on August 25-31, 2017. This
+    visualization shows the hurricane's impact on precipitation and streamflow.
+  projectContact: 'Jordan Walker'
+  projectContactEmail: 'jiwalker@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
