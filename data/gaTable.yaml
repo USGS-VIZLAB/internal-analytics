@@ -437,28 +437,6 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: VizLab Landing Page
-  shortName: VizLab
-  accountName: Vizlab
-  viewID: '122971190'
-  accountId: '78530187'
-  webPropertyId: UA-78530187-1
-  internalWebPropertyId: '117580756'
-  viewName: All Web Site Data
-  timezone: America/Chicago
-  websiteUrl: http://owi.usgs.gov/vizlab
-  botFilteringEnabled: ''
-  description: >-
-    The Office of Water Information VizLab function rapidly develops and deploys visualizations on current
-    water issues and/or USGS Water publications or datasets. The Vizlab website is a landing page that
-    features a catalog of VizLab products. The VizLab team works with USGS
-    WMA scientists and external partners to highlight timely science in accessible and
-    appealing visual stories.
-  projectContact: 'Jordan Walker'
-  projectContactEmail: 'jiwalker@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
 - longName: 'VizLab: Climate Change and Fisheries'
   shortName: VizLabClimateFish
   accountName: Vizlab
@@ -517,8 +495,8 @@
     The VizLab Hurricane Matthew Water Footprint (VizLabMatthew) application demonstrates
     Hurricane Matthew's approach to the southeastern U.S. coast on October 7, 2016. This
     visualization shows the hurricane's impact on precipitation and streamflow.
-  projectContact: 'Jordan Walker'
-  projectContactEmail: 'jiwalker@usgs.gov'
+  projectContact: 'Alison Appling'
+  projectContactEmail: 'aappling@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
