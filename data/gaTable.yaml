@@ -886,13 +886,35 @@
 - longName: "Flood Inundation Mapper"
   shortName: "FIM"
   accountName: WIM USGS
+  viewID: '116842326'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-7
+  internalWebPropertyId: '111935524'
+  viewName: All Web Site Data
+  timezone: America/Los_Angeles
+  websiteUrl: https://wimcloud.usgs.gov/apps/FIM/FloodInundationMapper.html
+  botFilteringEnabled: .na.character
+  description: >-
+     The Flood Inundation Mapper (FIM) allows users to explore the full set of inundation maps that shows where
+     flooding would occur given a selected stream condition. Users can also access historical
+     flood information and potential loss estimates based on the severity of the flood. The
+     FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
+     resources that may be at risk, and enhance their local response effort during a flooding event.
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
+
+- longName: "Flood Inundation Mapper - JS"
+  shortName: "FIM-JS"
+  accountName: WIM USGS
   viewID: '147316934'
   accountId: '61219868'
   webPropertyId: UA-61219868-23
   internalWebPropertyId: '142720692'
   viewName: All Web Site Data
   timezone: America/Los_Angeles
-  websiteUrl: http://wimcloud.usgs.gov/apps/FIM/FloodInundationMapper.html
+  websiteUrl: https://fim.wim.usgs.gov/fim/
   botFilteringEnabled: .na.character
   description: >-
      The Flood Inundation Mapper (FIM) allows users to explore the full set of inundation maps that shows where
@@ -999,7 +1021,26 @@
     The VizLab Hurricane Harvey Water Footprint (VizLabHarvey) application demonstrates
     Hurricane Harvey's approach to the U.S. Gulf coast on August 25-31, 2017. This
     visualization shows the hurricane's impact on precipitation and streamflow.
-  projectContact: 'Jordan Walker'
-  projectContactEmail: 'jiwalker@usgs.gov'
+  projectContact: 'Jordan Read'
+  projectContactEmail: 'jread@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
+- longName: "VizLab: Hurricane Irma's Water Footprint"
+  shortName: VizLabIrma
+  accountName: Vizlab
+  viewID: '159805194'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-8
+  internalWebPropertyId: '158389592'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/hurricane-irma
+  botFilteringEnabled: ''
+  description: >-
+    The VizLab Hurricane Irma Water Footprint (VizLabIrma) application demonstrates
+    Hurricane Irma's approach to Florida on Sept 8-12, 2017. This
+    visualization shows the hurricane's impact on precipitation and streamflow.
+  projectContact: 'Jordan Read'
+  projectContactEmail: 'jread@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
