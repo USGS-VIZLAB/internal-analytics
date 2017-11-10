@@ -7,6 +7,10 @@ library(assertthat)
 library(aws.s3)
 library(aws.signature)
 
+fetchTimestamp.GAviews <- function(viz) {
+  invisible()
+}
+
 fetch.GAviews <- function(viz) {
   #first get SB data - does it have data through yesterday? if no, and
   #update is true, run the fetcher for intervening time, and append, upload
@@ -20,8 +24,8 @@ fetch.GAviews <- function(viz) {
                 file = viz[['location']])
     message('Downloaded S3 file')
     fileDF <- readRDS(viz[['location']])
-    
-    
+
+
     if(viz[['update']]) {
       masterTable <- readDepends(viz)[['project_table']]
       #check if it is up to date (has yesterday's data) for each ID
