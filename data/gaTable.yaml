@@ -794,6 +794,27 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
+- longName: "Sparrow Great Lakes"
+  shortName: "SparrowGL"
+  accountName: WIM USGS
+  viewID: '166992080'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-30
+  internalWebPropertyId: '166625472'
+  viewName: All Web Site Data
+  timezone: America/Los_Angeles
+  websiteUrl: https://sparrow.wim.usgs.gov/great-lakes/
+  botFilteringEnabled: .na.character
+  description: >-
+    Spatially-Referenced Regresson On Watershed Attributes (SPARROW) is designed for predicting
+    long-term average values of concentrations and amounts of selected constituents delivered to
+    downstream receiving waters. The SPARROW Great Lakes mapper (SparrowGL) displays U.S.
+    Geological Survey SPARROW data in the Great Lakes.
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
+
 - longName: 'National Water Information System Mapper - Water Alert'
   shortName: 'NWISMapper-WaterAlert'
   accountName: WIM USGS
