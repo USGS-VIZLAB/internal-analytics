@@ -1024,6 +1024,7 @@
   projectContactEmail: 'jread@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
+
 - longName: "VizLab: Hurricane Irma's Water Footprint"
   shortName: VizLabIrma
   accountName: Vizlab
@@ -1043,3 +1044,49 @@
   projectContactEmail: 'jread@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
+
+- longName: "VizLab: Hurricane Maria's Water Footprint"
+  shortName: VizLabMaria
+  accountName: Vizlab
+  viewID: '160717710'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-9
+  internalWebPropertyId: ''
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/hurricane-maria
+  botFilteringEnabled: ''
+  description: >-
+    The VizLab Hurricane Maria Water Footprint (VizLabMaria) application demonstrates
+    Hurricane Maria's approach to Puerto Rico on Sept 18-25, 2017. This
+    visualization shows the hurricane's impact on precipitation and streamflow.
+  projectContact: 'Jordan Read'
+  projectContactEmail: 'jread@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
+
+- longName: "VizLab: 2015 Water Use"
+  shortName: VizLabWaterUse15
+  accountName: Vizlab
+  viewID: '177200146'
+  accountId: '78530187'
+  webPropertyId: UA-78530187-12
+  internalWebPropertyId: ''
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://owi.usgs.gov/vizlab/water-use-15
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    Water touches almost every aspect of American life: from food to electricity to
+    consumer products. Understanding how we use water is crucial for learning how
+    to be more responsible with water resources. For the first time, the U.S.
+    Geological Survey is displaying the national compilation of water use data for
+    every U.S. county. Explore the variety of water use across the U.S. to understand
+    how we use our current resources.
+  projectContact: 'Jordan Read'
+  projectContactEmail: 'jread@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
+
+
+
