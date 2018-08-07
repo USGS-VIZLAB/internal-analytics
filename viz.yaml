@@ -1,9 +1,8 @@
-vizlab: "0.1.7"
 info:
   id: internal-analytics
   name: Internal analytics reporting
   date: 2017-04-03
-  publish-date: 2099-01-01
+  publish-date:
   path: /analytics
   analytics-id: UA-78530187-6
   description: >-
@@ -912,7 +911,7 @@ publish:
         This plot shows daily usage pattern for application(s) over the selected time period. Users should interpret this figure with caution,
         as the time zone is set by individual account administrators, and varies by application.
       info_new_return: >-
-        This figure shows the relative number of new versus returning users for the application(s) over the selected time period.
+        This figure shows the number of sessions by new and returning users for the application(s) over the selected time period.
       info_geo: >-
         The map below displays the geographic location of traffic to the application(s) over the selected time period.
       info_sessions: >-
@@ -1007,7 +1006,7 @@ publish:
         This plot shows daily usage pattern for application(s) over the selected time period. Users should interpret this figure with caution,
         as the time zone is set by individual account administrators, and varies by application.
       info_new_return: >-
-        This figure shows the relative number of new versus returning users for the application(s) over the selected time period.
+        This figure shows the number sessions by new and returning users for the application(s) over the selected time period.
       info_geo: >-
         The map below displays the geographic location of traffic to the application(s) over the selected time period.
       info_sessions: >-
