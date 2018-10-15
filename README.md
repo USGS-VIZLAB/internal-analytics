@@ -11,4 +11,11 @@ Information for each app is stored in `data/gaTable.yaml`.  Follow the pattern o
 The first time an app is added, all the data since 2016-01-01 is downloaded.  For heavily used apps, this may require downloaded in the data manually, so that it can be done in smaller chunks.  We download the data at a very granular level, and very large requests can result in errors. 
 
 ### Credentials needed for building
-We use AWS as an intermediate data store, after downloading from Google Analytics.  To build this app locally you will need access to at least the appropriate AWS bucket.  In the `fetchGA` section of the `viz.yaml`, set `update: FALSE` to only use the data stored on AWS.  To build with `update: TRUE` you will need access to the Google Analytics service account.       
+We use AWS as an intermediate data store, after downloading from Google Analytics.  To build this app locally you will need access to at least the appropriate AWS bucket.  In the `fetchGA` section of the `viz.yaml`, set `update: FALSE` to only use the data stored on AWS.  To build with `update: TRUE` you will need access to the Google Analytics service account.
+
+Use `dssecrets::update_aws_profile()` to update your AWS profile with current keys. Go to: https://console.developers.google.com/apis/credentials/serviceaccountkey logged in with cida-google-analytics to download the JSON file that should be saved in:
+```r
+file.path(Sys.getenv("HOME"), ".vizlab/VIZLAB-a48f4107248c.json")
+```
+
+
