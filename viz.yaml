@@ -1,7 +1,7 @@
 info:
   id: internal-analytics
   name: Internal analytics reporting
-  date: 2017-04-03
+  date: 2018-10-15
   publish-date:
   path: /analytics
   analytics-id: UA-78530187-6
@@ -15,9 +15,9 @@ info:
   required-packages:
     vizlab:
       repo: github
-      version: 0.1.8
+      version: 0.3.10
       name: USGS-VIZLAB/vizlab
-      ref: v0.1.8
+      ref: v0.3.10
     dplyr:
       repo: CRAN
       version: 0.7.1
