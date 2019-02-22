@@ -1088,5 +1088,25 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
+- longName: "WDFN-TNG Site Pages"
+  shortName: "New Site Pages"
+  accountName: "USGS Water Data for the Nation"
+  viewID: '190316048'
+  accountId: '25350863'
+  webPropertyId: UA-25350863-1
+  internalWebPropertyId: ''
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://waterdata.usgs.gov/monitoring-location/03597860/
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    New site pages.  Note that data starts on February 21st
+    (after the public soft release), and only contains URLs starting
+    with /monitoring-location/.
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'jkreft@usgs.gov'
+  analyticsContact: 'Jim Kreft'
+  analyticsContactEmail: 'jkreft@usgs.gov'
+
 
 
