@@ -7,7 +7,7 @@ library(assertthat)
 library(aws.s3)
 library(aws.signature)
 
-fetchTimestamp.GAviews <- vizlab::alwaysCurrent
+fetchTimestamp.GAviews <- vizlab::neverCurrent
 
 fetch.GAviews <- function(viz) {
   #first get SB data - does it have data through yesterday? if no, and
