@@ -23,7 +23,9 @@ fetch.GAviews <- function(viz) {
                 file = viz[['location']])
     message('Downloaded S3 file')
     fileDF <- readRDS(viz[['location']])
-
+# NOTE!!!!
+# This is a bandaid for Jenkins memory issues:
+    fileDF <- filter(fileDF, date > Sys.Date() - 366)
 
     if(viz[['update']]) {
       masterTable <- readDepends(viz)[['project_table']]
@@ -66,10 +68,10 @@ fetch.GAviews <- function(viz) {
         assert_that(max(allDF$date) == (Sys.Date() - 1)) #note: is allDF$date char or date?
 
         saveRDS(allDF, file = viz[['location']])
-        message("Updating S3...")
-        put_object(file = viz[['location']], object = viz[['s3Path']],
-                   bucket = viz[['bucket']])
-        message("Done uploading")
+        # message("Updating S3...")
+        # put_object(file = viz[['location']], object = viz[['s3Path']],
+        #            bucket = viz[['bucket']])
+        # message("Done uploading")
       } else {
         message("S3 file is up to date, using that")
       }
