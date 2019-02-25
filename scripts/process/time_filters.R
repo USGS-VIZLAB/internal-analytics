@@ -10,7 +10,7 @@ process.time_filter <- function(viz = as.viz("month_filter")){
   month_data <- viz.data %>%
     filter(date >= range_days[2])
 
-  saveRDS(month_data, file=viz[["location"]], compress = FALSE)
+  saveRDS(month_data, file=viz[["location"]])
 
 }
 
@@ -56,7 +56,7 @@ process.fill_missing_year <- function(viz = as.viz("fill_missing_year")){
     ungroup() %>%
     replace_na(list(sessions=0, newUsers=0))
 
-  saveRDS(sub_data, file=viz[["location"]], compress = FALSE)
+  saveRDS(sub_data, file=viz[["location"]])
 
 }
 
@@ -75,5 +75,5 @@ process.fill_missing <- function(viz = as.viz("fill_missing_month")){
            n_actual = as.numeric(diff(range(date)), units='days') + 1) %>%
     ungroup()
 
-  saveRDS(month_data, file=viz[["location"]], compress = FALSE)
+  saveRDS(month_data, file=viz[["location"]])
 }
