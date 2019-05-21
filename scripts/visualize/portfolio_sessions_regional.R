@@ -92,13 +92,13 @@ visualize.portfolio_sessions_regional <- function(viz=as.viz("app_regionality"),
           legend.position = "none"
     )
 
-  info_graph <- ggplot_build(graph_body)
-  print(info_graph)
-  # grid.newpage()
-  # g <- arrangeGrob(graph_body,
-  #                  bottom = textGrob(c("Regional", "National"),
-  #                                    x = 0, y = 0,
-  #                                    gp = gpar(fontsize = 2)))
-  # grid.draw(g)
-  # ggsave(info_graph, file = viz[["location"]], height = height, width = width)
+  #info_graph <- ggplot_build(graph_body)
+  #print(info_graph)
+  grid.newpage()
+  g <- arrangeGrob(graph_body,
+                   bottom = textGrob(c("Regional", "National"),
+                                     x = 0, y = 0,
+                                     gp = gpar(fontsize = 2)))
+  grid.draw(g)
+  ggsave(g, file = viz[["location"]], height = height, width = width)
 }

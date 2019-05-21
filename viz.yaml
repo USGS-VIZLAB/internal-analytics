@@ -18,6 +18,9 @@ info:
       version: 0.3.10
       name: USGS-VIZLAB/vizlab
       ref: v0.3.10
+    choroplethr:
+      repo: CRAN
+      version: 3.6.3
     dplyr:
       repo: CRAN
       version: 0.7.1
@@ -54,6 +57,9 @@ info:
     rkt:
       repo: CRAN
       version: 1.5
+    rvest:
+      repo: CRAN
+      version: 0.3.4
     tidyr:
       repo: CRAN
       version: 0.6.1
@@ -949,7 +955,7 @@ publish:
     scripts: scripts/publish/
     depends:
       siteText: siteText
-      portfolio_sessions_all: portfolio_sessions_all
+      portfolio_sessions_all: app_regionality
       portfolio_device_type_year: portfolio_device_type_year
       portfolio_device_type_month: portfolio_device_type_month
       portfolio_device_type_week: portfolio_device_type_week
