@@ -20,5 +20,5 @@ process.year_filter <- function(viz) {
 
 
   #add dateTime
-  saveRDS(object = allDataDF, file=viz[["location"]], compress = FALSE)
+  saveRDS(object = allDataDF, file=viz[["location"]])
 }
