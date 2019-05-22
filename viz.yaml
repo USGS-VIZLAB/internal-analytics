@@ -1,7 +1,7 @@
 info:
   id: internal-analytics
   name: Internal analytics reporting
-  date: 2018-10-15
+  date: 2019-05-22
   publish-date:
   path: /analytics
   analytics-id: UA-78530187-6
