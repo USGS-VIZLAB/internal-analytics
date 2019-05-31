@@ -18,6 +18,9 @@ info:
       version: 0.3.10
       name: USGS-VIZLAB/vizlab
       ref: v0.3.10
+    grid:
+      repo: CRAN
+      version: 3.6.0
     choroplethr:
       repo: CRAN
       version: 3.6.3
@@ -101,7 +104,7 @@ fetch:
     s3Path: 'internal-analytics/data/current.rds'
     bucket: 'vizlab-data'
     update: TRUE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: FALSE #Don't even download sciencebase file - overrides update
+    useLocal: TRUE #Don't even download sciencebase file - overrides update
     depends:
       project_table: project_table
   -
@@ -274,6 +277,7 @@ process:
     id: regionality_metric
     processor: regionality_metric
     scripts: scripts/process/regionality_test.R
+    metric_type: 'gini'
     depends:
       viz_data: year_filter
       project_table: project_table
@@ -643,7 +647,7 @@ visualize:
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends:
-      sessions_all: trends_all
+      sessions_all: regionality_metric
     mimetype: image/png
     alttext: "Year, month, and week summary of sessions (new and returning users) for all applications"
     title: "Year, month, and week summary of sessions (new and returning users) for all applications"
@@ -768,24 +772,7 @@ visualize:
     title: "Geographic location of traffic over past week"
     mimetype: image/png
     location: figures/viz_geo_portfolio_week.png
-  -
-    id: app_regionality
-    visualizer: portfolio_sessions_regional
-    scripts: scripts/visualize/portfolio_sessions_regional.R
-    depends:
-      viz_data: regionality_metric
-    height: 8
-    width: 12
-    text_col: "black"
-    bar_line_col: "black"
-    trend_color:
-      up: "forestgreen"
-      down: "firebrick2"
-      none: "black"
-    alttext: ""
-    title: ""
-    mimetype: image/png
-    location: figures/portfolio_sessions_regional.png
+
 publish:
   -
     id: openSans
@@ -955,7 +942,7 @@ publish:
     scripts: scripts/publish/
     depends:
       siteText: siteText
-      portfolio_sessions_all: app_regionality
+      portfolio_sessions_all: portfolio_sessions_all
       portfolio_device_type_year: portfolio_device_type_year
       portfolio_device_type_month: portfolio_device_type_month
       portfolio_device_type_week: portfolio_device_type_week

@@ -1,8 +1,5 @@
 
-process.regionality_metric <- function(viz=as.viz("regionality_metric"),
-                                       metric_type =
-                                         c("r2", "slopes", "percapita",
-                                           "normpercapita", "shannon", "gini")){
+process.regionality_metric <- function(viz=as.viz("regionality_metric")){
 
   library(choroplethr)
   library(dplyr)
@@ -13,7 +10,7 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric"),
   traffic_all <- deps[["viz_data"]]
   ga_table <- deps[["project_table"]]
   sessions_all <- deps[['sessions_all']]
-
+  metric_type <- viz[['metric_type']]
   # get population and percentage of total US population per state
   # 2012 population data
 
@@ -26,7 +23,9 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric"),
   # get traffic data based on users by state
   ga_table <- select(ga_table, viewID, app_name = shortName)
 
-  traffic_all <- left_join(traffic_all, ga_table) %>%
+  traffic_all <- traffic_all %>%
+    filter(region %in% state.name | region == "District of Columbia") %>% #drop traffic from outside US
+    left_join(ga_table) %>%
     arrange(app_name) %>%
     mutate(region = tolower(region))
 
@@ -146,24 +145,26 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric"),
   rownames(regionality_data) <- NULL
 
   # combine regionality w/ sessions data
-  sessions_all <- filter(sessions_all, grepl("Year", type))
+  #sessions_all <- filter(sessions_all, grepl("Year", type))
   needed_info <- select(sessions_all, viewID, longName, bin)
-  regionality_data <- left_join(regionality_data, needed_info)
+  regionality_data <- left_join(regionality_data, needed_info, by = "viewID")
 
   regionality_data <- regionality_data %>%
     mutate(trend = as.character(NA),
            trend_complete = as.character(NA),
-           type = factor("Geographic Reach"),
-           session_text = as.character(NA),
-           scaled_newUser = as.numeric(NA)) %>%
+           type = grep(pattern = "Year", x = unique(sessions_all$type), value = TRUE) %>%
+             sub(pattern = "Year", replacement = "Geographic Reach*"), #use dates in year category
+           trend = "geo", #just a placeholder since this field is used for color
+           scaled_newUser = as.numeric(NA),
+           session_text = as.character(round(regional_index, 2))) %>%
     rename(scaled_value = regional_index) %>%
     select(viewID, longName, scaled_value, scaled_newUser, bin, trend, trend_complete, type, session_text)
 
   sessions_all <- sessions_all %>%
-    mutate(trend_complete = paste(trend, complete)) %>%
-    select(viewID, longName, scaled_value, scaled_newUser, bin, trend, trend_complete, type, session_text)
+    mutate(trend_complete = paste(trend, complete))
+    #select(viewID, longName, scaled_value, scaled_newUser, bin, trend, trend_complete, type, session_text)
 
-  result_df <- rbind(sessions_all, regionality_data)
+  result_df <- bind_rows(sessions_all, regionality_data)
 
   saveRDS(result_df, file = viz[["location"]])
 }
