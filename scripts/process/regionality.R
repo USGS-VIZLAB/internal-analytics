@@ -145,7 +145,6 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric")){
   rownames(regionality_data) <- NULL
 
   # combine regionality w/ sessions data
-  #sessions_all <- filter(sessions_all, grepl("Year", type))
   needed_info <- select(sessions_all, viewID, longName, bin)
   regionality_data <- left_join(regionality_data, needed_info, by = "viewID")
 
@@ -162,7 +161,6 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric")){
 
   sessions_all <- sessions_all %>%
     mutate(trend_complete = paste(trend, complete))
-    #select(viewID, longName, scaled_value, scaled_newUser, bin, trend, trend_complete, type, session_text)
 
   result_df <- bind_rows(sessions_all, regionality_data)
 
