@@ -22,7 +22,6 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric")){
 
   # get traffic data based on users by state
   ga_table <- select(ga_table, viewID, app_name = shortName)
-
   traffic_all <- traffic_all %>%
     filter(region %in% state.name | region == "District of Columbia") %>% #drop traffic from outside US
     left_join(ga_table) %>%

@@ -28,7 +28,6 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
   summary_data_full <- summary_data_full %>%
     left_join(max_vals, by = "type") %>%
     mutate(text_placement = scaled_value + 0.06*max_val)
-
   # prepare dimensions for each pane that won't truncate the text values
   dummy_for_ylims <- summary_data_full %>%
     select(bin, type, longName, scaled_value, max_val) %>%
@@ -38,11 +37,11 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
     ungroup() %>%
     as.data.frame() %>%
     mutate(scaled_value = max_val*1.15,
-           type = factor(type, levels = (unique(summary_data_full$type)[c(1,3,2,4)])))
+           type = factor(type, levels = unique(summary_data_full$type)))
 
   summary_data_full <- summary_data_full %>%
     mutate(trend_complete = paste(trend, complete),
-           type = factor(type, levels = (unique(summary_data_full$type)[c(1,3,2,4)])))
+           type = factor(type, levels = unique(summary_data_full$type)))
   # define scales for shape, color, and fill
   shps <- c("none"=21,
             "up"=24,
@@ -148,7 +147,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                         y = bin_mid, #labels.  Note that axes are flipped in this plot
                         stringsAsFactors = FALSE)
 
-  fake_legend <- data.frame(label = c("Total Sessions","New Users","Trending Up","Trending Down","No Trend","Missing >10%"),
+  fake_legend <- data.frame(label = c("Total Sessions","New Users","Trending Up**","Trending Down**","No Trend**","Missing >10%"),
                             type = low_df$type,
                             bin = low_df$bin,
                             longName = low_df$longName,
@@ -200,7 +199,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                aes(x = longName,y =y - 0.15,
                    shape = shapes,
                    color = col), fill = "white") +
-    labs(caption = "*Measures how proportional user location is to US state population, from 0 to 1. A value of one represents user locations exactly proportional to state population.")
+    labs(caption = "*Measures how proportional user location is to US state population, from 0 to 1. A value of one represents user locations exactly proportional to state population.
+                    **Trends do not reflect year-over-year changes.  They are calculated only within the time period listed in the title, and often reflect seasonal usage cycles.")
 
   ggsave(port_graph, file = viz[["location"]], height = height, width = width)
 
