@@ -90,7 +90,8 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
           panel.border = element_blank(),
           strip.background = element_blank(),
           axis.ticks=element_blank(),
-          legend.position = "none"
+          legend.position = "none",
+          plot.caption = element_text(hjust = 0)
     )
 
   info_graph <- ggplot_build(graph_body)
@@ -200,7 +201,7 @@ visualize.portfolio_sessions_all <- function(viz=as.viz("portfolio_sessions_all"
                    shape = shapes,
                    color = col), fill = "white") +
     labs(caption = "*Measures how proportional user location is to US state population, from 0 to 1. A value of one represents user locations exactly proportional to state population.
-                    **Trends do not reflect year-over-year changes.  They are calculated only within the time period listed in the title, and often reflect seasonal usage cycles.")
+**Trends do not reflect year-over-year changes.  They are calculated only within the time period listed in the title, and often reflect seasonal usage cycles.")
 
   ggsave(port_graph, file = viz[["location"]], height = height, width = width)
 
