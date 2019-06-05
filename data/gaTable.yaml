@@ -736,11 +736,11 @@
 - longName: "Streamer - TX WSC"
   shortName: 'Streamer'
   accountName: txwscwebgroup
-  viewID: '73029212'
+  viewID: '183233225'
   accountId: '37706584'
-  webPropertyId: UA-37706584-3
-  internalWebPropertyId: '70826807'
-  viewName: All Web Site Data
+  webPropertyId: UA-37706584-2
+  internalWebPropertyId: '66373103'
+  viewName: Streamer
   timezone: America/Chicago
   websiteUrl: https://txpub.usgs.gov/DSS/streamer/web/
   botFilteringEnabled: 'TRUE'
