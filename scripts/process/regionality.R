@@ -1,11 +1,8 @@
 
 process.regionality_metric <- function(viz=as.viz("regionality_metric")){
 
-  library(choroplethr)
   library(dplyr)
   library(yaml)
-  library(rvest)
-
   deps <- readDepends(viz)
   traffic_all <- deps[["viz_data"]]
   ga_table <- deps[["project_table"]]
@@ -14,9 +11,9 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric")){
   # get population and percentage of total US population per state
   # 2012 population data
 
-  data(df_pop_state)
-  us_pop <- df_pop_state
-  us_pop <- rename(us_pop, pop = value)
+
+  us_pop <- rename(usmap::statepop, pop = pop_2015, region = full) %>%
+    mutate(region = tolower(region))
   us_total <- sum(us_pop$pop)
   us_pop <- mutate(us_pop, pop_pct = pop/us_total*100)
 

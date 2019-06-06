@@ -21,9 +21,9 @@ info:
     grid:
       repo: CRAN
       version: 3.6.0
-    choroplethr:
+    usmap:
       repo: CRAN
-      version: 3.6.3
+      version: 0.4.0
     dplyr:
       repo: CRAN
       version: 0.7.1
@@ -60,9 +60,6 @@ info:
     rkt:
       repo: CRAN
       version: 1.5
-    rvest:
-      repo: CRAN
-      version: 0.3.4
     tidyr:
       repo: CRAN
       version: 0.6.1
