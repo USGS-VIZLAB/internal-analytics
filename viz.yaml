@@ -21,9 +21,9 @@ info:
     grid:
       repo: CRAN
       version: 3.6.0
-    choroplethr:
+    usmap:
       repo: CRAN
-      version: 3.6.3
+      version: 0.4.0
     dplyr:
       repo: CRAN
       version: 0.7.1
@@ -60,9 +60,6 @@ info:
     rkt:
       repo: CRAN
       version: 1.5
-    rvest:
-      repo: CRAN
-      version: 0.3.4
     tidyr:
       repo: CRAN
       version: 0.6.1
@@ -104,7 +101,7 @@ fetch:
     s3Path: 'internal-analytics/data/current.rds'
     bucket: 'vizlab-data'
     update: TRUE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: FALSE #Don't even download S3 file - overrides update
+    useLocal: TRUE #Don't even download S3 file - overrides update
     depends:
       project_table: project_table
   -
