@@ -61,18 +61,16 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
            type = factor(type, levels = level_text),
            scaler = 1)
 
-  scale_to <- max(summary_data_full$sessions, na.rm = TRUE)
-
   scaler_df <- summary_data_full %>%
-    group_by(bin) %>%
+    group_by(bin, type) %>%
     summarize(max_bin = max(sessions, na.rm = TRUE)) %>%
     data.frame()
 
   summary_data_full <- summary_data_full %>%
-    left_join(scaler_df, by = "bin") %>%
-    mutate(scaler = scale_to / max_bin,
-           scaled_value = ifelse(sessions == 0,scaler, sessions * scaler),
-           scaled_newUser = newUsers * scaler)
+    left_join(scaler_df, by = c("bin","type")) %>%
+    mutate(scaler = 1 / (max_bin),
+           scaled_value = scaler*(sessions),
+           scaled_newUser = scaler*(newUsers))
 
   #Find sites with data in one but not the other bin/type:
 
@@ -124,6 +122,8 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
                            find_zeros_long[j,c("bin","type")],
                            data.frame(sessions = 0,
                                       newUsers = 0,
+                                      scaler = summary_data_full$scaler[summary_data_full$bin == find_zeros_long$bin[j] &
+                                                                                summary_data_full$type == find_zeros_long$type[j]][1],
                                       scaled_value = summary_data_full$scaler[summary_data_full$bin == find_zeros_long$bin[j] &
                                                                                 summary_data_full$type == find_zeros_long$type[j]][1],
                                       scaled_newUser = 0,
@@ -137,7 +137,7 @@ process.sessions_all <- function(viz=as.viz("sessions_all")){
   }
 
   summary_data_full <- summary_data_full %>%
-    select(-max_bin, -scaler)
+    select(-max_bin)
 
   saveRDS(summary_data_full, file = viz[["location"]])
 }

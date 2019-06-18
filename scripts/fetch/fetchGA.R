@@ -7,6 +7,8 @@ library(assertthat)
 library(aws.s3)
 library(aws.signature)
 
+fetchTimestamp.GAviews <- vizlab::neverCurrent
+
 fetch.GAviews <- function(viz) {
   #first get SB data - does it have data through yesterday? if no, and
   #update is true, run the fetcher for intervening time, and append, upload
@@ -15,13 +17,13 @@ fetch.GAviews <- function(viz) {
     print(sessionInfo())
     #get file from sb with fetcher
     message("Downloading from S3")
-    use_credentials(profile = viz[['s3Profile']])
+    use_credentials(profile = viz[['s3Profile']], file=aws.signature::default_credentials_file())
+
     save_object(object = viz[['s3Path']], bucket = viz[['bucket']],
                 file = viz[['location']])
     message('Downloaded S3 file')
     fileDF <- readRDS(viz[['location']])
-    
-    
+
     if(viz[['update']]) {
       masterTable <- readDepends(viz)[['project_table']]
       #check if it is up to date (has yesterday's data) for each ID
@@ -71,11 +73,14 @@ fetch.GAviews <- function(viz) {
         message("S3 file is up to date, using that")
       }
     } else {message("update set to false in viz.yaml, using S3 file")}
-  } else {message("useLocal = TRUE, not downloading anything")
-      if(!file.exists(viz[['location']])) {
-        stop("You don't have any local data!  Set useLocal = FALSE to download
-             from S3")
-      }
+  } else {
+    message("useLocal = TRUE, not downloading anything")
+    if(!file.exists(viz[['location']])) {
+      stop("You don't have any local data!  Set useLocal = FALSE to download
+           from S3")
     }
+  }
+
+  return(NULL)
 }
 
