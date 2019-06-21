@@ -1108,5 +1108,49 @@
   analyticsContact: 'Jim Kreft'
   analyticsContactEmail: 'jkreft@usgs.gov'
 
+- longName: "National Network of Reference Watersheds"
+  shortName: "NNRW"
+  accountName: "NNRW"
+  viewID: '140384607'
+  accountId: '61918505'
+  webPropertyId: UA-61918505-2
+  internalWebPropertyId: '136174803'
+  viewName: Anti-spam
+  timezone: America/Chicago
+  websiteUrl: http://my.usgs.gov/nnrw
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    The National Network of Reference Watersheds is a collaborative
+    and multipurpose network of minimally disturbed watersheds and monitoring
+    sites. The purpose of this website is to allow users to search the NNRW database
+    of reference watersheds, to identify watersheds of interest, and download watershed
+    information and water quality data. The current scope of the network is limited to
+    freshwater streams. Membership in the network is voluntary and open to individuals,
+    agencies, and institutions interested in participating in monitoring and (or) research
+    in minimally disturbed and pristine watersheds.
+  projectContact: 'Mike McHale'
+  projectContactEmail: 'mmchale@usgs.gov'
+  analyticsContact: 'Don Brown'
+  analyticsContactEmail: 'brownd@usgs.gov'
+
+- longName: "USGS Water Resources NSDI Node"
+  shortName: "Water NSDI node"
+  accountName: "Water NSDI node"
+  viewID: '196097632'
+  accountId: '141213604'
+  webPropertyId: UA-141213604-1
+  internalWebPropertyId: '202273746'
+  viewName: All Web Site Data
+  timezone: America/Chicago
+  websiteUrl: https://water.usgs.gov/lookup/getgislist
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    The USGS Water Resources NSDI Node provides data, photographs and maps produced
+    by the U.S. Geological Survey.
+  projectContact: 'Mike Ierardi'
+  projectContactEmail: 'mierardi@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
+
 
 
