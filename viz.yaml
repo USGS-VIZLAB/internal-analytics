@@ -98,7 +98,7 @@ fetch:
     s3Path: 'internal-analytics/data/current.rds'
     bucket: 'vizlab-data'
     update: TRUE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: FALSE #Don't even download S3 file - overrides update
+    useLocal: TRUE #Don't even download S3 file - overrides update
     depends:
       project_table: project_table
   -
@@ -267,8 +267,19 @@ process:
       viz_data: week_filter
     mimetype: text/csv
     location: cache/publish/viz_time_week.csv
+
   -
-    id: regionality_metric
+    id: state_app_traffic_year
+    processor: state_app_traffic
+    scripts: scripts/process/regionality.R
+    depends:
+      viz_data: year_filter
+      project_table: project_table
+      sessions_all: trends_all
+    reader: rds
+    location: cache/process/state_app_traffic_year.rds
+  -
+    id: regionality_metric_year
     processor: regionality_metric
     scripts: scripts/process/regionality.R
     metric_type: 'gini'
@@ -276,8 +287,53 @@ process:
       viz_data: year_filter
       project_table: project_table
       sessions_all: trends_all
+      state_app_traffic: state_app_traffic_year
     reader: rds
-    location: cache/process/regionality_index.rds
+    location: cache/process/regionality_index_year.rds
+  -
+    id: state_app_traffic_month
+    processor: state_app_traffic
+    scripts: scripts/process/regionality.R
+    depends:
+      viz_data: month_filter
+      project_table: project_table
+      sessions_all: trends_all
+    reader: rds
+    location: cache/process/state_app_traffic_month.rds
+  -
+    id: regionality_metric_month
+    processor: regionality_metric
+    scripts: scripts/process/regionality.R
+    metric_type: 'gini'
+    depends:
+      viz_data: month_filter
+      project_table: project_table
+      sessions_all: trends_all
+      state_app_traffic: state_app_traffic_month
+    reader: rds
+    location: cache/process/regionality_index_month.rds
+  -
+    id: state_app_traffic_week
+    processor: state_app_traffic
+    scripts: scripts/process/regionality.R
+    depends:
+      viz_data: week_filter
+      project_table: project_table
+      sessions_all: trends_all
+    reader: rds
+    location: cache/process/state_app_traffic_week.rds
+  -
+    id: regionality_metric_week
+    processor: regionality_metric
+    scripts: scripts/process/regionality.R
+    metric_type: 'gini'
+    depends:
+      viz_data: week_filter
+      project_table: project_table
+      sessions_all: trends_all
+      state_app_traffic: state_app_traffic_week
+    reader: rds
+    location: cache/process/regionality_index_week.rds
 visualize:
   -
     id: new_vs_returning_year
@@ -628,6 +684,39 @@ visualize:
     mimetype: text/csv
     location: cache/visualize/viz_source_week.csv
   -
+    id: app_state_pop_vs_traffic_week
+    visualizer: app_state_pop_vs_traffic
+    scripts: scripts/visualize/state_traffic_population.R
+    height: 4
+    width: 7
+    plottype: state_app_traffic_week
+    depends:
+      state_app_traffic: state_app_traffic_week
+    mimetype: text/csv
+    location: cache/visualize/app_state_pop_vs_traffic_week.csv
+  -
+    id: app_state_pop_vs_traffic_month
+    visualizer: app_state_pop_vs_traffic
+    scripts: scripts/visualize/state_traffic_population.R
+    height: 4
+    width: 7
+    plottype: state_app_traffic_month
+    depends:
+      state_app_traffic: state_app_traffic_month
+    mimetype: text/csv
+    location: cache/visualize/app_state_pop_vs_traffic_month.csv
+  -
+    id: app_state_pop_vs_traffic_year
+    visualizer: app_state_pop_vs_traffic
+    scripts: scripts/visualize/state_traffic_population.R
+    height: 4
+    width: 7
+    plottype: state_app_traffic_year
+    depends:
+      state_app_traffic: state_app_traffic_year
+    mimetype: text/csv
+    location: cache/visualize/app_state_pop_vs_traffic_year.csv
+  -
     id: portfolio_sessions_all
     visualizer: portfolio_sessions_all
     height: 8
@@ -641,7 +730,7 @@ visualize:
     breaks: [10000, 100000, 1000000]
     scripts: scripts/visualize/portfolio_sessions_all.R
     depends:
-      sessions_all: regionality_metric
+      sessions_all: regionality_metric_year
     mimetype: image/png
     alttext: "Year, month, and week summary of sessions (new and returning users) for all applications"
     title: "Year, month, and week summary of sessions (new and returning users) for all applications"
@@ -882,6 +971,9 @@ publish:
       timeDayUse_app_year: timeDayUse_app_year
       timeDayUse_app_month: timeDayUse_app_month
       timeDayUse_app_week: timeDayUse_app_week
+      app_state_pop_vs_traffic_year: app_state_pop_vs_traffic_year
+      app_state_pop_vs_traffic_month: app_state_pop_vs_traffic_month
+      app_state_pop_vs_traffic_week: app_state_pop_vs_traffic_week
       sideBar: sideBar
       project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
