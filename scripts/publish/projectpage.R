@@ -28,7 +28,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     timeDayUse_app_week = deps[["timeDayUse_app_week"]],
     app_state_pop_vs_traffic_year = deps[['app_state_pop_vs_traffic_year']],
     app_state_pop_vs_traffic_month = deps[['app_state_pop_vs_traffic_month']],
-    app_state_pop_vs_traffic_week = deps[['timeDayUse_app_week']]
+    app_state_pop_vs_traffic_week = deps[['app_state_pop_vs_traffic_app_week']]
   )
 
   for (i in 1:nrow(projects)) {
