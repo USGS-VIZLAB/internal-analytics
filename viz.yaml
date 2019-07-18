@@ -687,9 +687,9 @@ visualize:
     id: app_state_pop_vs_traffic_week
     visualizer: app_state_pop_vs_traffic
     scripts: scripts/visualize/state_traffic_population.R
-    height: 4
+    height: 7
     width: 7
-    plottype: state_app_traffic_week
+    plottype: state_traffic_pop_bars
     depends:
       state_app_traffic: state_app_traffic_week
     mimetype: text/csv
@@ -698,9 +698,9 @@ visualize:
     id: app_state_pop_vs_traffic_month
     visualizer: app_state_pop_vs_traffic
     scripts: scripts/visualize/state_traffic_population.R
-    height: 4
+    height: 7
     width: 7
-    plottype: state_app_traffic_month
+    plottype: state_traffic_pop_bars
     depends:
       state_app_traffic: state_app_traffic_month
     mimetype: text/csv
@@ -709,13 +709,46 @@ visualize:
     id: app_state_pop_vs_traffic_year
     visualizer: app_state_pop_vs_traffic
     scripts: scripts/visualize/state_traffic_population.R
-    height: 4
+    height: 7
     width: 7
-    plottype: state_app_traffic_year
+    plottype: state_traffic_pop_bars
     depends:
       state_app_traffic: state_app_traffic_year
     mimetype: text/csv
     location: cache/visualize/app_state_pop_vs_traffic_year.csv
+  -
+    id: app_state_pop_vs_traffic_week_map
+    visualizer: app_state_pop_vs_traffic
+    scripts: scripts/visualize/state_traffic_population.R
+    height: 7
+    width: 7
+    plottype: state_traffic_pop_map
+    depends:
+      state_app_traffic: state_app_traffic_week
+    mimetype: text/csv
+    location: cache/visualize/app_state_pop_vs_traffic_week_map.csv
+  -
+    id: app_state_pop_vs_traffic_month_map
+    visualizer: app_state_pop_vs_traffic
+    scripts: scripts/visualize/state_traffic_population.R
+    height: 7
+    width: 7
+    plottype: state_traffic_pop_map
+    depends:
+      state_app_traffic: state_app_traffic_month
+    mimetype: text/csv
+    location: cache/visualize/app_state_pop_vs_traffic_month_map.csv
+  -
+    id: app_state_pop_vs_traffic_year_map
+    visualizer: app_state_pop_vs_traffic
+    scripts: scripts/visualize/state_traffic_population.R
+    height: 7
+    width: 7
+    plottype: state_traffic_pop_map
+    depends:
+      state_app_traffic: state_app_traffic_year
+    mimetype: text/csv
+    location: cache/visualize/app_state_pop_vs_traffic_year_map.csv
   -
     id: portfolio_sessions_all
     visualizer: portfolio_sessions_all
@@ -974,6 +1007,9 @@ publish:
       app_state_pop_vs_traffic_year: app_state_pop_vs_traffic_year
       app_state_pop_vs_traffic_month: app_state_pop_vs_traffic_month
       app_state_pop_vs_traffic_week: app_state_pop_vs_traffic_week
+      app_state_pop_vs_traffic_year_map: app_state_pop_vs_traffic_year_map
+      app_state_pop_vs_traffic_month_map: app_state_pop_vs_traffic_month_map
+      app_state_pop_vs_traffic_week_map: app_state_pop_vs_traffic_week_map
       sideBar: sideBar
       project_links: project_links
       disclaimerGlossaryText: disclaimerGlossaryText
