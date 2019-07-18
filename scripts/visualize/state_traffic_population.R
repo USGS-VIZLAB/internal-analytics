@@ -7,7 +7,7 @@ visualize.app_state_pop_vs_traffic <- function(viz){
   output_df <- tibble(id = character(),
                   loc = character(),
                   type = character())
-  plotting_function <- get(plot_type)
+  plotting_function <- get(sub(pattern = ".*?_", replacement = "", x = plot_type))
   for(app_id in na.omit(unique(state_app_traffic$viewID))){
     sub_data <- filter(state_app_traffic, viewID == app_id)
 
@@ -44,7 +44,7 @@ state_traffic_pop_map <- function(app_state_traffic) {
   map <- plot_usmap(regions = "states", data = app_state_traffic_pop_diff,
                     values = "pct_traffic_minus_pop") +
     scale_fill_gradient2(name = "% traffic —\n % population") +
-    theme(legend.position = c(0.25, 0.87), legend.direction = "horizontal",
+    theme(legend.position = c(0.35, 0.9), legend.direction = "horizontal",
           legend.background = element_blank())
   return(map)
 }

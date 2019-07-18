@@ -689,7 +689,7 @@ visualize:
     scripts: scripts/visualize/state_traffic_population.R
     height: 7
     width: 7
-    plottype: state_traffic_pop_bars
+    plottype: week_state_traffic_pop_bars
     depends:
       state_app_traffic: state_app_traffic_week
     mimetype: text/csv
@@ -700,7 +700,7 @@ visualize:
     scripts: scripts/visualize/state_traffic_population.R
     height: 7
     width: 7
-    plottype: state_traffic_pop_bars
+    plottype: month_state_traffic_pop_bars
     depends:
       state_app_traffic: state_app_traffic_month
     mimetype: text/csv
@@ -711,7 +711,7 @@ visualize:
     scripts: scripts/visualize/state_traffic_population.R
     height: 7
     width: 7
-    plottype: state_traffic_pop_bars
+    plottype: year_state_traffic_pop_bars
     depends:
       state_app_traffic: state_app_traffic_year
     mimetype: text/csv
@@ -722,7 +722,7 @@ visualize:
     scripts: scripts/visualize/state_traffic_population.R
     height: 7
     width: 7
-    plottype: state_traffic_pop_map
+    plottype: week_state_traffic_pop_map
     depends:
       state_app_traffic: state_app_traffic_week
     mimetype: text/csv
@@ -733,7 +733,7 @@ visualize:
     scripts: scripts/visualize/state_traffic_population.R
     height: 7
     width: 7
-    plottype: state_traffic_pop_map
+    plottype: month_state_traffic_pop_map
     depends:
       state_app_traffic: state_app_traffic_month
     mimetype: text/csv
@@ -744,7 +744,7 @@ visualize:
     scripts: scripts/visualize/state_traffic_population.R
     height: 7
     width: 7
-    plottype: state_traffic_pop_map
+    plottype: year_state_traffic_pop_map
     depends:
       state_app_traffic: state_app_traffic_year
     mimetype: text/csv
