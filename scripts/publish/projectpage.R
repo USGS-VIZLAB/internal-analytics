@@ -25,9 +25,14 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
     viz_geo_apps_week = deps[["viz_geo_apps_week"]],
     timeDayUse_app_year = deps[["timeDayUse_app_year"]],
     timeDayUse_app_month = deps[["timeDayUse_app_month"]],
-    timeDayUse_app_week = deps[["timeDayUse_app_week"]]
+    timeDayUse_app_week = deps[["timeDayUse_app_week"]],
+    app_state_pop_vs_traffic_year = deps[['app_state_pop_vs_traffic_year']],
+    app_state_pop_vs_traffic_month = deps[['app_state_pop_vs_traffic_month']],
+    app_state_pop_vs_traffic_week = deps[['app_state_pop_vs_traffic_week']],
+    app_state_pop_vs_traffic_year_map = deps[['app_state_pop_vs_traffic_year_map']],
+    app_state_pop_vs_traffic_month_map = deps[['app_state_pop_vs_traffic_month_map']],
+    app_state_pop_vs_traffic_week_map = deps[['app_state_pop_vs_traffic_week_map']]
   )
-
   for (i in 1:nrow(projects)) {
     proj <- projects[i,]
 
@@ -39,6 +44,7 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
       img <- "missingImg"
 
       row <- filter(x, id == viewID)
+
       if (nrow(row) > 0) {
         img <- list(
           location = row[['loc']],
@@ -135,6 +141,12 @@ publish.projectpage <- function(viz = as.viz("projectPages")) {
           yearFlipClock = flip.clocks[["yearFlipClock"]],
           monthFlipClock = flip.clocks[["monthFlipClock"]],
           weekFlipClock = flip.clocks[["weekFlipClock"]],
+          app_state_pop_vs_traffic_year = proj.imgs[['app_state_pop_vs_traffic_year']],
+          app_state_pop_vs_traffic_month = proj.imgs[['app_state_pop_vs_traffic_month']],
+          app_state_pop_vs_traffic_week = proj.imgs[["app_state_pop_vs_traffic_week"]],
+          app_state_pop_vs_traffic_year_map = proj.imgs[['app_state_pop_vs_traffic_year_map']],
+          app_state_pop_vs_traffic_month_map = proj.imgs[['app_state_pop_vs_traffic_month_map']],
+          app_state_pop_vs_traffic_week_map = proj.imgs[['app_state_pop_vs_traffic_week_map']],
           previous_link = prevLink,
           next_link = nextLink
       ))
