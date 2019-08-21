@@ -29,10 +29,6 @@ visualize.app_state_pop_vs_traffic <- function(viz){
 }
 
 state_traffic_pop_bars <- function(app_state_traffic) {
-  #make two-panel plot of map and bar plot
-  # bars <- ggplot(app_state_traffic, aes(x = abbr, y = pct_traffic_minus_pop)) +
-  #   geom_col() + coord_flip() +
-  #   labs(x = "State", y = "Percent of traffic - percent of population")
   bars <- ggplot(app_state_traffic, aes(x = reorder(abbr, pct_traffic_divby_pop), y= pct_traffic_divby_pop, fill = pop_pct)) +
     geom_col() + coord_flip() +
     labs(x = "State", y = "Percent of traffic divided by percent of population", fill = "Percent of U.S. population") +
