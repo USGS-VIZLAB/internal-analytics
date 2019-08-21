@@ -1046,7 +1046,7 @@ publish:
         In this plot, a time series of sessions (traffic) is shown for application(s) over the selected time period.
       info_state_traffic_pop_bars: >-
         This plot shows how the distribution of users between state differs from the distribution of
-        the U.S. population.  The farther a bar is from zero, the more that state is over- or under-represented
+        the U.S. population.  The farther a value is from one (the blue line), the more that state is over- or under-represented
         compared to it's population.
       info_state_traffic_pop_map: >-
         This map shows the same information as the bar chart to the left.
