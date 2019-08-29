@@ -98,7 +98,7 @@ fetch:
     s3Path: 'internal-analytics/data/current.rds'
     bucket: 'vizlab-data'
     update: TRUE #check for newer data from GA, and upload to sciencebase if there is
-    useLocal: TRUE #Don't even download S3 file - overrides update
+    useLocal: FALSE #Don't even download S3 file - overrides update
     depends:
       project_table: project_table
   -
