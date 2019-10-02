@@ -712,7 +712,7 @@
   analyticsContact: 'Howard Perlman'
   analyticsContactEmail: 'hperlman@usgs.gov'
 
-- longName: 'water.usgs.gov'
+- longName: 'water.usgs.gov (Natweb)'
   shortName: 'water.usgs.gov'
   accountName: ""
   viewID: '83660223'
@@ -728,6 +728,9 @@
     mission is to collect and disseminate
     reliable, impartial, and timely information that is needed to understand the Nation's
     water resources.
+
+    Since the launch of the new WMA Drupal pages in spring 2019, this site now only contains
+    content that was not migrated to Drupal.  Traffic has decreased substantially as a result.
   projectContact: 'Emily Read'
   projectContactEmail: 'eread@usgs.gov'
   analyticsContact: 'Howard Perlman'
@@ -1149,6 +1152,26 @@
     by the U.S. Geological Survey.
   projectContact: 'Mike Ierardi'
   projectContactEmail: 'mierardi@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
+
+- longName: "WMA Drupal pages"
+  shortName: "WMA Drupal"
+  accountName: "WMA Drupal"
+  viewID: '176409830'
+  accountId: '1084444827'
+  webPropertyId: UA-1084444827
+  internalWebPropertyId:
+  viewName: WMA Drupal Content
+  timezone: America/Chicago
+  websiteUrl: www.usgs.gov/mission-areas/water-resources
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    WMA's pages in the Drupal content management system.  WMA content is defined
+    by page paths starting with "water-resources/", "mission-areas/water-resources",
+    or "/products/data-and-tools/real-time-data/water".
+  projectContact: 'Jen Bruce'
+  projectContactEmail: 'jbruce@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
