@@ -374,25 +374,6 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: National Soil Moisture Network
-  shortName: NSMN
-  accountName: National Soil Moisture Network
-  viewID: '106021339'
-  accountId: '65742231'
-  webPropertyId: UA-65742231-1
-  internalWebPropertyId: '102024536'
-  viewName: All Web Site Data
-  timezone: America/Chicago
-  websiteUrl: http://cida.usgs.gov/nsmn_pilot/
-  botFilteringEnabled: ''
-  description: >-
-    The National Soil Moisture Network (NSMN) pilot provides web map based access near real
-    time soil moisture data from a collection of observing locations and networks.
-  projectContact: 'Jessica Lucido'
-  projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
 - longName: 'VizLab: Colorado River Drought'
   shortName: VizLabCRBDrought
   accountName: OWDI Drought Vizzy
@@ -477,26 +458,6 @@
     as well as by particle types including fibers/lines, pellets/beads, foams, films, and fragments.
   projectContact: 'Laura DeCicco'
   projectContactEmail: 'ldecicco@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
-- longName: "VizLab: Hurricane Matthew's Water Footprint"
-  shortName: VizLabMatthew
-  accountName: Vizlab
-  viewID: '131371952'
-  accountId: '78530187'
-  webPropertyId: UA-78530187-4
-  internalWebPropertyId: '127687029'
-  viewName: All Web Site Data
-  timezone: America/Chicago
-  websiteUrl: https://owi.usgs.gov/vizlab/hurricane-matthew
-  botFilteringEnabled: ''
-  description: >-
-    The VizLab Hurricane Matthew Water Footprint (VizLabMatthew) application demonstrates
-    Hurricane Matthew's approach to the southeastern U.S. coast on October 7, 2016. This
-    visualization shows the hurricane's impact on precipitation and streamflow.
-  projectContact: 'Alison Appling'
-  projectContactEmail: 'aappling@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
@@ -693,7 +654,7 @@
   analyticsContact: 'Steven Brady'
   analyticsContactEmail: 'sbrady@usgs.gov'
 
-- longName: 'Water Science School'
+- longName: 'Water Science School (Natweb)'
   shortName: 'WaterSciSchool'
   accountName: ""
   viewID: '83658557'
@@ -706,11 +667,12 @@
   botFilteringEnabled: ""
   description: >-
     The Water Science School (WaterSciSchool) website offers information on many aspects of water, along with pictures, data,
-    maps, and an interactive center where you can give opinions and test your water knowledge.
-  projectContact: 'Howard Perlman'
-  projectContactEmail: 'hperlman@usgs.gov'
-  analyticsContact: 'Howard Perlman'
-  analyticsContactEmail: 'hperlman@usgs.gov'
+    maps, and an interactive center where you can give opinions and test your water knowledge.  Large parts
+    of this content was migrated to Drupal in spring 2019.
+  projectContact: 'Emily Read'
+  projectContactEmail: 'eread@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
 
 - longName: 'water.usgs.gov (Natweb)'
   shortName: 'water.usgs.gov'
@@ -771,48 +733,6 @@
     StreamStats is a Web-based Geographic Information Systems (GIS) application that provides
     users with access to an assortment of analytical tools that are useful for a variety of
     water-resources planning and management purposes, and for engineering and design purposes.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
-
-- longName: "Sparrow Tennessee"
-  shortName: "SparrowTN"
-  accountName: WIM USGS
-  viewID: '141180663'
-  accountId: '61219868'
-  webPropertyId: UA-61219868-21
-  internalWebPropertyId: '136938859'
-  viewName: All Web Site Data
-  timezone: America/Los_Angeles
-  websiteUrl: http://wim.usgs.gov/sparrowtennessee/
-  botFilteringEnabled: .na.character
-  description: >-
-    Spatially-Referenced Regresson On Watershed Attributes (SPARROW) is designed for predicting
-    long-term average values of concentrations and amounts of selected constituents delivered to
-    downstream receiving waters. The SPARROW TN mapper (SparrowTN) displays U.S.
-    Geological Survey SPARROW data in Tennessee.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
-
-- longName: "Sparrow Great Lakes"
-  shortName: "SparrowGL"
-  accountName: WIM USGS
-  viewID: '166992080'
-  accountId: '61219868'
-  webPropertyId: UA-61219868-30
-  internalWebPropertyId: '166625472'
-  viewName: All Web Site Data
-  timezone: America/Los_Angeles
-  websiteUrl: https://sparrow.wim.usgs.gov/great-lakes/
-  botFilteringEnabled: .na.character
-  description: >-
-    Spatially-Referenced Regresson On Watershed Attributes (SPARROW) is designed for predicting
-    long-term average values of concentrations and amounts of selected constituents delivered to
-    downstream receiving waters. The SPARROW Great Lakes mapper (SparrowGL) displays U.S.
-    Geological Survey SPARROW data in the Great Lakes.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
   analyticsContact: 'Hans Vraga'
@@ -880,28 +800,6 @@
     in groundwater are changing during decadal periods across the Nation. Tracking changes in
     groundwater quality and investigating the reasons for these changes is crucial for informing
     management decisions to protect and sustain our valuable groundwater resources.
-  projectContact: 'Hans Vraga'
-  projectContactEmail: 'hvraga@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
-
-- longName: "Flood Inundation Mapper"
-  shortName: "FIM"
-  accountName: WIM USGS
-  viewID: '116842326'
-  accountId: '61219868'
-  webPropertyId: UA-61219868-7
-  internalWebPropertyId: '111935524'
-  viewName: All Web Site Data
-  timezone: America/Los_Angeles
-  websiteUrl: https://wimcloud.usgs.gov/apps/FIM/FloodInundationMapper.html
-  botFilteringEnabled: .na.character
-  description: >-
-     The Flood Inundation Mapper (FIM) allows users to explore the full set of inundation maps that shows where
-     flooding would occur given a selected stream condition. Users can also access historical
-     flood information and potential loss estimates based on the severity of the flood. The
-     FIM Mapper helps communities visualize potential flooding scenarios, identify areas and
-     resources that may be at risk, and enhance their local response effort during a flooding event.
   projectContact: 'Hans Vraga'
   projectContactEmail: 'hvraga@usgs.gov'
   analyticsContact: 'Hans Vraga'
@@ -1175,5 +1073,22 @@
   analyticsContact: 'Mario Martin-Alciati'
   analyticsContactEmail: 'mmartin-alciati@usgs.gov'
 
-
-
+- longName: "Water Science School (Drupal)"
+  shortName: "Water Science School (Drupal)"
+  accountName: "WMA Drupal"
+  viewID: '186591251'
+  accountId: '1084444827'
+  webPropertyId: UA-1084444827
+  internalWebPropertyId: ""
+  viewName: WMA Drupal Content
+  timezone: America/Chicago
+  websiteUrl: www.usgs.gov/special-topic/water-science-school
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    The Water Science School (WaterSciSchool) website offers information on many aspects of water, along with pictures, data,
+    maps, and an interactive center where you can give opinions and test your water knowledge.  This content was
+    migrated from Natweb in spring of 2019.
+  projectContact: 'Jen Bruce'
+  projectContactEmail: 'jbruce@usgs.gov'
+  analyticsContact: 'Mario Martin-Alciati'
+  analyticsContactEmail: 'mmartin-alciati@usgs.gov'
