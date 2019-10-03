@@ -1161,7 +1161,7 @@
   viewID: '176409830'
   accountId: '1084444827'
   webPropertyId: UA-1084444827
-  internalWebPropertyId:
+  internalWebPropertyId: ""
   viewName: WMA Drupal Content
   timezone: America/Chicago
   websiteUrl: www.usgs.gov/mission-areas/water-resources

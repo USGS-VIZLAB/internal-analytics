@@ -87,6 +87,9 @@ info:
     aws.signature:
       repo: CRAN
       version: 0.2.9
+    ineq:
+      repo: CRAN
+      version: 0.2-13
 fetch:
   -
     id: fetchGA
