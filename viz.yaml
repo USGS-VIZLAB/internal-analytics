@@ -190,6 +190,7 @@ process:
     scripts: ["scripts/process/projectlinks.R", "scripts/publish/utils.R"]
     depends:
       project_table: filter_projects
+      order_projects: sessions_all
     reader: rds
     publisher: none
     location: cache/process/project_links.rds
