@@ -1,17 +1,12 @@
 
-process.regionality_metric <- function(viz=as.viz("regionality_metric")){
-
-  library(dplyr)
-  library(yaml)
+process.state_app_traffic <- function(viz=as.viz("state_app_traffic")){
   deps <- readDepends(viz)
   traffic_all <- deps[["viz_data"]]
   ga_table <- deps[["project_table"]]
   sessions_all <- deps[['sessions_all']]
-  metric_type <- viz[['metric_type']]
+
   # get population and percentage of total US population per state
-  # 2012 population data
-
-
+  # 2015 population data
   us_pop <- rename(usmap::statepop, pop = pop_2015, region = full) %>%
     mutate(region = tolower(region))
   us_total <- sum(us_pop$pop)
@@ -26,7 +21,7 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric")){
     mutate(region = tolower(region))
 
   # traffic summarized by region and app
-  traffic_by_region_and_app <- group_by(traffic_all, app_name, region) %>%
+  traffic_by_region_and_app <- group_by(traffic_all, app_name, viewID, region) %>%
     summarize(traffic = sum(users)) %>%
     ungroup()
 
@@ -39,12 +34,24 @@ process.regionality_metric <- function(viz=as.viz("regionality_metric")){
     mutate(traffic = ifelse(is.na(traffic), 0, traffic)) # NAs --> 0
 
   # add total app traffic to traffic by state
-  traffic_app_totals <- group_by(traffic_us, app_name) %>%
+  traffic_app_totals <- group_by(traffic_us, app_name, viewID) %>%
     summarize(traffic_total = sum(traffic))
   traffic <- left_join(traffic_us, traffic_app_totals)
 
   # calculate percentage of traffic for each state
   traffic <- mutate(traffic, traffic_pct = traffic/traffic_total*100)
+  saveRDS(traffic, file = viz[["location"]])
+}
+
+process.regionality_metric <- function(viz=as.viz("regionality_metric")){
+  deps <- readDepends(viz)
+  sessions_all <- deps[['sessions_all']]
+  ga_table <- deps[["project_table"]]
+  traffic <- deps[['state_app_traffic']]
+
+  metric_type <- viz[['metric_type']]
+
+  ga_table <- select(ga_table, viewID, app_name = shortName)
 
   # determine which state deviates the most from what is expected for each app
   most_deviated_states <- mutate(traffic, deviation = traffic_pct - pop_pct) %>%
