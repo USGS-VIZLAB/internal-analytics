@@ -738,27 +738,6 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
-- longName: 'National Water Information System Mapper - Water Alert'
-  shortName: 'NWISMapper-WaterAlert'
-  accountName: WIM USGS
-  viewID: '120793561'
-  accountId: '61219868'
-  webPropertyId: UA-61219868-9
-  internalWebPropertyId: '115535057'
-  viewName: All Web Site Data
-  timezone: America/New_York
-  websiteUrl: http://water.usgs.gov/wateralert/
-  botFilteringEnabled: .na.character
-  description: >-
-    The National Water Information System Mapper - Water Alert (NWISMapper-WaterAlert) is a web-based map that links to
-    USGS gage data and allows users to subscribe to site notifications
-    through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
-    parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
-  projectContact: 'Joseph Kalfsbeek'
-  projectContactEmail: 'kalfsbek@usgs.gov'
-  analyticsContact: 'Hans Vraga'
-  analyticsContactEmail: 'hvraga@usgs.gov'
-
 - longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
   shortName: "NaWQASWTrends"
   accountName: WIM USGS
@@ -846,7 +825,7 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
-- longName: "National Water Information System Mapper"
+- longName: "National Water Information System Mapper & National Water Information System Mapper - WaterAlert"
   shortName: "NWISMapper"
   accountName: WIM USGS
   viewID: "120202187"
@@ -858,6 +837,10 @@
   botFilteringEnabled: 'NA'
   description: >-
     The National Water Information System Mapper (NWISMapper) is a web mapping application for interfacing with NWIS data.
+    The National Water Information System Mapper - Water Alert (NWISMapper-WaterAlert) is a web-based map that links to
+    USGS gage data and allows users to subscribe to site notifications
+    through WaterAlert. WaterAlert service sends e-mail or text (SMS) messages when certain
+    parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds.
   projectContact: 'Joseph Kalfsbeek'
   projectContactEmail: 'kalfsbek@usgs.gov'
   analyticsContact: 'Hans Vraga'
