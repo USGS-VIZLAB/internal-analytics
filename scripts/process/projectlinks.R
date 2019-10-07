@@ -5,7 +5,6 @@ process.projectlinks <- function(viz = as.viz("project_links")) {
   masterTable <- deps[['project_table']]
   sessions_all <- deps[['order_projects']] %>%
     filter(grepl(pattern = "Year", x = type))
-  browser()
   table <- masterTable %>%
      left_join(sessions_all) %>%
     mutate(url = paste0(shortName, ".html")) %>%
