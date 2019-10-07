@@ -228,26 +228,6 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: CIDA Website
-  shortName: CIDA
-  accountName: CIDA_Website
-  viewID: '85293745'
-  accountId: '50382493'
-  webPropertyId: UA-50382493-1
-  internalWebPropertyId: '82375136'
-  viewName: All Web Site Data
-  timezone: America/Chicago
-  websiteUrl: http://cida.usgs.gov/
-  botFilteringEnabled: ''
-  description: >-
-    The Center for Integrated Data Analytics (CIDA) employs Agile software development to create useful web applications and
-    transactional information systems in support of the earth sciences. CIDA is now
-    known as OWI (Office of Water Information).
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
 - longName: Great Lakes Restoration Initiative
   shortName: GLRI
   accountName: USGS GLRI
@@ -397,7 +377,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: OWI Website
+- longName: OWI blog and personnel pages
   shortName: OWI
   accountName: OWI Website
   viewID: '119859676'
