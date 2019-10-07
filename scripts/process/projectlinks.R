@@ -9,7 +9,7 @@ process.projectlinks <- function(viz = as.viz("project_links")) {
      left_join(sessions_all) %>%
     mutate(url = paste0(shortName, ".html")) %>%
     arrange(desc(sessions)) %>%
-    select(shortName, longName, url)
-  links <- apply(table, 1, function(x){list(longName=x[[2]], url=x[[3]])})
+    select(shortName, longName, url, bin)
+  links <- apply(table, 1, function(x){list(longName=x[[2]], url=x[[3]], bin=x[[4]])})
   saveRDS(links, file = viz[['location']])
 }
