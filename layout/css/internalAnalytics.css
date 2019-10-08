@@ -16,6 +16,35 @@ h6{
   font-weight:400;
 }
 
+.Very,
+.High,
+.Moderate,
+.Low{
+  color:#fff;
+  text-shadow: 0 0 2px rgba(0,0,0,.3);
+}
+
+.Very.High{
+  background: #002f6f;
+  font-weight: bold;
+}
+
+.High{
+  background: #004c9b;
+}
+
+.Moderate{
+  background: #007dbe;
+}
+
+.Low{
+  background: #5ab0d9;
+}
+
+.NA{
+  color:#003366;
+}
+
 .flexContainer{
   display:flex;
   flex-direction:row;
@@ -140,7 +169,6 @@ h6{
 }
 
 #projects a{
-  color:rgb(0,51,102);
   text-decoration:none;
   display:inline-block;
   padding:10px 2%;
@@ -149,7 +177,7 @@ h6{
 }
 
 #projects a:hover{
-  background:rgb(0,51,102);
+  background:#00bf26;
   color:#fff;
 }
 
