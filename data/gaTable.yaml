@@ -161,7 +161,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: Biodata
+- longName: Biodata (Internal)
   shortName: BiodataIn
   accountName: BioData
   viewID: '91413881'
@@ -185,7 +185,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: Biodata Retrieval
+- longName: Biodata Retrieval (External)
   shortName: BiodataRet
   accountName: BioData
   viewID: '84991236'
@@ -206,7 +206,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: NWIS Reporting Application
+- longName: NWIS Reporting Application (Internal)
   shortName: NWIS-RA
   accountName: NWIS-RA
   viewID: '150563516'
@@ -252,7 +252,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: WAUSP National Water Census
+- longName: National Water Census
   shortName: NWC
   accountName: National Water Census
   viewID: '86002663'
@@ -377,7 +377,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: OWI blog and personnel pages
+- longName: OWI blog (Legacy)
   shortName: OWI
   accountName: OWI Website
   viewID: '119859676'
@@ -486,7 +486,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: Grand Canyon Monitoring and Research Center's Discharge, Sediment, and Water Quality Monitoring App
+- longName: GCMRC Discharge, Sediment, and Water Quality Monitoring App
   shortName: GCMRC
   accountName: CIDA GCMRC Analytics
   viewID: '80089136'
@@ -529,7 +529,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: NWISWeb Mobile
+- longName: NWISWeb (Mobile)
   shortName: NWISWebMobile
   accountName: USGS Mobile Water Data & Water Services
   viewID: '73906131'
@@ -550,7 +550,7 @@
   analyticsContact: 'Brad Garner'
   analyticsContactEmail: 'bdgarner@usgs.gov'
 
-- longName: NWISWeb Desktop
+- longName: NWISWeb (Legacy)
   shortName: NWISWebDesktop
   accountName: USGS Water Data for the Nation
   viewID: '49785472'
@@ -678,7 +678,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: "Streamer - TX WSC"
+- longName: "Streamer (TX WSC)"
   shortName: 'Streamer'
   accountName: txwscwebgroup
   viewID: '183233225'
@@ -718,7 +718,7 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
-- longName: "National Water-Quality Assessment - Water Quality Changes in the Nations Streams and Rivers"
+- longName: "NAWQA SW Water Quality Trends"
   shortName: "NaWQASWTrends"
   accountName: WIM USGS
   viewID: '139280803'
@@ -742,7 +742,7 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
-- longName: 'National Water-Quality Assessment - Decadal Trends Mapper'
+- longName: 'NAWQA GW Water Quality Trends'
   shortName: 'NaWQADecadalTrendsMapper'
   accountName: WIM USGS
   viewID: '116129201'
@@ -764,7 +764,7 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
-- longName: "Flood Inundation Mapper - JS"
+- longName: "Flood Inundation Mapper"
   shortName: "FIM-JS"
   accountName: WIM USGS
   viewID: '147316934'
@@ -786,7 +786,7 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
-- longName: "USGS Flood Event Viewer"
+- longName: "Flood Event Viewer"
   shortName: "FEV"
   viewID: '131080146'
   accountId: '61219868'
@@ -805,7 +805,7 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
-- longName: "National Water Information System Mapper & National Water Information System Mapper - WaterAlert"
+- longName: "NWISWeb (Mapper)"
   shortName: "NWISMapper"
   accountName: WIM USGS
   viewID: "120202187"
@@ -952,7 +952,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: "WDFN-TNG Site Pages"
+- longName: "NWISWeb (NG BETA)"
   shortName: "New Site Pages"
   accountName: "USGS Water Data for the Nation"
   viewID: '190316048'
@@ -997,7 +997,7 @@
   analyticsContact: 'Don Brown'
   analyticsContactEmail: 'brownd@usgs.gov'
 
-- longName: "USGS Water Resources NSDI Node"
+- longName: "WMA NSDI Node"
   shortName: "Water NSDI node"
   accountName: "Water NSDI node"
   viewID: '196097632'
@@ -1016,7 +1016,7 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: "WMA Drupal pages"
+- longName: "water.usgs.gov (Drupal)"
   shortName: "WMA Drupal"
   accountName: "WMA Drupal"
   viewID: '176409830'
