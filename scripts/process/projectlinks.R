@@ -4,7 +4,9 @@ process.projectlinks <- function(viz = as.viz("project_links")) {
   deps <- readDepends(viz)
   masterTable <- deps[['project_table']]
   sessions_all <- deps[['order_projects']] %>%
-    filter(grepl(pattern = "Year", x = type))
+    filter(grepl(pattern = "Year", x = type)) %>%
+    select(-longName) #GCMRC and NGWMN had longName changed to shortName so they fit
+                      #on the main plot.  It messes up the join here
   table <- masterTable %>%
      left_join(sessions_all) %>%
     mutate(url = paste0(shortName, ".html")) %>%
