@@ -545,10 +545,10 @@
     It highlights USGS current conditions water data.
     For example, you can use it to monitor conditions at a favorite river or stream. All USGS
     current conditions water data are available.
-  projectContact: 'Brad Garner'
-  projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'Brad Garner'
-  analyticsContactEmail: 'bdgarner@usgs.gov'
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'jkreft@usgs.gov'
+  analyticsContact: 'Jim Kreft'
+  analyticsContactEmail: 'jkreft@usgs.gov'
 
 - longName: NWISWeb (Legacy)
   shortName: NWISWebDesktop
@@ -567,10 +567,10 @@
     pages provide access to water-resources data collected at approximately 1.5 million sites
     in all 50 States, the District of Columbia, Puerto Rico, the Virgin Islands, Guam, American
     Samoa and the Commonwealth of the Northern Mariana Islands.
-  projectContact: 'Brad Garner'
-  projectContactEmail: 'bdgarner@usgs.gov'
-  analyticsContact: 'Brad Garner'
-  analyticsContactEmail: 'bdgarner@usgs.gov'
+  projectContact: 'Jim Kreft'
+  projectContactEmail: 'jkreft@usgs.gov'
+  analyticsContact: 'Jim Kreft'
+  analyticsContactEmail: 'jkreft@usgs.gov'
 
 - longName: Health Based Screening Levels
   shortName: HBSL
