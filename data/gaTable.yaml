@@ -1055,3 +1055,23 @@
   projectContactEmail: 'jbruce@usgs.gov'
   analyticsContact: 'Mario Martin-Alciati'
   analyticsContactEmail: 'mmartin-alciati@usgs.gov'
+
+- longName: "National Integrated Water Availability Assessments-Concept Map"
+  shortName: "IWAAs Water Availability Map"
+  accountName: "WBEEP"
+  viewID: '209651718'
+  accountId: '149352326'
+  webPropertyId: 'UA-149352326-1'
+  internalWebPropertyId: ""
+  viewName: Prod Only
+  timezone: America/Chicago
+  websiteUrl: https://labs.waterdata.usgs.gov/estimated-availability/#/
+  botFilteringEnabled: 'TRUE'
+  description: >-
+    This map shows the latest available daily estimates of natural water storage for approximately 110,000 regions
+    across the lower forty-eight states. Map shading indicates the current natural water storage relative to historical
+    conditions for this time of year.
+  projectContact: 'Lindsay Platt'
+  projectContactEmail: 'lplatt@usgs.gov'
+  analyticsContact: 'David Watkins'
+  analyticsContactEmail: 'wwatkins@usgs.gov'
