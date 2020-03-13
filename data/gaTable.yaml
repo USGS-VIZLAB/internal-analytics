@@ -93,51 +93,6 @@
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
-- longName: NAWQA SPARROW Decision Support System
-  shortName: SPARROWDSS
-  accountName: Sparrow DSS
-  viewID: '64208920'
-  accountId: '34936068'
-  webPropertyId: UA-34936068-1
-  internalWebPropertyId: '62621963'
-  viewName: Sparrow DSS
-  timezone: America/Chicago
-  websiteUrl: http://cida.usgs.gov/sparrow
-  botFilteringEnabled: ''
-  description: >-
-    The SPARROW Decision Support System (SPARROW DSS) provides access to
-    national, regional, and basin-wide SPARROW models (Spatially Referenced Regressions
-    On Watershed attributes) for water managers, researchers, and the general public. Models
-    are available for a variety of water-quality constituents and time periods. For each
-    model, users can map predictions of long-term average water-quality conditions (loads,
-    yields, concentrations) and source contributions by stream reach and catchment and track
-    transport to downstream receiving waters, such as reservoirs and estuaries. This project
-    is being transitioned to the Web Informatics Mapping group in 2017.
-  projectContact: 'Emily Read'
-  projectContactEmail: 'eread@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
-- longName: Great Lakes Restoration Initiative Phragmites
-  shortName: GLRIPhragmites
-  accountName: USGS GLRI Phragmites
-  viewID: '98561198'
-  accountId: '42203160'
-  webPropertyId: UA-42203160-1
-  internalWebPropertyId: '71881585'
-  viewName: GLRI Phragmites - No Internal Traffic
-  timezone: America/Chicago
-  websiteUrl: http://cida.usgs.gov/glri/phragmites/
-  botFilteringEnabled: ''
-  description: >-
-    The GLRI Phragmites Decision Support Tool is intended to provide resource
-    managers with information to strategically develop effective Phragmites control and
-    invasion prevention programs in the Great Lakes coastal zone (10 km inland from the shoreline).
-  projectContact: 'Jessica Lucido'
-  projectContactEmail: 'jlucido@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
 - longName: Coastal Change Hazards Portal
   shortName: CCH
   accountName: CIDA CCH
@@ -225,30 +180,6 @@
     available from active and inactive sites.
   projectContact: 'Meredith Pavlick'
   projectContactEmail: 'mpavlick@usgs.gov'
-  analyticsContact: 'David Watkins'
-  analyticsContactEmail: 'wwatkins@usgs.gov'
-
-- longName: Great Lakes Restoration Initiative
-  shortName: GLRI
-  accountName: USGS GLRI
-  viewID: '98563485'
-  accountId: '50454186'
-  webPropertyId: UA-50454186-1
-  internalWebPropertyId: '82455211'
-  viewName: GLRI w/ Internal Traffic
-  timezone: America/Chicago
-  websiteUrl: http://cida.usgs.gov/glri/
-  botFilteringEnabled: 'FALSE'
-  description: >-
-    The Great Lakes Restoration Initiative (GLRI) is a program that was launched in 2010
-    to accelerate efforts to protect and restore the largest system of fresh surface water
-    in the world. The program targets the most significant problems in the region, including
-    invasive aquatic species, non-point source pollution, and contaminated sediment. This
-    initiative uses outcome-oriented performance goals and measures to target the most
-    significant problems and track progress toward protecting, maintaining, and restoring
-    the chemical, biological, and physical integrity of the Great Lakes.
-  projectContact: 'GLRI Help Team'
-  projectContactEmail: 'glri-database@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
 
