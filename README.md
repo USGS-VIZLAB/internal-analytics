@@ -1,6 +1,8 @@
 # Internal Analytics application
 This application is built on the [VIZLAB framework](https://github.com/USGS-VIZALB/vizlab), which uses `make` and `R`.  It follows a general fetch-process-visualize-publish workflow.  
 
+**NOTE**: Currently the vizlab framework is stuck on version 0.3-2 of the `whisker` package.  You can install this from the MRAN archive with `install.packages('whisker', repos = "https://mran.microsoft.com/snapshot/2019-04-26")`.  After you have installed `whisker` and other non-CRAN `vizlab` dependencies, install `vizlab` with `devtools::install_github('usgs-vizlab/vizlab', ref='v0.3.11', upgrade = "never")` to make sure the install process does not try to update `whisker`. 
+
 This app aggregates data from a number of different Google Analytics accounts via a Google service account.  Data downloaded from GA is then stored on Amazon S3.  Data from the previous day is downloaded from GA nightly.  
 
 ### How to add an app
