@@ -638,7 +638,7 @@
   internalWebPropertyId: '111309349'
   viewName: All Web Site Data
   timezone: America/New_York
-  websiteUrl: http://streamstatsags.cr.usgs.gov/streamstats/
+  websiteUrl: https://streamstats.usgs.gov/ss/
   botFilteringEnabled: 'FALSE'
   description: >-
     StreamStats is a Web-based Geographic Information Systems (GIS) application that provides
@@ -1006,3 +1006,24 @@
   projectContactEmail: 'lplatt@usgs.gov'
   analyticsContact: 'David Watkins'
   analyticsContactEmail: 'wwatkins@usgs.gov'
+
+- longName: "National Streamflow Statistics"
+  shortName: "NSS"
+  accountName: "WIM USGS"
+  viewID: '244586757'
+  accountId: '61219868'
+  webPropertyId: 'UA-61219868-49'
+  internalWebPropertyId: ""
+  viewName: All Web Site Data
+  timezone: America/New_York
+  websiteUrl: https://streamstats.usgs.gov/nss/
+  botFilteringEnabled: 'NA'
+  description: >-
+    The National Streamflow Statistics (NSS) program provides the U.S. Geological Survey developed and published regression 
+    equations, such as mean annual and monthly mean flows, flow-duration percentiles, and peak and low flows for or every State, 
+    the Commonwealth of Puerto Rico, and several metropolitan areas in the United States. The program is used for a variety of 
+    water-resource purposes, such as bridge and culvert design, and emergency planning and management such as drought and flood 
+    zone identification and total maximum daily load estimates in ungaged locations.
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
