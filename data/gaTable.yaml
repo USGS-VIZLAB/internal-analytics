@@ -649,6 +649,29 @@
   analyticsContact: 'Hans Vraga'
   analyticsContactEmail: 'hvraga@usgs.gov'
 
+- longName: "IWAAs Surface Water Flow Trends"
+  shortName: "IWAAsSWFlowTrends"
+  accountName: WIM USGS
+  viewID: '233875529'
+  accountId: '61219868'
+  webPropertyId: UA-61219868-45
+  internalWebPropertyId: '135107854'
+  viewName: All Web Site Data
+  timezone: America/New_York
+  websiteUrl: https://iwaas.wim.usgs.gov/sw-flow-trends/
+  botFilteringEnabled: .na.character
+  description: >-
+    The U.S. Geological Survey (USGS) Water Resources Mission Area (WMA) has established the Integrated 
+    Water Availability Assessments (IWAAs) to capitalize on the operational and scientific strengths of 
+    the USGS to support understanding and management of the nation’s complex water resource issues. In 
+    this effort, IWAAs provides nationally and regionally consistent assessments of water for human and 
+    ecological needs at a range of spatial and temporal scales. Determining trends in water availability is
+    necessary to better understand the factors limiting water supply and use and inform forecasts of hydrologic extremes.
+  projectContact: 'Hans Vraga'
+  projectContactEmail: 'hvraga@usgs.gov'
+  analyticsContact: 'Hans Vraga'
+  analyticsContactEmail: 'hvraga@usgs.gov'
+
 - longName: "NAWQA SW Water Quality Trends"
   shortName: "NaWQASWTrends"
   accountName: WIM USGS
